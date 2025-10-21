@@ -25,6 +25,99 @@ export const person = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: (doc) => `${doc.firstName} ${doc.lastName}`,
+        maxLength: 96,
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'role',
+      title: 'Role',
+      type: 'string',
+      description: 'e.g., Casino Expert, Senior Reviewer, Live Casino Specialist',
+      placeholder: 'Casino Expert',
+    }),
+    defineField({
+      name: 'bio',
+      title: 'Bio',
+      type: 'text',
+      rows: 4,
+      description: 'Short biography about the author',
+    }),
+    defineField({
+      name: 'expertise',
+      title: 'Areas of Expertise',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'List of expertise areas (e.g., Slots, Live Casino, Crypto Payments)',
+      options: {
+        layout: 'tags',
+      },
+    }),
+    defineField({
+      name: 'yearsOfExperience',
+      title: 'Years of Experience',
+      type: 'number',
+      description: 'Total years of experience in the casino/gaming industry',
+      validation: (Rule) => Rule.min(0).max(50),
+    }),
+    defineField({
+      name: 'credentials',
+      title: 'Credentials & Certifications',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Professional credentials, certifications, or qualifications',
+      options: {
+        layout: 'tags',
+      },
+    }),
+    defineField({
+      name: 'socialMedia',
+      title: 'Social Media Links',
+      type: 'object',
+      description: 'Links to author\'s professional social media profiles',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+      fields: [
+        defineField({
+          name: 'linkedin',
+          title: 'LinkedIn',
+          type: 'url',
+          description: 'LinkedIn profile URL',
+        }),
+        defineField({
+          name: 'twitter',
+          title: 'Twitter/X',
+          type: 'url',
+          description: 'Twitter/X profile URL',
+        }),
+        defineField({
+          name: 'facebook',
+          title: 'Facebook',
+          type: 'url',
+          description: 'Facebook profile URL',
+        }),
+        defineField({
+          name: 'instagram',
+          title: 'Instagram',
+          type: 'url',
+          description: 'Instagram profile URL',
+        }),
+        defineField({
+          name: 'website',
+          title: 'Personal Website',
+          type: 'url',
+          description: 'Personal website or blog URL',
+        }),
+      ],
+    }),
+    defineField({
       name: 'picture',
       title: 'Picture',
       type: 'image',
@@ -51,7 +144,6 @@ export const person = defineType({
           imageDescriptionField: 'alt',
         },
       },
-      validation: (rule) => rule.required(),
     }),
   ],
   // List preview configuration. https://www.sanity.io/docs/previews-list-views
@@ -59,12 +151,13 @@ export const person = defineType({
     select: {
       firstName: 'firstName',
       lastName: 'lastName',
+      role: 'role',
       picture: 'picture',
     },
     prepare(selection) {
       return {
         title: `${selection.firstName} ${selection.lastName}`,
-        subtitle: 'Person',
+        subtitle: selection.role || 'Person',
         media: selection.picture,
       }
     },

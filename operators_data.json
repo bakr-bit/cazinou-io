@@ -1,0 +1,850 @@
+{
+  "casinos": [
+    {
+      "name": "CasinoJoy",
+      "slug": "casinojoy",
+      "logoUrl": "/images/operators/casinojoy.png",
+      "affiliateLink": "https://track.trafficflowpartners.com/visit/?bta=37171&nci=5850",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "details": "Curaçao OGL/2024/112/0974",
+            "license": "Curacao"
+          }
+        ],
+        "websiteUrl": "https://casinojoy.com",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Bonus 450% Până la 30000 RON + 425 Rotiri\n\nRatingul nostru\n\nCitește recenzia CasinoJoy și descoperă jocurile și serviciile oferite de această platformă crypto. Descoperă super-bonusul de bun venit cu până la 6000 EUR (30,000 RON) + 425 rotiri!"
+    },
+    {
+      "name": "iWild Casino",
+      "slug": "iwild-casino",
+      "logoUrl": "/images/operators/iwild-casino.webp",
+      "affiliateLink": "https://iwildmedia.com/d95d1a626",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao",
+            "issuedBy": "Curacao Gaming Control Board",
+            "issueDate": "2024-07-01",
+            "licenseNumber": "OGL/2023/109/0075"
+          }
+        ],
+        "websiteUrl": "https://iwildcasino.com",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Joacă la iWild Casino cu unul dintre cele mai mari bonusuri la înregistrare de pe piață: 550% până la 20,000 RON + 550 rotiri gratuite. Vezi recenzia completă cu analiza serviciilor și pașii pentru a juca!"
+    },
+    {
+      "name": "OneDun Casino",
+      "slug": "onedun-casino",
+      "logoUrl": "/images/operators/onedun-casino.png",
+      "affiliateLink": "https://onedunplay.com/ddebac2ac",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "licenseName": "Curaçao",
+            "licenseNumber": "OLG/2024/1673/0915"
+          }
+        ],
+        "websiteUrl": "https://onedunplay.com/ddebac2ac",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "OneDun Casino oferă un bonus exclusiv de 111% până la 2500 RON + 222 rotiri gratuite. Cu peste 7000 de jocuri, metode de plată variate și un program VIP, este o alegere excelentă pentru jucători. Licențiat în Curaçao, OneDun Casino asigură o experiență de joc de calitate."
+    },
+    {
+      "name": "Snatch Casino",
+      "slug": "snatch-casino",
+      "logoUrl": "/images/operators/snatch-casino.webp",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "issuedBy": "Curacao Gaming Authority",
+            "issueDate": "2024-07-01",
+            "licenseNumber": "151002"
+          }
+        ],
+        "websiteUrl": "https://snatchcasino.com",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Snatch Casino te împină cu un bonus de bun venit de 450% până la 15000 RON + 325 rotiri la primele 4 depuneri, promoții zilnice, turnee, plăți crypto, secțiuni de pariuri și multe alte avantaje."
+    },
+    {
+      "name": "Fairspin Casino",
+      "slug": "fairspin-casino",
+      "logoUrl": "/images/operators/fairspin-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "issuedBy": "Curacao eGaming",
+            "licenseNumber": "B2C-XKZDE8FR-1668JAZ"
+          },
+          {
+            "issuedBy": "Curacao eGaming",
+            "licenseNumber": "8048/JAZ"
+          }
+        ],
+        "websiteUrl": "https://fairspin-h.click/69633/6380?l=2&utm_content=seo",
+        "establishedYear": 2018
+      },
+      "descriptionMarkdown": "Fairspin Casino este un cazino online care oferă o gamă variată de jocuri, inclusiv sloturi, jocuri de masă și opțiuni de cazino live. Cu un bonus de bun venit generos de 550% până la 45000 RON + 200 rotiri + free bet de 65 RON, Fairspin Casino se dovedește a fi o alegere excelentă pentru jucătorii care preferă plățile în criptomonede. Înființat în 2018, cazinoul este operat de Techcore Holding B.V. și are licență de la autoritățile din Curaçao. Fairspin Casino oferă o experiență de joc sigură și diversificată, cu peste 1500 de jocuri disponibile pe platforma sa."
+    },
+    {
+      "name": "Wazbee Casino",
+      "slug": "wazbee-casino",
+      "logoUrl": "/images/operators/wazbee-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curacao",
+            "licenseNumber": "8048/JAZ2022-062"
+          }
+        ],
+        "websiteUrl": "https://wazbeecasino.com/?faff=562",
+        "establishedYear": 2023
+      },
+      "descriptionMarkdown": "Bonus 100% Până la 1000 RON\n\nRating 9/10\n\nWazbee Casino este un crypto-casino cu VPN, oferind o gamă variată de jocuri de noroc, inclusiv sloturi, jocuri de masă și live casino. Bonusurile includ un bonus de bun venit de 100% până la 1000 RON și un bonus în criptomonede de 150% până la 500 RON. Casino-ul acceptă 43 de metode de plată, inclusiv criptomonede și are un program VIP cu beneficii exclusive."
+    },
+    {
+      "name": "HitnSpin Casino",
+      "slug": "hitnspin-casino",
+      "logoUrl": "/images/operators/hitnspin-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "licenseName": "Curaçao",
+            "licenseNumber": "nr. 8048/JAZ"
+          }
+        ],
+        "websiteUrl": "https://hitnspinpromo.com/l/67f91babed6451c9810e46c5",
+        "establishedYear": 2023
+      },
+      "descriptionMarkdown": "HitnSpin Casino oferă un bonus de cazinou de 300% până la 3200 RON + 200 rotiri gratuite. Acest crypto casino are interfața în română și oferă peste 5000 de jocuri, precum și o secțiune de pariuri!"
+    },
+    {
+      "name": "Playbet",
+      "slug": "playbet-casino",
+      "logoUrl": "/images/operators/playbet-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "company": "Bitx Operations N.V",
+            "license": "Curaçao",
+            "licenseNumber": "8048/JAZ",
+            "registrationNumber": "161842"
+          }
+        ],
+        "websiteUrl": "https://playbetplay.io/jf77ffdc8",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Playbet este un crypto-casino lansat în 2024, la care poți juca și la pariuri și la care ai parte de oferte uriașe. Oferă peste 6000 de jocuri de casino, o secțiune de pariuri, aplicație dedicată și bonusuri în USDT."
+    },
+    {
+      "name": "Alibabet Casino",
+      "slug": "alibabet-casino",
+      "logoUrl": "/images/operators/alibabet-casino.webp",
+      "affiliateLink": "https://alibaplay.com/t5395f332",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Anjouan"
+          }
+        ],
+        "websiteUrl": "https://alibaplay.com/t5395f332",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Alibabet Casino este un cazinou lansat în 2024, operat de G.D. PromisedLand Cyprus Ltd și licențiat de Anjouan Gaming Board. Cu un catalog de peste 7000 de jocuri, Alibabet Casino acoperă toate gusturile, de la sloturi clasice și moderne, până la jocuri de masă, cazinou live, jocuri virtuale și pariuri sportive. Bonusul de bun-venit este de 350% până la 22,000 RON, iar platforma oferă promoții regulate și un program de loialitate."
+    },
+    {
+      "name": "20Bet Casino",
+      "slug": "20bet-casino",
+      "logoUrl": "/images/operators/20bet-casino.webp",
+      "affiliateLink": "https://mu.fastmui.com/redirect.aspx?pid=289945&lpid=2270&bid=1971",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "licenseNumber": "nr. 8048/JAZ",
+            "licenseAuthority": "Curaçao"
+          }
+        ],
+        "websiteUrl": "https://20bet.com/",
+        "establishedYear": 2018
+      },
+      "descriptionMarkdown": "20Bet Casino oferă un bonus de 100% până la 600 RON + 120 rotiri gratuite. Joacă la 20Bet Casino cu un bonus de 100% până la 500 RON (100 EUR) la prima depunere. Beneficiază de suport 24/7, aplicații pentru iPhone și Android și 2000+ jocuri!"
+    },
+    {
+      "name": "Flush Casino",
+      "slug": "flush-casino",
+      "logoUrl": "/images/operators/flush-casino.webp",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Costa Rica"
+          }
+        ],
+        "websiteUrl": "https://flushlinks.com/d86f9fc07",
+        "establishedYear": 2021
+      },
+      "descriptionMarkdown": "Flush Casino este un site de jocuri de noroc focusat pe crypto și care dispune de tehnologia Provably Fair pentru corectitudinea jocurilor. Oferă un bonus de bun venit de până la 150% și o gamă variată de jocuri, inclusiv peste 6000 de sloturi și jocuri de masă."
+    },
+    {
+      "name": "Billionairespin Casino",
+      "slug": "billionairespin-casino",
+      "logoUrl": "/images/operators/billionairespin-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao"
+          }
+        ],
+        "websiteUrl": "https://billionairespin.com",
+        "establishedYear": 2025
+      },
+      "descriptionMarkdown": "Billionairespin Casino este un cazinou online lansat recent, în anul 2025. Site-ul este disponibil în limba română și poți face plăți în RON. Platforma este licențiată de Curaçao Gaming Control Board (GCB). Prin faptul că platforma este operată de Terdersoft B.V., care gestionează și alte platforme de succes, precum CandySpinz sau Felixspin, acest cazinou are în spate experiența unei companii de renume. Site-ul se remarcă prin designul ușor de accesat, compatibilitatea mobilă și o colecție generoasă de jocuri – atuuri pe care orice cazinou nou lansat trebuie să le aibă. Cu suport pentru mai multe limbi, inclusiv română, și opțiuni de plată variate ce includ cardurile de debit și credit, PayPal sau criptomonede, acest cazinou este ideal pentru jucătorii români ce vor să caute o experiență de top la un cazinou cât mai proaspăt scos pe piață."
+    },
+    {
+      "name": "Rolletto Casino",
+      "slug": "rolletto-casino",
+      "logoUrl": "/images/operators/rolletto-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "issuedBy": "Curaçao Gaming Control Board",
+            "licenseNumber": "OGL/2024/1798/1048"
+          }
+        ],
+        "websiteUrl": "https://rolletto.com/",
+        "establishedYear": 2020
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus 150% Până La 2500 RON + 200 Rotiri Gratuite\n\nRolletto Casino este operat de către Santeda International B.V, companie ce este înregistrată cu numărul 151296 și licențiată cu numărul OGL/2024/1798/1048 de către Curaçao Gaming Control Board. Cu o ofertă de peste 6000 de jocuri care includ păcănele, mini games, jocuri de masă live casino, dar și de sporturi virtuale, Rolletto Casino poate face față chiar și celor mai pretențioase cerințe. \n\nLa Rolletto vei putea să joci la pariuri nu doar pe evenimente sportive clasice, dar și pe Esports și sporturi virtuale. \n\nDepunerea minimă este de 20 Euro, iar suma maximă admisă pe săptămână este de 7500 Euro, iar pe lună este de 15000 Euro."
+    },
+    {
+      "name": "JackTop Casino",
+      "slug": "jacktop-casino",
+      "logoUrl": "/images/operators/jacktop-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curacao",
+            "licenseNumber": "141938 OGL/2024/1673/0915"
+          }
+        ],
+        "websiteUrl": "https://jacktop.com/ro/",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Bonus de cazinou 150% până la 25000 RON + 335 Rotiri Gratuite. JackTop Casino oferă un sistem unic de jackpoturi, mii de jocuri, bonusuri uriașe și plăți crypto!"
+    },
+    {
+      "name": "22Bet",
+      "slug": "22bet-casino",
+      "logoUrl": "/images/operators/22bet-casino.png",
+      "affiliateLink": "https://welcome.toptrendyinc.com/redirect.aspx?pid=90424&bid=1534&lpid=104",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "licenseNumber": "nr. 8048/JAZ",
+            "licenseAuthority": "Curaçao"
+          }
+        ],
+        "websiteUrl": "https://22bet.com",
+        "establishedYear": 2017
+      },
+      "descriptionMarkdown": "Joacă la 22Bet Casino cu un bonus de 100% până la 1500 RON (300 EUR) la prima depunere. Bucură-te de plăți cripto, jocuri variate și aplicații pentru Android și iOS!"
+    },
+    {
+      "name": "BetOnRed Casino",
+      "slug": "betonred-casino",
+      "logoUrl": "/images/operators/betonred-casino.webp",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao"
+          }
+        ],
+        "websiteUrl": "https://betonred.com/ro",
+        "establishedYear": 2022
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus 255% Până La 2250 RON + 250 rotiri. BetOnRed Casino este un nou site internațional de jocuri de noroc disponibil pentru jucătorii români, având peste 6000 de jocuri, metode de plată variate și numeroase bonusuri și promoții."
+    },
+    {
+      "name": "Wizebets",
+      "slug": "wizebets-casino",
+      "logoUrl": "/images/operators/wizebets-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "licenseName": "Curacao",
+            "licenseNumber": "GLH-OCCHKTW0703032017"
+          }
+        ],
+        "websiteUrl": "https://wizebets.com",
+        "establishedYear": 2022
+      },
+      "descriptionMarkdown": "Wizebets este un casino online nou, fondat în 2022, licențiat și deja destul de popular în rândul jucătorilor. Oferă o gamă variată de jocuri, inclusiv sloturi, ruletă, blackjack și jocuri live. Bonusul de bun venit este de 100% până la 1250 RON + 100 rotiri gratuite, cu cerințe de rulaj de x40. Metodele de plată includ criptomonede și transferuri bancare, iar asistența este disponibilă 24/7."
+    },
+    {
+      "name": "GratoWin Casino",
+      "slug": "gratowin-casino",
+      "logoUrl": "/images/operators/gratowin-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao"
+          },
+          {
+            "license": "MGA Malta Gaming Authority"
+          },
+          {
+            "license": "eCorga UK Gambling Commission"
+          },
+          {
+            "license": "QUJNEL iTechLabs"
+          },
+          {
+            "license": "ALDERNEY Alderney Gambling Control Commission"
+          }
+        ],
+        "websiteUrl": "https://secure.gratowin.com",
+        "establishedYear": 2019
+      },
+      "descriptionMarkdown": "GratoWin Casino este un cazinou Irlandez înființat în anul 2019 sub patronatul Unigad Trading N.V. Oferă un bonus de bun venit de 300% până la 15,000 RON + 50 rotiri fără depunere. Cu peste 3000 de jocuri, GratoWin Casino are o varietate mare de tipuri de jocuri, inclusiv sloturi, jocuri de masă și live casino. Suportul clienților este disponibil prin email, live chat și telefon."
+    },
+    {
+      "name": "Bizzo Casino",
+      "slug": "bizzo-casino",
+      "logoUrl": "/images/operators/bizzo-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao",
+            "licenseNumber": "8048/JAZ"
+          }
+        ],
+        "websiteUrl": "https://bizzocasino.com",
+        "establishedYear": 2020
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus 230% Până La 17660 RON + 175 Rotiri Gratuite. Rating 8.4/10. Oferă o experiență de joc captivantă cu un bonus de bun venit uriaș la primele 4 depuneri. Catalog de jocuri cu peste 2500 titluri, inclusiv sloturi, jocuri de masă și live casino. Suport clienți disponibil 24/7."
+    },
+    {
+      "name": "GG.Bet Casino",
+      "slug": "gg-bet-casino",
+      "logoUrl": "/images/operators/gg-bet-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "number": "8048/Jaz2021-184",
+            "license": "Curaçao"
+          }
+        ],
+        "websiteUrl": "https://gg-bet.me/",
+        "establishedYear": 2016
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus Până la 12000 RON + 900 Rotiri Gratuite + 50 Rotiri Fara Depunere\n\nJoacă la GG.Bet Casino și descoperă peste 6000 de jocuri, cote la peste 30 de sporturi și bonusuri uriașe cu până la 18.000 RON la casino și 14.000 RON la pariuri!"
+    },
+    {
+      "name": "Megapari",
+      "slug": "megapari-casino",
+      "logoUrl": "/images/operators/megapari-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao"
+          },
+          {
+            "license": "Anjouan",
+            "licenseNumber": "3-102-887249"
+          }
+        ],
+        "websiteUrl": "https://megapari.com",
+        "establishedYear": 2019
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus Până la 7465 RON + 150 Rotiri Fără Verificare\n\nDescoperă cele mai tari jocuri la Megapari Casino! Joacă sloturi, jocuri de masă și casino live cu depuneri în cripto și metode de plată de top. Profită de promoții și bonusuri exclusive adaptate jucătorilor români. Megapari Casino va deveni destinația ta virtuală preferată pentru jocuri de casino. Revendică 100 rotiri fără depunere la înregistrare și 150 rotiri + echivalentul în RON a 1500 EUR la primele 2 depuneri!"
+    },
+    {
+      "name": "Weiss Casino",
+      "slug": "weiss-casino",
+      "logoUrl": "/images/operators/weiss-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "licenseName": "Curacao eGaming Authority",
+            "licenseNumber": "365/JAZ"
+          }
+        ],
+        "websiteUrl": "https://weiss.bet",
+        "establishedYear": 2023
+      },
+      "descriptionMarkdown": "Weiss Casino este un site de crypto gambling care oferă o varietate de jocuri și bonusuri atractive. Fondat în 2023, cazinoul dispune de o licență de la Autoritățile din Curacao și acceptă atât plăți FIAT, cât și criptomonede. Cu peste 4500 de jocuri disponibile, Weiss Casino se adresează jucătorilor din întreaga lume, oferind o experiență de joc diversificată și accesibilă."
+    },
+    {
+      "name": "Verde Casino",
+      "slug": "verde-casino",
+      "logoUrl": "/images/operators/verde-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curacao",
+            "licenseNumber": "8048/JAZ 2021-048"
+          }
+        ],
+        "websiteUrl": "https://verdecasino62.com",
+        "establishedYear": 2022
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus 4800 RON + 220 Rotiri Gratuite\n\nDescoperă serviciile oferite de Verde Casino România! Profită de bonusuri la înregistrare pentru casino sau pariuri și oferte săptămânale atractive!"
+    },
+    {
+      "name": "Fresh Casino",
+      "slug": "fresh-casino",
+      "logoUrl": "/images/operators/fresh-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curacao"
+          }
+        ],
+        "websiteUrl": "https://fresh.casino",
+        "establishedYear": 2018
+      },
+      "descriptionMarkdown": "Bonus de cazinou 175% Bonus Până la 4500 RON + 100 Rotiri Gratuite + 50% la Depozitul Săptămânal\n\nFresh Casino a apărut în 2018 și are o licență Curacao. Brandul este deținut de GALAKTIKA N.V. Deși este relativ “fresh” în industrie, cazinoul a reușit să convingă prin îmbinarea unor elemente-cheie pentru jucători: peste 6000 de jocuri, secțiune de pariuri, bonusuri bune și metode de plată pentru toate preferințele. Cazinoul nu are licență ONJN și nu este pentru moment disponibil în limba română. Poți face plăți în EUR, USD, altă valută sau crypto."
+    },
+    {
+      "name": "VeloBet Casino",
+      "slug": "velobet-casino",
+      "logoUrl": "/images/operators/velobet-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao OGL/2024/1798/1048"
+          }
+        ],
+        "websiteUrl": "https://track.velobetpartners.com/visit/?bta=39934&nci=5677",
+        "establishedYear": 2023
+      },
+      "descriptionMarkdown": "Joacă la VeloBet Casino cu un super bonus de bun venit: 330% Până la 10,000 RON + 70 Rotiri Gratuite. Velobet Casino te poartă într-o aventură palpitantă, plină de jocuri captivante, bonusuri generoase și o experiență de top la pariuri sportive, cu meciuri diverse și cote bune. Lansat în 2023 și operat de Santeda International B.V., Velobet combină o colecție impresionantă de peste 6000 de jocuri cu o secțiune de pariuri sportive și esports, toate susținute de o platformă modernă, securizată și optimizată pentru toate dispozitivele. Cu un pachet de bun venit de 330% până la 10,000 RON + 70 rotiri gratuite și promoții regulate, Velobet este o destinație ideală pentru jucătorii din România care caută flexibilitate."
+    },
+    {
+      "name": "WinCasino",
+      "slug": "wincasino-romania",
+      "logoUrl": "/images/operators/wincasino-romania.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Anjouan"
+          }
+        ],
+        "websiteUrl": "https://play-win.casino/go/rimdeg4i",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Bonus de cazinou 400% Până La 420,000$ + 200 Rotiri\n\nWin Casino a apărut în industria jocurilor de noroc în 2024 și este deja un nume cu reputație pe piața internațională. Site-ul este disponibil acum și în România și funcționează în baza unei licențe Anjouan. Platforma a primit recent premiul “Best Crypto Casino “ oferit de Bitcoin.com la ediția din 2025. Avem de-a face așadar cu un site care lucrează constant la îmbunătățirea serviciilor sale, lucru dovedit prin premiile obținute."
+    },
+    {
+      "name": "Fast Slots Casino",
+      "slug": "fast-slots-casino",
+      "logoUrl": "/images/operators/fast-slots-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Anjouan"
+          }
+        ],
+        "websiteUrl": "www.fastslots.com",
+        "establishedYear": 2025
+      },
+      "descriptionMarkdown": "Fast Slots Casino este o platformă apărută în 2025 în spațiul cazinourilor online, dar care a ajuns în scurt timp o destinație preferată pentru amatorii de păcănele și jocuri de noroc. Combinând exact atuurile de care un cazinou online are nevoie 100% pentru a avea succes, și anume viteza depunerilor și a retragerilor, varietatea jocurilor, dar și plățile bune, Fast Slots Casino aduce sub același blazon peste 3000 de titluri de jocuri slot care te vor teleporta direct în inima acțiunii!"
+    },
+    {
+      "name": "Gamblits Casino",
+      "slug": "gamblits-casino",
+      "logoUrl": "/images/operators/gamblits-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Unlicensed"
+          }
+        ],
+        "websiteUrl": "https://gamblits.com",
+        "establishedYear": 2025
+      },
+      "descriptionMarkdown": "Gamblits Casino oferă un bonus de 700% până la 15,000 RON + 100 rotiri gratuite. Este o platformă nouă, lansată în 2025, care propune o experiență de joc captivantă și diversă, cu peste 5,000 de jocuri disponibile. Cazinoul operează sub licența Anjouan și promovează jocul responsabil, oferind instrumente pentru a asigura o experiență de joc sigură."
+    },
+    {
+      "name": "GambleZen Casino",
+      "slug": "gamblezen-casino",
+      "logoUrl": "/images/operators/gamblezen-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curacao"
+          }
+        ],
+        "websiteUrl": "https://gamblezens.com/d7e9816fa",
+        "establishedYear": 2023
+      },
+      "descriptionMarkdown": "GambleZen Casino este o platformă cu o tematică inspirată parcă din jungla amazoniană, disponibilă jucătorilor din întreaga lume. Cazinoul include plăți fiat și crypto, fiind o opțiune atractivă atât pentru jucătorii care preferă un stil de joc tradițional, cât și pentru cei care preferă să joace anonim prin criptomonede. Nu este nevoie de verificare pentru a juca la acest casino. Brandul GambleZen este operat de Altacore N.V. și are o licență de la autoritățile din Curaçao începând din anul 2023. Cazinoul oferă peste 7500 de titluri captivante de jocuri, ce includ sloturi, jocuri de masă și jocuri cu dealeri live. De la sloturi populare precum Rise of Ymir și Crown Coins la mese live ca Lightning Blackjack sau Crazy Coin Flip, vei putea juca tot felul de jocuri."
+    },
+    {
+      "name": "Ivibet Casino",
+      "slug": "ivibet-casino",
+      "logoUrl": "/images/operators/ivibet-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "type": "Curaçao Gaming License",
+            "number": "8048/JAZ"
+          }
+        ],
+        "websiteUrl": "https://ivibet.com",
+        "establishedYear": 2020
+      },
+      "descriptionMarkdown": "Bonus 150% Până la 1500 RON + 170 Rotiri Gratuite. Ivibet Casino este o platformă de jocuri de noroc internațională, disponibilă de ceva timp și jucătorilor din România. Oferă o selecție bună de jocuri, inclusiv sloturi, jocuri de masă și live casino. Bonusuri atractive pentru jucători noi și existenți."
+    },
+    {
+      "name": "Paripesa Casino",
+      "slug": "paripesa-casino",
+      "logoUrl": "/images/operators/paripesa-casino.webp",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "details": "Cerere de licență în curs la Curaçao Gaming Control Board, numărul OGL/2024/225/0601.",
+            "license": "Curaçao"
+          }
+        ],
+        "websiteUrl": "https://paripesa.com/ro",
+        "establishedYear": 2019
+      },
+      "descriptionMarkdown": "Bonus 200% până la 6000 RON + 150 Rotiri Gratuite. Paripesa Casino este detinut de către Optim Development B.V. ce are o cerere de licență în curs la Curaçao Gaming Control Board. Oferă o gamă variată de jocuri de casino și pariuri, inclusiv jocuri live și sloturi. Platforma este disponibilă atât pe desktop cât și pe mobil, cu aplicații pentru iOS și Android."
+    },
+    {
+      "name": "Vulkan Vegas Casino",
+      "slug": "vulkan-vegas-casino",
+      "logoUrl": "/images/operators/vulkan-vegas-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curacao",
+            "licenseNumber": "OGL/2024/768/0432"
+          }
+        ],
+        "websiteUrl": "https://vulkanvegas.com",
+        "establishedYear": 2016
+      },
+      "descriptionMarkdown": "Vulkan Vegas este un casino internațional renumit pe piața de jocuri de noroc, disponibil de ceva timp și pentru jucătorii români. Cu un bonus atractiv la înregistrare, plăți crypto și oportunitatea de joc fără verificare, platforma atrage constant jucători noi. Găsești mai jos recenzia completă și pașii de joc!"
+    },
+    {
+      "name": "Cosmic Slot Casino",
+      "slug": "cosmic-slot-casino",
+      "logoUrl": "/images/operators/cosmic-slot-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao"
+          }
+        ],
+        "websiteUrl": "https://cosmicslot.com",
+        "establishedYear": 2020
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus 352% Până la 13700 RON + 250 Rotiri Gratuite\n\nCosmic Slot Casino este un site internațional de casino și pariuri, care deține licență Curaçao. Oferă peste 9000 de jocuri, inclusiv sloturi, jocuri de masă și pariuri sportive. Bonusul de bun venit include 352% până la 13700 RON + 250 rotiri gratuite. Depunerea minimă este de 20 EUR, iar retragerea minimă este de 20 EUR. Casino-ul nu este disponibil în limba română, dar oferă plăți FIAT și crypto, fără verificare."
+    },
+    {
+      "name": "National Casino",
+      "slug": "national-casino",
+      "logoUrl": "/images/operators/national-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao",
+            "licenseNumber": "8048/JAZ2020-013"
+          }
+        ],
+        "websiteUrl": "https://nationalcasino.com",
+        "establishedYear": 2021
+      },
+      "descriptionMarkdown": "Bonus 150% Până La 1500 RON + 150 Rotiri Gratuite\n\nRating 8.5/10\n\nNational Casino este o platformă de jocuri de noroc care capătă tot mai multă popularitate la nivel internațional. Cazinoul reușește să atragă pasionați de jocuri de noroc prin oferta sa bogată de jocuri, precum și prin bonusuri generoase. Oferă 3.000+ jocuri, inclusiv sloturi, jocuri de masă și jocuri live, toate furnizate de cei mai mari dezvoltatori de software din industrie, precum NetEnt, Play’n GO, Pragmatic Play și Evolution Gaming."
+    },
+    {
+      "name": "Vavada Casino",
+      "slug": "vavada-casino",
+      "logoUrl": "/images/operators/vavada-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "licenseName": "Curaçao",
+            "licenseNumber": "nr. 8048/JAZ"
+          }
+        ],
+        "websiteUrl": "https://partnervavadarv.com/?promo=0f7f5bca-01c7-4aa5-8e15-121c1505977b&target=register",
+        "establishedYear": 2017
+      },
+      "descriptionMarkdown": "Bonus de cazinou 100% Până la 5000 RON + 100 Rotiri Fără Verificare. Vavada Casino oferă 5000 de jocuri și un bonus la înregistrare de până la 1000 euro + 100 rotiri. Licențiat în Curaçao, Vavada B.V. a fost înființat în 2017. Depunerea minimă este de 1 euro, iar plățile sunt acceptate în criptomonede. Interfața nu este disponibilă în limba română, iar jucătorii din anumite țări pot avea restricții."
+    },
+    {
+      "name": "Spinch Casino",
+      "slug": "spinch-casino",
+      "logoUrl": "/images/operators/spinch-casino.webp",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Costa Rica"
+          }
+        ],
+        "websiteUrl": "www.spinch.com/ro",
+        "establishedYear": 2023
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus 225% Până la 30,000 RON + 250 Rotiri Gratuite. Spinch Casino oferă peste 7000 de jocuri de noroc și un bonus de bun venit generos."
+    },
+    {
+      "name": "Hotline Casino",
+      "slug": "hotline-casino",
+      "logoUrl": "/images/operators/hotline-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao",
+            "licenseNumber": "#129742"
+          }
+        ],
+        "websiteUrl": "https://hotlinecasino.com",
+        "establishedYear": 2019
+      },
+      "descriptionMarkdown": "Bonus de cazinou 300% Până La 6000 RON + 350 Rotiri\n\nDescoperă serviciile Hotline Casino și revendică un bonus fără depunere de 150 rotiri + un pachet de bun venit cu până la 6000 RON și 350 rotiri! Vezi jocurile disponibile și celelalte promoții de care poți profita la înregistrare!"
+    },
+    {
+      "name": "CryptoBetSports",
+      "slug": "cryptobetsports-casino",
+      "logoUrl": "/images/operators/cryptobetsports-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curaçao",
+            "licenseNumber": "OGL/2024/1402/0662"
+          }
+        ],
+        "websiteUrl": "https://cryptobetsports.com/",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus 150% Până La 1 Bitcoin + 150 Rotiri Gratuite. CryptoBetSports este un cripto cazinou foarte ofertant în materie de bonusuri, dar și atunci când vine vorba de jocuri și pariuri. Cazinoul este în special potrivit pentru cei care vor să joace cu criptomonede."
+    },
+    {
+      "name": "Monro Casino",
+      "slug": "monro-casino",
+      "logoUrl": "/images/operators/monro-casino.png",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [
+          {
+            "license": "Curacao",
+            "licenseNumber": "8048/JAZ2016-050"
+          }
+        ],
+        "websiteUrl": "https://mnr-irrs12.com/cce176b06",
+        "establishedYear": 2024
+      },
+      "descriptionMarkdown": "Bonus de cazinou 50% Până La 1500 RON\n\nDescoperă serviciile Monro Casino cu un bonus de bun venit de 50% până la 300 EUR! Explorează peste 7500 de jocuri și o platformă de pariuri sportive disponibile și în aplicația pentru mobil!"
+    },
+    {
+      "name": "SlotGems Casino",
+      "slug": "slotgems-casino",
+      "logoUrl": "/images/operators/slotgems-casino.webp",
+      "affiliateLink": "",
+      "rating": null,
+      "welcomeBonus": "",
+      "keyFeatures": [],
+      "games": [],
+      "companyInfo": {
+        "licenses": [],
+        "websiteUrl": "https://slotgems.com",
+        "establishedYear": 2023
+      },
+      "descriptionMarkdown": "Bonus de cazinou Bonus de 270% până la 3500 RON\n\nDescoperă o experiență de joc specială și avantajele plăților rapide prin cripto la SlotGems casino! Profită de bonusul de bun venit de 270% până la 3500 RON și joacă peste 5000 de sloturi. Beneficiază de promoții generoase chiar și după înregistrare."
+    }
+  ]
+}

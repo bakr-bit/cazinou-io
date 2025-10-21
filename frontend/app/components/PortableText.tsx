@@ -8,6 +8,8 @@
  *
  */
 
+import Image from 'next/image'
+import Link from 'next/link'
 import {PortableText, type PortableTextComponents, type PortableTextBlock} from 'next-sanity'
 
 import ResolvedLink from '@/app/components/ResolvedLink'
@@ -15,15 +17,134 @@ import ResolvedLink from '@/app/components/ResolvedLink'
 export default function CustomPortableText({
   className,
   value,
+  author,
 }: {
   className?: string
   value: PortableTextBlock[]
+  author?: any
 }) {
   const components: PortableTextComponents = {
+    types: {
+      image: ({value}) => {
+        const imageUrl = value?.asset?.url
+        if (!imageUrl) return null
+
+        return (
+          <figure className="my-8">
+            <Image
+              src={imageUrl}
+              alt={value.alt || ''}
+              width={value.asset?.metadata?.dimensions?.width || 800}
+              height={value.asset?.metadata?.dimensions?.height || 450}
+              className="rounded-lg w-full h-auto"
+              placeholder={value.asset?.metadata?.lqip ? 'blur' : undefined}
+              blurDataURL={value.asset?.metadata?.lqip}
+            />
+            {value.caption && (
+              <figcaption className="text-center text-sm text-gray-600 mt-3">
+                {value.caption}
+              </figcaption>
+            )}
+          </figure>
+        )
+      },
+      authorComment: ({value}) => {
+        if (!value.comment) return null
+
+        // Use avatar from authorComment, fallback to review author's picture
+        const avatarUrl = value.avatar?.asset?.url || author?.picture?.asset?.url
+        const avatarAlt = value.avatar?.alt || author?.picture?.alt || 'Author avatar'
+        const authorName = value.author || `${author?.firstName} ${author?.lastName}`
+        const authorRole = author?.role // Always use role from Person object
+        const authorSlug = author?.slug?.current
+
+        return (
+          <aside className="my-10 p-6 bg-brand/5 rounded-lg font-mono">
+            <div className="flex items-start gap-4">
+              {/* Author Avatar */}
+              <div className="flex-shrink-0">
+                {avatarUrl ? (
+                  authorSlug ? (
+                    <Link href={`/autori/${authorSlug}`}>
+                      <Image
+                        src={avatarUrl}
+                        alt={avatarAlt}
+                        width={56}
+                        height={56}
+                        className="w-14 h-14 rounded-full object-cover aspect-square ring-2 ring-white shadow-md hover:ring-brand transition-all cursor-pointer"
+                        placeholder={value.avatar?.asset?.metadata?.lqip || author?.picture?.asset?.metadata?.lqip ? 'blur' : undefined}
+                        blurDataURL={value.avatar?.asset?.metadata?.lqip || author?.picture?.asset?.metadata?.lqip}
+                      />
+                    </Link>
+                  ) : (
+                    <Image
+                      src={avatarUrl}
+                      alt={avatarAlt}
+                      width={56}
+                      height={56}
+                      className="w-14 h-14 rounded-full object-cover aspect-square ring-2 ring-white shadow-md"
+                      placeholder={value.avatar?.asset?.metadata?.lqip || author?.picture?.asset?.metadata?.lqip ? 'blur' : undefined}
+                      blurDataURL={value.avatar?.asset?.metadata?.lqip || author?.picture?.asset?.metadata?.lqip}
+                    />
+                  )
+                ) : (
+                  <div className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center ring-2 ring-white shadow-md aspect-square">
+                    <svg
+                      className="w-7 h-7 text-gray-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </div>
+
+              {/* Comment Content */}
+              <div className="flex-1 min-w-0 pt-0.5">
+                <div className="mb-3">
+                  {authorSlug ? (
+                    <Link
+                      href={`/autori/${authorSlug}`}
+                      className="font-bold text-lg text-gray-900 hover:text-brand transition-colors leading-tight"
+                    >
+                      {authorName}
+                    </Link>
+                  ) : (
+                    <p className="font-bold text-lg text-gray-900 leading-tight">{authorName}</p>
+                  )}
+                  {authorRole && (
+                    <p className="text-sm text-gray-600 font-medium mt-1">{authorRole}</p>
+                  )}
+                </div>
+                <blockquote className="relative">
+                  <svg
+                    className="absolute -left-1 -top-2 w-8 h-8 text-brand/20 opacity-50"
+                    fill="currentColor"
+                    viewBox="0 0 32 32"
+                  >
+                    <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8z" />
+                  </svg>
+                  <p className="text-gray-700 leading-relaxed pl-6 italic">
+                    {value.comment}
+                  </p>
+                </blockquote>
+              </div>
+            </div>
+          </aside>
+        )
+      },
+    },
     block: {
       h1: ({children, value}) => (
         // Add an anchor to the h1
-        <h1 className="group relative">
+        <h1 className="group relative font-mono font-bold">
           {children}
           <a
             href={`#${value?._key}`}
@@ -49,7 +170,7 @@ export default function CustomPortableText({
       h2: ({children, value}) => {
         // Add an anchor to the h2
         return (
-          <h2 className="group relative">
+          <h2 className="group relative font-mono font-bold">
             {children}
             <a
               href={`#${value?._key}`}
@@ -73,6 +194,7 @@ export default function CustomPortableText({
           </h2>
         )
       },
+      h3: ({children}) => <h3 className="font-mono font-bold">{children}</h3>,
     },
     marks: {
       link: ({children, value: link}) => {
@@ -82,7 +204,7 @@ export default function CustomPortableText({
   }
 
   return (
-    <div className={['prose prose-a:text-brand', className].filter(Boolean).join(' ')}>
+    <div className={['prose prose-a:text-brand font-mono', className].filter(Boolean).join(' ')}>
       <PortableText components={components} value={value} />
     </div>
   )

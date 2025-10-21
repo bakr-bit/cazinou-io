@@ -3,6 +3,44 @@ import typography from '@tailwindcss/typography'
 
 export default {
   content: ['./app/**/*.{ts,tsx}', './sanity/**/*.{ts,tsx}'],
+  safelist: [
+    // BeginnersGuide color theme classes - needed for dynamic color theming
+    // Gradients
+    'from-orange-500', 'to-orange-600',
+    'from-blue-500', 'to-blue-600',
+    'from-green-500', 'to-green-600',
+    'from-purple-500', 'to-purple-600',
+    'from-red-500', 'to-red-600',
+    'from-teal-500', 'to-teal-600',
+    // Borders
+    'border-orange-200', 'hover:border-orange-300',
+    'border-blue-200', 'hover:border-blue-300',
+    'border-green-200', 'hover:border-green-300',
+    'border-purple-200', 'hover:border-purple-300',
+    'border-red-200', 'hover:border-red-300',
+    'border-teal-200', 'hover:border-teal-300',
+    // Background hover gradients
+    'from-orange-50/40', 'to-orange-100/20',
+    'from-blue-50/40', 'to-blue-100/20',
+    'from-green-50/40', 'to-green-100/20',
+    'from-purple-50/40', 'to-purple-100/20',
+    'from-red-50/40', 'to-red-100/20',
+    'from-teal-50/40', 'to-teal-100/20',
+    // Badge backgrounds
+    'bg-orange-100', 'text-orange-700', 'border-orange-200',
+    'bg-blue-100', 'text-blue-700', 'border-blue-200',
+    'bg-green-100', 'text-green-700', 'border-green-200',
+    'bg-purple-100', 'text-purple-700', 'border-purple-200',
+    'bg-red-100', 'text-red-700', 'border-red-200',
+    'bg-teal-100', 'text-teal-700', 'border-teal-200',
+    // Icon colors
+    'text-orange-600',
+    'text-blue-600',
+    'text-green-600',
+    'text-purple-600',
+    'text-red-600',
+    'text-teal-600',
+  ],
   theme: {
     container: {
       center: true,
@@ -96,6 +134,7 @@ export default {
       },
       fontFamily: {
         sans: ['var(--font-inter)'],
+        mono: ['var(--font-inter-tight)', 'sans-serif'],
       },
     },
   },

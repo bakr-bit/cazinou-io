@@ -30,6 +30,7 @@
 
   --font-display: 'Inter', 'sans-serif';
   --font-sans: 'Inter', 'sans-serif';
+  --font-mono: var(--font-inter-tight), 'sans-serif';
 
   --default-transition-duration: 250ms;
 }

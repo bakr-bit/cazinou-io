@@ -47,6 +47,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           changeFrequency = 'never'
           url = `${domain}/posts/${p.slug}`
           break
+        case 'casinoReview':
+          priority = 0.9
+          changeFrequency = 'weekly'
+          url = `${domain}/recenzii/${p.slug}`
+          break
+        case 'infoPage':
+          priority = 0.8
+          changeFrequency = 'monthly'
+          url = `${domain}/${p.slug}`
+          break
       }
       sitemap.push({
         lastModified: p._updatedAt || new Date(),

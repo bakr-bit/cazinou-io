@@ -2,6 +2,10 @@ import React from 'react'
 
 import Cta from '@/app/components/Cta'
 import Info from '@/app/components/InfoSection'
+import {Toplist} from '@/app/components/Toplist'
+import FeaturedCasino from '@/app/components/FeaturedCasino'
+import FeaturedGame from '@/app/components/FeaturedGame'
+import SimpleButton from '@/app/components/SimpleButton'
 import {dataAttr} from '@/sanity/lib/utils'
 
 type BlocksType = {
@@ -22,7 +26,11 @@ type BlockProps = {
 
 const Blocks: BlocksType = {
   callToAction: Cta,
+  simpleButton: SimpleButton,
   infoSection: Info,
+  topListObject: Toplist,
+  featuredCasino: FeaturedCasino,
+  featuredGame: FeaturedGame,
 }
 
 /**
@@ -42,7 +50,8 @@ export default function BlockRenderer({block, index, pageId, pageType}: BlockPro
       >
         {React.createElement(Blocks[block._type], {
           key: block._key,
-          block: block,
+          // Pass block as 'data' for topListObject, 'block' for others
+          ...(block._type === 'topListObject' ? {data: block} : {block: block}),
           index: index,
         })}
       </div>
@@ -52,7 +61,8 @@ export default function BlockRenderer({block, index, pageId, pageType}: BlockPro
   return React.createElement(
     () => (
       <div className="w-full bg-gray-100 text-center text-gray-500 p-20 rounded">
-        A &ldquo;{block._type}&rdquo; block hasn&apos;t been created
+        A &ldquo;{block._type}&rdquo; block hasn&apos;t been created yet. Add it to your
+        BlockRenderer.tsx file.
       </div>
     ),
     {key: block._key},

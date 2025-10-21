@@ -9,15 +9,19 @@ type CtaProps = {
 }
 
 export default function CTA({block}: CtaProps) {
+  if (!block) {
+    return null
+  }
+  
   return (
-    <div className="container my-12">
+    <div className="my-12">
       <div className="bg-gray-50 border border-gray-100 rounded-2xl max-w-3xl">
         <div className="px-12 py-12 flex flex-col gap-6">
           <div className="max-w-xl flex flex-col gap-3">
             <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
-              {block.heading}
+              {block.heading || 'Call to Action'}
             </h2>
-            <p className="text-lg leading-8 text-gray-600">{block.text}</p>
+            {block.text && <p className="text-lg leading-8 text-gray-600">{block.text}</p>}
           </div>
 
           <Suspense fallback={null}>

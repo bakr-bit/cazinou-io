@@ -13,6 +13,251 @@
  */
 
 // Source: schema.json
+export type BeginnersGuide = {
+  _type: 'beginnersGuide'
+  heading: string
+  description?: string
+  topics: Array<{
+    iconName:
+      | 'dice-1'
+      | 'dice-2'
+      | 'dice-3'
+      | 'dice-4'
+      | 'dice-5'
+      | 'dice-6'
+      | 'dollar-sign'
+      | 'coins'
+      | 'wallet'
+      | 'banknote'
+      | 'credit-card'
+      | 'circle-dollar-sign'
+      | 'trending-up'
+      | 'trending-down'
+      | 'activity'
+      | 'bar-chart'
+      | 'pie-chart'
+      | 'percent'
+      | 'shield'
+      | 'lock'
+      | 'file-check'
+      | 'check-circle'
+      | 'book-open'
+      | 'graduation-cap'
+      | 'help-circle'
+      | 'info'
+      | 'lightbulb'
+      | 'alert-circle'
+      | 'clock'
+      | 'zap'
+      | 'target'
+      | 'settings'
+    customIcon?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    title: string
+    shortDescription: string
+    detailedExplanation: string
+    exampleValues?: string
+    colorTheme: 'orange' | 'blue' | 'green' | 'purple' | 'red' | 'teal'
+    _type: 'guideTopic'
+    _key: string
+  }>
+}
+
+export type ReviewMethodology = {
+  _type: 'reviewMethodology'
+  heading: string
+  description?: string
+  criteria: Array<{
+    iconName:
+      | 'shield'
+      | 'lock'
+      | 'file-check'
+      | 'check-circle'
+      | 'check-square'
+      | 'award'
+      | 'star'
+      | 'target'
+      | 'trending-up'
+      | 'activity'
+      | 'bar-chart'
+      | 'zap'
+      | 'eye'
+      | 'search'
+      | 'users'
+      | 'dollar-sign'
+      | 'coins'
+      | 'credit-card'
+      | 'info'
+      | 'lightbulb'
+    customIcon?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    title: string
+    description: string
+    _type: 'criterion'
+    _key: string
+  }>
+}
+
+export type BonusCalculator = {
+  _type: 'bonusCalculator'
+  title?: string
+  description?: string
+  defaultDeposit?: number
+  defaultBonus?: number
+  defaultWagering?: number
+}
+
+export type FeaturedGame = {
+  _type: 'featuredGame'
+  heading?: string
+  game: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'game'
+  }
+  text?: string
+  buttonText?: string
+  affiliateLink?: string
+  showRating?: boolean
+  displayOptions?: {
+    showProvider?: boolean
+    showRTP?: boolean
+    showVolatility?: boolean
+    showReleaseDate?: boolean
+    showGameFeatures?: boolean
+  }
+}
+
+export type FeaturedCasino = {
+  _type: 'featuredCasino'
+  heading?: string
+  casino: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'casino'
+  }
+  text?: string
+  buttonText?: string
+  showRating?: boolean
+  displayOptions?: {
+    showBonus?: boolean
+    showKeyFeatures?: boolean
+    showPaymentMethods?: boolean
+    showPlatformBadges?: boolean
+    showDepositLimits?: boolean
+    showGameCount?: boolean
+    showEstablishedYear?: boolean
+    showLicense?: boolean
+  }
+}
+
+export type FaqSection = {
+  _type: 'faqSection'
+  title?: string
+  description?: string
+  faqs: Array<
+    {
+      _key: string
+    } & FaqItem
+  >
+}
+
+export type FaqItem = {
+  _type: 'faqItem'
+  question: string
+  answer: string
+}
+
+export type AuthorComment = {
+  _type: 'authorComment'
+  author: string
+  role?: string
+  avatar?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  comment: string
+}
+
+export type TopListObject = {
+  _type: 'topListObject'
+  title: string
+  description?: string
+  listItems?: Array<{
+    rank: number
+    item:
+      | {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'casino'
+        }
+      | {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'game'
+        }
+    customDescription?: string
+    _type: 'listItem'
+    _key: string
+  }>
+  displayOptions?: {
+    showRank?: boolean
+    showLogo?: boolean
+    showName?: boolean
+    showBonus?: boolean
+    showRating?: boolean
+    showDescription?: boolean
+    showLicense?: boolean
+    showActions?: boolean
+    showPaymentMethods?: boolean
+    showKeyFeatures?: boolean
+    showPlatformBadges?: boolean
+    showDepositLimits?: boolean
+    showGameCount?: boolean
+    showEstablishedYear?: boolean
+  }
+}
+
+export type SimpleButton = {
+  _type: 'simpleButton'
+  buttonText: string
+  link: Link
+  buttonStyle: 'primary' | 'secondary'
+  buttonSize: 'default' | 'large'
+}
+
 export type CallToAction = {
   _type: 'callToAction'
   heading: string
@@ -111,6 +356,308 @@ export type BlockContent = Array<{
   _key: string
 }>
 
+export type InfoPage = {
+  _id: string
+  _type: 'infoPage'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title: string
+  slug: Slug
+  heading: string
+  subheading?: string
+  excerpt?: string
+  content: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'normal' | 'h2' | 'h3' | 'h4' | 'blockquote'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href: string
+          openInNewTab?: boolean
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        alt?: string
+        caption?: string
+        _type: 'image'
+        _key: string
+      }
+    | ({
+        _key: string
+      } & AuthorComment)
+    | ({
+        _key: string
+      } & TopListObject)
+    | ({
+        _key: string
+      } & FaqSection)
+    | ({
+        _key: string
+      } & FeaturedCasino)
+    | ({
+        _key: string
+      } & FeaturedGame)
+    | ({
+        _key: string
+      } & FeaturedGamesGrid)
+    | ({
+        _key: string
+      } & CallToAction)
+    | ({
+        _key: string
+      } & BonusCalculator)
+  >
+  publishedAt?: string
+  author?: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'person'
+  }
+  locale?: 'en' | 'ro'
+  seo?: {
+    metaTitle?: string
+    metaDescription?: string
+    ogTitle?: string
+    ogDescription?: string
+    ogImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    twitterTitle?: string
+    twitterDescription?: string
+    twitterImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    modifiedAt?: string
+  }
+}
+
+export type SlotsPageSettings = {
+  _id: string
+  _type: 'slotsPageSettings'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  featuredCasino: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'casino'
+  }
+  featuredGamesGrid?: FeaturedGamesGrid
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
+}
+
+export type FeaturedGamesGrid = {
+  _type: 'featuredGamesGrid'
+  title?: string
+  description?: string
+  games?: Array<{
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'game'
+  }>
+}
+
+export type HomePage = {
+  _id: string
+  _type: 'homePage'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title: string
+  heroBanner: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href: string
+      openInNewTab?: boolean
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
+  content: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'normal' | 'h2' | 'h3' | 'h4' | 'blockquote'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href: string
+          openInNewTab?: boolean
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        alt?: string
+        caption?: string
+        _type: 'image'
+        _key: string
+      }
+    | ({
+        _key: string
+      } & TopListObject)
+    | ({
+        _key: string
+      } & FeaturedCasino)
+    | ({
+        _key: string
+      } & FeaturedGame)
+    | ({
+        _key: string
+      } & ReviewMethodology)
+    | ({
+        _key: string
+      } & BeginnersGuide)
+    | ({
+        _key: string
+      } & AuthorComment)
+    | ({
+        _key: string
+      } & FaqSection)
+    | ({
+        _key: string
+      } & FeaturedGamesGrid)
+    | ({
+        _key: string
+      } & CallToAction)
+    | ({
+        _key: string
+      } & SimpleButton)
+    | ({
+        _key: string
+      } & BonusCalculator)
+    | {
+        heading?: string
+        author: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'person'
+        }
+        customText?: string
+        _type: 'authorIntroSection'
+        _key: string
+      }
+  >
+  seo?: {
+    metaTitle?: string
+    metaDescription?: string
+    ogTitle?: string
+    ogDescription?: string
+    ogImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    twitterTitle?: string
+    twitterDescription?: string
+    twitterImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+  }
+}
+
 export type Settings = {
   _id: string
   _type: 'settings'
@@ -183,7 +730,276 @@ export type Page = {
     | ({
         _key: string
       } & InfoSection)
+    | ({
+        _key: string
+      } & TopListObject)
+    | ({
+        _key: string
+      } & FeaturedCasino)
+    | ({
+        _key: string
+      } & FeaturedGame)
   >
+}
+
+export type Game = {
+  _id: string
+  _type: 'game'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name: string
+  slug: Slug
+  provider: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'provider'
+  }
+  rating: number
+  mainImage?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  slotsLaunchId?: number
+  slotsLaunchSlug?: string
+  slotsLaunchThumb?: string
+  seoContent?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
+  review?: BlockContent
+}
+
+export type Provider = {
+  _id: string
+  _type: 'provider'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name: string
+  slug: Slug
+  logo: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+}
+
+export type Casino = {
+  _id: string
+  _type: 'casino'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name: string
+  slug: Slug
+  affiliateLink: string
+  logo: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  featuredBanner?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  rating: number
+  welcomeBonus?: string
+  review?: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'casinoReview'
+  }
+  keyFeatures?: Array<string>
+  pros?: Array<string>
+  cons?: Array<string>
+  legalEntity?: string
+  crypto?: boolean
+  mobile?: boolean
+  liveCasino?: boolean
+  numberOfGames?: number
+  paymentMethods?: Array<string>
+  featuredProviders?: Array<string>
+  trustRating?: number
+  bonusRating?: number
+  paymentRating?: number
+  withdrawalRating?: number
+  minimumDeposit?: number
+  maximumDeposit?: number
+  games?: Array<{
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'game'
+  }>
+  companyInfo?: {
+    licenses?: Array<{
+      license?: string
+      licenseNumber?: string
+      licenseName?: string
+      licenseAuthority?: string
+      issuedBy?: string
+      issueDate?: string
+      details?: string
+      company?: string
+      registrationNumber?: string
+      number?: string
+      type?: string
+      _key: string
+    }>
+    websiteUrl?: string
+    establishedYear?: number
+  }
+}
+
+export type CasinoReview = {
+  _id: string
+  _type: 'casinoReview'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title: string
+  slug: Slug
+  casino: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'casino'
+  }
+  author: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'person'
+  }
+  publishedAt?: string
+  excerpt?: string
+  tldr?: string
+  content: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'normal' | 'h2' | 'h3' | 'h4' | 'blockquote'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href: string
+          openInNewTab?: boolean
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | ({
+        _key: string
+      } & AuthorComment)
+    | {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        alt?: string
+        caption?: string
+        _type: 'image'
+        _key: string
+      }
+  >
+  faq?: Array<
+    {
+      _key: string
+    } & FaqItem
+  >
+  locale?: 'en' | 'ro'
+  seo?: {
+    metaTitle?: string
+    metaDescription?: string
+    ogTitle?: string
+    ogDescription?: string
+    ogImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    twitterTitle?: string
+    twitterDescription?: string
+    twitterImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    modifiedAt?: string
+  }
 }
 
 export type Post = {
@@ -226,7 +1042,20 @@ export type Person = {
   _rev: string
   firstName: string
   lastName: string
-  picture: {
+  slug: Slug
+  role?: string
+  bio?: string
+  expertise?: Array<string>
+  yearsOfExperience?: number
+  credentials?: Array<string>
+  socialMedia?: {
+    linkedin?: string
+    twitter?: string
+    facebook?: string
+    instagram?: string
+    website?: string
+  }
+  picture?: {
     asset?: {
       _ref: string
       _type: 'reference'
@@ -397,25 +1226,25 @@ export type SanityImagePalette = {
 
 export type SanityImageDimensions = {
   _type: 'sanity.imageDimensions'
-  height?: number
-  width?: number
-  aspectRatio?: number
+  height: number
+  width: number
+  aspectRatio: number
 }
 
 export type SanityImageHotspot = {
   _type: 'sanity.imageHotspot'
-  x?: number
-  y?: number
-  height?: number
-  width?: number
+  x: number
+  y: number
+  height: number
+  width: number
 }
 
 export type SanityImageCrop = {
   _type: 'sanity.imageCrop'
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
+  top: number
+  bottom: number
+  left: number
+  right: number
 }
 
 export type SanityFileAsset = {
@@ -495,12 +1324,30 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+  | BeginnersGuide
+  | ReviewMethodology
+  | BonusCalculator
+  | FeaturedGame
+  | FeaturedCasino
+  | FaqSection
+  | FaqItem
+  | AuthorComment
+  | TopListObject
+  | SimpleButton
   | CallToAction
   | Link
   | InfoSection
   | BlockContent
+  | InfoPage
+  | SlotsPageSettings
+  | FeaturedGamesGrid
+  | HomePage
   | Settings
   | Page
+  | Game
+  | Provider
+  | Casino
+  | CasinoReview
   | Post
   | Person
   | SanityAssistInstructionTask
@@ -584,8 +1431,533 @@ export type SettingsQueryResult = {
     _type: 'image'
   }
 } | null
+// Variable: homePageQuery
+// Query: *[_type == "homePage"][0]{    _id,    title,    heroBanner,    content[]{      ...,      _type == "image" => {        ...,        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      },      _type == "authorComment" => {        ...,        avatar {          asset->{            _id,            url,            metadata {              lqip,              dimensions            }          }        }      },      _type == "topListObject" => {        ...,        displayOptions,        listItems[]{          ...,          item->{            _type,            _id,            name,            slug,            affiliateLink,            logo,            rating,            welcomeBonus,            "license": companyInfo.licenses[0].license,            paymentMethods,            keyFeatures,            crypto,            mobile,            liveCasino,            minimumDeposit,            maximumDeposit,            numberOfGames,            companyInfo {              establishedYear            }          }        }      },      _type == "faqSection" => {        ...,        faqs[]{          question,          answer        }      },      _type == "featuredCasino" => {        ...,        casino->{            _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }        }      },      _type == "featuredGame" => {        ...,        affiliateLink,        game->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          rating,          mainImage,          provider->{            name          }        }      },      _type == "featuredGamesGrid" => {        ...,        games[]->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          mainImage {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          provider->{            name          },          rating        }      },      _type == "callToAction" => {        ...,        link {          ...,          _type == "link" => {            "page": page->slug.current,            "post": post->slug.current          }        }      },      _type == "bonusCalculator" => {        ...      },      _type == "reviewMethodology" => {        ...,        criteria[]{          _key,          iconName,          customIcon {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          title,          description        }      },      _type == "beginnersGuide" => {        ...,        topics[]{          _key,          iconName,          customIcon {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          title,          shortDescription,          detailedExplanation,          exampleValues,          colorTheme        }      },      _type == "authorIntroSection" => {        ...,        author->{          _id,          firstName,          lastName,          slug,          picture {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          role,          bio,          expertise,          yearsOfExperience,          credentials,          socialMedia        }      },      markDefs[]{        ...,        _type == "link" => {          ...,          href        }      }    },    seo {      metaTitle,      metaDescription,      ogTitle,      ogDescription,      ogImage,      twitterTitle,      twitterDescription,      twitterImage    }  }
+export type HomePageQueryResult = {
+  _id: string
+  title: string
+  heroBanner: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'h1' | 'h2' | 'normal'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href: string
+      openInNewTab?: boolean
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
+  content: Array<
+    | {
+        _key: string
+        _type: 'authorComment'
+        author: string
+        role?: string
+        avatar: {
+          asset: {
+            _id: string
+            url: string | null
+            metadata: {
+              lqip: string | null
+              dimensions: SanityImageDimensions | null
+            } | null
+          } | null
+        } | null
+        comment: string
+        markDefs: null
+      }
+    | {
+        heading?: string
+        author: {
+          _id: string
+          firstName: string
+          lastName: string
+          slug: Slug
+          picture: {
+            asset: {
+              _id: string
+              url: string | null
+              metadata: {
+                lqip: string | null
+                dimensions: SanityImageDimensions | null
+              } | null
+            } | null
+            alt: string | null
+          } | null
+          role: string | null
+          bio: string | null
+          expertise: Array<string> | null
+          yearsOfExperience: number | null
+          credentials: Array<string> | null
+          socialMedia: {
+            linkedin?: string
+            twitter?: string
+            facebook?: string
+            instagram?: string
+            website?: string
+          } | null
+        }
+        customText?: string
+        _type: 'authorIntroSection'
+        _key: string
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'beginnersGuide'
+        heading: string
+        description?: string
+        topics: Array<{
+          _key: string
+          iconName:
+            | 'activity'
+            | 'alert-circle'
+            | 'banknote'
+            | 'bar-chart'
+            | 'book-open'
+            | 'check-circle'
+            | 'circle-dollar-sign'
+            | 'clock'
+            | 'coins'
+            | 'credit-card'
+            | 'dice-1'
+            | 'dice-2'
+            | 'dice-3'
+            | 'dice-4'
+            | 'dice-5'
+            | 'dice-6'
+            | 'dollar-sign'
+            | 'file-check'
+            | 'graduation-cap'
+            | 'help-circle'
+            | 'info'
+            | 'lightbulb'
+            | 'lock'
+            | 'percent'
+            | 'pie-chart'
+            | 'settings'
+            | 'shield'
+            | 'target'
+            | 'trending-down'
+            | 'trending-up'
+            | 'wallet'
+            | 'zap'
+          customIcon: {
+            asset: {
+              _id: string
+              url: string | null
+              metadata: {
+                lqip: string | null
+                dimensions: SanityImageDimensions | null
+              } | null
+            } | null
+            alt: null
+          } | null
+          title: string
+          shortDescription: string
+          detailedExplanation: string
+          exampleValues: string | null
+          colorTheme: 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'teal'
+        }>
+        markDefs: null
+      }
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'blockquote' | 'h2' | 'h3' | 'h4' | 'normal'
+        listItem?: 'bullet' | 'number'
+        markDefs: Array<{
+          href: string
+          openInNewTab?: boolean
+          _type: 'link'
+          _key: string
+        }> | null
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | {
+        _key: string
+        _type: 'bonusCalculator'
+        title?: string
+        description?: string
+        defaultDeposit?: number
+        defaultBonus?: number
+        defaultWagering?: number
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'callToAction'
+        heading: string
+        text?: string
+        buttonText?: string
+        link: {
+          _type: 'link'
+          linkType?: 'href' | 'page' | 'post'
+          href?: string
+          page: string | null
+          post: string | null
+          openInNewTab?: boolean
+        } | null
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'faqSection'
+        title?: string
+        description?: string
+        faqs: Array<{
+          question: string
+          answer: string
+        }>
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'featuredCasino'
+        heading?: string
+        casino: {
+          _id: string
+          name: string
+          slug: Slug
+          logo: {
+            asset?: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+            }
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            _type: 'image'
+          }
+          featuredBanner: {
+            asset?: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+            }
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            _type: 'image'
+          } | null
+          rating: number
+          welcomeBonus: string | null
+          affiliateLink: string
+          pros: Array<string> | null
+          cons: Array<string> | null
+          keyFeatures: Array<string> | null
+          legalEntity: string | null
+          crypto: boolean | null
+          mobile: boolean | null
+          liveCasino: boolean | null
+          numberOfGames: number | null
+          trustRating: number | null
+          bonusRating: number | null
+          paymentRating: number | null
+          withdrawalRating: number | null
+          minimumDeposit: number | null
+          maximumDeposit: number | null
+          paymentMethods: Array<string> | null
+          companyInfo: {
+            establishedYear: number | null
+            licenses: Array<{
+              license: string | null
+              licenseNumber: string | null
+              licenseAuthority: string | null
+            }> | null
+          } | null
+        }
+        text?: string
+        buttonText?: string
+        showRating?: boolean
+        displayOptions?: {
+          showBonus?: boolean
+          showKeyFeatures?: boolean
+          showPaymentMethods?: boolean
+          showPlatformBadges?: boolean
+          showDepositLimits?: boolean
+          showGameCount?: boolean
+          showEstablishedYear?: boolean
+          showLicense?: boolean
+        }
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'featuredGame'
+        heading?: string
+        game: {
+          _id: string
+          name: string
+          slug: Slug
+          slotsLaunchSlug: string | null
+          slotsLaunchThumb: string | null
+          rating: number
+          mainImage: {
+            asset?: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+            }
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            _type: 'image'
+          } | null
+          provider: {
+            name: string
+          }
+        }
+        text?: string
+        buttonText?: string
+        affiliateLink: string | null
+        showRating?: boolean
+        displayOptions?: {
+          showProvider?: boolean
+          showRTP?: boolean
+          showVolatility?: boolean
+          showReleaseDate?: boolean
+          showGameFeatures?: boolean
+        }
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'featuredGamesGrid'
+        title?: string
+        description?: string
+        games: Array<{
+          _id: string
+          name: string
+          slug: Slug
+          slotsLaunchSlug: string | null
+          slotsLaunchThumb: string | null
+          mainImage: {
+            asset: {
+              _id: string
+              url: string | null
+              metadata: {
+                lqip: string | null
+                dimensions: SanityImageDimensions | null
+              } | null
+            } | null
+            alt: null
+          } | null
+          provider: {
+            name: string
+          }
+          rating: number
+        }> | null
+        markDefs: null
+      }
+    | {
+        asset: {
+          _id: string
+          url: string | null
+          metadata: {
+            lqip: string | null
+            dimensions: SanityImageDimensions | null
+          } | null
+        } | null
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        alt?: string
+        caption?: string
+        _type: 'image'
+        _key: string
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'reviewMethodology'
+        heading: string
+        description?: string
+        criteria: Array<{
+          _key: string
+          iconName:
+            | 'activity'
+            | 'award'
+            | 'bar-chart'
+            | 'check-circle'
+            | 'check-square'
+            | 'coins'
+            | 'credit-card'
+            | 'dollar-sign'
+            | 'eye'
+            | 'file-check'
+            | 'info'
+            | 'lightbulb'
+            | 'lock'
+            | 'search'
+            | 'shield'
+            | 'star'
+            | 'target'
+            | 'trending-up'
+            | 'users'
+            | 'zap'
+          customIcon: {
+            asset: {
+              _id: string
+              url: string | null
+              metadata: {
+                lqip: string | null
+                dimensions: SanityImageDimensions | null
+              } | null
+            } | null
+            alt: null
+          } | null
+          title: string
+          description: string
+        }>
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'simpleButton'
+        buttonText: string
+        link: Link
+        buttonStyle: 'primary' | 'secondary'
+        buttonSize: 'default' | 'large'
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'topListObject'
+        title: string
+        description?: string
+        listItems: Array<{
+          rank: number
+          item:
+            | {
+                _type: 'casino'
+                _id: string
+                name: string
+                slug: Slug
+                affiliateLink: string
+                logo: {
+                  asset?: {
+                    _ref: string
+                    _type: 'reference'
+                    _weak?: boolean
+                    [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+                  }
+                  media?: unknown
+                  hotspot?: SanityImageHotspot
+                  crop?: SanityImageCrop
+                  _type: 'image'
+                }
+                rating: number
+                welcomeBonus: string | null
+                license: string | null
+                paymentMethods: Array<string> | null
+                keyFeatures: Array<string> | null
+                crypto: boolean | null
+                mobile: boolean | null
+                liveCasino: boolean | null
+                minimumDeposit: number | null
+                maximumDeposit: number | null
+                numberOfGames: number | null
+                companyInfo: {
+                  establishedYear: number | null
+                } | null
+              }
+            | {
+                _type: 'game'
+                _id: string
+                name: string
+                slug: Slug
+                affiliateLink: null
+                logo: null
+                rating: number
+                welcomeBonus: null
+                license: null
+                paymentMethods: null
+                keyFeatures: null
+                crypto: null
+                mobile: null
+                liveCasino: null
+                minimumDeposit: null
+                maximumDeposit: null
+                numberOfGames: null
+                companyInfo: null
+              }
+          customDescription?: string
+          _type: 'listItem'
+          _key: string
+        }> | null
+        displayOptions: {
+          showRank?: boolean
+          showLogo?: boolean
+          showName?: boolean
+          showBonus?: boolean
+          showRating?: boolean
+          showDescription?: boolean
+          showLicense?: boolean
+          showActions?: boolean
+          showPaymentMethods?: boolean
+          showKeyFeatures?: boolean
+          showPlatformBadges?: boolean
+          showDepositLimits?: boolean
+          showGameCount?: boolean
+          showEstablishedYear?: boolean
+        } | null
+        markDefs: null
+      }
+  >
+  seo: {
+    metaTitle: string | null
+    metaDescription: string | null
+    ogTitle: string | null
+    ogDescription: string | null
+    ogImage: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    twitterTitle: string | null
+    twitterDescription: string | null
+    twitterImage: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+  } | null
+} | null
 // Variable: getPageQuery
-// Query: *[_type == 'page' && slug.current == $slug][0]{    _id,    _type,    name,    slug,    heading,    subheading,    "pageBuilder": pageBuilder[]{      ...,      _type == "callToAction" => {          link {      ...,        _type == "link" => {    "page": page->slug.current,    "post": post->slug.current  }      },      },      _type == "infoSection" => {        content[]{          ...,          markDefs[]{            ...,              _type == "link" => {    "page": page->slug.current,    "post": post->slug.current  }          }        }      },    },  }
+// Query: *[_type == 'page' && slug.current == $slug][0]{    _id,    _type,    name,    slug,    heading,    subheading,    "pageBuilder": pageBuilder[]{      ...,      _type == "callToAction" => {          link {      ...,        _type == "link" => {    "page": page->slug.current,    "post": post->slug.current  }      },      },      _type == "infoSection" => {        content[]{          ...,          markDefs[]{            ...,              _type == "link" => {    "page": page->slug.current,    "post": post->slug.current  }          }        }      },      _type == "topListObject" => {        ...,        displayOptions,        listItems[]{          ...,          item->{            _type,            _id,            name,            slug,            affiliateLink,            logo,            rating,            welcomeBonus,            "license": companyInfo.licenses[0].license,            paymentMethods,            keyFeatures,            crypto,            mobile,            liveCasino,            minimumDeposit,            maximumDeposit,            numberOfGames,            companyInfo {              establishedYear            }          }        }      },    },  }
 export type GetPageQueryResult = {
   _id: string
   _type: 'page'
@@ -608,6 +1980,52 @@ export type GetPageQueryResult = {
           post: string | null
           openInNewTab?: boolean
         } | null
+      }
+    | {
+        _key: string
+        _type: 'featuredCasino'
+        heading?: string
+        casino: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'casino'
+        }
+        text?: string
+        buttonText?: string
+        showRating?: boolean
+        displayOptions?: {
+          showBonus?: boolean
+          showKeyFeatures?: boolean
+          showPaymentMethods?: boolean
+          showPlatformBadges?: boolean
+          showDepositLimits?: boolean
+          showGameCount?: boolean
+          showEstablishedYear?: boolean
+          showLicense?: boolean
+        }
+      }
+    | {
+        _key: string
+        _type: 'featuredGame'
+        heading?: string
+        game: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'game'
+        }
+        text?: string
+        buttonText?: string
+        affiliateLink?: string
+        showRating?: boolean
+        displayOptions?: {
+          showProvider?: boolean
+          showRTP?: boolean
+          showVolatility?: boolean
+          showReleaseDate?: boolean
+          showGameFeatures?: boolean
+        }
       }
     | {
         _key: string
@@ -637,11 +2055,515 @@ export type GetPageQueryResult = {
           _key: string
         }> | null
       }
+    | {
+        _key: string
+        _type: 'topListObject'
+        title: string
+        description?: string
+        listItems: Array<{
+          rank: number
+          item:
+            | {
+                _type: 'casino'
+                _id: string
+                name: string
+                slug: Slug
+                affiliateLink: string
+                logo: {
+                  asset?: {
+                    _ref: string
+                    _type: 'reference'
+                    _weak?: boolean
+                    [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+                  }
+                  media?: unknown
+                  hotspot?: SanityImageHotspot
+                  crop?: SanityImageCrop
+                  _type: 'image'
+                }
+                rating: number
+                welcomeBonus: string | null
+                license: string | null
+                paymentMethods: Array<string> | null
+                keyFeatures: Array<string> | null
+                crypto: boolean | null
+                mobile: boolean | null
+                liveCasino: boolean | null
+                minimumDeposit: number | null
+                maximumDeposit: number | null
+                numberOfGames: number | null
+                companyInfo: {
+                  establishedYear: number | null
+                } | null
+              }
+            | {
+                _type: 'game'
+                _id: string
+                name: string
+                slug: Slug
+                affiliateLink: null
+                logo: null
+                rating: number
+                welcomeBonus: null
+                license: null
+                paymentMethods: null
+                keyFeatures: null
+                crypto: null
+                mobile: null
+                liveCasino: null
+                minimumDeposit: null
+                maximumDeposit: null
+                numberOfGames: null
+                companyInfo: null
+              }
+          customDescription?: string
+          _type: 'listItem'
+          _key: string
+        }> | null
+        displayOptions: {
+          showRank?: boolean
+          showLogo?: boolean
+          showName?: boolean
+          showBonus?: boolean
+          showRating?: boolean
+          showDescription?: boolean
+          showLicense?: boolean
+          showActions?: boolean
+          showPaymentMethods?: boolean
+          showKeyFeatures?: boolean
+          showPlatformBadges?: boolean
+          showDepositLimits?: boolean
+          showGameCount?: boolean
+          showEstablishedYear?: boolean
+        } | null
+      }
   > | null
 } | null
+// Variable: casinoReviewQuery
+// Query: *[_type == "casinoReview" && slug.current == $slug][0]{      title,  publishedAt,  excerpt,  seo,  body,  casino->{      _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }  }  }
+export type CasinoReviewQueryResult = {
+  title: string
+  publishedAt: string | null
+  excerpt: string | null
+  seo: {
+    metaTitle?: string
+    metaDescription?: string
+    ogTitle?: string
+    ogDescription?: string
+    ogImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    twitterTitle?: string
+    twitterDescription?: string
+    twitterImage?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    modifiedAt?: string
+  } | null
+  body: null
+  casino: {
+    _id: string
+    name: string
+    slug: Slug
+    logo: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    featuredBanner: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    rating: number
+    welcomeBonus: string | null
+    affiliateLink: string
+    pros: Array<string> | null
+    cons: Array<string> | null
+    keyFeatures: Array<string> | null
+    legalEntity: string | null
+    crypto: boolean | null
+    mobile: boolean | null
+    liveCasino: boolean | null
+    numberOfGames: number | null
+    trustRating: number | null
+    bonusRating: number | null
+    paymentRating: number | null
+    withdrawalRating: number | null
+    minimumDeposit: number | null
+    maximumDeposit: number | null
+    paymentMethods: Array<string> | null
+    companyInfo: {
+      establishedYear: number | null
+      licenses: Array<{
+        license: string | null
+        licenseNumber: string | null
+        licenseAuthority: string | null
+      }> | null
+    } | null
+  }
+} | null
+// Variable: casinoPageQuery
+// Query: *[_type == "casino" && slug.current == $slug][0]{      _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  },    review->{        title,  publishedAt,  excerpt,  seo,  body,  casino->{      _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }  }    }  }
+export type CasinoPageQueryResult = {
+  _id: string
+  name: string
+  slug: Slug
+  logo: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  featuredBanner: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  rating: number
+  welcomeBonus: string | null
+  affiliateLink: string
+  pros: Array<string> | null
+  cons: Array<string> | null
+  keyFeatures: Array<string> | null
+  legalEntity: string | null
+  crypto: boolean | null
+  mobile: boolean | null
+  liveCasino: boolean | null
+  numberOfGames: number | null
+  trustRating: number | null
+  bonusRating: number | null
+  paymentRating: number | null
+  withdrawalRating: number | null
+  minimumDeposit: number | null
+  maximumDeposit: number | null
+  paymentMethods: Array<string> | null
+  companyInfo: {
+    establishedYear: number | null
+    licenses: Array<{
+      license: string | null
+      licenseNumber: string | null
+      licenseAuthority: string | null
+    }> | null
+  } | null
+  review: {
+    title: string
+    publishedAt: string | null
+    excerpt: string | null
+    seo: {
+      metaTitle?: string
+      metaDescription?: string
+      ogTitle?: string
+      ogDescription?: string
+      ogImage?: {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
+      }
+      twitterTitle?: string
+      twitterDescription?: string
+      twitterImage?: {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
+      }
+      modifiedAt?: string
+    } | null
+    body: null
+    casino: {
+      _id: string
+      name: string
+      slug: Slug
+      logo: {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
+      }
+      featuredBanner: {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
+      } | null
+      rating: number
+      welcomeBonus: string | null
+      affiliateLink: string
+      pros: Array<string> | null
+      cons: Array<string> | null
+      keyFeatures: Array<string> | null
+      legalEntity: string | null
+      crypto: boolean | null
+      mobile: boolean | null
+      liveCasino: boolean | null
+      numberOfGames: number | null
+      trustRating: number | null
+      bonusRating: number | null
+      paymentRating: number | null
+      withdrawalRating: number | null
+      minimumDeposit: number | null
+      maximumDeposit: number | null
+      paymentMethods: Array<string> | null
+      companyInfo: {
+        establishedYear: number | null
+        licenses: Array<{
+          license: string | null
+          licenseNumber: string | null
+          licenseAuthority: string | null
+        }> | null
+      } | null
+    }
+  } | null
+} | null
+// Variable: casinoSlugs
+// Query: *[_type == "casino" && defined(slug.current)]{    "slug": slug.current  }
+export type CasinoSlugsResult = Array<{
+  slug: string
+}>
+// Variable: casinoBySlugQuery
+// Query: *[_type == "casino" && slug.current == $slug][0]{      _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }  }
+export type CasinoBySlugQueryResult = {
+  _id: string
+  name: string
+  slug: Slug
+  logo: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  featuredBanner: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  rating: number
+  welcomeBonus: string | null
+  affiliateLink: string
+  pros: Array<string> | null
+  cons: Array<string> | null
+  keyFeatures: Array<string> | null
+  legalEntity: string | null
+  crypto: boolean | null
+  mobile: boolean | null
+  liveCasino: boolean | null
+  numberOfGames: number | null
+  trustRating: number | null
+  bonusRating: number | null
+  paymentRating: number | null
+  withdrawalRating: number | null
+  minimumDeposit: number | null
+  maximumDeposit: number | null
+  paymentMethods: Array<string> | null
+  companyInfo: {
+    establishedYear: number | null
+    licenses: Array<{
+      license: string | null
+      licenseNumber: string | null
+      licenseAuthority: string | null
+    }> | null
+  } | null
+} | null
+// Variable: slotsPageSettingsQuery
+// Query: *[_type == "slotsPageSettings"][0]{    featuredCasino->{        _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }    },    featuredGamesGrid {      title,      description,      games[]->{        _id,        name,        slug,        slotsLaunchSlug,        slotsLaunchThumb,        mainImage {          asset->{            _id,            url,            metadata {              lqip,              dimensions            }          },          alt        },        provider->{          name        },        rating      }    },    content  }
+export type SlotsPageSettingsQueryResult = {
+  featuredCasino: {
+    _id: string
+    name: string
+    slug: Slug
+    logo: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    featuredBanner: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    rating: number
+    welcomeBonus: string | null
+    affiliateLink: string
+    pros: Array<string> | null
+    cons: Array<string> | null
+    keyFeatures: Array<string> | null
+    legalEntity: string | null
+    crypto: boolean | null
+    mobile: boolean | null
+    liveCasino: boolean | null
+    numberOfGames: number | null
+    trustRating: number | null
+    bonusRating: number | null
+    paymentRating: number | null
+    withdrawalRating: number | null
+    minimumDeposit: number | null
+    maximumDeposit: number | null
+    paymentMethods: Array<string> | null
+    companyInfo: {
+      establishedYear: number | null
+      licenses: Array<{
+        license: string | null
+        licenseNumber: string | null
+        licenseAuthority: string | null
+      }> | null
+    } | null
+  }
+  featuredGamesGrid: {
+    title: string | null
+    description: string | null
+    games: Array<{
+      _id: string
+      name: string
+      slug: Slug
+      slotsLaunchSlug: string | null
+      slotsLaunchThumb: string | null
+      mainImage: {
+        asset: {
+          _id: string
+          url: string | null
+          metadata: {
+            lqip: string | null
+            dimensions: SanityImageDimensions | null
+          } | null
+        } | null
+        alt: null
+      } | null
+      provider: {
+        name: string
+      }
+      rating: number
+    }> | null
+  } | null
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }> | null
+} | null
 // Variable: sitemapData
-// Query: *[_type == "page" || _type == "post" && defined(slug.current)] | order(_type asc) {    "slug": slug.current,    _type,    _updatedAt,  }
+// Query: *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" && defined(slug.current)] | order(_type asc) {    "slug": slug.current,    _type,    _updatedAt,  }
 export type SitemapDataResult = Array<
+  | {
+      slug: string
+      _type: 'casinoReview'
+      _updatedAt: string
+    }
+  | {
+      slug: string
+      _type: 'infoPage'
+      _updatedAt: string
+    }
   | {
       slug: string
       _type: 'page'
@@ -690,7 +2612,7 @@ export type AllPostsQueryResult = Array<{
       crop?: SanityImageCrop
       alt?: string
       _type: 'image'
-    }
+    } | null
   } | null
 }>
 // Variable: morePostsQuery
@@ -730,7 +2652,7 @@ export type MorePostsQueryResult = Array<{
       crop?: SanityImageCrop
       alt?: string
       _type: 'image'
-    }
+    } | null
   } | null
 }>
 // Variable: postQuery
@@ -792,7 +2714,7 @@ export type PostQueryResult = {
       crop?: SanityImageCrop
       alt?: string
       _type: 'image'
-    }
+    } | null
   } | null
 } | null
 // Variable: postPagesSlugs
@@ -801,8 +2723,1222 @@ export type PostPagesSlugsResult = Array<{
   slug: string
 }>
 // Variable: pagesSlugs
-// Query: *[_type == "page" && defined(slug.current)]  {"slug": slug.current}
+// Query: *[(_type == "page" || _type == "infoPage") && defined(slug.current)]  {"slug": slug.current}
 export type PagesSlugsResult = Array<{
+  slug: string
+}>
+// Variable: getPageOrInfoPageQuery
+// Query: *[(_type == "page" || _type == "infoPage") && slug.current == $slug][0]{    _id,    _type,    _type == "page" => {      name,      slug,      heading,      subheading,      "pageBuilder": pageBuilder[]{        ...,        _type == "callToAction" => {          link {            ...,            _type == "link" => {              "page": page->slug.current,              "post": post->slug.current            }          },        },        _type == "infoSection" => {          content[]{            ...,            markDefs[]{              ...,              _type == "link" => {                "page": page->slug.current,                "post": post->slug.current              }            }          }        },        _type == "topListObject" => {          ...,          displayOptions,          listItems[]{            ...,            item->{              _type,              _id,              name,              slug,              affiliateLink,              logo,              rating,              welcomeBonus,              "license": companyInfo.licenses[0].license,              paymentMethods,              keyFeatures,              crypto,              mobile,              liveCasino,              minimumDeposit,              maximumDeposit,              numberOfGames,              companyInfo {                establishedYear              }            }          }        },      },    },    _type == "infoPage" => {      title,      slug,      heading,      subheading,      excerpt,      publishedAt,      locale,      author->{        _id,        firstName,        lastName,        slug,        picture {          asset->{            _id,            url,            metadata {              lqip,              dimensions            }          },          alt        },        role,        bio,        expertise,        yearsOfExperience,        credentials,        socialMedia      },      content[]{        ...,        _type == "image" => {          ...,          asset->{            _id,            url,            metadata {              lqip,              dimensions            }          }        },        _type == "authorComment" => {          ...,          avatar {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            }          }        },        _type == "topListObject" => {          ...,          displayOptions,          listItems[]{            ...,            item->{              _type,              _id,              name,              slug,              affiliateLink,              logo,              rating,              welcomeBonus,              "license": companyInfo.licenses[0].license,              paymentMethods,              keyFeatures,              crypto,              mobile,              liveCasino,              minimumDeposit,              maximumDeposit,              numberOfGames,              companyInfo {                establishedYear              }            }          }        },        _type == "faqSection" => {          ...,          faqs[]{            question,            answer          }        },        _type == "featuredCasino" => {          ...,          casino->{              _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }          }        },        _type == "featuredGamesGrid" => {          ...,          games[]->{            _id,            name,            slug,            slotsLaunchSlug,            slotsLaunchThumb,            mainImage {              asset->{                _id,                url,                metadata {                  lqip,                  dimensions                }              },              alt            },            provider->{              name            },            rating          }        },        _type == "callToAction" => {          ...,          link {            ...,            _type == "link" => {              "page": page->slug.current,              "post": post->slug.current            }          }        },        _type == "bonusCalculator" => {          ...        },        markDefs[]{          ...,          _type == "link" => {            ...,            href          }        }      },      seo {        metaTitle,        metaDescription,        ogTitle,        ogDescription,        ogImage,        twitterTitle,        twitterDescription,        twitterImage,        modifiedAt      }    }  }
+export type GetPageOrInfoPageQueryResult =
+  | {
+      _id: string
+      _type: 'infoPage'
+      title: string
+      slug: Slug
+      heading: string
+      subheading: string | null
+      excerpt: string | null
+      publishedAt: string | null
+      locale: 'en' | 'ro' | null
+      author: {
+        _id: string
+        firstName: string
+        lastName: string
+        slug: Slug
+        picture: {
+          asset: {
+            _id: string
+            url: string | null
+            metadata: {
+              lqip: string | null
+              dimensions: SanityImageDimensions | null
+            } | null
+          } | null
+          alt: string | null
+        } | null
+        role: string | null
+        bio: string | null
+        expertise: Array<string> | null
+        yearsOfExperience: number | null
+        credentials: Array<string> | null
+        socialMedia: {
+          linkedin?: string
+          twitter?: string
+          facebook?: string
+          instagram?: string
+          website?: string
+        } | null
+      } | null
+      content: Array<
+        | {
+            _key: string
+            _type: 'authorComment'
+            author: string
+            role?: string
+            avatar: {
+              asset: {
+                _id: string
+                url: string | null
+                metadata: {
+                  lqip: string | null
+                  dimensions: SanityImageDimensions | null
+                } | null
+              } | null
+            } | null
+            comment: string
+            markDefs: null
+          }
+        | {
+            children?: Array<{
+              marks?: Array<string>
+              text?: string
+              _type: 'span'
+              _key: string
+            }>
+            style?: 'blockquote' | 'h2' | 'h3' | 'h4' | 'normal'
+            listItem?: 'bullet' | 'number'
+            markDefs: Array<{
+              href: string
+              openInNewTab?: boolean
+              _type: 'link'
+              _key: string
+            }> | null
+            level?: number
+            _type: 'block'
+            _key: string
+          }
+        | {
+            _key: string
+            _type: 'bonusCalculator'
+            title?: string
+            description?: string
+            defaultDeposit?: number
+            defaultBonus?: number
+            defaultWagering?: number
+            markDefs: null
+          }
+        | {
+            _key: string
+            _type: 'callToAction'
+            heading: string
+            text?: string
+            buttonText?: string
+            link: {
+              _type: 'link'
+              linkType?: 'href' | 'page' | 'post'
+              href?: string
+              page: string | null
+              post: string | null
+              openInNewTab?: boolean
+            } | null
+            markDefs: null
+          }
+        | {
+            _key: string
+            _type: 'faqSection'
+            title?: string
+            description?: string
+            faqs: Array<{
+              question: string
+              answer: string
+            }>
+            markDefs: null
+          }
+        | {
+            _key: string
+            _type: 'featuredCasino'
+            heading?: string
+            casino: {
+              _id: string
+              name: string
+              slug: Slug
+              logo: {
+                asset?: {
+                  _ref: string
+                  _type: 'reference'
+                  _weak?: boolean
+                  [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+                }
+                media?: unknown
+                hotspot?: SanityImageHotspot
+                crop?: SanityImageCrop
+                _type: 'image'
+              }
+              featuredBanner: {
+                asset?: {
+                  _ref: string
+                  _type: 'reference'
+                  _weak?: boolean
+                  [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+                }
+                media?: unknown
+                hotspot?: SanityImageHotspot
+                crop?: SanityImageCrop
+                _type: 'image'
+              } | null
+              rating: number
+              welcomeBonus: string | null
+              affiliateLink: string
+              pros: Array<string> | null
+              cons: Array<string> | null
+              keyFeatures: Array<string> | null
+              legalEntity: string | null
+              crypto: boolean | null
+              mobile: boolean | null
+              liveCasino: boolean | null
+              numberOfGames: number | null
+              trustRating: number | null
+              bonusRating: number | null
+              paymentRating: number | null
+              withdrawalRating: number | null
+              minimumDeposit: number | null
+              maximumDeposit: number | null
+              paymentMethods: Array<string> | null
+              companyInfo: {
+                establishedYear: number | null
+                licenses: Array<{
+                  license: string | null
+                  licenseNumber: string | null
+                  licenseAuthority: string | null
+                }> | null
+              } | null
+            }
+            text?: string
+            buttonText?: string
+            showRating?: boolean
+            displayOptions?: {
+              showBonus?: boolean
+              showKeyFeatures?: boolean
+              showPaymentMethods?: boolean
+              showPlatformBadges?: boolean
+              showDepositLimits?: boolean
+              showGameCount?: boolean
+              showEstablishedYear?: boolean
+              showLicense?: boolean
+            }
+            markDefs: null
+          }
+        | {
+            _key: string
+            _type: 'featuredGame'
+            heading?: string
+            game: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'game'
+            }
+            text?: string
+            buttonText?: string
+            affiliateLink?: string
+            showRating?: boolean
+            displayOptions?: {
+              showProvider?: boolean
+              showRTP?: boolean
+              showVolatility?: boolean
+              showReleaseDate?: boolean
+              showGameFeatures?: boolean
+            }
+            markDefs: null
+          }
+        | {
+            _key: string
+            _type: 'featuredGamesGrid'
+            title?: string
+            description?: string
+            games: Array<{
+              _id: string
+              name: string
+              slug: Slug
+              slotsLaunchSlug: string | null
+              slotsLaunchThumb: string | null
+              mainImage: {
+                asset: {
+                  _id: string
+                  url: string | null
+                  metadata: {
+                    lqip: string | null
+                    dimensions: SanityImageDimensions | null
+                  } | null
+                } | null
+                alt: null
+              } | null
+              provider: {
+                name: string
+              }
+              rating: number
+            }> | null
+            markDefs: null
+          }
+        | {
+            asset: {
+              _id: string
+              url: string | null
+              metadata: {
+                lqip: string | null
+                dimensions: SanityImageDimensions | null
+              } | null
+            } | null
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            alt?: string
+            caption?: string
+            _type: 'image'
+            _key: string
+            markDefs: null
+          }
+        | {
+            _key: string
+            _type: 'topListObject'
+            title: string
+            description?: string
+            listItems: Array<{
+              rank: number
+              item:
+                | {
+                    _type: 'casino'
+                    _id: string
+                    name: string
+                    slug: Slug
+                    affiliateLink: string
+                    logo: {
+                      asset?: {
+                        _ref: string
+                        _type: 'reference'
+                        _weak?: boolean
+                        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+                      }
+                      media?: unknown
+                      hotspot?: SanityImageHotspot
+                      crop?: SanityImageCrop
+                      _type: 'image'
+                    }
+                    rating: number
+                    welcomeBonus: string | null
+                    license: string | null
+                    paymentMethods: Array<string> | null
+                    keyFeatures: Array<string> | null
+                    crypto: boolean | null
+                    mobile: boolean | null
+                    liveCasino: boolean | null
+                    minimumDeposit: number | null
+                    maximumDeposit: number | null
+                    numberOfGames: number | null
+                    companyInfo: {
+                      establishedYear: number | null
+                    } | null
+                  }
+                | {
+                    _type: 'game'
+                    _id: string
+                    name: string
+                    slug: Slug
+                    affiliateLink: null
+                    logo: null
+                    rating: number
+                    welcomeBonus: null
+                    license: null
+                    paymentMethods: null
+                    keyFeatures: null
+                    crypto: null
+                    mobile: null
+                    liveCasino: null
+                    minimumDeposit: null
+                    maximumDeposit: null
+                    numberOfGames: null
+                    companyInfo: null
+                  }
+              customDescription?: string
+              _type: 'listItem'
+              _key: string
+            }> | null
+            displayOptions: {
+              showRank?: boolean
+              showLogo?: boolean
+              showName?: boolean
+              showBonus?: boolean
+              showRating?: boolean
+              showDescription?: boolean
+              showLicense?: boolean
+              showActions?: boolean
+              showPaymentMethods?: boolean
+              showKeyFeatures?: boolean
+              showPlatformBadges?: boolean
+              showDepositLimits?: boolean
+              showGameCount?: boolean
+              showEstablishedYear?: boolean
+            } | null
+            markDefs: null
+          }
+      >
+      seo: {
+        metaTitle: string | null
+        metaDescription: string | null
+        ogTitle: string | null
+        ogDescription: string | null
+        ogImage: {
+          asset?: {
+            _ref: string
+            _type: 'reference'
+            _weak?: boolean
+            [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+          }
+          media?: unknown
+          hotspot?: SanityImageHotspot
+          crop?: SanityImageCrop
+          _type: 'image'
+        } | null
+        twitterTitle: string | null
+        twitterDescription: string | null
+        twitterImage: {
+          asset?: {
+            _ref: string
+            _type: 'reference'
+            _weak?: boolean
+            [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+          }
+          media?: unknown
+          hotspot?: SanityImageHotspot
+          crop?: SanityImageCrop
+          _type: 'image'
+        } | null
+        modifiedAt: string | null
+      } | null
+    }
+  | {
+      _id: string
+      _type: 'page'
+      name: string
+      slug: Slug
+      heading: string
+      subheading: string | null
+      pageBuilder: Array<
+        | {
+            _key: string
+            _type: 'callToAction'
+            heading: string
+            text?: string
+            buttonText?: string
+            link: {
+              _type: 'link'
+              linkType?: 'href' | 'page' | 'post'
+              href?: string
+              page: string | null
+              post: string | null
+              openInNewTab?: boolean
+            } | null
+          }
+        | {
+            _key: string
+            _type: 'featuredCasino'
+            heading?: string
+            casino: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'casino'
+            }
+            text?: string
+            buttonText?: string
+            showRating?: boolean
+            displayOptions?: {
+              showBonus?: boolean
+              showKeyFeatures?: boolean
+              showPaymentMethods?: boolean
+              showPlatformBadges?: boolean
+              showDepositLimits?: boolean
+              showGameCount?: boolean
+              showEstablishedYear?: boolean
+              showLicense?: boolean
+            }
+          }
+        | {
+            _key: string
+            _type: 'featuredGame'
+            heading?: string
+            game: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'game'
+            }
+            text?: string
+            buttonText?: string
+            affiliateLink?: string
+            showRating?: boolean
+            displayOptions?: {
+              showProvider?: boolean
+              showRTP?: boolean
+              showVolatility?: boolean
+              showReleaseDate?: boolean
+              showGameFeatures?: boolean
+            }
+          }
+        | {
+            _key: string
+            _type: 'infoSection'
+            heading?: string
+            subheading?: string
+            content: Array<{
+              children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+              }>
+              style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal'
+              listItem?: 'bullet' | 'number'
+              markDefs: Array<{
+                linkType?: 'href' | 'page' | 'post'
+                href?: string
+                page: string | null
+                post: string | null
+                openInNewTab?: boolean
+                _type: 'link'
+                _key: string
+              }> | null
+              level?: number
+              _type: 'block'
+              _key: string
+            }> | null
+          }
+        | {
+            _key: string
+            _type: 'topListObject'
+            title: string
+            description?: string
+            listItems: Array<{
+              rank: number
+              item:
+                | {
+                    _type: 'casino'
+                    _id: string
+                    name: string
+                    slug: Slug
+                    affiliateLink: string
+                    logo: {
+                      asset?: {
+                        _ref: string
+                        _type: 'reference'
+                        _weak?: boolean
+                        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+                      }
+                      media?: unknown
+                      hotspot?: SanityImageHotspot
+                      crop?: SanityImageCrop
+                      _type: 'image'
+                    }
+                    rating: number
+                    welcomeBonus: string | null
+                    license: string | null
+                    paymentMethods: Array<string> | null
+                    keyFeatures: Array<string> | null
+                    crypto: boolean | null
+                    mobile: boolean | null
+                    liveCasino: boolean | null
+                    minimumDeposit: number | null
+                    maximumDeposit: number | null
+                    numberOfGames: number | null
+                    companyInfo: {
+                      establishedYear: number | null
+                    } | null
+                  }
+                | {
+                    _type: 'game'
+                    _id: string
+                    name: string
+                    slug: Slug
+                    affiliateLink: null
+                    logo: null
+                    rating: number
+                    welcomeBonus: null
+                    license: null
+                    paymentMethods: null
+                    keyFeatures: null
+                    crypto: null
+                    mobile: null
+                    liveCasino: null
+                    minimumDeposit: null
+                    maximumDeposit: null
+                    numberOfGames: null
+                    companyInfo: null
+                  }
+              customDescription?: string
+              _type: 'listItem'
+              _key: string
+            }> | null
+            displayOptions: {
+              showRank?: boolean
+              showLogo?: boolean
+              showName?: boolean
+              showBonus?: boolean
+              showRating?: boolean
+              showDescription?: boolean
+              showLicense?: boolean
+              showActions?: boolean
+              showPaymentMethods?: boolean
+              showKeyFeatures?: boolean
+              showPlatformBadges?: boolean
+              showDepositLimits?: boolean
+              showGameCount?: boolean
+              showEstablishedYear?: boolean
+            } | null
+          }
+      > | null
+    }
+  | null
+// Variable: reviewBySlugQuery
+// Query: *[_type == "casinoReview" && slug.current == $slug][0]{      _id,  title,  slug,  publishedAt,  excerpt,  tldr,  locale,  content[] {    ...,    _type == "image" => {      ...,      asset->{        _id,        url,        metadata {          lqip,          dimensions        }      }    },    _type == "authorComment" => {      ...,      avatar {        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      }    }  },  faq[] {    question,    answer  },  seo {    metaTitle,    metaDescription,    ogTitle,    ogDescription,    ogImage,    twitterTitle,    twitterDescription,    twitterImage,    modifiedAt  },  casino->{      _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }  },  author->{    _id,    firstName,    lastName,    slug,    picture {      asset->{        _id,        url,        metadata {          lqip,          dimensions        }      },      alt    },    role,    bio,    expertise,    yearsOfExperience,    credentials,    socialMedia  },  "similarCasinos": *[_type == "casino" && _id != ^.casino._ref && (    companyInfo.licenses[0].licenseAuthority == ^.casino->companyInfo.licenses[0].licenseAuthority ||    (rating >= ^.casino->rating - 1.5 && rating <= ^.casino->rating + 1.5)  )][0...4]{    _id,    name,    slug,    logo {      asset->{        url,        metadata {          lqip        }      },      alt    },    rating,    crypto,    mobile,    liveCasino,    welcomeBonus  }  }
+export type ReviewBySlugQueryResult = {
+  _id: string
+  title: string
+  slug: Slug
+  publishedAt: string | null
+  excerpt: string | null
+  tldr: string | null
+  locale: 'en' | 'ro' | null
+  content: Array<
+    | {
+        _key: string
+        _type: 'authorComment'
+        author: string
+        role?: string
+        avatar: {
+          asset: {
+            _id: string
+            url: string | null
+            metadata: {
+              lqip: string | null
+              dimensions: SanityImageDimensions | null
+            } | null
+          } | null
+        } | null
+        comment: string
+      }
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'blockquote' | 'h2' | 'h3' | 'h4' | 'normal'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href: string
+          openInNewTab?: boolean
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | {
+        asset: {
+          _id: string
+          url: string | null
+          metadata: {
+            lqip: string | null
+            dimensions: SanityImageDimensions | null
+          } | null
+        } | null
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        alt?: string
+        caption?: string
+        _type: 'image'
+        _key: string
+      }
+  >
+  faq: Array<{
+    question: string
+    answer: string
+  }> | null
+  seo: {
+    metaTitle: string | null
+    metaDescription: string | null
+    ogTitle: string | null
+    ogDescription: string | null
+    ogImage: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    twitterTitle: string | null
+    twitterDescription: string | null
+    twitterImage: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    modifiedAt: string | null
+  } | null
+  casino: {
+    _id: string
+    name: string
+    slug: Slug
+    logo: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    featuredBanner: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    rating: number
+    welcomeBonus: string | null
+    affiliateLink: string
+    pros: Array<string> | null
+    cons: Array<string> | null
+    keyFeatures: Array<string> | null
+    legalEntity: string | null
+    crypto: boolean | null
+    mobile: boolean | null
+    liveCasino: boolean | null
+    numberOfGames: number | null
+    trustRating: number | null
+    bonusRating: number | null
+    paymentRating: number | null
+    withdrawalRating: number | null
+    minimumDeposit: number | null
+    maximumDeposit: number | null
+    paymentMethods: Array<string> | null
+    companyInfo: {
+      establishedYear: number | null
+      licenses: Array<{
+        license: string | null
+        licenseNumber: string | null
+        licenseAuthority: string | null
+      }> | null
+    } | null
+  }
+  author: {
+    _id: string
+    firstName: string
+    lastName: string
+    slug: Slug
+    picture: {
+      asset: {
+        _id: string
+        url: string | null
+        metadata: {
+          lqip: string | null
+          dimensions: SanityImageDimensions | null
+        } | null
+      } | null
+      alt: string | null
+    } | null
+    role: string | null
+    bio: string | null
+    expertise: Array<string> | null
+    yearsOfExperience: number | null
+    credentials: Array<string> | null
+    socialMedia: {
+      linkedin?: string
+      twitter?: string
+      facebook?: string
+      instagram?: string
+      website?: string
+    } | null
+  }
+  similarCasinos: Array<{
+    _id: string
+    name: string
+    slug: Slug
+    logo: {
+      asset: {
+        url: string | null
+        metadata: {
+          lqip: string | null
+        } | null
+      } | null
+      alt: null
+    }
+    rating: number
+    crypto: boolean | null
+    mobile: boolean | null
+    liveCasino: boolean | null
+    welcomeBonus: string | null
+  }>
+} | null
+// Variable: reviewSlugsQuery
+// Query: *[_type == "casinoReview" && defined(slug.current)]  {"slug": slug.current}
+export type ReviewSlugsQueryResult = Array<{
+  slug: string
+}>
+// Variable: gameContentBySlugQuery
+// Query: *[_type == "game" && (slotsLaunchSlug == $slug || slotsLaunchId == $id)][0]{    _id,    name,    slug,    slotsLaunchId,    slotsLaunchSlug,    rating,    mainImage {      asset->{        _id,        url,        metadata {          lqip,          dimensions        }      },      alt    },    provider->{      name    },    seoContent  }
+export type GameContentBySlugQueryResult = {
+  _id: string
+  name: string
+  slug: Slug
+  slotsLaunchId: number | null
+  slotsLaunchSlug: string | null
+  rating: number
+  mainImage: {
+    asset: {
+      _id: string
+      url: string | null
+      metadata: {
+        lqip: string | null
+        dimensions: SanityImageDimensions | null
+      } | null
+    } | null
+    alt: null
+  } | null
+  provider: {
+    name: string
+  }
+  seoContent: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }> | null
+} | null
+// Variable: infoPageBySlugQuery
+// Query: *[_type == "infoPage" && slug.current == $slug][0]{    _id,    _type,    title,    slug,    heading,    subheading,    excerpt,    publishedAt,    locale,    author->{      _id,      firstName,      lastName,      slug,      picture {        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        },        alt      },      role,      bio,      expertise,      yearsOfExperience,      credentials,      socialMedia    },    content[]{      ...,      _type == "image" => {        ...,        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      },      _type == "authorComment" => {        ...,        avatar {          asset->{            _id,            url,            metadata {              lqip,              dimensions            }          }        }      },      _type == "topListObject" => {        ...,        displayOptions,        listItems[]{          ...,          item->{            _type,            _id,            name,            slug,            affiliateLink,            logo,            rating,            welcomeBonus,            "license": companyInfo.licenses[0].license,            paymentMethods,            keyFeatures,            crypto,            mobile,            liveCasino,            minimumDeposit,            maximumDeposit,            numberOfGames,            companyInfo {              establishedYear            }          }        }      },      _type == "faqSection" => {        ...,        faqs[]{          question,          answer        }      },      _type == "featuredCasino" => {        ...,        casino->{            _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }        }      },      _type == "featuredGame" => {        ...,        affiliateLink,        game->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          rating,          mainImage,          provider->{            name          }        }      },      _type == "featuredGamesGrid" => {        ...,        games[]->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          mainImage {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          provider->{            name          },          rating        }      },      _type == "callToAction" => {        ...,        link {          ...,          _type == "link" => {            "page": page->slug.current,            "post": post->slug.current          }        }      },      _type == "bonusCalculator" => {        ...      },      markDefs[]{        ...,        _type == "link" => {          ...,          href        }      }    },    seo {      metaTitle,      metaDescription,      ogTitle,      ogDescription,      ogImage,      twitterTitle,      twitterDescription,      twitterImage,      modifiedAt    }  }
+export type InfoPageBySlugQueryResult = {
+  _id: string
+  _type: 'infoPage'
+  title: string
+  slug: Slug
+  heading: string
+  subheading: string | null
+  excerpt: string | null
+  publishedAt: string | null
+  locale: 'en' | 'ro' | null
+  author: {
+    _id: string
+    firstName: string
+    lastName: string
+    slug: Slug
+    picture: {
+      asset: {
+        _id: string
+        url: string | null
+        metadata: {
+          lqip: string | null
+          dimensions: SanityImageDimensions | null
+        } | null
+      } | null
+      alt: string | null
+    } | null
+    role: string | null
+    bio: string | null
+    expertise: Array<string> | null
+    yearsOfExperience: number | null
+    credentials: Array<string> | null
+    socialMedia: {
+      linkedin?: string
+      twitter?: string
+      facebook?: string
+      instagram?: string
+      website?: string
+    } | null
+  } | null
+  content: Array<
+    | {
+        _key: string
+        _type: 'authorComment'
+        author: string
+        role?: string
+        avatar: {
+          asset: {
+            _id: string
+            url: string | null
+            metadata: {
+              lqip: string | null
+              dimensions: SanityImageDimensions | null
+            } | null
+          } | null
+        } | null
+        comment: string
+        markDefs: null
+      }
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'blockquote' | 'h2' | 'h3' | 'h4' | 'normal'
+        listItem?: 'bullet' | 'number'
+        markDefs: Array<{
+          href: string
+          openInNewTab?: boolean
+          _type: 'link'
+          _key: string
+        }> | null
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | {
+        _key: string
+        _type: 'bonusCalculator'
+        title?: string
+        description?: string
+        defaultDeposit?: number
+        defaultBonus?: number
+        defaultWagering?: number
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'callToAction'
+        heading: string
+        text?: string
+        buttonText?: string
+        link: {
+          _type: 'link'
+          linkType?: 'href' | 'page' | 'post'
+          href?: string
+          page: string | null
+          post: string | null
+          openInNewTab?: boolean
+        } | null
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'faqSection'
+        title?: string
+        description?: string
+        faqs: Array<{
+          question: string
+          answer: string
+        }>
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'featuredCasino'
+        heading?: string
+        casino: {
+          _id: string
+          name: string
+          slug: Slug
+          logo: {
+            asset?: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+            }
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            _type: 'image'
+          }
+          featuredBanner: {
+            asset?: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+            }
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            _type: 'image'
+          } | null
+          rating: number
+          welcomeBonus: string | null
+          affiliateLink: string
+          pros: Array<string> | null
+          cons: Array<string> | null
+          keyFeatures: Array<string> | null
+          legalEntity: string | null
+          crypto: boolean | null
+          mobile: boolean | null
+          liveCasino: boolean | null
+          numberOfGames: number | null
+          trustRating: number | null
+          bonusRating: number | null
+          paymentRating: number | null
+          withdrawalRating: number | null
+          minimumDeposit: number | null
+          maximumDeposit: number | null
+          paymentMethods: Array<string> | null
+          companyInfo: {
+            establishedYear: number | null
+            licenses: Array<{
+              license: string | null
+              licenseNumber: string | null
+              licenseAuthority: string | null
+            }> | null
+          } | null
+        }
+        text?: string
+        buttonText?: string
+        showRating?: boolean
+        displayOptions?: {
+          showBonus?: boolean
+          showKeyFeatures?: boolean
+          showPaymentMethods?: boolean
+          showPlatformBadges?: boolean
+          showDepositLimits?: boolean
+          showGameCount?: boolean
+          showEstablishedYear?: boolean
+          showLicense?: boolean
+        }
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'featuredGame'
+        heading?: string
+        game: {
+          _id: string
+          name: string
+          slug: Slug
+          slotsLaunchSlug: string | null
+          slotsLaunchThumb: string | null
+          rating: number
+          mainImage: {
+            asset?: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+            }
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            _type: 'image'
+          } | null
+          provider: {
+            name: string
+          }
+        }
+        text?: string
+        buttonText?: string
+        affiliateLink: string | null
+        showRating?: boolean
+        displayOptions?: {
+          showProvider?: boolean
+          showRTP?: boolean
+          showVolatility?: boolean
+          showReleaseDate?: boolean
+          showGameFeatures?: boolean
+        }
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'featuredGamesGrid'
+        title?: string
+        description?: string
+        games: Array<{
+          _id: string
+          name: string
+          slug: Slug
+          slotsLaunchSlug: string | null
+          slotsLaunchThumb: string | null
+          mainImage: {
+            asset: {
+              _id: string
+              url: string | null
+              metadata: {
+                lqip: string | null
+                dimensions: SanityImageDimensions | null
+              } | null
+            } | null
+            alt: null
+          } | null
+          provider: {
+            name: string
+          }
+          rating: number
+        }> | null
+        markDefs: null
+      }
+    | {
+        asset: {
+          _id: string
+          url: string | null
+          metadata: {
+            lqip: string | null
+            dimensions: SanityImageDimensions | null
+          } | null
+        } | null
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        alt?: string
+        caption?: string
+        _type: 'image'
+        _key: string
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'topListObject'
+        title: string
+        description?: string
+        listItems: Array<{
+          rank: number
+          item:
+            | {
+                _type: 'casino'
+                _id: string
+                name: string
+                slug: Slug
+                affiliateLink: string
+                logo: {
+                  asset?: {
+                    _ref: string
+                    _type: 'reference'
+                    _weak?: boolean
+                    [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+                  }
+                  media?: unknown
+                  hotspot?: SanityImageHotspot
+                  crop?: SanityImageCrop
+                  _type: 'image'
+                }
+                rating: number
+                welcomeBonus: string | null
+                license: string | null
+                paymentMethods: Array<string> | null
+                keyFeatures: Array<string> | null
+                crypto: boolean | null
+                mobile: boolean | null
+                liveCasino: boolean | null
+                minimumDeposit: number | null
+                maximumDeposit: number | null
+                numberOfGames: number | null
+                companyInfo: {
+                  establishedYear: number | null
+                } | null
+              }
+            | {
+                _type: 'game'
+                _id: string
+                name: string
+                slug: Slug
+                affiliateLink: null
+                logo: null
+                rating: number
+                welcomeBonus: null
+                license: null
+                paymentMethods: null
+                keyFeatures: null
+                crypto: null
+                mobile: null
+                liveCasino: null
+                minimumDeposit: null
+                maximumDeposit: null
+                numberOfGames: null
+                companyInfo: null
+              }
+          customDescription?: string
+          _type: 'listItem'
+          _key: string
+        }> | null
+        displayOptions: {
+          showRank?: boolean
+          showLogo?: boolean
+          showName?: boolean
+          showBonus?: boolean
+          showRating?: boolean
+          showDescription?: boolean
+          showLicense?: boolean
+          showActions?: boolean
+          showPaymentMethods?: boolean
+          showKeyFeatures?: boolean
+          showPlatformBadges?: boolean
+          showDepositLimits?: boolean
+          showGameCount?: boolean
+          showEstablishedYear?: boolean
+        } | null
+        markDefs: null
+      }
+  >
+  seo: {
+    metaTitle: string | null
+    metaDescription: string | null
+    ogTitle: string | null
+    ogDescription: string | null
+    ogImage: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    twitterTitle: string | null
+    twitterDescription: string | null
+    twitterImage: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    modifiedAt: string | null
+  } | null
+} | null
+// Variable: infoPageSlugsQuery
+// Query: *[_type == "infoPage" && defined(slug.current)]  {"slug": slug.current}
+export type InfoPageSlugsQueryResult = Array<{
   slug: string
 }>
 
@@ -811,12 +3947,24 @@ import '@sanity/client'
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "settings"][0]': SettingsQueryResult
-    '\n  *[_type == \'page\' && slug.current == $slug][0]{\n    _id,\n    _type,\n    name,\n    slug,\n    heading,\n    subheading,\n    "pageBuilder": pageBuilder[]{\n      ...,\n      _type == "callToAction" => {\n        \n  link {\n      ...,\n      \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n      }\n,\n      },\n      _type == "infoSection" => {\n        content[]{\n          ...,\n          markDefs[]{\n            ...,\n            \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n          }\n        }\n      },\n    },\n  }\n': GetPageQueryResult
-    '\n  *[_type == "page" || _type == "post" && defined(slug.current)] | order(_type asc) {\n    "slug": slug.current,\n    _type,\n    _updatedAt,\n  }\n': SitemapDataResult
+    '\n  *[_type == "homePage"][0]{\n    _id,\n    title,\n    heroBanner,\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            _type,\n            _id,\n            name,\n            slug,\n            affiliateLink,\n            logo,\n            rating,\n            welcomeBonus,\n            "license": companyInfo.licenses[0].license,\n            paymentMethods,\n            keyFeatures,\n            crypto,\n            mobile,\n            liveCasino,\n            minimumDeposit,\n            maximumDeposit,\n            numberOfGames,\n            companyInfo {\n              establishedYear\n            }\n          }\n        }\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "featuredCasino" => {\n        ...,\n        casino->{\n          \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n        }\n      },\n      _type == "featuredGame" => {\n        ...,\n        affiliateLink,\n        game->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          rating,\n          mainImage,\n          provider->{\n            name\n          }\n        }\n      },\n      _type == "featuredGamesGrid" => {\n        ...,\n        games[]->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          mainImage {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          provider->{\n            name\n          },\n          rating\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        }\n      },\n      _type == "bonusCalculator" => {\n        ...\n      },\n      _type == "reviewMethodology" => {\n        ...,\n        criteria[]{\n          _key,\n          iconName,\n          customIcon {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          title,\n          description\n        }\n      },\n      _type == "beginnersGuide" => {\n        ...,\n        topics[]{\n          _key,\n          iconName,\n          customIcon {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          title,\n          shortDescription,\n          detailedExplanation,\n          exampleValues,\n          colorTheme\n        }\n      },\n      _type == "authorIntroSection" => {\n        ...,\n        author->{\n          _id,\n          firstName,\n          lastName,\n          slug,\n          picture {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          role,\n          bio,\n          expertise,\n          yearsOfExperience,\n          credentials,\n          socialMedia\n        }\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogTitle,\n      ogDescription,\n      ogImage,\n      twitterTitle,\n      twitterDescription,\n      twitterImage\n    }\n  }\n': HomePageQueryResult
+    '\n  *[_type == \'page\' && slug.current == $slug][0]{\n    _id,\n    _type,\n    name,\n    slug,\n    heading,\n    subheading,\n    "pageBuilder": pageBuilder[]{\n      ...,\n      _type == "callToAction" => {\n        \n  link {\n      ...,\n      \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n      }\n,\n      },\n      _type == "infoSection" => {\n        content[]{\n          ...,\n          markDefs[]{\n            ...,\n            \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            _type,\n            _id,\n            name,\n            slug,\n            affiliateLink,\n            logo,\n            rating,\n            welcomeBonus,\n            "license": companyInfo.licenses[0].license,\n            paymentMethods,\n            keyFeatures,\n            crypto,\n            mobile,\n            liveCasino,\n            minimumDeposit,\n            maximumDeposit,\n            numberOfGames,\n            companyInfo {\n              establishedYear\n            }\n          }\n        }\n      },\n    },\n  }\n': GetPageQueryResult
+    '\n  *[_type == "casinoReview" && slug.current == $slug][0]{\n    \n  title,\n  publishedAt,\n  excerpt,\n  seo,\n  body,\n  casino->{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n  }\n\n  }\n': CasinoReviewQueryResult
+    '\n  *[_type == "casino" && slug.current == $slug][0]{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n,\n    review->{\n      \n  title,\n  publishedAt,\n  excerpt,\n  seo,\n  body,\n  casino->{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n  }\n\n    }\n  }\n': CasinoPageQueryResult
+    '\n  *[_type == "casino" && defined(slug.current)]{\n    "slug": slug.current\n  }\n': CasinoSlugsResult
+    '\n  *[_type == "casino" && slug.current == $slug][0]{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n  }\n': CasinoBySlugQueryResult
+    '\n  *[_type == "slotsPageSettings"][0]{\n    featuredCasino->{\n      \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n    },\n    featuredGamesGrid {\n      title,\n      description,\n      games[]->{\n        _id,\n        name,\n        slug,\n        slotsLaunchSlug,\n        slotsLaunchThumb,\n        mainImage {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          },\n          alt\n        },\n        provider->{\n          name\n        },\n        rating\n      }\n    },\n    content\n  }\n': SlotsPageSettingsQueryResult
+    '\n  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" && defined(slug.current)] | order(_type asc) {\n    "slug": slug.current,\n    _type,\n    _updatedAt,\n  }\n': SitemapDataResult
     '\n  *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  "status": select(_originalId in path("drafts.**") => "draft", "published"),\n  "title": coalesce(title, "Untitled"),\n  "slug": slug.current,\n  excerpt,\n  coverImage,\n  "date": coalesce(date, _updatedAt),\n  "author": author->{firstName, lastName, picture},\n\n  }\n': AllPostsQueryResult
     '\n  *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n    \n  _id,\n  "status": select(_originalId in path("drafts.**") => "draft", "published"),\n  "title": coalesce(title, "Untitled"),\n  "slug": slug.current,\n  excerpt,\n  coverImage,\n  "date": coalesce(date, _updatedAt),\n  "author": author->{firstName, lastName, picture},\n\n  }\n': MorePostsQueryResult
     '\n  *[_type == "post" && slug.current == $slug] [0] {\n    content[]{\n    ...,\n    markDefs[]{\n      ...,\n      \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n    }\n  },\n    \n  _id,\n  "status": select(_originalId in path("drafts.**") => "draft", "published"),\n  "title": coalesce(title, "Untitled"),\n  "slug": slug.current,\n  excerpt,\n  coverImage,\n  "date": coalesce(date, _updatedAt),\n  "author": author->{firstName, lastName, picture},\n\n  }\n': PostQueryResult
     '\n  *[_type == "post" && defined(slug.current)]\n  {"slug": slug.current}\n': PostPagesSlugsResult
-    '\n  *[_type == "page" && defined(slug.current)]\n  {"slug": slug.current}\n': PagesSlugsResult
+    '\n  *[(_type == "page" || _type == "infoPage") && defined(slug.current)]\n  {"slug": slug.current}\n': PagesSlugsResult
+    '\n  *[(_type == "page" || _type == "infoPage") && slug.current == $slug][0]{\n    _id,\n    _type,\n    _type == "page" => {\n      name,\n      slug,\n      heading,\n      subheading,\n      "pageBuilder": pageBuilder[]{\n        ...,\n        _type == "callToAction" => {\n          link {\n            ...,\n            _type == "link" => {\n              "page": page->slug.current,\n              "post": post->slug.current\n            }\n          },\n        },\n        _type == "infoSection" => {\n          content[]{\n            ...,\n            markDefs[]{\n              ...,\n              _type == "link" => {\n                "page": page->slug.current,\n                "post": post->slug.current\n              }\n            }\n          }\n        },\n        _type == "topListObject" => {\n          ...,\n          displayOptions,\n          listItems[]{\n            ...,\n            item->{\n              _type,\n              _id,\n              name,\n              slug,\n              affiliateLink,\n              logo,\n              rating,\n              welcomeBonus,\n              "license": companyInfo.licenses[0].license,\n              paymentMethods,\n              keyFeatures,\n              crypto,\n              mobile,\n              liveCasino,\n              minimumDeposit,\n              maximumDeposit,\n              numberOfGames,\n              companyInfo {\n                establishedYear\n              }\n            }\n          }\n        },\n      },\n    },\n    _type == "infoPage" => {\n      title,\n      slug,\n      heading,\n      subheading,\n      excerpt,\n      publishedAt,\n      locale,\n      author->{\n        _id,\n        firstName,\n        lastName,\n        slug,\n        picture {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          },\n          alt\n        },\n        role,\n        bio,\n        expertise,\n        yearsOfExperience,\n        credentials,\n        socialMedia\n      },\n      content[]{\n        ...,\n        _type == "image" => {\n          ...,\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        },\n        _type == "authorComment" => {\n          ...,\n          avatar {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            }\n          }\n        },\n        _type == "topListObject" => {\n          ...,\n          displayOptions,\n          listItems[]{\n            ...,\n            item->{\n              _type,\n              _id,\n              name,\n              slug,\n              affiliateLink,\n              logo,\n              rating,\n              welcomeBonus,\n              "license": companyInfo.licenses[0].license,\n              paymentMethods,\n              keyFeatures,\n              crypto,\n              mobile,\n              liveCasino,\n              minimumDeposit,\n              maximumDeposit,\n              numberOfGames,\n              companyInfo {\n                establishedYear\n              }\n            }\n          }\n        },\n        _type == "faqSection" => {\n          ...,\n          faqs[]{\n            question,\n            answer\n          }\n        },\n        _type == "featuredCasino" => {\n          ...,\n          casino->{\n            \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n          }\n        },\n        _type == "featuredGamesGrid" => {\n          ...,\n          games[]->{\n            _id,\n            name,\n            slug,\n            slotsLaunchSlug,\n            slotsLaunchThumb,\n            mainImage {\n              asset->{\n                _id,\n                url,\n                metadata {\n                  lqip,\n                  dimensions\n                }\n              },\n              alt\n            },\n            provider->{\n              name\n            },\n            rating\n          }\n        },\n        _type == "callToAction" => {\n          ...,\n          link {\n            ...,\n            _type == "link" => {\n              "page": page->slug.current,\n              "post": post->slug.current\n            }\n          }\n        },\n        _type == "bonusCalculator" => {\n          ...\n        },\n        markDefs[]{\n          ...,\n          _type == "link" => {\n            ...,\n            href\n          }\n        }\n      },\n      seo {\n        metaTitle,\n        metaDescription,\n        ogTitle,\n        ogDescription,\n        ogImage,\n        twitterTitle,\n        twitterDescription,\n        twitterImage,\n        modifiedAt\n      }\n    }\n  }\n': GetPageOrInfoPageQueryResult
+    '\n  *[_type == "casinoReview" && slug.current == $slug][0]{\n    \n  _id,\n  title,\n  slug,\n  publishedAt,\n  excerpt,\n  tldr,\n  locale,\n  content[] {\n    ...,\n    _type == "image" => {\n      ...,\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip,\n          dimensions\n        }\n      }\n    },\n    _type == "authorComment" => {\n      ...,\n      avatar {\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      }\n    }\n  },\n  faq[] {\n    question,\n    answer\n  },\n  seo {\n    metaTitle,\n    metaDescription,\n    ogTitle,\n    ogDescription,\n    ogImage,\n    twitterTitle,\n    twitterDescription,\n    twitterImage,\n    modifiedAt\n  },\n  casino->{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n  },\n  author->{\n    _id,\n    firstName,\n    lastName,\n    slug,\n    picture {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip,\n          dimensions\n        }\n      },\n      alt\n    },\n    role,\n    bio,\n    expertise,\n    yearsOfExperience,\n    credentials,\n    socialMedia\n  },\n  "similarCasinos": *[_type == "casino" && _id != ^.casino._ref && (\n    companyInfo.licenses[0].licenseAuthority == ^.casino->companyInfo.licenses[0].licenseAuthority ||\n    (rating >= ^.casino->rating - 1.5 && rating <= ^.casino->rating + 1.5)\n  )][0...4]{\n    _id,\n    name,\n    slug,\n    logo {\n      asset->{\n        url,\n        metadata {\n          lqip\n        }\n      },\n      alt\n    },\n    rating,\n    crypto,\n    mobile,\n    liveCasino,\n    welcomeBonus\n  }\n\n  }\n': ReviewBySlugQueryResult
+    '\n  *[_type == "casinoReview" && defined(slug.current)]\n  {"slug": slug.current}\n': ReviewSlugsQueryResult
+    '\n  *[_type == "game" && (slotsLaunchSlug == $slug || slotsLaunchId == $id)][0]{\n    _id,\n    name,\n    slug,\n    slotsLaunchId,\n    slotsLaunchSlug,\n    rating,\n    mainImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip,\n          dimensions\n        }\n      },\n      alt\n    },\n    provider->{\n      name\n    },\n    seoContent\n  }\n': GameContentBySlugQueryResult
+    '\n  *[_type == "infoPage" && slug.current == $slug][0]{\n    _id,\n    _type,\n    title,\n    slug,\n    heading,\n    subheading,\n    excerpt,\n    publishedAt,\n    locale,\n    author->{\n      _id,\n      firstName,\n      lastName,\n      slug,\n      picture {\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        },\n        alt\n      },\n      role,\n      bio,\n      expertise,\n      yearsOfExperience,\n      credentials,\n      socialMedia\n    },\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            _type,\n            _id,\n            name,\n            slug,\n            affiliateLink,\n            logo,\n            rating,\n            welcomeBonus,\n            "license": companyInfo.licenses[0].license,\n            paymentMethods,\n            keyFeatures,\n            crypto,\n            mobile,\n            liveCasino,\n            minimumDeposit,\n            maximumDeposit,\n            numberOfGames,\n            companyInfo {\n              establishedYear\n            }\n          }\n        }\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "featuredCasino" => {\n        ...,\n        casino->{\n          \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n        }\n      },\n      _type == "featuredGame" => {\n        ...,\n        affiliateLink,\n        game->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          rating,\n          mainImage,\n          provider->{\n            name\n          }\n        }\n      },\n      _type == "featuredGamesGrid" => {\n        ...,\n        games[]->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          mainImage {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          provider->{\n            name\n          },\n          rating\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        }\n      },\n      _type == "bonusCalculator" => {\n        ...\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogTitle,\n      ogDescription,\n      ogImage,\n      twitterTitle,\n      twitterDescription,\n      twitterImage,\n      modifiedAt\n    }\n  }\n': InfoPageBySlugQueryResult
+    '\n  *[_type == "infoPage" && defined(slug.current)]\n  {"slug": slug.current}\n': InfoPageSlugsQueryResult
   }
 }

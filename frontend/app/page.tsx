@@ -1,83 +1,130 @@
-import {Suspense} from 'react'
-import Link from 'next/link'
+import type {Metadata, ResolvingMetadata} from 'next'
 import {PortableText} from '@portabletext/react'
 
-import {AllPosts} from '@/app/components/Posts'
-import GetStartedCode from '@/app/components/GetStartedCode'
-import SideBySideIcons from '@/app/components/SideBySideIcons'
-import {settingsQuery} from '@/sanity/lib/queries'
+import {ContentSections} from '@/app/components/ContentSections'
 import {sanityFetch} from '@/sanity/lib/live'
+import {homePageQuery} from '@/sanity/lib/queries'
+import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 
-export default async function Page() {
-  const {data: settings} = await sanityFetch({
-    query: settingsQuery,
+/**
+ * Generate metadata for the homepage
+ */
+export async function generateMetadata(
+  props: {},
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const {data: homePageData} = await sanityFetch({
+    query: homePageQuery,
+    stega: false,
   })
 
+  if (!homePageData) {
+    return {
+      title: 'Cazinou Online România',
+      description: 'Descoperă cele mai bune cazinouri online din România',
+    }
+  }
+
+  const title = homePageData.seo?.metaTitle || 'Cazinou Online România'
+  const description =
+    homePageData.seo?.metaDescription || 'Descoperă cele mai bune cazinouri online din România'
+  const ogImageSource = homePageData.seo?.ogImage
+  const previousImages = (await parent).openGraph?.images || []
+  const ogImage = resolveOpenGraphImage(ogImageSource)
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: homePageData.seo?.ogTitle ?? title,
+      description: homePageData.seo?.ogDescription ?? description,
+      images: ogImage ? [ogImage, ...previousImages] : previousImages,
+    },
+    twitter: {
+      title: homePageData.seo?.twitterTitle ?? homePageData.seo?.ogTitle ?? title,
+      description:
+        homePageData.seo?.twitterDescription ?? homePageData.seo?.ogDescription ?? description,
+      images: ogImage ? [ogImage, ...previousImages] : previousImages,
+    },
+  }
+}
+
+export default async function HomePage() {
+  const {data: homePageData} = await sanityFetch({
+    query: homePageQuery,
+  })
+
+  if (!homePageData) {
+    return (
+      <div className="container py-20">
+        <div className="mx-auto max-w-2xl text-center">
+          <h1 className="text-4xl font-bold text-gray-900">Bine ați venit!</h1>
+          <p className="mt-4 text-lg text-gray-600">
+            Homepage-ul este în curs de configurare. Mergi la Sanity Studio și creează un document
+            de tip &quot;Home Page&quot; pentru a începe.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <>
-      <div className="relative">
-        <div className="relative bg-[url(/images/tile-1-black.png)] bg-size-[5px]">
-          <div className="bg-gradient-to-b from-white w-full h-full absolute top-0"></div>
-          <div className="container">
-            <div className="relative min-h-[40vh] mx-auto max-w-2xl pt-10 xl:pt-20 pb-30 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center justify-center">
-              <div className="flex flex-col gap-4 items-center">
-                <div className="text-md leading-6 prose uppercase py-1 px-3 bg-white font-mono italic">
-                  A starter template for
-                </div>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black">
-                  <Link
-                    className="underline decoration-brand hover:text-brand underline-offset-8 hover:underline-offset-4 transition-all ease-out"
-                    href="https://sanity.io/"
-                  >
-                    Sanity
-                  </Link>
-                  +
-                  <Link
-                    className="underline decoration-black text-framework underline-offset-8 hover:underline-offset-4 transition-all ease-out"
-                    href="https://nextjs.org/"
-                  >
-                    Next.js
-                  </Link>
-                </h1>
+    <div className="bg-white">
+      {/* Hero Banner Section */}
+      {homePageData.heroBanner && (
+        <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-white"></div>
+          <div className="container relative py-12 lg:py-20">
+            <div className="mx-auto max-w-5xl">
+              <div className="prose prose-lg lg:prose-xl max-w-none text-center">
+                <PortableText
+                  value={homePageData.heroBanner}
+                  components={{
+                    block: {
+                      h1: ({children}) => (
+                        <h1 className="mb-6 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-6xl font-mono">
+                          {children}
+                        </h1>
+                      ),
+                      h2: ({children}) => (
+                        <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
+                          {children}
+                        </h2>
+                      ),
+                      normal: ({children}) => (
+                        <p className="text-lg text-gray-700 lg:text-xl leading-relaxed">
+                          {children}
+                        </p>
+                      ),
+                    },
+                    marks: {
+                      link: ({value, children}) => {
+                        const target = value?.openInNewTab ? '_blank' : undefined
+                        const rel = value?.openInNewTab ? 'noopener noreferrer' : undefined
+                        return (
+                          <a
+                            href={value?.href}
+                            target={target}
+                            rel={rel}
+                            className="text-orange-600 underline decoration-2 underline-offset-4 hover:text-orange-700 transition-colors"
+                          >
+                            {children}
+                          </a>
+                        )
+                      },
+                    },
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
-        <div className=" flex flex-col items-center">
-          <SideBySideIcons />
-          <div className="container relative mx-auto max-w-2xl pb-20 pt-10 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center">
-            <div className="prose sm:prose-lg md:prose-xl xl:prose-2xl text-gray-700 prose-a:text-gray-700 font-light text-center">
-              {settings?.description && <PortableText value={settings.description} />}
-              <div className="flex items-center flex-col gap-4">
-                <GetStartedCode />
-                <Link
-                  href="https://www.sanity.io/docs"
-                  className="inline-flex text-brand text-xs md:text-sm underline hover:text-gray-900"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Sanity Documentation
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    className="w-4 h-4 ml-1 inline"
-                    fill="currentColor"
-                  >
-                    <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V12L17.206 8.207L11.2071 14.2071L9.79289 12.7929L15.792 6.793L12 3H21Z"></path>
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+      )}
+
+      {/* Main Content Sections */}
+      <div className="pb-12 lg:pb-24">
+        {homePageData.content && <ContentSections content={homePageData.content} />}
       </div>
-      <div className="border-t border-gray-100 bg-gray-50">
-        <div className="container">
-          <aside className="py-12 sm:py-20">
-            <Suspense>{await AllPosts()}</Suspense>
-          </aside>
-        </div>
-      </div>
-    </>
+    </div>
   )
 }
