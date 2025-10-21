@@ -12,6 +12,7 @@ import {BonusCalculator} from '@/app/components/BonusCalculator'
 import {AuthorIntro} from '@/app/components/AuthorIntro'
 import {ReviewMethodology} from '@/app/components/ReviewMethodology'
 import {BeginnersGuide} from '@/app/components/BeginnersGuide'
+import {AboutUs} from '@/app/components/AboutUs'
 import Cta from '@/app/components/Cta'
 import SimpleButton from '@/app/components/SimpleButton'
 import {urlForImage} from '@/sanity/lib/utils'
@@ -68,11 +69,9 @@ export function ContentSections({content, author}: ContentSectionsProps) {
         if (Array.isArray(item)) {
           return (
             <div key={`text-${index}`} className="container">
-              <div className="max-w-5xl mx-auto">
-                <article className="prose max-w-none">
-                  <CustomPortableText value={item} author={author} />
-                </article>
-              </div>
+              <article className="prose max-w-none">
+                <CustomPortableText value={item} author={author} />
+              </article>
             </div>
           )
         }
@@ -158,6 +157,13 @@ export function ContentSections({content, author}: ContentSectionsProps) {
             return (
               <div key={componentItem._key || `beginners-guide-${index}`} className="container">
                 <BeginnersGuide data={componentItem} index={index} />
+              </div>
+            )
+
+          case 'aboutUs':
+            return (
+              <div key={componentItem._key || `about-us-${index}`} className="container">
+                <AboutUs data={componentItem} index={index} />
               </div>
             )
 

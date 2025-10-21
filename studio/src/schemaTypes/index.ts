@@ -2,6 +2,7 @@ import {person} from './documents/person'
 import {page} from './documents/page'
 import {post} from './documents/post'
 import {infoPage} from './documents/infoPage'
+import {loto} from './documents/loto'
 import {callToAction} from './objects/callToAction'
 import {infoSection} from './objects/infoSection'
 import {settings} from './singletons/settings'
@@ -24,6 +25,7 @@ import {featuredGame} from './objects/featuredGame'
 import {bonusCalculator} from './objects/bonusCalculator'
 import {reviewMethodology} from './objects/reviewMethodology'
 import {beginnersGuide} from './objects/beginnersGuide'
+import {aboutUs} from './objects/aboutUs'
 import {simpleButton} from './objects/simpleButton'
 
 // Export an array of all the schema types.  This is used in the Sanity Studio configuration. https://www.sanity.io/docs/schema-types
@@ -38,6 +40,7 @@ export const schemaTypes = [
   page,
   post,
   infoPage,
+  loto,
   person,
   provider,
   game,
@@ -59,4 +62,5 @@ export const schemaTypes = [
   bonusCalculator,
   reviewMethodology,
   beginnersGuide,
+  aboutUs,
 ]

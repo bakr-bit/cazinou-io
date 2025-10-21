@@ -135,6 +135,7 @@ export const homePage = defineType({
         {type: 'featuredGame'},
         {type: 'reviewMethodology'},
         {type: 'beginnersGuide'},
+        {type: 'aboutUs'},
         {type: 'authorComment'},
         {type: 'faqSection'},
         {type: 'featuredGamesGrid'},

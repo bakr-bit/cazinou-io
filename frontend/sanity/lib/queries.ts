@@ -609,8 +609,123 @@ export const lotoPageSettingsQuery = defineQuery(`
   }
 `)
 
+export const lotoSlugsQuery = defineQuery(`
+  *[_type == "loto" && defined(slug.current)]
+  {"slug": slug.current}
+`)
+
+export const lotoQuery = defineQuery(`
+  *[_type == "loto" && slug.current == $slug][0]{
+    _id,
+    title,
+    heading,
+    excerpt,
+    apiSlug,
+    publishedAt,
+    author->{
+      firstName,
+      lastName,
+      picture
+    },
+    content[]{
+      ...,
+      _type == "image" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
+      _type == "authorComment" => {
+        ...,
+        avatar {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          }
+        }
+      },
+      _type == "topListObject" => {
+        ...,
+        displayOptions,
+        listItems[]{
+          ...,
+          item->{
+            ${casinoCoreFields}
+          }
+        }
+      },
+      _type == "faqSection" => {
+        ...,
+        faqs[]{
+          question,
+          answer
+        }
+      },
+      _type == "featuredCasino" => {
+        ...,
+        casino->{
+          ${casinoCoreFields}
+        }
+      },
+      _type == "featuredGame" => {
+        ...,
+        affiliateLink,
+        game->{
+          _id,
+          name,
+          slug,
+          slotsLaunchSlug,
+          slotsLaunchThumb,
+          rating,
+          mainImage,
+          provider->{
+            name
+          }
+        }
+      },
+      _type == "callToAction" => {
+        ...,
+        link {
+          ...,
+          _type == "link" => {
+            "page": page->slug.current,
+            "post": post->slug.current
+          }
+        }
+      },
+      _type == "bonusCalculator" => {
+        ...
+      },
+      markDefs[]{
+        ...,
+        _type == "link" => {
+          ...,
+          href
+        }
+      }
+    },
+    seo {
+      metaTitle,
+      metaDescription,
+      ogTitle,
+      ogDescription,
+      ogImage,
+      modifiedAt
+    }
+  }
+`)
+
 export const sitemapData = defineQuery(`
-  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" && defined(slug.current)] | order(_type asc) {
+  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" && defined(slug.current)] | order(_type asc) {
     "slug": slug.current,
     _type,
     _updatedAt,

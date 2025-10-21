@@ -57,6 +57,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           changeFrequency = 'monthly'
           url = `${domain}/${p.slug}`
           break
+        case 'loto':
+          priority = 0.9
+          changeFrequency = 'weekly'
+          url = `${domain}/loto-online/${p.slug}`
+          break
       }
       sitemap.push({
         lastModified: p._updatedAt || new Date(),

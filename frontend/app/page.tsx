@@ -2,6 +2,7 @@ import type {Metadata, ResolvingMetadata} from 'next'
 import {PortableText} from '@portabletext/react'
 
 import {ContentSections} from '@/app/components/ContentSections'
+import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
 import {sanityFetch} from '@/sanity/lib/live'
 import {homePageQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
@@ -125,6 +126,9 @@ export default async function HomePage() {
       <div className="pb-12 lg:pb-24">
         {homePageData.content && <ContentSections content={homePageData.content} />}
       </div>
+
+      {/* Responsible Gaming Disclaimer */}
+      <ResponsibleGamingDisclaimer />
     </div>
   )
 }

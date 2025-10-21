@@ -38,6 +38,7 @@ import {
   Wallet,
   Banknote,
   CircleDollarSign,
+  Gamepad,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -85,6 +86,9 @@ export const iconMap: Record<string, LucideIcon> = {
   'dice-4': Dice4,
   'dice-5': Dice5,
   'dice-6': Dice6,
+
+  // Gaming
+  gamepad: Gamepad,
 
   // Time & Percentages
   clock: Clock,

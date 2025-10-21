@@ -1,0 +1,162 @@
+export interface NavigationItem {
+  label: string
+  href: string
+}
+
+export interface NavigationCategory {
+  label: string
+  href: string
+  items: NavigationItem[]
+}
+
+export const navigationData: NavigationCategory[] = [
+  {
+    label: 'Lista Cazinouri',
+    href: '/lista-cazinouri-straine',
+    items: [
+      { label: 'Lista Cazinouri', href: '/lista-cazinouri-straine' },
+      { label: 'Cazinouri Noi 2025', href: '/cazinouri-noi' },
+      { label: 'Casino fără verificare', href: '/casino-fara-verificare' },
+      { label: 'Cazinouri Online Care Plătesc', href: '/cazinouri-online-care-platesc' },
+      { label: 'Cazinouri pe Mobil', href: '/cazinouri-pe-mobil' },
+      { label: 'Cazinouri online Germania', href: '/cazinouri-online-germania' },
+      { label: 'Cazinouri online Olanda', href: '/cazinouri-online-olanda' },
+      { label: 'Case Pariuri Internationale', href: '/case-pariuri-crypto' },
+      { label: 'Case de pariuri Spania', href: '/case-de-pariuri-spania' },
+      { label: 'Case de pariuri Germania', href: '/case-de-pariuri-germania' },
+      { label: 'Cazinouri online Franța', href: '/cazinouri-online-franta' },
+      { label: 'Cazinouri Online Belgia', href: '/cazinouri-online-belgia' },
+      { label: 'Cazinouri Online Italia', href: '/cazinouri-online-italia' },
+      { label: 'Cazinouri online Irlanda', href: '/cazinouri-online-irlanda' },
+    ],
+  },
+  {
+    label: 'Recenzii',
+    href: '/recenzii',
+    items: [
+      { label: 'GGBet Casino', href: '/recenzii/gg-bet-casino' },
+      { label: 'Flagman Casino', href: '/recenzii/flagman-casino' },
+      { label: 'SpinBetter Casino', href: '/recenzii/spinbetter-casino' },
+      { label: 'VeloBet Casino', href: '/recenzii/velobet-casino' },
+      { label: 'Vezi toate recenziile', href: '/recenzii' },
+    ],
+  },
+  {
+    label: 'Rotiri Gratuite',
+    href: '/rotiri-gratuite',
+    items: [
+      { label: 'Rotiri Gratuite', href: '/rotiri-gratuite' },
+      { label: 'Bonus De Bun Venit', href: '/bonus-de-bun-venit' },
+      { label: 'Bani Reali', href: '/bani-reali' },
+      { label: 'Cashback Casino', href: '/bonus-cashback-casino' },
+      { label: 'Coduri Bonus', href: '/cod-bonus' },
+      { label: 'Bonus De Ziua Ta Casino', href: '/bonus-de-ziua-ta-casino' },
+      { label: 'Roata Norocului Casino', href: '/roata-norocului-casino' },
+      { label: 'Turnee Sloturi', href: '/turnee-sloturi' },
+      { label: 'Free Bet Pariuri', href: '/free-bet-pariuri' },
+    ],
+  },
+  {
+    label: 'Pacanele Gratis',
+    href: '/pacanele-gratis',
+    items: [
+      { label: 'Pacanele Gratis', href: '/pacanele-gratis' },
+      { label: 'Pacanele cu fructe demo', href: '/pacanele-gratis/fructe-demo' },
+      { label: 'Pacanele 77777 demo', href: '/pacanele-gratis/pacanele-clasice-77777-demo' },
+      { label: 'Pacanele noi gratis 2025', href: '/pacanele-gratis/pacanele-noi' },
+      { label: 'Pacanele cu speciale demo', href: '/pacanele-gratis/pacanele-cu-speciale-demo' },
+      { label: 'EGT Jackpot Cards Demo', href: '/egt-jackpot-cards-demo' },
+      { label: 'Jocuri Poker Ca La Aparate Gratis', href: '/pacanele-gratis/poker-ca-la-aparate-gratis' },
+      { label: 'Lozuri Razuibile Online', href: '/lozuri-razuibile-online' },
+      { label: 'Jocuri Plinko Demo', href: '/plinko-online' },
+      { label: 'Keno Loto Gratis Online', href: '/pacanele-gratis/keno-loto-demo' },
+      { label: 'Jocuri Bingo Online Gratis', href: '/bingo-online' },
+      { label: 'Jocuri cu RTP mare', href: '/pacanele-gratis/jocuri-cu-rtp-mare' },
+      { label: 'Pacanele cu Femei Gratis', href: '/pacanele-gratis/pacanele-cu-femei' },
+      { label: 'Jocuri Sic Bo Demo', href: '/pacanele-gratis/sic-bo-demo' },
+      { label: 'Jocuri cu Zaruri Online Gratis', href: '/pacanele-gratis/jocuri-cu-zaruri-gratis' },
+      { label: 'Jocuri Mahjong Gratis', href: '/pacanele-gratis/jocuri-mahjong-gratis' },
+      { label: 'Jocuri Gratis pe Telefon', href: '/jocuri-gratis' },
+    ],
+  },
+  {
+    label: 'Furnizori',
+    href: '#',
+    items: [
+      { label: 'Jocuri EGT demo', href: '/pacanele-gratis/amusnet-demo' },
+      { label: 'Jocuri Pragmatic Play demo', href: '/pacanele-gratis/pragmatic-play-demo' },
+      { label: 'Pacanele Light Wonder demo', href: '/pacanele-gratis/light-wonder-demo' },
+      { label: 'Jocuri Novomatic demo', href: '/pacanele-gratis/novomatic-demo' },
+      { label: 'Pacanele Hacksaw Gaming Demo', href: '/pacanele-gratis/hacksaw-gaming-demo' },
+      { label: 'Pacanele Habanero demo', href: '/pacanele-gratis/habanero-demo' },
+      { label: 'Pacanele Thunderkick demo', href: '/pacanele-gratis/thunderkick-demo' },
+      { label: 'Pacanele Games Global demo', href: '/pacanele-gratis/games-global-demo' },
+      { label: 'Pacanele Gaming Corps demo', href: '/pacanele-gratis/gaming-corps-demo' },
+      { label: 'Pacanele Smartsoft demo', href: '/pacanele-gratis/smartsoft-demo' },
+      { label: 'Pacanele Push Gaming demo', href: '/pacanele-gratis/push-gaming-demo' },
+      { label: 'Pacanele Endorphina demo', href: '/pacanele-gratis/endorphina-demo' },
+      { label: 'Pacanele Playtech demo', href: '/pacanele-gratis/playtech-demo' },
+      { label: 'Pacanele Play n GO demo', href: '/pacanele-gratis/play-n-go-demo' },
+      { label: 'Pacanele Gamomat demo', href: '/pacanele-gratis/gamomat-demo' },
+      { label: 'Pacanele Wazdan demo', href: '/pacanele-gratis/wazdan-demo' },
+    ],
+  },
+  {
+    label: 'Cazinouri Bitcoin',
+    href: '/crypto-casino',
+    items: [
+      { label: 'Cazinouri Bitcoin', href: '/crypto-casino' },
+      { label: 'Cazinouri Anonime', href: '/cazinouri-anonime' },
+      { label: 'Cazinouri Ethereum', href: '/cazinouri-ethereum' },
+      { label: 'Valoare Ethereum', href: '/valoare-ethereum' },
+      { label: 'Cazinouri USDT / Tether', href: '/cazinouri-usdt-tether' },
+      { label: 'Cazinouri Tron / TRX', href: '/cazinouri-tron-trx' },
+    ],
+  },
+  {
+    label: 'Casino Live',
+    href: '/casino-live',
+    items: [
+      { label: 'Casino Live', href: '/casino-live' },
+      { label: 'Blackjack Live', href: '/blackjack-live' },
+      { label: 'Ruleta Live', href: '/ruleta-live' },
+      { label: 'Poker Live', href: '/poker-live' },
+      { label: 'Baccarat Live', href: '/baccarat-live' },
+    ],
+  },
+  {
+    label: 'Plati',
+    href: '/metode-de-plata',
+    items: [
+      { label: 'Metode de Plată', href: '/metode-de-plata' },
+      { label: 'Cazinouri portofele electronice', href: '/metode-de-plata/cazinouri-cu-portofele-electronice' },
+      { label: 'Cazinouri cu Cardul', href: '/metode-de-plata/cazinouri-cu-cardul' },
+    ],
+  },
+  {
+    label: 'Loto',
+    href: '/loto-online',
+    items: [
+      { label: 'Loto Online', href: '/loto-online' },
+      { label: 'Loto Letonia 20/62', href: '/loto-online/letonia-20-62' },
+      { label: 'Polonia Kaskada 12/24', href: '/loto-online/polonia-kaskada-12-24' },
+      { label: 'Loto Canada Atlantic Bucko', href: '/loto-online/loto-canada-atlantic-bucko' },
+      { label: 'Loto Colorado Cash 5', href: '/loto-online/colorado-cash-5' },
+      { label: 'Loto Danemarca 7/36', href: '/loto-online/loto-danemarca' },
+      { label: 'Loto Elvetia 6/42', href: '/loto-online/loto-elvetia-6-42' },
+      { label: 'Loto Germania 6/49', href: '/loto-online/loto-germania' },
+      { label: 'Loto Irlanda 6/47', href: '/loto-online/loto-irlanda' },
+      { label: 'Loto Italia Bari 5/90', href: '/loto-online/loto-italia-bari' },
+      { label: 'Loto Italia Cagliari 5/90', href: '/loto-online/loto-italia-cagliari' },
+      { label: 'Loto Italia Florența 5/90', href: '/loto-online/loto-italia-florenta' },
+      { label: 'Loto Italia Genova 5/90', href: '/loto-online/loto-italia-genova' },
+      { label: 'Loto Italia Napoli 5/90', href: '/loto-online/loto-italia-napoli' },
+      { label: 'Loto New York Pick 10', href: '/loto-online/loto-new-york-pick' },
+      { label: 'Loto Norvegia', href: '/loto-online/loto-norvegia' },
+      { label: 'Loto Slovacia Keno 20/80', href: '/loto-online/loto-slovacia' },
+      { label: 'Loto Spania', href: '/loto-online/spania-bono' },
+      { label: 'Loto Turcia 6/49', href: '/loto-online/loto-turcia' },
+      { label: 'EuroJackpot & EuroMillions', href: '/loto-online/eurojackpot-euromillions' },
+    ],
+  },
+]

@@ -1,22 +1,22 @@
 import {defineField, defineType} from 'sanity'
-import {DocumentsIcon} from '@sanity/icons'
+import {UsersIcon} from '@sanity/icons'
 
 /**
- * Review Methodology schema object for displaying review criteria and process.
- * Shows how casinos/games are evaluated with a card-based layout.
+ * About Us schema object for displaying company information, values, or team info.
+ * Card-based layout with rich text support.
  */
 
-export const reviewMethodology = defineType({
-  name: 'reviewMethodology',
-  title: 'Review Methodology',
+export const aboutUs = defineType({
+  name: 'aboutUs',
+  title: 'About Us',
   type: 'object',
-  icon: DocumentsIcon,
+  icon: UsersIcon,
   fields: [
     defineField({
       name: 'heading',
       title: 'Section Heading',
       type: 'string',
-      description: 'Main heading for this section (e.g., "Our Review Methodology")',
+      description: 'Main heading for this section (e.g., "About Us", "Our Mission")',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -24,19 +24,19 @@ export const reviewMethodology = defineType({
       title: 'Introduction Text',
       type: 'text',
       rows: 3,
-      description: 'Explanation of your review approach and process',
+      description: 'Brief introduction to this section',
     }),
     defineField({
-      name: 'criteria',
-      title: 'Review Criteria',
+      name: 'items',
+      title: 'About Items',
       type: 'array',
-      description: 'List of criteria used in your reviews',
+      description: 'Cards displaying information about your company, values, or team',
       validation: (Rule) => Rule.required().min(1),
       of: [
         {
           type: 'object',
-          name: 'criterion',
-          title: 'Criterion',
+          name: 'aboutItem',
+          title: 'About Item',
           fields: [
             defineField({
               name: 'iconName',
@@ -45,35 +45,29 @@ export const reviewMethodology = defineType({
               description: 'Select an icon from the library',
               options: {
                 list: [
-                  // Security & Trust
-                  {title: 'Shield (Security)', value: 'shield'},
-                  {title: 'Lock (Protection)', value: 'lock'},
-                  {title: 'File Check (Verified)', value: 'file-check'},
-                  {title: 'Check Circle (Approved)', value: 'check-circle'},
-                  {title: 'Check Square (Confirmed)', value: 'check-square'},
-                  // Quality & Rating
+                  // Company & Team
+                  {title: 'Users (Team)', value: 'users'},
                   {title: 'Award (Excellence)', value: 'award'},
+                  {title: 'Target (Mission)', value: 'target'},
+                  {title: 'Eye (Vision)', value: 'eye'},
+                  {title: 'Lightbulb (Innovation)', value: 'lightbulb'},
+                  // Trust & Security
+                  {title: 'Shield (Trust)', value: 'shield'},
+                  {title: 'Lock (Security)', value: 'lock'},
+                  {title: 'Check Circle (Quality)', value: 'check-circle'},
                   {title: 'Star (Rating)', value: 'star'},
-                  {title: 'Target (Accuracy)', value: 'target'},
                   // Performance
-                  {title: 'Trending Up (Performance)', value: 'trending-up'},
-                  {title: 'Activity (Analytics)', value: 'activity'},
-                  {title: 'Bar Chart (Statistics)', value: 'bar-chart'},
+                  {title: 'Trending Up (Growth)', value: 'trending-up'},
                   {title: 'Zap (Speed)', value: 'zap'},
-                  // Transparency
-                  {title: 'Eye (Transparency)', value: 'eye'},
-                  {title: 'Search (Review)', value: 'search'},
-                  // Community
-                  {title: 'Users (Community)', value: 'users'},
-                  // Money
-                  {title: 'Dollar Sign (Money)', value: 'dollar-sign'},
-                  {title: 'Coins (Rewards)', value: 'coins'},
-                  {title: 'Credit Card (Payments)', value: 'credit-card'},
-                  // Information
+                  {title: 'Activity (Active)', value: 'activity'},
+                  // Support & Community
+                  {title: 'Help Circle (Support)', value: 'help-circle'},
                   {title: 'Info (Information)', value: 'info'},
-                  {title: 'Lightbulb (Insight)', value: 'lightbulb'},
-                  // Gaming
-                  {title: 'Gamepad (Gaming)', value: 'gamepad'},
+                  // Other
+                  {title: 'Settings (Process)', value: 'settings'},
+                  {title: 'Search (Research)', value: 'search'},
+                  {title: 'Book Open (Knowledge)', value: 'book-open'},
+                  {title: 'Graduation Cap (Expertise)', value: 'graduation-cap'},
                 ],
                 layout: 'dropdown',
               },
@@ -90,16 +84,16 @@ export const reviewMethodology = defineType({
             }),
             defineField({
               name: 'title',
-              title: 'Criterion Name',
+              title: 'Item Title',
               type: 'string',
-              description: 'Name of this review criterion (e.g., "Security & Licensing")',
+              description: 'Title for this card (e.g., "Our Mission", "Expert Team")',
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              name: 'description',
-              title: 'Description',
+              name: 'content',
+              title: 'Content',
               type: 'array',
-              description: 'Detailed explanation of what you evaluate in this criterion (supports rich text formatting)',
+              description: 'Rich text content for this item (supports formatting, lists, and links)',
               validation: (Rule) => Rule.required(),
               of: [
                 {
@@ -143,20 +137,44 @@ export const reviewMethodology = defineType({
                 },
               ],
             }),
+            defineField({
+              name: 'colorTheme',
+              title: 'Color Theme',
+              type: 'string',
+              description: 'Accent color for this card',
+              options: {
+                list: [
+                  {title: 'Orange', value: 'orange'},
+                  {title: 'Blue', value: 'blue'},
+                  {title: 'Green', value: 'green'},
+                  {title: 'Purple', value: 'purple'},
+                  {title: 'Teal', value: 'teal'},
+                ],
+                layout: 'radio',
+              },
+              initialValue: 'orange',
+              validation: (Rule) => Rule.required(),
+            }),
           ],
           preview: {
             select: {
               title: 'title',
-              description: 'description',
+              content: 'content',
               iconName: 'iconName',
               media: 'customIcon',
+              colorTheme: 'colorTheme',
             },
-            prepare({title, description, iconName, media}) {
+            prepare({title, content, iconName, media, colorTheme}) {
               // Extract plain text from Portable Text array
-              const descText = description?.[0]?.children?.[0]?.text || ''
+              const contentText = content?.[0]?.children?.[0]?.text || ''
+              const parts = []
+              if (iconName) parts.push(iconName)
+              if (colorTheme) parts.push(colorTheme)
+              const prefix = parts.length > 0 ? `${parts.join(' • ')} • ` : ''
+
               return {
-                title: title || 'Untitled Criterion',
-                subtitle: iconName ? `${iconName} • ${descText.substring(0, 40) || ''}` : descText.substring(0, 60) || '',
+                title: title || 'Untitled Item',
+                subtitle: prefix + contentText.substring(0, 60),
                 media,
               }
             },
@@ -168,12 +186,12 @@ export const reviewMethodology = defineType({
   preview: {
     select: {
       title: 'heading',
-      criteriaCount: 'criteria.length',
+      itemsCount: 'items.length',
     },
-    prepare({title, criteriaCount}) {
+    prepare({title, itemsCount}) {
       return {
-        title: title || 'Review Methodology',
-        subtitle: criteriaCount ? `${criteriaCount} criteria` : 'No criteria defined',
+        title: title || 'About Us',
+        subtitle: itemsCount ? `${itemsCount} items` : 'No items defined',
       }
     },
   },

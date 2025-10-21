@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import {PortableText, type PortableTextBlock, type PortableTextComponents} from 'next-sanity'
 import {urlForImage} from '@/sanity/lib/utils'
 import {getIconComponent} from '@/lib/iconMapper'
 
@@ -20,7 +21,7 @@ type Criterion = {
     alt?: string
   }
   title: string
-  description: string
+  description: PortableTextBlock[]
 }
 
 type ReviewMethodologyBlock = {
@@ -34,6 +35,61 @@ type ReviewMethodologyBlock = {
 type ReviewMethodologyProps = {
   data: ReviewMethodologyBlock
   index: number
+}
+
+// Custom Portable Text components for card descriptions
+const cardTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({children}) => (
+      <p className="text-center text-sm leading-relaxed text-gray-600 mb-3 last:mb-0">
+        {children}
+      </p>
+    ),
+    h3: ({children}) => (
+      <h3 className="text-center text-base font-semibold text-gray-800 mb-2">
+        {children}
+      </h3>
+    ),
+    h4: ({children}) => (
+      <h4 className="text-center text-sm font-semibold text-gray-800 mb-2">
+        {children}
+      </h4>
+    ),
+  },
+  list: {
+    bullet: ({children}) => (
+      <ul className="text-left text-sm text-gray-600 space-y-1 mb-3 list-disc pl-5">
+        {children}
+      </ul>
+    ),
+    number: ({children}) => (
+      <ol className="text-left text-sm text-gray-600 space-y-1 mb-3 list-decimal pl-5">
+        {children}
+      </ol>
+    ),
+  },
+  listItem: {
+    bullet: ({children}) => <li className="leading-relaxed">{children}</li>,
+    number: ({children}) => <li className="leading-relaxed">{children}</li>,
+  },
+  marks: {
+    strong: ({children}) => <strong className="font-semibold text-gray-800">{children}</strong>,
+    em: ({children}) => <em className="italic">{children}</em>,
+    link: ({value, children}) => {
+      const target = value?.openInNewTab ? '_blank' : undefined
+      const rel = value?.openInNewTab ? 'noopener noreferrer' : undefined
+      return (
+        <a
+          href={value?.href}
+          target={target}
+          rel={rel}
+          className="text-orange-600 hover:text-orange-700 underline"
+        >
+          {children}
+        </a>
+      )
+    },
+  },
 }
 
 export function ReviewMethodology({data, index}: ReviewMethodologyProps) {
@@ -129,10 +185,10 @@ export function ReviewMethodology({data, index}: ReviewMethodologyProps) {
                   {criterion.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-center text-sm leading-relaxed text-gray-600 flex-1">
-                  {criterion.description}
-                </p>
+                {/* Description - Rich Text */}
+                <div className="flex-1">
+                  <PortableText value={criterion.description} components={cardTextComponents} />
+                </div>
               </div>
             </div>
           )
