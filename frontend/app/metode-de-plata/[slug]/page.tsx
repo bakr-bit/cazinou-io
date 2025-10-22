@@ -48,8 +48,8 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     return generateSEO({
       title: pageData.seo?.metaTitle || pageData.title,
       description: pageData.seo?.metaDescription || pageData.excerpt || '',
-      ogTitle: pageData.seo?.ogTitle,
-      ogDescription: pageData.seo?.ogDescription,
+      ogTitle: pageData.seo?.ogTitle || undefined,
+      ogDescription: pageData.seo?.ogDescription || undefined,
       ogImage: pageData.seo?.ogImage,
     })
   }
@@ -63,7 +63,7 @@ export default async function MetodeNestedPage({params}: Props) {
   const {slug} = await params
   const fullSlug = `metode-de-plata/${slug}`
 
-  const {data: pageData} = await sanityFetch<GetPageQueryResult>({
+  const {data: pageData} = await sanityFetch({
     query: getPageOrInfoPageQuery,
     params: {slug: fullSlug},
   })

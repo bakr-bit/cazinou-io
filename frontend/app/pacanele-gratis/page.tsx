@@ -290,10 +290,10 @@ export default async function SlotsPage() {
       </div>
 
       {/* Featured Casino Banner */}
-      <FeaturedCasinoBanner casino={featuredCasino} />
+      <FeaturedCasinoBanner casino={featuredCasino as any} />
 
       {/* Featured Games Grid (Sanity-managed) */}
-      <FeaturedGamesGrid data={slotsSettings?.featuredGamesGrid} />
+      <FeaturedGamesGrid data={slotsSettings?.featuredGamesGrid as any} />
 
       {/* Featured Slots (SlotsLaunch API) */}
       <FeaturedSlotsGrid />
@@ -338,7 +338,7 @@ export default async function SlotsPage() {
       </div>
 
       {/* Content Sections */}
-      <ContentSections content={slotsSettings?.content} />
+      <ContentSections content={slotsSettings?.content || undefined} />
 
       {/* Responsible Gaming Disclaimer */}
       <ResponsibleGamingDisclaimer />

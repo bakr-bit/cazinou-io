@@ -23,8 +23,8 @@ export async function generateMetadata(): Promise<Metadata> {
     return generateSEO({
       title: pageData.seo?.metaTitle || pageData.title,
       description: pageData.seo?.metaDescription || pageData.excerpt || '',
-      ogTitle: pageData.seo?.ogTitle,
-      ogDescription: pageData.seo?.ogDescription,
+      ogTitle: pageData.seo?.ogTitle || undefined,
+      ogDescription: pageData.seo?.ogDescription || undefined,
       ogImage: pageData.seo?.ogImage,
     })
   }
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MetodeDePlataPage() {
-  const {data: pageData} = await sanityFetch<GetPageQueryResult>({
+  const {data: pageData} = await sanityFetch({
     query: getPageOrInfoPageQuery,
     params: {slug: SLUG},
   })

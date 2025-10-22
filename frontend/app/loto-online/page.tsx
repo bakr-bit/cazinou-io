@@ -22,14 +22,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return generateSEO({
     title: data.seo?.metaTitle || data.heading || 'Loto Online',
     description: data.seo?.metaDescription || data.description || '',
-    ogTitle: data.seo?.ogTitle,
-    ogDescription: data.seo?.ogDescription,
+    ogTitle: data.seo?.ogTitle || undefined,
+    ogDescription: data.seo?.ogDescription || undefined,
     ogImage: data.seo?.ogImage,
   })
 }
 
 export default async function LotoOnlinePage() {
-  const { data: pageSettings } = await sanityFetch<LotoPageSettingsQueryResult>({
+  const { data: pageSettings } = await sanityFetch({
     query: lotoPageSettingsQuery,
   })
 
@@ -60,14 +60,14 @@ export default async function LotoOnlinePage() {
       {/* Featured Casino Banner */}
       {pageSettings.featuredCasino && (
         <div className="mb-12">
-          <FeaturedCasinoBanner casino={pageSettings.featuredCasino} />
+          <FeaturedCasinoBanner casino={pageSettings.featuredCasino as any} />
         </div>
       )}
 
       {/* Main Content */}
       {pageSettings.content && pageSettings.content.length > 0 && (
         <div className="prose prose-lg max-w-none">
-          <CustomPortableText value={pageSettings.content} />
+          <CustomPortableText value={pageSettings.content as any} />
         </div>
       )}
     </div>

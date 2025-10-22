@@ -54,9 +54,12 @@ export function linkResolver(link: Link | undefined) {
     link.linkType = 'href'
   }
 
-  switch (link.linkType) {
+  // Cast to any to handle custom link types not in generated types
+  const anyLink = link as any
+
+  switch (anyLink.linkType) {
     case 'internal':
-      return link.internalPath || null
+      return anyLink.internalPath || null
     case 'href':
       return link.href || null
     case 'page':
@@ -70,13 +73,13 @@ export function linkResolver(link: Link | undefined) {
       }
       return null
     case 'infoPage':
-      if (link?.infoPage && typeof link.infoPage === 'string') {
-        return `/${link.infoPage}`
+      if (anyLink?.infoPage && typeof anyLink.infoPage === 'string') {
+        return `/${anyLink.infoPage}`
       }
       return null
     case 'casinoReview':
-      if (link?.casinoReview && typeof link.casinoReview === 'string') {
-        return `/recenzii/${link.casinoReview}`
+      if (anyLink?.casinoReview && typeof anyLink.casinoReview === 'string') {
+        return `/recenzii/${anyLink.casinoReview}`
       }
       return null
     default:

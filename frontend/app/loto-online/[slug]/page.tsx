@@ -40,8 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return generateSEO({
     title: loto.seo?.metaTitle || loto.title,
     description: loto.seo?.metaDescription || loto.excerpt || '',
-    ogTitle: loto.seo?.ogTitle,
-    ogDescription: loto.seo?.ogDescription,
+    ogTitle: loto.seo?.ogTitle || undefined,
+    ogDescription: loto.seo?.ogDescription || undefined,
     ogImage: loto.seo?.ogImage,
     article: {
       publishedTime: loto.publishedAt || undefined,
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LotoGamePage({ params }: Props) {
   const { slug } = await params
-  const { data: loto } = await sanityFetch<LotoQueryResult>({
+  const { data: loto } = await sanityFetch({
     query: lotoQuery,
     params: { slug },
   })
@@ -87,7 +87,7 @@ export default async function LotoGamePage({ params }: Props) {
               <div className="flex items-center gap-2">
                 {loto.author.picture && (
                   <Image
-                    src={loto.author.picture}
+                    src={loto.author.picture as any}
                     alt={`${loto.author.firstName} ${loto.author.lastName}`}
                     width={40}
                     height={40}
@@ -115,7 +115,7 @@ export default async function LotoGamePage({ params }: Props) {
       {/* Main Content */}
       {loto.content && loto.content.length > 0 && (
         <div className="prose prose-lg max-w-none">
-          <CustomPortableText value={loto.content} />
+          <CustomPortableText value={loto.content as any} />
         </div>
       )}
 
