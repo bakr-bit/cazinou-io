@@ -127,8 +127,8 @@ async function fetchAllSlotsData(): Promise<CachedData> {
       (_, i) => i + 2
     )
 
-    const BATCH_SIZE = isDev ? 1 : 3 // Sequential in dev, smaller batches in prod
-    const BATCH_DELAY = isDev ? 1000 : 500 // Longer delays to prevent rate limiting
+    const BATCH_SIZE = 1 // Sequential requests to prevent rate limiting
+    const BATCH_DELAY = 5000 // 5 second delay between requests to prevent 429 errors
     const remainingResults = []
 
     console.log(`📊 Fetching ${remainingPages.length} additional pages in batches of ${BATCH_SIZE}...`)
