@@ -86,7 +86,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
               <VisualEditing />
             </>
           )}
-          {/* The <SanityLive> component is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
+          {/* The <SanityLive> component   is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
           <SanityLive onError={handleError} />
           <Header />
           <main className="">{children}</main>
