@@ -146,13 +146,28 @@ async function fetchAllSlotsData(): Promise<CachedData> {
           page: pageNum,
           order: 'asc',
           order_by: 'name',
+        }).catch((error) => {
+          console.warn(`⚠️ Failed to fetch page ${pageNum}:`, error.message)
+          return null // Return null for failed requests
         })
       )
 
-      const batchResults = await Promise.all(batchPromises)
-      remainingResults.push(...batchResults)
+      try {
+        const batchResults = await Promise.all(batchPromises)
+        // Filter out null results from failed requests
+        const successfulResults = batchResults.filter((result): result is NonNullable<typeof result> => result !== null)
+        remainingResults.push(...successfulResults)
 
-      console.log(`✅ Batch ${batchNum}/${totalBatches} complete`)
+        const failedCount = batchResults.length - successfulResults.length
+        if (failedCount > 0) {
+          console.log(`✅ Batch ${batchNum}/${totalBatches} complete (${failedCount} requests failed)`)
+        } else {
+          console.log(`✅ Batch ${batchNum}/${totalBatches} complete`)
+        }
+      } catch (error) {
+        console.warn(`⚠️ Batch ${batchNum}/${totalBatches} failed completely, continuing with available data...`)
+        // Continue with what we have - don't throw
+      }
 
       if (i + BATCH_SIZE < remainingPages.length) {
         console.log(`⏱️  Waiting ${BATCH_DELAY}ms before next batch...`)
@@ -168,9 +183,18 @@ async function fetchAllSlotsData(): Promise<CachedData> {
 
   // Fetch filter options - always just first page in dev
   const [firstProviderPage, firstTypePage, firstThemePage] = await Promise.all([
-    fetchProviders({per_page: 100}),
-    fetchTypes({per_page: 100}),
-    fetchThemes({per_page: 100}),
+    fetchProviders({per_page: 100}).catch((error) => {
+      console.warn('⚠️ Failed to fetch providers:', error.message)
+      return { data: [], meta: { total: 0, per_page: 100, current_page: 1, from: 0, last_page: 0, path: '', to: 0 } }
+    }),
+    fetchTypes({per_page: 100}).catch((error) => {
+      console.warn('⚠️ Failed to fetch types:', error.message)
+      return { data: [], meta: { total: 0, per_page: 100, current_page: 1, from: 0, last_page: 0, path: '', to: 0 } }
+    }),
+    fetchThemes({per_page: 100}).catch((error) => {
+      console.warn('⚠️ Failed to fetch themes:', error.message)
+      return { data: [], meta: { total: 0, per_page: 100, current_page: 1, from: 0, last_page: 0, path: '', to: 0 } }
+    }),
   ])
 
   let allProviders = firstProviderPage.data
@@ -186,7 +210,12 @@ async function fetchAllSlotsData(): Promise<CachedData> {
     if (providerTotalPages > 1) {
       const providerPages = Array.from({length: providerTotalPages - 1}, (_, i) => i + 2)
       const providerResults = await Promise.all(
-        providerPages.map((page) => fetchProviders({per_page: providerActualPerPage, page}))
+        providerPages.map((page) =>
+          fetchProviders({per_page: providerActualPerPage, page}).catch((error) => {
+            console.warn(`⚠️ Failed to fetch providers page ${page}:`, error.message)
+            return { data: [], meta: { total: 0, per_page: 100, current_page: page, from: 0, last_page: 0, path: '', to: 0 } }
+          })
+        )
       )
       allProviders = [...firstProviderPage.data, ...providerResults.flatMap((r) => r.data)]
     }
@@ -198,7 +227,12 @@ async function fetchAllSlotsData(): Promise<CachedData> {
     if (typeTotalPages > 1) {
       const typePages = Array.from({length: typeTotalPages - 1}, (_, i) => i + 2)
       const typeResults = await Promise.all(
-        typePages.map((page) => fetchTypes({per_page: typeActualPerPage, page}))
+        typePages.map((page) =>
+          fetchTypes({per_page: typeActualPerPage, page}).catch((error) => {
+            console.warn(`⚠️ Failed to fetch types page ${page}:`, error.message)
+            return { data: [], meta: { total: 0, per_page: 100, current_page: page, from: 0, last_page: 0, path: '', to: 0 } }
+          })
+        )
       )
       allTypes = [...firstTypePage.data, ...typeResults.flatMap((r) => r.data)]
     }
@@ -210,7 +244,12 @@ async function fetchAllSlotsData(): Promise<CachedData> {
     if (themeTotalPages > 1) {
       const themePages = Array.from({length: themeTotalPages - 1}, (_, i) => i + 2)
       const themeResults = await Promise.all(
-        themePages.map((page) => fetchThemes({per_page: themeActualPerPage, page}))
+        themePages.map((page) =>
+          fetchThemes({per_page: themeActualPerPage, page}).catch((error) => {
+            console.warn(`⚠️ Failed to fetch themes page ${page}:`, error.message)
+            return { data: [], meta: { total: 0, per_page: 100, current_page: page, from: 0, last_page: 0, path: '', to: 0 } }
+          })
+        )
       )
       allThemes = [...firstThemePage.data, ...themeResults.flatMap((r) => r.data)]
     }
