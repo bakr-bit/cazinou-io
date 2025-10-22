@@ -1,7 +1,7 @@
 import { sanityFetch } from '@/sanity/lib/live'
 import { lotoQuery, lotoSlugsQuery } from '@/sanity/lib/queries'
 import { LotoQueryResult } from '@/sanity.types'
-import { PortableText } from '@/app/components/PortableText'
+import CustomPortableText from '@/app/components/PortableText'
 import { Metadata } from 'next'
 import { generateSEO } from '@/sanity/lib/seo'
 import { notFound } from 'next/navigation'
@@ -115,7 +115,7 @@ export default async function LotoGamePage({ params }: Props) {
       {/* Main Content */}
       {loto.content && loto.content.length > 0 && (
         <div className="prose prose-lg max-w-none">
-          <PortableText value={loto.content} />
+          <CustomPortableText value={loto.content} />
         </div>
       )}
 

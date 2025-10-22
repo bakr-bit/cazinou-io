@@ -1,7 +1,7 @@
 import { sanityFetch } from '@/sanity/lib/live'
 import { lotoPageSettingsQuery } from '@/sanity/lib/queries'
 import { LotoPageSettingsQueryResult } from '@/sanity.types'
-import { PortableText } from '@/app/components/PortableText'
+import CustomPortableText from '@/app/components/PortableText'
 import FeaturedCasinoBanner from '@/app/components/FeaturedCasinoBanner'
 import { Metadata } from 'next'
 import { generateSEO } from '@/sanity/lib/seo'
@@ -67,7 +67,7 @@ export default async function LotoOnlinePage() {
       {/* Main Content */}
       {pageSettings.content && pageSettings.content.length > 0 && (
         <div className="prose prose-lg max-w-none">
-          <PortableText value={pageSettings.content} />
+          <CustomPortableText value={pageSettings.content} />
         </div>
       )}
     </div>

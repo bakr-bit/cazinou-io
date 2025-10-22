@@ -4,6 +4,54 @@
  * Generate structured data for casino reviews to improve SEO and rich results.
  */
 
+import {Metadata} from 'next'
+import {resolveOpenGraphImage} from './utils'
+
+/**
+ * Generate SEO metadata for pages
+ */
+export function generateSEO(options: {
+  title?: string
+  description?: string
+  ogTitle?: string
+  ogDescription?: string
+  ogImage?: any
+  article?: {
+    publishedTime?: string
+    modifiedTime?: string
+    authors?: string[]
+    tags?: string[]
+  }
+}): Metadata {
+  const {title, description, ogTitle, ogDescription, ogImage, article} = options
+
+  const openGraphImage = ogImage ? resolveOpenGraphImage(ogImage) : undefined
+  const images = openGraphImage ? [openGraphImage] : []
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: ogTitle || title,
+      description: ogDescription || description,
+      images,
+      ...(article && {
+        type: 'article',
+        publishedTime: article.publishedTime,
+        modifiedTime: article.modifiedTime,
+        authors: article.authors,
+        tags: article.tags,
+      }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle || title,
+      description: ogDescription || description,
+      ...(images.length > 0 && {images}),
+    },
+  }
+}
+
 type JsonLdOptions = {
   review: any
   casino: any
