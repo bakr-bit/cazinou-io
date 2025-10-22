@@ -22,7 +22,7 @@ export async function FeaturedSlotsGrid() {
   const gamePromises = FEATURED_GAME_SLUGS.map((slug) =>
     fetchGameBySlug(slug).catch(() => null)
   )
-  const games = (await Promise.all(gamePromises)).filter(Boolean)
+  const games = (await Promise.all(gamePromises)).filter((game): game is NonNullable<typeof game> => game !== null)
 
   if (games.length === 0) {
     return null
