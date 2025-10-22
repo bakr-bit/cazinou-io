@@ -96,11 +96,13 @@ async function fetchAllSlotsData(): Promise<CachedData> {
     return cached
   }
 
-  console.log(isDev ? '🔄 Fetching limited data for dev mode...' : '🔄 Fetching all slots data...')
+  console.log(isDev ? '🔄 Fetching limited data for dev mode...' : '🔄 Fetching slots data (capped at 10,000 games)...')
 
-  // In dev: limit to 300 games (3 API requests instead of 80+)
-  // In prod: fetch all games
+  // Limit games to prevent build timeouts
+  // In dev: limit to 300 games (3 API requests)
+  // In prod: limit to 10,000 games (~100 API requests, ~8min build time)
   const maxGamesInDev = 300
+  const maxGamesInProd = 10000
 
   // First, fetch one page to get total count
   const firstPage = await fetchGames({
@@ -114,7 +116,8 @@ async function fetchAllSlotsData(): Promise<CachedData> {
   const actualPerPage = firstPage.meta.per_page
 
   // Calculate how many pages we need
-  let targetGameCount = isDev ? Math.min(maxGamesInDev, totalGamesCount) : totalGamesCount
+  const maxGames = isDev ? maxGamesInDev : maxGamesInProd
+  let targetGameCount = Math.min(maxGames, totalGamesCount)
   let totalPages = Math.ceil(targetGameCount / actualPerPage)
 
   let allGames: SlotGame[]
