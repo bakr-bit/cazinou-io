@@ -14,8 +14,8 @@ interface DropdownMenuProps {
 
 export default function DropdownMenu({ category, index, isOpen, onOpenChange }: DropdownMenuProps) {
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const openTimeoutRef = useRef<NodeJS.Timeout>()
-  const closeTimeoutRef = useRef<NodeJS.Timeout>()
+  const openTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Handle click outside to close
   useEffect(() => {
