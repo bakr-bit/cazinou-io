@@ -55,16 +55,30 @@ export function linkResolver(link: Link | undefined) {
   }
 
   switch (link.linkType) {
+    case 'internal':
+      return link.internalPath || null
     case 'href':
       return link.href || null
     case 'page':
       if (link?.page && typeof link.page === 'string') {
         return `/${link.page}`
       }
+      return null
     case 'post':
       if (link?.post && typeof link.post === 'string') {
         return `/posts/${link.post}`
       }
+      return null
+    case 'infoPage':
+      if (link?.infoPage && typeof link.infoPage === 'string') {
+        return `/${link.infoPage}`
+      }
+      return null
+    case 'casinoReview':
+      if (link?.casinoReview && typeof link.casinoReview === 'string') {
+        return `/recenzii/${link.casinoReview}`
+      }
+      return null
     default:
       return null
   }

@@ -200,15 +200,6 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3">
-              {detailsHref && (
-                <Link
-                  href={detailsHref}
-                  className="inline-flex items-center justify-center rounded-full border-2 border-gray-200 bg-white px-6 py-2.5 text-sm font-semibold text-gray-900 transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-white font-mono"
-                >
-                  {buttonText}
-                </Link>
-              )}
-
               {block.affiliateLink && (
                 <a
                   href={block.affiliateLink}
@@ -218,6 +209,15 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
                 >
                   Joacă pe bani reali
                 </a>
+              )}
+
+              {detailsHref && (
+                <Link
+                  href={detailsHref}
+                  className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-white font-mono"
+                >
+                  {buttonText}
+                </Link>
               )}
             </div>
           </div>

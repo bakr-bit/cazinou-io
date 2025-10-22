@@ -17,15 +17,36 @@ export const link = defineType({
       name: 'linkType',
       title: 'Link Type',
       type: 'string',
-      initialValue: 'url',
+      initialValue: 'internal',
       options: {
         list: [
-          {title: 'URL', value: 'href'},
+          {title: 'Internal Path', value: 'internal'},
+          {title: 'External URL', value: 'href'},
           {title: 'Page', value: 'page'},
           {title: 'Post', value: 'post'},
+          {title: 'Info Page', value: 'infoPage'},
+          {title: 'Casino Review', value: 'casinoReview'},
         ],
         layout: 'radio',
       },
+    }),
+    defineField({
+      name: 'internalPath',
+      title: 'Internal Path',
+      type: 'string',
+      description: 'Enter the internal path (e.g., "/pacanele-gratis", "/recenzii", "/loto-online")',
+      placeholder: '/pacanele-gratis',
+      hidden: ({parent}) => parent?.linkType !== 'internal',
+      validation: (Rule) =>
+        Rule.custom((value, context: any) => {
+          if (context.parent?.linkType === 'internal' && !value) {
+            return 'Internal path is required when Link Type is Internal Path'
+          }
+          if (value && !value.startsWith('/')) {
+            return 'Internal path must start with a forward slash (/)'
+          }
+          return true
+        }),
     }),
     defineField({
       name: 'href',
@@ -67,6 +88,34 @@ export const link = defineType({
         Rule.custom((value, context: any) => {
           if (context.parent?.linkType === 'post' && !value) {
             return 'Post reference is required when Link Type is Post'
+          }
+          return true
+        }),
+    }),
+    defineField({
+      name: 'infoPage',
+      title: 'Info Page',
+      type: 'reference',
+      to: [{type: 'infoPage'}],
+      hidden: ({parent}) => parent?.linkType !== 'infoPage',
+      validation: (Rule) =>
+        Rule.custom((value, context: any) => {
+          if (context.parent?.linkType === 'infoPage' && !value) {
+            return 'Info Page reference is required when Link Type is Info Page'
+          }
+          return true
+        }),
+    }),
+    defineField({
+      name: 'casinoReview',
+      title: 'Casino Review',
+      type: 'reference',
+      to: [{type: 'casinoReview'}],
+      hidden: ({parent}) => parent?.linkType !== 'casinoReview',
+      validation: (Rule) =>
+        Rule.custom((value, context: any) => {
+          if (context.parent?.linkType === 'casinoReview' && !value) {
+            return 'Casino Review reference is required when Link Type is Casino Review'
           }
           return true
         }),

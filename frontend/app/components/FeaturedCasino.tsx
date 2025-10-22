@@ -288,19 +288,19 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
 
           {/* Right Column: Logo Card */}
           <div className="flex items-center justify-center">
-            <div className="w-full max-w-xs rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
               {logoUrl ? (
-                <div className="relative mx-auto h-32 w-32">
+                <div className="relative mx-auto aspect-square w-full max-w-[200px]">
                   <Image
                     src={logoUrl}
                     alt={`${casino.name} logo`}
                     fill
                     className="object-contain"
-                    sizes="128px"
+                    sizes="200px"
                   />
                 </div>
               ) : (
-                <div className="mx-auto flex h-32 w-32 items-center justify-center rounded-xl bg-gray-100 text-gray-400">
+                <div className="mx-auto flex aspect-square w-full max-w-[200px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
                   No logo
                 </div>
               )}
