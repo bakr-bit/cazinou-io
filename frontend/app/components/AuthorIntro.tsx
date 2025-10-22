@@ -2,42 +2,44 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-type AuthorIntroProps = {
-  data: {
-    _type: 'authorIntroSection'
-    _key: string
-    heading?: string
-    customText?: string
-    author?: {
-      _id: string
-      firstName?: string
-      lastName?: string
-      slug?: {
-        current?: string
-      }
-      picture?: {
-        asset?: {
-          url?: string
-          metadata?: {
-            lqip?: string
-          }
+export type AuthorIntroData = {
+  _type: 'authorIntroSection'
+  _key: string
+  heading?: string
+  customText?: string
+  author?: {
+    _id: string
+    firstName?: string
+    lastName?: string
+    slug?: {
+      current?: string
+    }
+    picture?: {
+      asset?: {
+        url?: string
+        metadata?: {
+          lqip?: string
         }
-        alt?: string
       }
-      role?: string
-      bio?: string
-      expertise?: string[]
-      yearsOfExperience?: number
-      credentials?: string[]
-      socialMedia?: {
-        linkedin?: string
-        twitter?: string
-        facebook?: string
-        instagram?: string
-        website?: string
-      }
+      alt?: string
+    }
+    role?: string
+    bio?: string
+    expertise?: string[]
+    yearsOfExperience?: number
+    credentials?: string[]
+    socialMedia?: {
+      linkedin?: string
+      twitter?: string
+      facebook?: string
+      instagram?: string
+      website?: string
     }
   }
+}
+
+type AuthorIntroProps = {
+  data: AuthorIntroData
   index: number
 }
 

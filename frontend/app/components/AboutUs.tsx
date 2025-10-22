@@ -25,7 +25,7 @@ type AboutUsItem = {
   colorTheme: 'orange' | 'blue' | 'green' | 'purple' | 'teal'
 }
 
-type AboutUsBlock = {
+export type AboutUsBlock = {
   _type: 'aboutUs'
   _key: string
   heading?: string

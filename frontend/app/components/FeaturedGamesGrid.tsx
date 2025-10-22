@@ -24,7 +24,7 @@ type Game = {
   rating?: number
 }
 
-type FeaturedGamesGridData = {
+export type FeaturedGamesGridData = {
   title?: string
   description?: string
   games?: (Game | null)[]

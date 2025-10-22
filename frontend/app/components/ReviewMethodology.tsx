@@ -24,7 +24,7 @@ type Criterion = {
   description: PortableTextBlock[]
 }
 
-type ReviewMethodologyBlock = {
+export type ReviewMethodologyBlock = {
   _type: 'reviewMethodology'
   _key: string
   heading?: string

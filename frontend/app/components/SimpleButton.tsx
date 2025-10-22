@@ -1,7 +1,7 @@
 import {Suspense} from 'react'
 import ResolvedLink from '@/app/components/ResolvedLink'
 
-type SimpleButtonBlock = {
+export type SimpleButtonBlock = {
   _type: 'simpleButton'
   buttonText: string
   link?: unknown

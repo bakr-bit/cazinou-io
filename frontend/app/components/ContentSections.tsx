@@ -3,19 +3,20 @@ import {type PortableTextBlock} from 'next-sanity'
 import Image from 'next/image'
 
 import CustomPortableText from '@/app/components/PortableText'
-import {Toplist} from '@/app/components/Toplist'
-import {FAQSection} from '@/app/components/FAQSection'
-import FeaturedCasino from '@/app/components/FeaturedCasino'
-import FeaturedGame from '@/app/components/FeaturedGame'
-import {FeaturedGamesGrid} from '@/app/components/FeaturedGamesGrid'
-import {BonusCalculator} from '@/app/components/BonusCalculator'
-import {AuthorIntro} from '@/app/components/AuthorIntro'
-import {ReviewMethodology} from '@/app/components/ReviewMethodology'
-import {BeginnersGuide} from '@/app/components/BeginnersGuide'
-import {AboutUs} from '@/app/components/AboutUs'
+import {Toplist, type TopListBlock} from '@/app/components/Toplist'
+import {FAQSection, type FAQSectionData} from '@/app/components/FAQSection'
+import FeaturedCasino, {type FeaturedCasinoBlock} from '@/app/components/FeaturedCasino'
+import FeaturedGame, {type FeaturedGameBlock} from '@/app/components/FeaturedGame'
+import {FeaturedGamesGrid, type FeaturedGamesGridData} from '@/app/components/FeaturedGamesGrid'
+import {BonusCalculator, type BonusCalculatorData} from '@/app/components/BonusCalculator'
+import {AuthorIntro, type AuthorIntroData} from '@/app/components/AuthorIntro'
+import {ReviewMethodology, type ReviewMethodologyBlock} from '@/app/components/ReviewMethodology'
+import {BeginnersGuide, type BeginnersGuideBlock} from '@/app/components/BeginnersGuide'
+import {AboutUs, type AboutUsBlock} from '@/app/components/AboutUs'
 import Cta from '@/app/components/Cta'
-import SimpleButton from '@/app/components/SimpleButton'
+import SimpleButton, {type SimpleButtonBlock} from '@/app/components/SimpleButton'
 import {urlForImage} from '@/sanity/lib/utils'
+import {type CallToAction} from '@/sanity.types'
 
 type ContentItem = {
   _type: string
@@ -86,84 +87,84 @@ export function ContentSections({content, author}: ContentSectionsProps) {
           case 'topListObject':
             return (
               <div key={componentItem._key || `toplist-${index}`} className="container">
-                <Toplist data={componentItem} />
+                <Toplist data={componentItem as TopListBlock} />
               </div>
             )
 
           case 'faqSection':
             return (
               <div key={componentItem._key || `faq-${index}`} className="container">
-                <FAQSection data={componentItem} />
+                <FAQSection data={componentItem as FAQSectionData} />
               </div>
             )
 
           case 'featuredCasino':
             return (
               <div key={componentItem._key || `featured-casino-${index}`} className="container">
-                <FeaturedCasino block={componentItem} index={index} />
+                <FeaturedCasino block={componentItem as FeaturedCasinoBlock} index={index} />
               </div>
             )
 
           case 'featuredGame':
             return (
               <div key={componentItem._key || `featured-game-${index}`} className="container">
-                <FeaturedGame block={componentItem} index={index} />
+                <FeaturedGame block={componentItem as FeaturedGameBlock} index={index} />
               </div>
             )
 
           case 'featuredGamesGrid':
             return (
               <div key={componentItem._key || `games-grid-${index}`} className="container">
-                <FeaturedGamesGrid data={componentItem} />
+                <FeaturedGamesGrid data={componentItem as FeaturedGamesGridData} />
               </div>
             )
 
           case 'callToAction':
             return (
               <div key={componentItem._key || `cta-${index}`} className="container">
-                <Cta block={componentItem} index={index} />
+                <Cta block={componentItem as unknown as CallToAction} index={index} />
               </div>
             )
 
           case 'simpleButton':
             return (
               <div key={componentItem._key || `simple-button-${index}`} className="container">
-                <SimpleButton block={componentItem} index={index} />
+                <SimpleButton block={componentItem as unknown as SimpleButtonBlock} index={index} />
               </div>
             )
 
           case 'bonusCalculator':
             return (
               <div key={componentItem._key || `bonus-calc-${index}`} className="container">
-                <BonusCalculator data={componentItem} />
+                <BonusCalculator data={componentItem as BonusCalculatorData} />
               </div>
             )
 
           case 'authorIntroSection':
             return (
               <div key={componentItem._key || `author-intro-${index}`} className="container">
-                <AuthorIntro data={componentItem} index={index} />
+                <AuthorIntro data={componentItem as AuthorIntroData} index={index} />
               </div>
             )
 
           case 'reviewMethodology':
             return (
               <div key={componentItem._key || `review-methodology-${index}`} className="container">
-                <ReviewMethodology data={componentItem} index={index} />
+                <ReviewMethodology data={componentItem as ReviewMethodologyBlock} index={index} />
               </div>
             )
 
           case 'beginnersGuide':
             return (
               <div key={componentItem._key || `beginners-guide-${index}`} className="container">
-                <BeginnersGuide data={componentItem} index={index} />
+                <BeginnersGuide data={componentItem as BeginnersGuideBlock} index={index} />
               </div>
             )
 
           case 'aboutUs':
             return (
               <div key={componentItem._key || `about-us-${index}`} className="container">
-                <AboutUs data={componentItem} index={index} />
+                <AboutUs data={componentItem as AboutUsBlock} index={index} />
               </div>
             )
 

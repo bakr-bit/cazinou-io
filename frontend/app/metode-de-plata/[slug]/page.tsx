@@ -90,7 +90,7 @@ export default async function MetodeNestedPage({params}: Props) {
 
         {pageData.content && pageData.content.length > 0 && (
           <div className="prose prose-lg max-w-none">
-            <ContentSections sections={pageData.content} />
+            <ContentSections content={pageData.content} />
           </div>
         )}
       </div>

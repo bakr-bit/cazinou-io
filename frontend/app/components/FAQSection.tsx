@@ -7,7 +7,7 @@ type FAQItem = {
   answer: string
 }
 
-type FAQSectionData = {
+export type FAQSectionData = {
   _type: 'faqSection'
   title?: string
   description?: string

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {urlForImage} from '@/sanity/lib/utils'
 
-type FeaturedGameBlock = {
+export type FeaturedGameBlock = {
   _type: 'featuredGame'
   heading?: string
   text?: string

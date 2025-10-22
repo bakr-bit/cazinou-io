@@ -2,7 +2,7 @@
 
 import {useState, useEffect} from 'react'
 
-type BonusCalculatorData = {
+export type BonusCalculatorData = {
   _type: 'bonusCalculator'
   _key?: string
   title?: string

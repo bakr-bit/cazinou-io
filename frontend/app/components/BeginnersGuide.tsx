@@ -26,7 +26,7 @@ type GuideTopic = {
   colorTheme: 'orange' | 'blue' | 'green' | 'purple' | 'red' | 'teal'
 }
 
-type BeginnersGuideBlock = {
+export type BeginnersGuideBlock = {
   _type: 'beginnersGuide'
   _key: string
   heading?: string
