@@ -5,6 +5,7 @@ import { PortableText } from '@/app/components/PortableText'
 import { Metadata } from 'next'
 import { generateSEO } from '@/sanity/lib/seo'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -85,9 +86,11 @@ export default async function LotoGamePage({ params }: Props) {
             {loto.author && (
               <div className="flex items-center gap-2">
                 {loto.author.picture && (
-                  <img
+                  <Image
                     src={loto.author.picture}
                     alt={`${loto.author.firstName} ${loto.author.lastName}`}
+                    width={40}
+                    height={40}
                     className="w-10 h-10 rounded-full object-cover"
                   />
                 )}

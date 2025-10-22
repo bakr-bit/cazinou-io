@@ -597,10 +597,10 @@ function Star({ variant }: { variant: 'full' | 'half' | 'empty' }) {
 // Main Component
 // ==========================================================
 export function Toplist({ data }: { data: TopListBlock }) {
-  if (!isTopListBlock(data) || !data.listItems || data.listItems.length === 0) return null
-
   const sortedItems = useMemo(() => sortListItems(data.listItems), [data.listItems])
   const displayOptions = data.displayOptions
+
+  if (!isTopListBlock(data) || !data.listItems || data.listItems.length === 0) return null
 
   return (
     <section className="my-12 space-y-6">
