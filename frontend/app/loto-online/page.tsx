@@ -2,7 +2,7 @@ import { sanityFetch } from '@/sanity/lib/live'
 import { lotoPageSettingsQuery } from '@/sanity/lib/queries'
 import { LotoPageSettingsQueryResult } from '@/sanity.types'
 import CustomPortableText from '@/app/components/PortableText'
-import FeaturedCasinoBanner from '@/app/components/FeaturedCasinoBanner'
+import { FeaturedCasinoBanner } from '@/app/components/FeaturedCasinoBanner'
 import { Metadata } from 'next'
 import { generateSEO } from '@/sanity/lib/seo'
 

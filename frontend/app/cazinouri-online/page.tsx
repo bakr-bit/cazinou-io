@@ -1,4 +1,4 @@
-import type {Metadata, ResolvingMetadata} from 'next'
+import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 
 import {ContentSections} from '@/app/components/ContentSections'
@@ -8,7 +8,7 @@ import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 
 const PAGE_SLUG = 'cazinouri-online'
 
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const {data} = await sanityFetch({
     query: infoPageBySlugQuery,
     params: {slug: PAGE_SLUG},
@@ -24,7 +24,6 @@ export async function generateMetadata(parent: ResolvingMetadata): Promise<Metad
   const title = infoPage.seo?.metaTitle ?? infoPage.title ?? infoPage.heading
   const description = infoPage.seo?.metaDescription ?? infoPage.excerpt
   const ogImageSource = infoPage.seo?.ogImage
-  const previousImages = (await parent).openGraph?.images || []
   const ogImage = resolveOpenGraphImage(ogImageSource)
 
   return {
@@ -33,12 +32,12 @@ export async function generateMetadata(parent: ResolvingMetadata): Promise<Metad
     openGraph: {
       title: infoPage.seo?.ogTitle ?? title,
       description: infoPage.seo?.ogDescription ?? description,
-      images: ogImage ? [ogImage, ...previousImages] : previousImages,
+      images: ogImage ? [ogImage] : [],
     },
     twitter: {
       title: infoPage.seo?.twitterTitle ?? infoPage.seo?.ogTitle ?? title,
       description: infoPage.seo?.twitterDescription ?? infoPage.seo?.ogDescription ?? description,
-      images: ogImage ? [ogImage, ...previousImages] : previousImages,
+      images: ogImage ? [ogImage] : [],
     },
   }
 }
