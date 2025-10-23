@@ -2008,6 +2008,10 @@
             "of": [
               {
                 "type": "string",
+                "value": "internal"
+              },
+              {
+                "type": "string",
                 "value": "href"
               },
               {
@@ -2017,8 +2021,23 @@
               {
                 "type": "string",
                 "value": "post"
+              },
+              {
+                "type": "string",
+                "value": "infoPage"
+              },
+              {
+                "type": "string",
+                "value": "casinoReview"
               }
             ]
+          },
+          "optional": true
+        },
+        "internalPath": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
           },
           "optional": true
         },
@@ -2086,6 +2105,66 @@
               }
             },
             "dereferencesTo": "post"
+          },
+          "optional": true
+        },
+        "infoPage": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "_ref": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "reference"
+                }
+              },
+              "_weak": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "boolean"
+                },
+                "optional": true
+              }
+            },
+            "dereferencesTo": "infoPage"
+          },
+          "optional": true
+        },
+        "casinoReview": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "_ref": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "reference"
+                }
+              },
+              "_weak": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "boolean"
+                },
+                "optional": true
+              }
+            },
+            "dereferencesTo": "casinoReview"
           },
           "optional": true
         },
@@ -3728,6 +3807,51 @@
                 "rest": {
                   "type": "inline",
                   "name": "bonusCalculator"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "reviewMethodology"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "beginnersGuide"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "aboutUs"
                 }
               }
             ]
@@ -5450,6 +5574,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "beginnersGuide"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "aboutUs"
                 }
               },
               {

@@ -17,11 +17,11 @@ import {
 } from 'sanity/presentation'
 import {assist} from '@sanity/assist'
 
-// Environment variables for project configuration
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'your-projectID'
+// Project configuration from environment variables
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '78bidtls'
 const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
 
-// URL for preview functionality, defaults to localhost:3000 if not set
+// URL for preview functionality
 const SANITY_STUDIO_PREVIEW_URL = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000'
 
 // Define the home location for the presentation tool
