@@ -53,7 +53,7 @@ export default function MobileMenu() {
           />
 
           {/* Menu Panel */}
-          <div className="fixed top-24 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto lg:hidden">
+          <div className="fixed top-24 left-0 right-0 bottom-0 bg-white z-[60] overflow-y-auto lg:hidden">
             <nav className="container py-4 px-4">
               {navigationData.map((category, categoryIndex) => (
                 <div key={categoryIndex} className="border-b border-gray-200 last:border-0">
