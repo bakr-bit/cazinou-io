@@ -612,14 +612,14 @@ export function Toplist({ data }: { data: TopListBlock }) {
       </header>
 
       {/* Mobile Card View */}
-      <div className="space-y-4 sm:hidden">
+      <div className="space-y-4 lg:hidden">
         {sortedItems.map((listItem, index) => (
           <ToplistItemCard key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} />
         ))}
       </div>
 
       {/* Desktop Table View */}
-      <div className="hidden sm:block">
+      <div className="hidden lg:block">
         <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
           {/* Table Rows */}
           <div className="divide-y divide-gray-200">
