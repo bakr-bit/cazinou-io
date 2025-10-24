@@ -79,6 +79,17 @@ export const homePageQuery = defineQuery(`
           }
         }
       },
+      _type == "linkableImage" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
       _type == "authorComment" => {
         ...,
         avatar {
@@ -310,6 +321,17 @@ const reviewFields = /* groq */ `
         }
       }
     },
+    _type == "linkableImage" => {
+      ...,
+      asset->{
+        _id,
+        url,
+        metadata {
+          lqip,
+          dimensions
+        }
+      }
+    },
     _type == "authorComment" => {
       ...,
       avatar {
@@ -526,6 +548,17 @@ export const lotoPageSettingsQuery = defineQuery(`
           }
         }
       },
+      _type == "linkableImage" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
       _type == "authorComment" => {
         ...,
         avatar {
@@ -630,6 +663,17 @@ export const lotoQuery = defineQuery(`
     content[]{
       ...,
       _type == "image" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
+      _type == "linkableImage" => {
         ...,
         asset->{
           _id,
@@ -874,6 +918,17 @@ export const getPageOrInfoPageQuery = defineQuery(`
             }
           }
         },
+        _type == "linkableImage" => {
+          ...,
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          }
+        },
         _type == "authorComment" => {
           ...,
           avatar {
@@ -1074,6 +1129,17 @@ export const infoPageBySlugQuery = defineQuery(`
           }
         }
       },
+      _type == "linkableImage" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
       _type == "authorComment" => {
         ...,
         avatar {
@@ -1219,6 +1285,17 @@ export const reviewsPageQuery = defineQuery(`
     content[]{
       ...,
       _type == "image" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
+      _type == "linkableImage" => {
         ...,
         asset->{
           _id,

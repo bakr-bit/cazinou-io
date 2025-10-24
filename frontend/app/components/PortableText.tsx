@@ -23,31 +23,49 @@ export default function CustomPortableText({
   value: PortableTextBlock[]
   author?: any
 }) {
+  const renderImageBlock = (value: any) => {
+    const imageUrl = value?.asset?.url
+    if (!imageUrl) {
+      return null
+    }
+
+    const imageElement = (
+      <Image
+        src={imageUrl}
+        alt={value.alt || ''}
+        width={value.asset?.metadata?.dimensions?.width || 800}
+        height={value.asset?.metadata?.dimensions?.height || 450}
+        className="rounded-lg w-full h-auto"
+      />
+    )
+
+    return (
+      <figure className="my-8">
+        {value.link?.url ? (
+          <a
+            href={value.link.url}
+            target={value.link.blank ? '_blank' : undefined}
+            rel={value.link.blank ? 'noopener noreferrer' : undefined}
+            className="block hover:opacity-90 transition-opacity"
+          >
+            {imageElement}
+          </a>
+        ) : (
+          imageElement
+        )}
+        {value.caption && (
+          <figcaption className="text-center text-sm text-gray-600 mt-3">
+            {value.caption}
+          </figcaption>
+        )}
+      </figure>
+    )
+  }
+
   const components: PortableTextComponents = {
     types: {
-      image: ({value}) => {
-        const imageUrl = value?.asset?.url
-        if (!imageUrl) return null
-
-        return (
-          <figure className="my-8">
-            <Image
-              src={imageUrl}
-              alt={value.alt || ''}
-              width={value.asset?.metadata?.dimensions?.width || 800}
-              height={value.asset?.metadata?.dimensions?.height || 450}
-              className="rounded-lg w-full h-auto"
-              placeholder={value.asset?.metadata?.lqip ? 'blur' : undefined}
-              blurDataURL={value.asset?.metadata?.lqip}
-            />
-            {value.caption && (
-              <figcaption className="text-center text-sm text-gray-600 mt-3">
-                {value.caption}
-              </figcaption>
-            )}
-          </figure>
-        )
-      },
+      image: ({value}) => renderImageBlock(value),
+      linkableImage: ({value}) => renderImageBlock(value),
       authorComment: ({value}) => {
         if (!value.comment) return null
 
