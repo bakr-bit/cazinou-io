@@ -82,6 +82,7 @@ export function ContentSections({content, author}: ContentSectionsProps) {
 
         switch (componentItem._type) {
           case 'image':
+          case 'linkableImage':
             return renderImage(componentItem, index)
 
           case 'topListObject':
@@ -196,21 +197,34 @@ function renderImage(imageBlock: ContentItem, index: number) {
     return null
   }
 
+  const imageElement = (
+    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+      <Image
+        src={imageUrl}
+        alt={imageBlock.alt || 'Image'}
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px, 896px"
+      />
+    </div>
+  )
+
   return (
     <div key={imageBlock._key || `image-${index}`} className="container my-8">
       <div className="max-w-5xl mx-auto">
         <figure className="space-y-3">
-          <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-            <Image
-              src={imageUrl}
-              alt={imageBlock.alt || 'Image'}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px, 896px"
-              placeholder={imageBlock.asset?.metadata?.lqip ? 'blur' : undefined}
-              blurDataURL={imageBlock.asset?.metadata?.lqip}
-            />
-          </div>
+          {imageBlock.link?.url ? (
+            <a
+              href={imageBlock.link.url}
+              target={imageBlock.link.blank ? '_blank' : undefined}
+              rel={imageBlock.link.blank ? 'noopener noreferrer' : undefined}
+              className="block hover:opacity-90 transition-opacity"
+            >
+              {imageElement}
+            </a>
+          ) : (
+            imageElement
+          )}
           {imageBlock.caption && (
             <figcaption className="text-center text-sm italic text-gray-600">
               {imageBlock.caption}
