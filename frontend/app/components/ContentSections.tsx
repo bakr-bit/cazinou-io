@@ -85,6 +85,9 @@ export function ContentSections({content, author}: ContentSectionsProps) {
           case 'linkableImage':
             return renderImage(componentItem, index)
 
+          case 'youtubeEmbed':
+            return renderYouTubeEmbed(componentItem, index)
+
           case 'topListObject':
             return (
               <div key={componentItem._key || `toplist-${index}`} className="container">
@@ -228,6 +231,50 @@ function renderImage(imageBlock: ContentItem, index: number) {
           {imageBlock.caption && (
             <figcaption className="text-center text-sm italic text-gray-600">
               {imageBlock.caption}
+            </figcaption>
+          )}
+        </figure>
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Render a YouTube embed block
+ */
+function renderYouTubeEmbed(embedBlock: ContentItem, index: number) {
+  const getYouTubeId = (url: string): string | null => {
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/,
+      /youtube\.com\/embed\/([^&\n?#]+)/,
+      /youtube\.com\/v\/([^&\n?#]+)/,
+    ]
+    for (const pattern of patterns) {
+      const match = url.match(pattern)
+      if (match) return match[1]
+    }
+    return null
+  }
+
+  const videoId = embedBlock.url ? getYouTubeId(embedBlock.url) : null
+  if (!videoId) return null
+
+  return (
+    <div key={embedBlock._key || `youtube-${index}`} className="container my-8">
+      <div className="max-w-5xl mx-auto">
+        <figure className="space-y-3">
+          <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={embedBlock.title || 'YouTube video'}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full border-0"
+            />
+          </div>
+          {embedBlock.title && (
+            <figcaption className="text-center text-sm italic text-gray-600">
+              {embedBlock.title}
             </figcaption>
           )}
         </figure>

@@ -80,6 +80,9 @@ export const reviewsPage = defineType({
         {
           type: 'linkableImage',
         },
+        {
+          type: 'youtubeEmbed',
+        },
         {type: 'authorComment'},
         {type: 'faqSection'},
         {type: 'callToAction'},

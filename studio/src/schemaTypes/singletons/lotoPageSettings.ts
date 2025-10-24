@@ -91,6 +91,9 @@ export const lotoPageSettings = defineType({
           type: 'linkableImage',
         },
         {
+          type: 'youtubeEmbed',
+        },
+        {
           type: 'authorComment',
         },
         // Custom components that can be inserted into content

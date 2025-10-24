@@ -127,6 +127,9 @@ export const casinoReview = defineType({
         {
           type: 'linkableImage',
         },
+        {
+          type: 'youtubeEmbed',
+        },
       ],
       validation: (Rule) => Rule.required(),
     }),

@@ -100,6 +100,9 @@ export const loto = defineType({
         {
           type: 'linkableImage',
         },
+        {
+          type: 'youtubeEmbed',
+        },
         {type: 'authorComment'},
         {type: 'topListObject'},
         {type: 'faqSection'},

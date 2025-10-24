@@ -115,6 +115,9 @@ export const homePage = defineType({
         {
           type: 'linkableImage',
         },
+        {
+          type: 'youtubeEmbed',
+        },
         // Custom components
         {type: 'topListObject'},
         {type: 'featuredCasino'},

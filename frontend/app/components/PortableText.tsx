@@ -62,10 +62,48 @@ export default function CustomPortableText({
     )
   }
 
+  const renderYouTubeEmbed = (value: any) => {
+    const getYouTubeId = (url: string): string | null => {
+      const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/,
+        /youtube\.com\/embed\/([^&\n?#]+)/,
+        /youtube\.com\/v\/([^&\n?#]+)/,
+      ]
+      for (const pattern of patterns) {
+        const match = url.match(pattern)
+        if (match) return match[1]
+      }
+      return null
+    }
+
+    const videoId = value?.url ? getYouTubeId(value.url) : null
+    if (!videoId) return null
+
+    return (
+      <figure className="my-8">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title={value.title || 'YouTube video'}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
+        </div>
+        {value.title && (
+          <figcaption className="text-center text-sm text-gray-600 mt-3">
+            {value.title}
+          </figcaption>
+        )}
+      </figure>
+    )
+  }
+
   const components: PortableTextComponents = {
     types: {
       image: ({value}) => renderImageBlock(value),
       linkableImage: ({value}) => renderImageBlock(value),
+      youtubeEmbed: ({value}) => renderYouTubeEmbed(value),
       authorComment: ({value}) => {
         if (!value.comment) return null
 
