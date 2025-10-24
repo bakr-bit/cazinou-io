@@ -125,21 +125,7 @@ export const casinoReview = defineType({
           type: 'authorComment',
         },
         {
-          type: 'image',
-          options: {hotspot: true},
-          fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative text',
-              description: 'Important for SEO and accessibility',
-            },
-            {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
-            },
-          ],
+          type: 'linkableImage',
         },
       ],
       validation: (Rule) => Rule.required(),

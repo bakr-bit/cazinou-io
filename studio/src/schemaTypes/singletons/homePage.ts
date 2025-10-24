@@ -113,21 +113,7 @@ export const homePage = defineType({
           },
         },
         {
-          type: 'image',
-          options: {hotspot: true},
-          fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative text',
-              description: 'Important for SEO and accessibility',
-            },
-            {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
-            },
-          ],
+          type: 'linkableImage',
         },
         // Custom components
         {type: 'topListObject'},
