@@ -1209,3 +1209,109 @@ export const infoPageSlugsQuery = defineQuery(`
   *[_type == "infoPage" && defined(slug.current)]
   {"slug": slug.current}
 `)
+
+export const reviewsPageQuery = defineQuery(`
+  *[_type == "reviewsPage"][0]{
+    _id,
+    title,
+    heading,
+    subheading,
+    content[]{
+      ...,
+      _type == "image" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
+      _type == "authorComment" => {
+        ...,
+        avatar {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          }
+        }
+      },
+      _type == "faqSection" => {
+        ...,
+        faqs[]{
+          question,
+          answer
+        }
+      },
+      _type == "callToAction" => {
+        ...,
+        link {
+          ...,
+          _type == "link" => {
+            "page": page->slug.current,
+            "post": post->slug.current
+          }
+        }
+      },
+      markDefs[]{
+        ...,
+        _type == "link" => {
+          ...,
+          href
+        }
+      }
+    },
+    seo {
+      metaTitle,
+      metaDescription,
+      ogTitle,
+      ogDescription,
+      ogImage
+    }
+  }
+`)
+
+export const allCasinoReviewsQuery = defineQuery(`
+  *[_type == "casinoReview"] | order(publishedAt desc){
+    _id,
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    casino->{
+      _id,
+      name,
+      logo {
+        asset->{
+          url,
+          metadata {
+            lqip
+          }
+        },
+        alt
+      },
+      rating,
+      welcomeBonus,
+      affiliateLink
+    },
+    author->{
+      firstName,
+      lastName,
+      picture {
+        asset->{
+          url,
+          metadata {
+            lqip
+          }
+        },
+        alt
+      }
+    }
+  }
+`)

@@ -15,6 +15,7 @@ import {provider} from './documents/provider'
 import {game} from './documents/game'
 import {casino} from './documents/casino'
 import {casinoReview} from './documents/casinoReview'
+import {reviewsPage} from './documents/reviewsPage'
 import {topListObject} from './objects/topListObject'
 import {authorComment} from './objects/authorComment'
 import {faqItem} from './objects/faqItem'
@@ -40,6 +41,7 @@ export const schemaTypes = [
   page,
   post,
   infoPage,
+  reviewsPage,
   loto,
   person,
   provider,
