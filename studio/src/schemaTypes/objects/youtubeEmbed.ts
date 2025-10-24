@@ -55,13 +55,7 @@ export const youtubeEmbed = defineType({
       return {
         title: title || 'YouTube Video',
         subtitle: videoId ? `Video ID: ${videoId}` : 'No video ID',
-        media: videoId ? (
-          <img
-            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-            alt="Video thumbnail"
-            style={{width: '100%', height: '100%', objectFit: 'cover'}}
-          />
-        ) : undefined,
+        media: PlayIcon,
       }
     },
   },
