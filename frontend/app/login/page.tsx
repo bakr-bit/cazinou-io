@@ -1,14 +1,12 @@
 'use client'
 
 import {useState, FormEvent} from 'react'
-import {useRouter} from 'next/navigation'
 
 export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -30,9 +28,8 @@ export default function LoginPage() {
         return
       }
 
-      // Successful login - redirect to home
-      router.push('/')
-      router.refresh()
+      // Successful login - redirect to home with full page reload
+      window.location.href = '/'
     } catch (err) {
       setError('An error occurred. Please try again.')
       setIsLoading(false)
