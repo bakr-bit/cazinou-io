@@ -79,7 +79,7 @@ function resolveSlug(slug: TopListItem['item'] extends infer T ? T extends { slu
 
 function logoUrlFrom(logo: unknown): string | null {
   try {
-    return logo ? urlForImage(logo)?.width(160).height(160).fit('max').url() ?? null : null
+    return logo ? urlForImage(logo)?.width(200).height(200).url() ?? null : null
   } catch (_) {
     return null
   }
@@ -191,14 +191,14 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
             )}
 
             {shouldShow(displayOptions, 'showLogo') && (
-              <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-24 sm:w-24">
+              <div className="relative h-20 w-auto max-w-[120px] flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-white sm:h-24 sm:max-w-[140px]">
                 {logoUrl ? (
                   <Image
                     src={logoUrl}
                     alt={`${itm.name || 'Casino'} logo`}
                     fill
-                    className="object-contain p-1"
-                    sizes="(max-width: 100px) 64px, 96px"
+                    className="object-contain p-2"
+                    sizes="(max-width: 640px) 120px, 140px"
                   />
                 ) : (
                   <span className="flex h-full w-full items-center justify-center text-xs text-slate-400">
@@ -385,14 +385,14 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
 
         <div className="flex items-center gap-4">
           {shouldShow(displayOptions, 'showLogo') && (
-            <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+            <div className="relative h-14 w-auto max-w-[100px] overflow-hidden rounded-xl border border-slate-100 bg-white">
               {logoUrl ? (
                 <Image
                   src={logoUrl}
                   alt={`${itm.name || 'Casino'} logo`}
                   fill
-                  className="object-contain p-2"
-                  sizes="112px"
+                  className="object-contain p-1.5"
+                  sizes="100px"
                 />
               ) : (
                 <span className="flex h-full w-full items-center justify-center text-xs text-slate-400">No image</span>

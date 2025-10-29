@@ -109,7 +109,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
   // Use featured banner if available, fallback to logo
   const bannerImage = casino.featuredBanner || casino.logo
   const bannerUrl = bannerImage ? urlForImage(bannerImage)?.width(1920).height(600).fit('crop').url() : null
-  const logoUrl = casino.logo ? urlForImage(casino.logo)?.width(160).height(160).fit('max').url() : null
+  const logoUrl = casino.logo ? urlForImage(casino.logo)?.width(200).height(200).url() : null
 
   const buttonText = block.buttonText || 'Play Now'
   const showRating = block.showRating !== false
@@ -288,19 +288,19 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
 
           {/* Right Column: Logo Card */}
           <div className="flex items-center justify-center">
-            <div className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+            <div className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               {logoUrl ? (
-                <div className="relative mx-auto aspect-square w-full max-w-[200px]">
+                <div className="relative mx-auto h-[160px] w-full max-w-[280px]">
                   <Image
                     src={logoUrl}
                     alt={`${casino.name} logo`}
                     fill
                     className="object-contain"
-                    sizes="200px"
+                    sizes="280px"
                   />
                 </div>
               ) : (
-                <div className="mx-auto flex aspect-square w-full max-w-[200px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
+                <div className="mx-auto flex h-[160px] w-full max-w-[280px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
                   No logo
                 </div>
               )}

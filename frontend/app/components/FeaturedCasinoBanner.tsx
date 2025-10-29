@@ -42,16 +42,16 @@ export function FeaturedCasinoBanner({casino}: FeaturedCasinoBannerProps) {
             <div className="flex items-center justify-center">
               {casinoSlug && (
                 <Link href={`/recenzii/${casinoSlug}`} className="block">
-                  <div className="relative h-40 w-40 overflow-hidden rounded-2xl border-2 border-orange-200 bg-white p-4 shadow-md transition hover:shadow-lg">
+                  <div className="relative h-40 w-auto max-w-[200px] overflow-hidden rounded-2xl border-2 border-orange-200 bg-white p-3 shadow-md transition hover:shadow-lg">
                     {casino.logo?.asset?.url ? (
                       <Image
                         src={casino.logo.asset.url}
                         alt={casino.logo.alt || `${casino.name} logo`}
                         fill
                         className="object-contain"
-                        sizes="160px"
+                        sizes="200px"
                         placeholder={casino.logo.asset.metadata?.lqip ? 'blur' : undefined}
-                        blurDataURL={casino.logo.asset.metadata?.lqip}
+                        blurDataURL={casino.logo.asset.metadata?.lqip || undefined}
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
