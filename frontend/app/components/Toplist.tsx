@@ -251,7 +251,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
           {shouldShow(displayOptions, 'showKeyFeatures') && itm.keyFeatures && itm.keyFeatures.length > 0 && (
             <div className="mt-3">
               <ul className="space-y-1.5 text-sm text-gray-700">
-                {itm.keyFeatures.slice(0, 4).map((feature, idx) => (
+                {(itm.keyFeatures || []).slice(0, 4).map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="text-orange-500 flex-shrink-0">✓</span>
                     <span>{feature}</span>
@@ -266,7 +266,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
             <div className="mt-3">
               <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Metode de Plată</p>
               <div className="flex flex-wrap gap-2">
-                {itm.paymentMethods.map((method, idx) => (
+                {(itm.paymentMethods || []).map((method, idx) => (
                   <span key={idx} className="inline-flex items-center px-2 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-medium border border-gray-200">
                     {method}
                   </span>
@@ -435,7 +435,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
           {shouldShow(displayOptions, 'showKeyFeatures') && itm.keyFeatures && itm.keyFeatures.length > 0 && (
             <div>
               <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-700">
-                {itm.keyFeatures.slice(0, 3).map((feature, idx) => (
+                {(itm.keyFeatures || []).slice(0, 3).map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-1.5">
                     <span className="text-orange-500 flex-shrink-0">✓</span>
                     <span>{feature}</span>
@@ -449,7 +449,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
           {shouldShow(displayOptions, 'showPaymentMethods') && itm.paymentMethods && itm.paymentMethods.length > 0 && (
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-semibold text-gray-500">Plăți:</span>
-              {itm.paymentMethods.slice(0, 5).map((method, idx) => (
+              {(itm.paymentMethods || []).slice(0, 5).map((method, idx) => (
                 <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded bg-gray-100 text-gray-700 text-xs border border-gray-200">
                   {method}
                 </span>
