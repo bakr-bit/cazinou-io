@@ -62,6 +62,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           changeFrequency = 'weekly'
           url = `${domain}/loto-online/${p.slug}`
           break
+        default:
+          // Skip unknown document types
+          continue
       }
       sitemap.push({
         lastModified: p._updatedAt || new Date(),
