@@ -119,7 +119,7 @@ export default async function LotoGamePage({ params }: Props) {
                       height={64}
                       className="w-16 h-16 rounded-full object-cover aspect-square ring-2 ring-gray-100"
                       placeholder={loto.author.picture.asset.metadata?.lqip ? 'blur' : undefined}
-                      blurDataURL={loto.author.picture.asset.metadata?.lqip}
+                      blurDataURL={loto.author.picture.asset.metadata?.lqip || undefined}
                     />
                   )}
                   <div className="flex flex-col gap-1 font-mono">
