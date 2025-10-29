@@ -92,6 +92,7 @@ function licenseLabelFrom(license: unknown): string | null {
 }
 
 function sortListItems(items: TopListItem[] = []): TopListItem[] {
+  if (!items || !Array.isArray(items)) return []
   return [...items].sort((a, b) => (a.rank ?? Infinity) - (b.rank ?? Infinity))
 }
 

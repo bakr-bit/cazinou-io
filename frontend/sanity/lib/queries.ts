@@ -36,8 +36,8 @@ const casinoCoreFields = /* groq */ `
   rating,
   welcomeBonus,
   affiliateLink,
-  pros,
-  cons,
+  "pros": coalesce(pros, []),
+  "cons": coalesce(cons, []),
   "keyFeatures": coalesce(keyFeatures, []),
   legalEntity,
   crypto,
@@ -106,7 +106,7 @@ export const homePageQuery = defineQuery(`
       _type == "topListObject" => {
         ...,
         displayOptions,
-        listItems[]{
+        "listItems": coalesce(listItems[]{
           ...,
           item->{
             _type,
@@ -130,7 +130,7 @@ export const homePageQuery = defineQuery(`
               establishedYear
             }
           }
-        }
+        }, [])
       },
       _type == "faqSection" => {
         ...,
@@ -200,10 +200,45 @@ export const homePageQuery = defineQuery(`
         ...
       },
       _type == "reviewMethodology" => {
-        ...
+        ...,
+        criteria[]{
+          _key,
+          iconName,
+          customIcon {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          },
+          title,
+          description
+        }
       },
       _type == "aboutUs" => {
-        ...
+        ...,
+        items[]{
+          _key,
+          iconName,
+          customIcon {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          },
+          title,
+          content,
+          colorTheme
+        }
       },
       _type == "beginnersGuide" => {
         ...,
@@ -422,7 +457,7 @@ export const getPageQuery = defineQuery(`
       _type == "topListObject" => {
         ...,
         displayOptions,
-        listItems[]{
+        "listItems": coalesce(listItems[]{
           ...,
           item->{
             _type,
@@ -446,7 +481,7 @@ export const getPageQuery = defineQuery(`
               establishedYear
             }
           }
-        }
+        }, [])
       },
     },
   }
@@ -561,12 +596,12 @@ export const lotoPageSettingsQuery = defineQuery(`
       _type == "topListObject" => {
         ...,
         displayOptions,
-        listItems[]{
+        "listItems": coalesce(listItems[]{
           ...,
           item->{
             ${casinoCoreFields}
           }
-        }
+        }, [])
       },
       _type == "faqSection" => {
         ...,
@@ -686,12 +721,12 @@ export const lotoQuery = defineQuery(`
       _type == "topListObject" => {
         ...,
         displayOptions,
-        listItems[]{
+        "listItems": coalesce(listItems[]{
           ...,
           item->{
             ${casinoCoreFields}
           }
-        }
+        }, [])
       },
       _type == "faqSection" => {
         ...,
@@ -1142,7 +1177,7 @@ export const infoPageBySlugQuery = defineQuery(`
       _type == "topListObject" => {
         ...,
         displayOptions,
-        listItems[]{
+        "listItems": coalesce(listItems[]{
           ...,
           item->{
             _type,
@@ -1166,7 +1201,7 @@ export const infoPageBySlugQuery = defineQuery(`
               establishedYear
             }
           }
-        }
+        }, [])
       },
       _type == "faqSection" => {
         ...,
