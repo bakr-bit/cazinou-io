@@ -677,9 +677,23 @@ export const lotoQuery = defineQuery(`
     apiSlug,
     publishedAt,
     author->{
+      _id,
       firstName,
       lastName,
-      picture
+      slug,
+      picture {
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        },
+        alt
+      },
+      role,
+      bio
     },
     content[]{
       ...,
