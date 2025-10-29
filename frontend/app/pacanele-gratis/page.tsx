@@ -402,7 +402,7 @@ export default async function SlotsPage() {
               item: {
                 '@type': 'Game',
                 name: game.name,
-                url: `https://cazinou.io/${SINGLE_BASE}/${game.slug}`,
+                url: `https://cazinou.io/${SINGLE_BASE}/${game.id}-${game.slug}`,
                 description: game.description || `Joacă ${game.name} online gratis`,
                 image: game.thumb,
                 author: {

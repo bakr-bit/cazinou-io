@@ -1,6 +1,6 @@
 // app/pacanele/[slug]/page.tsx
 import Link from 'next/link'
-import {fetchGameBySlug} from '@/lib/slotslaunch'
+import {fetchGameById} from '@/lib/slotslaunch'
 import {notFound} from 'next/navigation'
 import {GameIframe} from '@/app/components/GameIframe'
 import {ContentSections} from '@/app/components/ContentSections'
@@ -14,9 +14,27 @@ type Props = {
   params: Promise<{slug: string}>
 }
 
+/**
+ * Extract game ID from slug parameter
+ * Format: "123-game-slug" -> 123
+ */
+function extractGameId(slug: string): number | null {
+  const match = slug.match(/^(\d+)-/)
+  return match ? parseInt(match[1], 10) : null
+}
+
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
-  const game = await fetchGameBySlug(params.slug)
+  const gameId = extractGameId(params.slug)
+
+  if (!gameId) {
+    return {
+      title: 'Joc Slot Online',
+      description: 'Joacă sloturi online',
+    }
+  }
+
+  const game = await fetchGameById(gameId)
 
   if (!game) {
     return {
@@ -43,7 +61,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function SingleSlotPage(props: Props) {
   const params = await props.params
-  const game = await fetchGameBySlug(params.slug)
+  const gameId = extractGameId(params.slug)
+
+  if (!gameId) {
+    return notFound()
+  }
+
+  const game = await fetchGameById(gameId)
 
   if (!game) {
     return notFound()
@@ -56,7 +80,7 @@ export default async function SingleSlotPage(props: Props) {
   const {data: sanityGame} = await sanityFetch({
     query: gameContentBySlugQuery,
     params: {
-      slug: params.slug,
+      slug: game.slug,
       id: game.id,
     },
     stega: false,

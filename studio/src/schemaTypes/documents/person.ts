@@ -49,6 +49,12 @@ export const person = defineType({
       description: 'Short biography about the author',
     }),
     defineField({
+      name: 'longBio',
+      title: 'Long Bio',
+      type: 'blockContent',
+      description: 'Detailed biography for the author page. If not provided, the short bio will be used.',
+    }),
+    defineField({
       name: 'expertise',
       title: 'Areas of Expertise',
       type: 'array',

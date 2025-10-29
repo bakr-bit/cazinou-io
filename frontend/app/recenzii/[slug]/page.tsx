@@ -543,7 +543,7 @@ export default async function ReviewPage(props: Props) {
                     )}
                   </div>
                   <div className="mt-4 text-center">
-                    <Link href="/info/metodologia" className="text-sm font-light text-brand hover:underline">
+                    <Link href="/metodologia" className="text-sm font-light text-brand hover:underline">
                       Citește metodologia noastră de evaluare
                     </Link>
                   </div>

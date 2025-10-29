@@ -329,6 +329,13 @@ export async function fetchGameById(
       }
 
       const data: GamesResponse = await res.json()
+
+      // Validate response structure
+      if (!data || !data.data || !Array.isArray(data.data)) {
+        console.error(`Invalid API response for game ID ${gameId}:`, data)
+        return null
+      }
+
       // Return first game from array, or null if not found
       return data.data[0] ?? null
     },

@@ -59,13 +59,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
   display: 'swap',
 })
 
 const interTight = Inter_Tight({
   variable: '--font-inter-tight',
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
 })
@@ -74,7 +74,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   const {isEnabled: isDraftMode} = await draftMode()
 
   return (
-    <html lang="en" className={`${inter.variable} ${interTight.variable} bg-white text-black`}>
+    <html lang="ro" className={`${inter.variable} ${interTight.variable} bg-white text-black`}>
       <body suppressHydrationWarning>
         <section className="min-h-screen pt-24">
           {/* The <Toaster> component is responsible for rendering toast notifications used in /app/client-utils.ts and /app/components/DraftModeToast.tsx */}

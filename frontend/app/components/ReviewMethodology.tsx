@@ -21,7 +21,7 @@ type Criterion = {
     alt?: string
   }
   title: string
-  description: PortableTextBlock[]
+  description: PortableTextBlock[] | string
 }
 
 export type ReviewMethodologyBlock = {
@@ -122,11 +122,7 @@ export function ReviewMethodology({data, index}: ReviewMethodologyProps) {
       {/* Criteria Cards Grid */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data.criteria.map((criterion, idx) => {
-          // Debug logging
-          console.log('Criterion iconName RAW:', criterion.iconName, 'Type:', typeof criterion.iconName)
-
           const IconComponent = getIconComponent(criterion.iconName)
-          console.log('IconComponent resolved:', IconComponent?.name || 'null')
 
           const customIconUrl = criterion.customIcon
             ? urlForImage(criterion.customIcon)?.width(200).height(200).fit('max').url()
@@ -185,9 +181,17 @@ export function ReviewMethodology({data, index}: ReviewMethodologyProps) {
                   {criterion.title}
                 </h3>
 
-                {/* Description - Rich Text */}
+                {/* Description - Rich Text or Plain Text */}
                 <div className="flex-1">
-                  <PortableText value={criterion.description} components={cardTextComponents} />
+                  {Array.isArray(criterion.description) ? (
+                    <PortableText value={criterion.description} components={cardTextComponents} />
+                  ) : criterion.description ? (
+                    <p className="text-center text-sm leading-relaxed text-gray-600 whitespace-pre-line">
+                      {criterion.description}
+                    </p>
+                  ) : (
+                    <p className="text-center text-sm text-gray-400 italic">No description provided</p>
+                  )}
                 </div>
               </div>
             </div>

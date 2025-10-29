@@ -1735,7 +1735,7 @@ export type SettingsQueryResult = {
   }
 } | null
 // Variable: homePageQuery
-// Query: *[_type == "homePage"][0]{    _id,    title,    heroBanner,    content[]{      ...,      _type == "image" => {        ...,        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      },      _type == "linkableImage" => {        ...,        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      },      _type == "authorComment" => {        ...,        avatar {          asset->{            _id,            url,            metadata {              lqip,              dimensions            }          }        }      },      _type == "topListObject" => {        ...,        displayOptions,        listItems[]{          ...,          item->{            _type,            _id,            name,            slug,            affiliateLink,            logo,            rating,            welcomeBonus,            "license": companyInfo.licenses[0].license,            paymentMethods,            keyFeatures,            crypto,            mobile,            liveCasino,            minimumDeposit,            maximumDeposit,            numberOfGames,            companyInfo {              establishedYear            }          }        }      },      _type == "faqSection" => {        ...,        faqs[]{          question,          answer        }      },      _type == "featuredCasino" => {        ...,        casino->{            _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }        }      },      _type == "featuredGame" => {        ...,        affiliateLink,        game->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          rating,          mainImage,          provider->{            name          }        }      },      _type == "featuredGamesGrid" => {        ...,        games[]->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          mainImage {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          provider->{            name          },          rating        }      },      _type == "callToAction" => {        ...,        link {          ...,          _type == "link" => {            "page": page->slug.current,            "post": post->slug.current          }        }      },      _type == "bonusCalculator" => {        ...      },      _type == "reviewMethodology" => {        ...,        criteria[]{          _key,          iconName,          customIcon {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          title,          description        }      },      _type == "beginnersGuide" => {        ...,        topics[]{          _key,          iconName,          customIcon {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          title,          shortDescription,          detailedExplanation,          exampleValues,          colorTheme        }      },      _type == "authorIntroSection" => {        ...,        author->{          _id,          firstName,          lastName,          slug,          picture {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          role,          bio,          expertise,          yearsOfExperience,          credentials,          socialMedia        }      },      markDefs[]{        ...,        _type == "link" => {          ...,          href        }      }    },    seo {      metaTitle,      metaDescription,      ogTitle,      ogDescription,      ogImage,      twitterTitle,      twitterDescription,      twitterImage    }  }
+// Query: *[_type == "homePage"][0]{    _id,    title,    heroBanner,    content[]{      ...,      _type == "image" => {        ...,        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      },      _type == "linkableImage" => {        ...,        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      },      _type == "authorComment" => {        ...,        avatar {          asset->{            _id,            url,            metadata {              lqip,              dimensions            }          }        }      },      _type == "topListObject" => {        ...,        displayOptions,        listItems[]{          ...,          item->{            _type,            _id,            name,            slug,            affiliateLink,            logo,            rating,            welcomeBonus,            "license": companyInfo.licenses[0].license,            paymentMethods,            keyFeatures,            crypto,            mobile,            liveCasino,            minimumDeposit,            maximumDeposit,            numberOfGames,            companyInfo {              establishedYear            }          }        }      },      _type == "faqSection" => {        ...,        faqs[]{          question,          answer        }      },      _type == "featuredCasino" => {        ...,        casino->{            _id,  name,  slug,  logo,  featuredBanner,  rating,  welcomeBonus,  affiliateLink,  pros,  cons,  keyFeatures,  legalEntity,  crypto,  mobile,  liveCasino,  numberOfGames,  trustRating,  bonusRating,  paymentRating,  withdrawalRating,  minimumDeposit,  maximumDeposit,  paymentMethods,  companyInfo {    establishedYear,    licenses[] {      license,      licenseNumber,      licenseAuthority    }  }        }      },      _type == "featuredGame" => {        ...,        affiliateLink,        game->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          rating,          mainImage,          provider->{            name          }        }      },      _type == "featuredGamesGrid" => {        ...,        games[]->{          _id,          name,          slug,          slotsLaunchSlug,          slotsLaunchThumb,          mainImage {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          provider->{            name          },          rating        }      },      _type == "callToAction" => {        ...,        link {          ...,          _type == "link" => {            "page": page->slug.current,            "post": post->slug.current          }        }      },      _type == "bonusCalculator" => {        ...      },      _type == "reviewMethodology" => {        ...      },      _type == "aboutUs" => {        ...      },      _type == "beginnersGuide" => {        ...,        topics[]{          _key,          iconName,          customIcon {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          title,          shortDescription,          detailedExplanation,          exampleValues,          colorTheme        }      },      _type == "authorIntroSection" => {        ...,        author->{          _id,          firstName,          lastName,          slug,          picture {            asset->{              _id,              url,              metadata {                lqip,                dimensions              }            },            alt          },          role,          bio,          expertise,          yearsOfExperience,          credentials,          socialMedia        }      },      markDefs[]{        ...,        _type == "link" => {          ...,          href        }      }    },    seo {      metaTitle,      metaDescription,      ogTitle,      ogDescription,      ogImage,      twitterTitle,      twitterDescription,      twitterImage    }  }
 export type HomePageQueryResult = {
   _id: string
   title: string
@@ -2171,7 +2171,6 @@ export type HomePageQueryResult = {
         heading: string
         description?: string
         criteria: Array<{
-          _key: string
           iconName:
             | 'activity'
             | 'award'
@@ -2194,17 +2193,18 @@ export type HomePageQueryResult = {
             | 'trending-up'
             | 'users'
             | 'zap'
-          customIcon: {
-            asset: {
-              _id: string
-              url: string | null
-              metadata: {
-                lqip: string | null
-                dimensions: SanityImageDimensions | null
-              } | null
-            } | null
-            alt: null
-          } | null
+          customIcon?: {
+            asset?: {
+              _ref: string
+              _type: 'reference'
+              _weak?: boolean
+              [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+            }
+            media?: unknown
+            hotspot?: SanityImageHotspot
+            crop?: SanityImageCrop
+            _type: 'image'
+          }
           title: string
           description: Array<{
             children?: Array<{
@@ -2225,6 +2225,8 @@ export type HomePageQueryResult = {
             _type: 'block'
             _key: string
           }>
+          _type: 'criterion'
+          _key: string
         }>
         markDefs: null
       }
@@ -3775,7 +3777,7 @@ export type LotoQueryResult = {
   } | null
 } | null
 // Variable: sitemapData
-// Query: *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" && defined(slug.current)] | order(_type asc) {    "slug": slug.current,    _type,    _updatedAt,  }
+// Query: *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" || _type == "person" && defined(slug.current)] | order(_type asc) {    "slug": slug.current,    _type,    _updatedAt,  }
 export type SitemapDataResult = Array<
   | {
       slug: string
@@ -3795,6 +3797,11 @@ export type SitemapDataResult = Array<
   | {
       slug: string
       _type: 'page'
+      _updatedAt: string
+    }
+  | {
+      slug: string
+      _type: 'person'
       _updatedAt: string
     }
   | {
@@ -5627,13 +5634,132 @@ export type AllCasinoReviewsQueryResult = Array<{
     } | null
   }
 }>
+// Variable: allAuthorsQuery
+// Query: *[_type == "person"] | order(lastName asc, firstName asc){    _id,    firstName,    lastName,    slug,    role,    bio,    picture {      asset->{        _id,        url,        metadata {          lqip,          dimensions        }      },      alt    },    expertise,    yearsOfExperience  }
+export type AllAuthorsQueryResult = Array<{
+  _id: string
+  firstName: string
+  lastName: string
+  slug: Slug
+  role: string | null
+  bio: string | null
+  picture: {
+    asset: {
+      _id: string
+      url: string | null
+      metadata: {
+        lqip: string | null
+        dimensions: SanityImageDimensions | null
+      } | null
+    } | null
+    alt: string | null
+  } | null
+  expertise: Array<string> | null
+  yearsOfExperience: number | null
+}>
+// Variable: authorSlugsQuery
+// Query: *[_type == "person" && defined(slug.current)]  {"slug": slug.current}
+export type AuthorSlugsQueryResult = Array<{
+  slug: string
+}>
+// Variable: authorBySlugQuery
+// Query: *[_type == "person" && slug.current == $slug][0]{    _id,    firstName,    lastName,    slug,    role,    bio,    longBio[]{      ...,      _type == "image" => {        ...,        asset->{          _id,          url,          metadata {            lqip,            dimensions          }        }      },      markDefs[]{        ...,        _type == "link" => {          ...,          href        }      }    },    picture {      asset->{        _id,        url,        metadata {          lqip,          dimensions        }      },      alt    },    expertise,    yearsOfExperience,    credentials,    socialMedia  }
+export type AuthorBySlugQueryResult = {
+  _id: string
+  firstName: string
+  lastName: string
+  slug: Slug
+  role: string | null
+  bio: string | null
+  longBio: null
+  picture: {
+    asset: {
+      _id: string
+      url: string | null
+      metadata: {
+        lqip: string | null
+        dimensions: SanityImageDimensions | null
+      } | null
+    } | null
+    alt: string | null
+  } | null
+  expertise: Array<string> | null
+  yearsOfExperience: number | null
+  credentials: Array<string> | null
+  socialMedia: {
+    linkedin?: string
+    twitter?: string
+    facebook?: string
+    instagram?: string
+    website?: string
+  } | null
+} | null
+// Variable: authorContentQuery
+// Query: {    "reviews": *[_type == "casinoReview" && author._ref == $authorId] | order(publishedAt desc) [0...4]{      _id,      title,      slug,      excerpt,      publishedAt,      casino->{        _id,        name,        logo {          asset->{            url,            metadata {              lqip            }          },          alt        },        rating      }    },    "posts": *[_type == "post" && author._ref == $authorId] | order(date desc) [0...4]{      _id,      title,      slug,      excerpt,      date,      coverImage    },    "infoPages": *[_type == "infoPage" && author._ref == $authorId] | order(publishedAt desc) [0...4]{      _id,      title,      slug,      excerpt,      publishedAt    },    "lotoPages": *[_type == "loto" && author._ref == $authorId] | order(publishedAt desc) [0...4]{      _id,      title,      slug,      excerpt,      publishedAt    }  }
+export type AuthorContentQueryResult = {
+  reviews: Array<{
+    _id: string
+    title: string
+    slug: Slug
+    excerpt: string | null
+    publishedAt: string | null
+    casino: {
+      _id: string
+      name: string
+      logo: {
+        asset: {
+          url: string | null
+          metadata: {
+            lqip: string | null
+          } | null
+        } | null
+        alt: null
+      }
+      rating: number
+    }
+  }>
+  posts: Array<{
+    _id: string
+    title: string
+    slug: Slug
+    excerpt: string | null
+    date: string | null
+    coverImage: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+    }
+  }>
+  infoPages: Array<{
+    _id: string
+    title: string
+    slug: Slug
+    excerpt: string | null
+    publishedAt: string | null
+  }>
+  lotoPages: Array<{
+    _id: string
+    title: string
+    slug: Slug
+    excerpt: string | null
+    publishedAt: string | null
+  }>
+}
 
 // Query TypeMap
 import '@sanity/client'
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "settings"][0]': SettingsQueryResult
-    '\n  *[_type == "homePage"][0]{\n    _id,\n    title,\n    heroBanner,\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "linkableImage" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            _type,\n            _id,\n            name,\n            slug,\n            affiliateLink,\n            logo,\n            rating,\n            welcomeBonus,\n            "license": companyInfo.licenses[0].license,\n            paymentMethods,\n            keyFeatures,\n            crypto,\n            mobile,\n            liveCasino,\n            minimumDeposit,\n            maximumDeposit,\n            numberOfGames,\n            companyInfo {\n              establishedYear\n            }\n          }\n        }\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "featuredCasino" => {\n        ...,\n        casino->{\n          \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n        }\n      },\n      _type == "featuredGame" => {\n        ...,\n        affiliateLink,\n        game->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          rating,\n          mainImage,\n          provider->{\n            name\n          }\n        }\n      },\n      _type == "featuredGamesGrid" => {\n        ...,\n        games[]->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          mainImage {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          provider->{\n            name\n          },\n          rating\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        }\n      },\n      _type == "bonusCalculator" => {\n        ...\n      },\n      _type == "reviewMethodology" => {\n        ...,\n        criteria[]{\n          _key,\n          iconName,\n          customIcon {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          title,\n          description\n        }\n      },\n      _type == "beginnersGuide" => {\n        ...,\n        topics[]{\n          _key,\n          iconName,\n          customIcon {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          title,\n          shortDescription,\n          detailedExplanation,\n          exampleValues,\n          colorTheme\n        }\n      },\n      _type == "authorIntroSection" => {\n        ...,\n        author->{\n          _id,\n          firstName,\n          lastName,\n          slug,\n          picture {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          role,\n          bio,\n          expertise,\n          yearsOfExperience,\n          credentials,\n          socialMedia\n        }\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogTitle,\n      ogDescription,\n      ogImage,\n      twitterTitle,\n      twitterDescription,\n      twitterImage\n    }\n  }\n': HomePageQueryResult
+    '\n  *[_type == "homePage"][0]{\n    _id,\n    title,\n    heroBanner,\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "linkableImage" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            _type,\n            _id,\n            name,\n            slug,\n            affiliateLink,\n            logo,\n            rating,\n            welcomeBonus,\n            "license": companyInfo.licenses[0].license,\n            paymentMethods,\n            keyFeatures,\n            crypto,\n            mobile,\n            liveCasino,\n            minimumDeposit,\n            maximumDeposit,\n            numberOfGames,\n            companyInfo {\n              establishedYear\n            }\n          }\n        }\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "featuredCasino" => {\n        ...,\n        casino->{\n          \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n        }\n      },\n      _type == "featuredGame" => {\n        ...,\n        affiliateLink,\n        game->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          rating,\n          mainImage,\n          provider->{\n            name\n          }\n        }\n      },\n      _type == "featuredGamesGrid" => {\n        ...,\n        games[]->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          mainImage {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          provider->{\n            name\n          },\n          rating\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        }\n      },\n      _type == "bonusCalculator" => {\n        ...\n      },\n      _type == "reviewMethodology" => {\n        ...\n      },\n      _type == "aboutUs" => {\n        ...\n      },\n      _type == "beginnersGuide" => {\n        ...,\n        topics[]{\n          _key,\n          iconName,\n          customIcon {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          title,\n          shortDescription,\n          detailedExplanation,\n          exampleValues,\n          colorTheme\n        }\n      },\n      _type == "authorIntroSection" => {\n        ...,\n        author->{\n          _id,\n          firstName,\n          lastName,\n          slug,\n          picture {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          role,\n          bio,\n          expertise,\n          yearsOfExperience,\n          credentials,\n          socialMedia\n        }\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogTitle,\n      ogDescription,\n      ogImage,\n      twitterTitle,\n      twitterDescription,\n      twitterImage\n    }\n  }\n': HomePageQueryResult
     '\n  *[_type == \'page\' && slug.current == $slug][0]{\n    _id,\n    _type,\n    name,\n    slug,\n    heading,\n    subheading,\n    "pageBuilder": pageBuilder[]{\n      ...,\n      _type == "callToAction" => {\n        \n  link {\n      ...,\n      \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n      }\n,\n      },\n      _type == "infoSection" => {\n        content[]{\n          ...,\n          markDefs[]{\n            ...,\n            \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            _type,\n            _id,\n            name,\n            slug,\n            affiliateLink,\n            logo,\n            rating,\n            welcomeBonus,\n            "license": companyInfo.licenses[0].license,\n            paymentMethods,\n            keyFeatures,\n            crypto,\n            mobile,\n            liveCasino,\n            minimumDeposit,\n            maximumDeposit,\n            numberOfGames,\n            companyInfo {\n              establishedYear\n            }\n          }\n        }\n      },\n    },\n  }\n': GetPageQueryResult
     '\n  *[_type == "casinoReview" && slug.current == $slug][0]{\n    \n  title,\n  publishedAt,\n  excerpt,\n  seo,\n  body,\n  casino->{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n  }\n\n  }\n': CasinoReviewQueryResult
     '\n  *[_type == "casino" && slug.current == $slug][0]{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n,\n    review->{\n      \n  title,\n  publishedAt,\n  excerpt,\n  seo,\n  body,\n  casino->{\n    \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n  }\n\n    }\n  }\n': CasinoPageQueryResult
@@ -5643,7 +5769,7 @@ declare module '@sanity/client' {
     '\n  *[_type == "lotoPageSettings"][0]{\n    heading,\n    description,\n    featuredCasino->{\n      \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n    },\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "linkableImage" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n          }\n        }\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "featuredCasino" => {\n        ...,\n        casino->{\n          \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n        }\n      },\n      _type == "featuredGame" => {\n        ...,\n        affiliateLink,\n        game->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          rating,\n          mainImage,\n          provider->{\n            name\n          }\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        }\n      },\n      _type == "bonusCalculator" => {\n        ...\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogTitle,\n      ogDescription,\n      ogImage\n    }\n  }\n': LotoPageSettingsQueryResult
     '\n  *[_type == "loto" && defined(slug.current)]\n  {"slug": slug.current}\n': LotoSlugsQueryResult
     '\n  *[_type == "loto" && slug.current == $slug][0]{\n    _id,\n    title,\n    heading,\n    excerpt,\n    apiSlug,\n    publishedAt,\n    author->{\n      firstName,\n      lastName,\n      picture\n    },\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "linkableImage" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        listItems[]{\n          ...,\n          item->{\n            \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n          }\n        }\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "featuredCasino" => {\n        ...,\n        casino->{\n          \n  _id,\n  name,\n  slug,\n  logo,\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  pros,\n  cons,\n  keyFeatures,\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  paymentMethods,\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n        }\n      },\n      _type == "featuredGame" => {\n        ...,\n        affiliateLink,\n        game->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          rating,\n          mainImage,\n          provider->{\n            name\n          }\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        }\n      },\n      _type == "bonusCalculator" => {\n        ...\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogTitle,\n      ogDescription,\n      ogImage,\n      modifiedAt\n    }\n  }\n': LotoQueryResult
-    '\n  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" && defined(slug.current)] | order(_type asc) {\n    "slug": slug.current,\n    _type,\n    _updatedAt,\n  }\n': SitemapDataResult
+    '\n  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" || _type == "person" && defined(slug.current)] | order(_type asc) {\n    "slug": slug.current,\n    _type,\n    _updatedAt,\n  }\n': SitemapDataResult
     '\n  *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  "status": select(_originalId in path("drafts.**") => "draft", "published"),\n  "title": coalesce(title, "Untitled"),\n  "slug": slug.current,\n  excerpt,\n  coverImage,\n  "date": coalesce(date, _updatedAt),\n  "author": author->{firstName, lastName, picture},\n\n  }\n': AllPostsQueryResult
     '\n  *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n    \n  _id,\n  "status": select(_originalId in path("drafts.**") => "draft", "published"),\n  "title": coalesce(title, "Untitled"),\n  "slug": slug.current,\n  excerpt,\n  coverImage,\n  "date": coalesce(date, _updatedAt),\n  "author": author->{firstName, lastName, picture},\n\n  }\n': MorePostsQueryResult
     '\n  *[_type == "post" && slug.current == $slug] [0] {\n    content[]{\n    ...,\n    markDefs[]{\n      ...,\n      \n  _type == "link" => {\n    "page": page->slug.current,\n    "post": post->slug.current\n  }\n\n    }\n  },\n    \n  _id,\n  "status": select(_originalId in path("drafts.**") => "draft", "published"),\n  "title": coalesce(title, "Untitled"),\n  "slug": slug.current,\n  excerpt,\n  coverImage,\n  "date": coalesce(date, _updatedAt),\n  "author": author->{firstName, lastName, picture},\n\n  }\n': PostQueryResult
@@ -5657,5 +5783,9 @@ declare module '@sanity/client' {
     '\n  *[_type == "infoPage" && defined(slug.current)]\n  {"slug": slug.current}\n': InfoPageSlugsQueryResult
     '\n  *[_type == "reviewsPage"][0]{\n    _id,\n    title,\n    heading,\n    subheading,\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "linkableImage" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        }\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogTitle,\n      ogDescription,\n      ogImage\n    }\n  }\n': ReviewsPageQueryResult
     '\n  *[_type == "casinoReview"] | order(publishedAt desc){\n    _id,\n    title,\n    slug,\n    excerpt,\n    publishedAt,\n    casino->{\n      _id,\n      name,\n      logo {\n        asset->{\n          url,\n          metadata {\n            lqip\n          }\n        },\n        alt\n      },\n      rating,\n      welcomeBonus,\n      affiliateLink\n    },\n    author->{\n      firstName,\n      lastName,\n      picture {\n        asset->{\n          url,\n          metadata {\n            lqip\n          }\n        },\n        alt\n      }\n    }\n  }\n': AllCasinoReviewsQueryResult
+    '\n  *[_type == "person"] | order(lastName asc, firstName asc){\n    _id,\n    firstName,\n    lastName,\n    slug,\n    role,\n    bio,\n    picture {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip,\n          dimensions\n        }\n      },\n      alt\n    },\n    expertise,\n    yearsOfExperience\n  }\n': AllAuthorsQueryResult
+    '\n  *[_type == "person" && defined(slug.current)]\n  {"slug": slug.current}\n': AuthorSlugsQueryResult
+    '\n  *[_type == "person" && slug.current == $slug][0]{\n    _id,\n    firstName,\n    lastName,\n    slug,\n    role,\n    bio,\n    longBio[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    picture {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip,\n          dimensions\n        }\n      },\n      alt\n    },\n    expertise,\n    yearsOfExperience,\n    credentials,\n    socialMedia\n  }\n': AuthorBySlugQueryResult
+    '\n  {\n    "reviews": *[_type == "casinoReview" && author._ref == $authorId] | order(publishedAt desc) [0...4]{\n      _id,\n      title,\n      slug,\n      excerpt,\n      publishedAt,\n      casino->{\n        _id,\n        name,\n        logo {\n          asset->{\n            url,\n            metadata {\n              lqip\n            }\n          },\n          alt\n        },\n        rating\n      }\n    },\n    "posts": *[_type == "post" && author._ref == $authorId] | order(date desc) [0...4]{\n      _id,\n      title,\n      slug,\n      excerpt,\n      date,\n      coverImage\n    },\n    "infoPages": *[_type == "infoPage" && author._ref == $authorId] | order(publishedAt desc) [0...4]{\n      _id,\n      title,\n      slug,\n      excerpt,\n      publishedAt\n    },\n    "lotoPages": *[_type == "loto" && author._ref == $authorId] | order(publishedAt desc) [0...4]{\n      _id,\n      title,\n      slug,\n      excerpt,\n      publishedAt\n    }\n  }\n': AuthorContentQueryResult
   }
 }

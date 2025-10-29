@@ -21,7 +21,7 @@ type AboutUsItem = {
     alt?: string
   }
   title: string
-  content: PortableTextBlock[]
+  content: PortableTextBlock[] | string
   colorTheme: 'orange' | 'blue' | 'green' | 'purple' | 'teal'
 }
 
@@ -232,9 +232,17 @@ export function AboutUs({data, index}: AboutUsProps) {
                   {item.title}
                 </h3>
 
-                {/* Rich Text Content */}
+                {/* Rich Text Content or Plain Text */}
                 <div className="flex-1 text-left">
-                  <PortableText value={item.content} components={cardTextComponents} />
+                  {Array.isArray(item.content) ? (
+                    <PortableText value={item.content} components={cardTextComponents} />
+                  ) : item.content ? (
+                    <p className="text-base leading-relaxed text-gray-700 whitespace-pre-line">
+                      {item.content}
+                    </p>
+                  ) : (
+                    <p className="text-base text-gray-400 italic">No content provided</p>
+                  )}
                 </div>
               </div>
             </article>

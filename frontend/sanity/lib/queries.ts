@@ -200,24 +200,10 @@ export const homePageQuery = defineQuery(`
         ...
       },
       _type == "reviewMethodology" => {
-        ...,
-        criteria[]{
-          _key,
-          iconName,
-          customIcon {
-            asset->{
-              _id,
-              url,
-              metadata {
-                lqip,
-                dimensions
-              }
-            },
-            alt
-          },
-          title,
-          description
-        }
+        ...
+      },
+      _type == "aboutUs" => {
+        ...
       },
       _type == "beginnersGuide" => {
         ...,
@@ -769,7 +755,7 @@ export const lotoQuery = defineQuery(`
 `)
 
 export const sitemapData = defineQuery(`
-  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" && defined(slug.current)] | order(_type asc) {
+  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" || _type == "person" && defined(slug.current)] | order(_type asc) {
     "slug": slug.current,
     _type,
     _updatedAt,
@@ -1389,6 +1375,131 @@ export const allCasinoReviewsQuery = defineQuery(`
         },
         alt
       }
+    }
+  }
+`)
+
+// Author Queries
+export const allAuthorsQuery = defineQuery(`
+  *[_type == "person"] | order(lastName asc, firstName asc){
+    _id,
+    firstName,
+    lastName,
+    slug,
+    role,
+    bio,
+    picture {
+      asset->{
+        _id,
+        url,
+        metadata {
+          lqip,
+          dimensions
+        }
+      },
+      alt
+    },
+    expertise,
+    yearsOfExperience
+  }
+`)
+
+export const authorSlugsQuery = defineQuery(`
+  *[_type == "person" && defined(slug.current)]
+  {"slug": slug.current}
+`)
+
+export const authorBySlugQuery = defineQuery(`
+  *[_type == "person" && slug.current == $slug][0]{
+    _id,
+    firstName,
+    lastName,
+    slug,
+    role,
+    bio,
+    longBio[]{
+      ...,
+      _type == "image" => {
+        ...,
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        }
+      },
+      markDefs[]{
+        ...,
+        _type == "link" => {
+          ...,
+          href
+        }
+      }
+    },
+    picture {
+      asset->{
+        _id,
+        url,
+        metadata {
+          lqip,
+          dimensions
+        }
+      },
+      alt
+    },
+    expertise,
+    yearsOfExperience,
+    credentials,
+    socialMedia
+  }
+`)
+
+export const authorContentQuery = defineQuery(`
+  {
+    "reviews": *[_type == "casinoReview" && author._ref == $authorId] | order(publishedAt desc) [0...4]{
+      _id,
+      title,
+      slug,
+      excerpt,
+      publishedAt,
+      casino->{
+        _id,
+        name,
+        logo {
+          asset->{
+            url,
+            metadata {
+              lqip
+            }
+          },
+          alt
+        },
+        rating
+      }
+    },
+    "posts": *[_type == "post" && author._ref == $authorId] | order(date desc) [0...4]{
+      _id,
+      title,
+      slug,
+      excerpt,
+      date,
+      coverImage
+    },
+    "infoPages": *[_type == "infoPage" && author._ref == $authorId] | order(publishedAt desc) [0...4]{
+      _id,
+      title,
+      slug,
+      excerpt,
+      publishedAt
+    },
+    "lotoPages": *[_type == "loto" && author._ref == $authorId] | order(publishedAt desc) [0...4]{
+      _id,
+      title,
+      slug,
+      excerpt,
+      publishedAt
     }
   }
 `)
