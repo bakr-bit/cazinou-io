@@ -191,14 +191,14 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
             )}
 
             {shouldShow(displayOptions, 'showLogo') && (
-              <div className="relative h-20 w-auto max-w-[120px] flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-white sm:h-24 sm:max-w-[140px]">
+              <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-24 sm:w-24">
                 {logoUrl ? (
                   <Image
                     src={logoUrl}
                     alt={`${itm.name || 'Casino'} logo`}
                     fill
-                    className="object-contain p-2"
-                    sizes="(max-width: 640px) 120px, 140px"
+                    className="object-contain p-1"
+                    sizes="(max-width: 640px) 80px, 96px"
                   />
                 ) : (
                   <span className="flex h-full w-full items-center justify-center text-xs text-slate-400">
@@ -385,14 +385,14 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
 
         <div className="flex items-center gap-4">
           {shouldShow(displayOptions, 'showLogo') && (
-            <div className="relative h-14 w-auto max-w-[100px] overflow-hidden rounded-xl border border-slate-100 bg-white">
+            <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
               {logoUrl ? (
                 <Image
                   src={logoUrl}
                   alt={`${itm.name || 'Casino'} logo`}
                   fill
-                  className="object-contain p-1.5"
-                  sizes="100px"
+                  className="object-contain p-2"
+                  sizes="56px"
                 />
               ) : (
                 <span className="flex h-full w-full items-center justify-center text-xs text-slate-400">No image</span>
