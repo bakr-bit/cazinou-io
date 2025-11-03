@@ -214,7 +214,7 @@ function renderImage(imageBlock: ContentItem, index: number) {
 
   return (
     <div key={imageBlock._key || `image-${index}`} className="container my-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <figure className="space-y-3">
           {imageBlock.link?.url ? (
             <a
@@ -261,7 +261,7 @@ function renderYouTubeEmbed(embedBlock: ContentItem, index: number) {
 
   return (
     <div key={embedBlock._key || `youtube-${index}`} className="container my-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <figure className="space-y-3">
           <div className="relative aspect-video w-full overflow-hidden rounded-lg">
             <iframe
