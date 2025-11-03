@@ -94,7 +94,7 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
   // Use slotsLaunchThumb if available, fallback to mainImage
   const thumbnailUrl = game.slotsLaunchThumb || (game.mainImage ? urlForImage(game.mainImage)?.width(400).height(400).fit('max').url() : null)
 
-  const buttonText = block.buttonText || 'Play Now'
+  const buttonText = block.buttonText || 'Joacă Gratis'
   const showRating = block.showRating !== false
   const displayOptions = block.displayOptions || {}
   const shouldShow = (option: keyof typeof displayOptions) => displayOptions[option] !== false
@@ -194,17 +194,6 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3">
-              {block.affiliateLink && (
-                <a
-                  href={block.affiliateLink}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-white font-mono"
-                >
-                  Joacă pe bani reali
-                </a>
-              )}
-
               {detailsHref && (
                 <Link
                   href={detailsHref}
@@ -212,6 +201,17 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
                 >
                   {buttonText}
                 </Link>
+              )}
+
+              {block.affiliateLink && (
+                <a
+                  href={block.affiliateLink}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-orange-500 bg-white px-6 py-2.5 text-sm font-semibold text-orange-500 transition hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-white font-mono"
+                >
+                  Joacă pe bani reali
+                </a>
               )}
             </div>
           </div>
@@ -227,6 +227,7 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
                     fill
                     className="object-contain rounded-lg"
                     sizes="256px"
+                    unoptimized={thumbnailUrl.includes('slotslaunch.com')}
                   />
                 </div>
               ) : (
