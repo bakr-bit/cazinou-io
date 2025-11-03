@@ -1140,6 +1140,32 @@ export const getPageOrInfoPageQuery = defineQuery(`
             ${casinoCoreFields}
           }
         },
+        _type == "featuredGame" => {
+          ...,
+          affiliateLink,
+          game->{
+            _id,
+            name,
+            slug,
+            slotsLaunchSlug,
+            slotsLaunchThumb,
+            rating,
+            mainImage {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
+            },
+            provider->{
+              name
+            }
+          }
+        },
         _type == "featuredGamesGrid" => {
           ...,
           games[]->{
