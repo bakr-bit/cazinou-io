@@ -103,7 +103,7 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
     <section className="relative my-8 overflow-hidden rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-50/30 via-white to-white shadow-sm">
       {/* Background Pattern */}
       {thumbnailUrl && (
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 opacity-5" suppressHydrationWarning>
           <Image
             src={thumbnailUrl}
             alt=""
@@ -111,6 +111,7 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
             className="object-cover blur-sm"
             sizes="100vw"
             priority
+            unoptimized={thumbnailUrl.includes('slotslaunch.com')}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80" />
         </div>
@@ -221,14 +222,23 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
             <div className="w-full max-w-xs rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               {thumbnailUrl ? (
                 <div className="relative mx-auto aspect-square w-full max-w-[256px]">
-                  <Image
-                    src={thumbnailUrl}
-                    alt={`${game.name} thumbnail`}
-                    fill
-                    className="object-contain rounded-lg"
-                    sizes="256px"
-                    unoptimized={thumbnailUrl.includes('slotslaunch.com')}
-                  />
+                  {thumbnailUrl.includes('slotslaunch.com') ? (
+                    // Use regular img tag for SlotsLaunch images (already optimized)
+                    <img
+                      src={thumbnailUrl}
+                      alt={`${game.name} thumbnail`}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                  ) : (
+                    // Use Next.js Image for Sanity images
+                    <Image
+                      src={thumbnailUrl}
+                      alt={`${game.name} thumbnail`}
+                      fill
+                      className="object-contain rounded-lg"
+                      sizes="256px"
+                    />
+                  )}
                 </div>
               ) : (
                 <div className="mx-auto flex aspect-square w-full max-w-[256px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
