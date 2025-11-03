@@ -42,6 +42,15 @@ export const callToAction = defineType({
       title: 'Button link',
       type: 'link',
     }),
+    defineField({
+      name: 'backgroundImage',
+      title: 'Background Image',
+      type: 'image',
+      description: 'Optional background image (will be blurred)',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
   preview: {
     select: {

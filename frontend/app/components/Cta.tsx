@@ -1,7 +1,9 @@
 import {Suspense} from 'react'
+import Image from 'next/image'
 
 import ResolvedLink from '@/app/components/ResolvedLink'
 import {CallToAction} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 
 type CtaProps = {
   block: CallToAction
@@ -12,11 +14,29 @@ export default function CTA({block}: CtaProps) {
   if (!block) {
     return null
   }
-  
+
+  const backgroundImageUrl = block.backgroundImage
+    ? urlForImage(block.backgroundImage)?.width(1920).height(600).fit('crop').url()
+    : null
+
   return (
     <div className="my-12 flex justify-center">
-      <div className="bg-gray-50 border border-gray-100 rounded-2xl max-w-5xl w-full">
-        <div className="px-12 py-12 flex flex-col gap-6 items-center text-center">
+      <div className="relative bg-gray-50 border border-gray-100 rounded-2xl max-w-5xl w-full overflow-hidden">
+        {/* Background Image with Blur */}
+        {backgroundImageUrl && (
+          <div className="absolute inset-0">
+            <Image
+              src={backgroundImageUrl}
+              alt=""
+              fill
+              className="object-cover blur-sm"
+              sizes="1920px"
+            />
+            <div className="absolute inset-0 bg-white/60" />
+          </div>
+        )}
+
+        <div className="relative z-10 px-12 py-12 flex flex-col gap-6 items-center text-center">
           <div className="max-w-2xl flex flex-col gap-3">
             <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
               {block.heading || 'Call to Action'}

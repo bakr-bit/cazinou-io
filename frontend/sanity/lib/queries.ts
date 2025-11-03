@@ -24,7 +24,18 @@ const linkFields = /* groq */ `
   link {
       ...,
       ${linkReference}
+      },
+  backgroundImage {
+    asset->{
+      _id,
+      url,
+      metadata {
+        lqip,
+        dimensions
       }
+    },
+    alt
+  }
 `
 
 const casinoCoreFields = /* groq */ `
@@ -194,6 +205,17 @@ export const homePageQuery = defineQuery(`
             "page": page->slug.current,
             "post": post->slug.current
           }
+        },
+        backgroundImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
         }
       },
       _type == "simpleButton" => {
@@ -652,6 +674,17 @@ export const lotoPageSettingsQuery = defineQuery(`
             "page": page->slug.current,
             "post": post->slug.current
           }
+        },
+        backgroundImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
         }
       },
       _type == "simpleButton" => {
@@ -803,6 +836,17 @@ export const lotoQuery = defineQuery(`
             "page": page->slug.current,
             "post": post->slug.current
           }
+        },
+        backgroundImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
         }
       },
       _type == "simpleButton" => {
@@ -901,6 +945,17 @@ export const getPageOrInfoPageQuery = defineQuery(`
               "post": post->slug.current
             }
           },
+          backgroundImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          }
         },
         _type == "infoSection" => {
           content[]{
@@ -1088,6 +1143,17 @@ export const getPageOrInfoPageQuery = defineQuery(`
               "page": page->slug.current,
               "post": post->slug.current
             }
+          },
+          backgroundImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
           }
         },
         _type == "simpleButton" => {
@@ -1327,6 +1393,17 @@ export const infoPageBySlugQuery = defineQuery(`
             "page": page->slug.current,
             "post": post->slug.current
           }
+        },
+        backgroundImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
         }
       },
       _type == "simpleButton" => {
@@ -1429,6 +1506,17 @@ export const reviewsPageQuery = defineQuery(`
             "page": page->slug.current,
             "post": post->slug.current
           }
+        },
+        backgroundImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
         }
       },
       markDefs[]{
