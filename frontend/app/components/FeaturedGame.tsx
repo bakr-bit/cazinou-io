@@ -246,10 +246,6 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
                       src={thumbnailUrl}
                       alt={`${game.name} thumbnail`}
                       className="w-full h-full object-contain rounded-lg"
-                      onError={(e) => {
-                        console.error('Image failed to load:', thumbnailUrl)
-                        e.currentTarget.style.display = 'none'
-                      }}
                     />
                   ) : (
                     // Use Next.js Image for Sanity images
