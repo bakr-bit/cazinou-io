@@ -7,6 +7,7 @@ import {notFound} from 'next/navigation'
 import DateComponent from '@/app/components/Date'
 import PageBuilderPage from '@/app/components/PageBuilder'
 import {ContentSections} from '@/app/components/ContentSections'
+import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
 import {sanityFetch} from '@/sanity/lib/live'
 import {getPageOrInfoPageQuery, pagesSlugs} from '@/sanity/lib/queries'
 import {GetPageQueryResult} from '@/sanity.types'
@@ -241,6 +242,9 @@ export default async function Page(props: Props) {
         {/* Main Content */}
         <div className="pb-12 lg:pb-24">
           {infoPage.content && <ContentSections content={infoPage.content} author={infoPage.author} />}
+
+          {/* 18+ Disclaimer */}
+          <ResponsibleGamingDisclaimer />
         </div>
       </div>
     )
