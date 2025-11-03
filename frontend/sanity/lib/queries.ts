@@ -166,7 +166,17 @@ export const homePageQuery = defineQuery(`
           slotsLaunchSlug,
           slotsLaunchThumb,
           rating,
-          mainImage,
+          mainImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          },
           provider->{
             name
           }
@@ -660,7 +670,17 @@ export const lotoPageSettingsQuery = defineQuery(`
           slotsLaunchSlug,
           slotsLaunchThumb,
           rating,
-          mainImage,
+          mainImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          },
           provider->{
             name
           }
@@ -822,7 +842,17 @@ export const lotoQuery = defineQuery(`
           slotsLaunchSlug,
           slotsLaunchThumb,
           rating,
-          mainImage,
+          mainImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          },
           provider->{
             name
           }
@@ -1354,7 +1384,17 @@ export const infoPageBySlugQuery = defineQuery(`
           slotsLaunchSlug,
           slotsLaunchThumb,
           rating,
-          mainImage,
+          mainImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          },
           provider->{
             name
           }

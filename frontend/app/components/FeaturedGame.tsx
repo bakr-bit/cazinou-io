@@ -121,15 +121,9 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
         <div className="grid gap-6 py-8 md:grid-cols-2 md:py-10 lg:gap-8">
           {/* Left Column: Text Content */}
           <div className="flex flex-col justify-center space-y-4">
-            {block.heading && (
-              <p className="text-xs font-semibold uppercase tracking-wide text-orange-600 font-mono">
-                {block.heading}
-              </p>
-            )}
-
             <div className="space-y-3">
               <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl font-mono">
-                {game.name || 'Featured Game'}
+                {block.heading || game.name || 'Featured Game'}
               </h2>
 
               {showRating && game.rating && (
