@@ -15,9 +15,9 @@ export default function CTA({block}: CtaProps) {
   
   return (
     <div className="my-12 flex justify-center">
-      <div className="bg-gray-50 border border-gray-100 rounded-2xl max-w-3xl">
-        <div className="px-12 py-12 flex flex-col gap-6">
-          <div className="max-w-xl flex flex-col gap-3">
+      <div className="bg-gray-50 border border-gray-100 rounded-2xl max-w-5xl w-full">
+        <div className="px-12 py-12 flex flex-col gap-6 items-center text-center">
+          <div className="max-w-2xl flex flex-col gap-3">
             <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
               {block.heading || 'Call to Action'}
             </h2>
@@ -25,10 +25,10 @@ export default function CTA({block}: CtaProps) {
           </div>
 
           <Suspense fallback={null}>
-            <div className="flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+            <div className="flex items-center justify-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
               <ResolvedLink
                 link={block.link}
-                className="rounded-full flex gap-2 mr-6 items-center bg-black hover:bg-blue focus:bg-blue py-3 px-6 text-white transition-colors duration-200"
+                className="rounded-full flex gap-2 items-center bg-black hover:bg-blue focus:bg-blue py-3 px-6 text-white transition-colors duration-200"
               >
                 {block.buttonText}
               </ResolvedLink>
