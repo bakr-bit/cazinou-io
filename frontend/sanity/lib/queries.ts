@@ -196,6 +196,18 @@ export const homePageQuery = defineQuery(`
           }
         }
       },
+      _type == "simpleButton" => {
+        ...,
+        link {
+          ...,
+          _type == "link" => {
+            "page": page->slug.current,
+            "post": post->slug.current,
+            "infoPage": infoPage->slug.current,
+            "casinoReview": casinoReview->slug.current
+          }
+        }
+      },
       _type == "bonusCalculator" => {
         ...
       },
@@ -642,6 +654,18 @@ export const lotoPageSettingsQuery = defineQuery(`
           }
         }
       },
+      _type == "simpleButton" => {
+        ...,
+        link {
+          ...,
+          _type == "link" => {
+            "page": page->slug.current,
+            "post": post->slug.current,
+            "infoPage": infoPage->slug.current,
+            "casinoReview": casinoReview->slug.current
+          }
+        }
+      },
       _type == "bonusCalculator" => {
         ...
       },
@@ -778,6 +802,18 @@ export const lotoQuery = defineQuery(`
           _type == "link" => {
             "page": page->slug.current,
             "post": post->slug.current
+          }
+        }
+      },
+      _type == "simpleButton" => {
+        ...,
+        link {
+          ...,
+          _type == "link" => {
+            "page": page->slug.current,
+            "post": post->slug.current,
+            "infoPage": infoPage->slug.current,
+            "casinoReview": casinoReview->slug.current
           }
         }
       },
@@ -1278,6 +1314,18 @@ export const infoPageBySlugQuery = defineQuery(`
           _type == "link" => {
             "page": page->slug.current,
             "post": post->slug.current
+          }
+        }
+      },
+      _type == "simpleButton" => {
+        ...,
+        link {
+          ...,
+          _type == "link" => {
+            "page": page->slug.current,
+            "post": post->slug.current,
+            "infoPage": infoPage->slug.current,
+            "casinoReview": casinoReview->slug.current
           }
         }
       },
