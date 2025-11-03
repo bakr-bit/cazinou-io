@@ -114,6 +114,7 @@ export const infoPage = defineType({
         {type: 'featuredGame'},
         {type: 'featuredGamesGrid'},
         {type: 'callToAction'},
+        {type: 'simpleButton'},
         {type: 'bonusCalculator'},
         {type: 'reviewMethodology'},
         {type: 'beginnersGuide'},

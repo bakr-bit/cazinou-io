@@ -111,7 +111,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
   const bannerUrl = bannerImage ? urlForImage(bannerImage)?.width(1920).height(600).fit('crop').url() : null
   const logoUrl = casino.logo ? urlForImage(casino.logo)?.width(200).height(200).url() : null
 
-  const buttonText = block.buttonText || 'Play Now'
+  const buttonText = block.buttonText || 'Joacă Acum'
   const showRating = block.showRating !== false
   const displayOptions = block.displayOptions || {}
   const shouldShow = (option: keyof typeof displayOptions) => displayOptions[option] !== false
@@ -174,7 +174,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
               {shouldShow('showKeyFeatures') && casino.keyFeatures && casino.keyFeatures.length > 0 && (
                 <div className="space-y-2">
                   <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
-                    Key Features
+                    Caracteristici Principale
                   </h3>
                   <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     {casino.keyFeatures.map((feature, idx) => (
@@ -191,7 +191,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
               {shouldShow('showPaymentMethods') && casino.paymentMethods && casino.paymentMethods.length > 0 && (
                 <div className="space-y-2">
                   <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
-                    Payment Methods
+                    Metode de Plată
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {casino.paymentMethods.slice(0, 8).map((method, idx) => (
@@ -280,7 +280,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
                   href={detailsHref}
                   className="inline-flex items-center justify-center rounded-full border-2 border-gray-200 bg-white px-6 py-2.5 text-sm font-semibold text-gray-900 transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-white font-mono"
                 >
-                  View Details
+                  Vezi Detalii
                 </Link>
               )}
             </div>
