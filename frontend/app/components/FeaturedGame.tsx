@@ -91,8 +91,26 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
   const slug = game.slug?.current
   const detailsHref = slug ? `/pacanele/${slug}` : undefined
 
+  // Debug logging
+  console.log('FeaturedGame - game data:', {
+    name: game.name,
+    slotsLaunchThumb: game.slotsLaunchThumb,
+    mainImage: game.mainImage,
+    hasMainImage: !!game.mainImage,
+  })
+
   // Use slotsLaunchThumb if available, fallback to mainImage
-  const thumbnailUrl = game.slotsLaunchThumb || (game.mainImage ? urlForImage(game.mainImage)?.width(400).height(400).fit('max').url() : null)
+  let thumbnailUrl: string | null = null
+
+  if (game.slotsLaunchThumb) {
+    thumbnailUrl = game.slotsLaunchThumb
+  } else if (game.mainImage) {
+    const imageUrl = urlForImage(game.mainImage)?.width(400).height(400).fit('max').url()
+    console.log('Generated mainImage URL:', imageUrl)
+    thumbnailUrl = imageUrl || null
+  }
+
+  console.log('Final thumbnailUrl:', thumbnailUrl)
 
   const buttonText = block.buttonText || 'Joacă Gratis'
   const showRating = block.showRating !== false
