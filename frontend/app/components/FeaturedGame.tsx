@@ -246,6 +246,10 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
                       src={thumbnailUrl}
                       alt={`${game.name} thumbnail`}
                       className="w-full h-full object-contain rounded-lg"
+                      onError={(e) => {
+                        console.error('Image failed to load:', thumbnailUrl)
+                        e.currentTarget.style.display = 'none'
+                      }}
                     />
                   ) : (
                     // Use Next.js Image for Sanity images
@@ -259,8 +263,14 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
                   )}
                 </div>
               ) : (
-                <div className="mx-auto flex aspect-square w-full max-w-[256px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
-                  No image
+                <div className="mx-auto flex flex-col aspect-square w-full max-w-[256px] items-center justify-center rounded-xl bg-gray-100 text-gray-400 text-xs p-4">
+                  <div>No image</div>
+                  <div className="mt-2 text-center">
+                    slotsLaunchThumb: {game.slotsLaunchThumb || 'null'}
+                  </div>
+                  <div className="mt-1 text-center">
+                    mainImage: {game.mainImage ? 'exists' : 'null'}
+                  </div>
                 </div>
               )}
             </div>
