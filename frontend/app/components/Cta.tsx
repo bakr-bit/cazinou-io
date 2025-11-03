@@ -6,7 +6,9 @@ import {CallToAction} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 
 type CtaProps = {
-  block: CallToAction
+  block: CallToAction & {
+    backgroundImage?: any
+  }
   index: number
 }
 
