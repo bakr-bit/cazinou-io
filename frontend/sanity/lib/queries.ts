@@ -1090,6 +1090,18 @@ export const getPageOrInfoPageQuery = defineQuery(`
             }
           }
         },
+        _type == "simpleButton" => {
+          ...,
+          link {
+            ...,
+            _type == "link" => {
+              "page": page->slug.current,
+              "post": post->slug.current,
+              "infoPage": infoPage->slug.current,
+              "casinoReview": casinoReview->slug.current
+            }
+          }
+        },
         _type == "bonusCalculator" => {
           ...
         },
