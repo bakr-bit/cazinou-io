@@ -151,6 +151,13 @@ export const casinoReview = defineType({
       },
     }),
     defineField({
+      name: 'hidden',
+      title: 'Hidden from Listings',
+      type: 'boolean',
+      description: 'Hide this review from the /recenzii page and sitemap (still accessible via direct URL)',
+      initialValue: false,
+    }),
+    defineField({
       name: 'seo',
       title: 'SEO & Social Meta',
       type: 'object',

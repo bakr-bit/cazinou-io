@@ -13,8 +13,6 @@ import {getPageOrInfoPageQuery, pagesSlugs} from '@/sanity/lib/queries'
 import {GetPageQueryResult} from '@/sanity.types'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 
-import {PageOnboarding} from '@/app/components/Onboarding'
-
 type Props = {
   params: Promise<{slug: string}>
 }
@@ -87,11 +85,7 @@ export default async function Page(props: Props) {
   ])
 
   if (!pageData?._id) {
-    return (
-      <div className="py-40">
-        <PageOnboarding />
-      </div>
-    )
+    return notFound()
   }
 
   // Render infoPage type

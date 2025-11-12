@@ -42,7 +42,17 @@ const casinoCoreFields = /* groq */ `
   _id,
   name,
   slug,
-  logo,
+  logo {
+    asset->{
+      _id,
+      url,
+      metadata {
+        lqip,
+        dimensions
+      }
+    },
+    alt
+  },
   featuredBanner,
   rating,
   welcomeBonus,
@@ -125,7 +135,17 @@ export const homePageQuery = defineQuery(`
             name,
             slug,
             affiliateLink,
-            logo,
+            logo {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
+            },
             rating,
             welcomeBonus,
             "license": coalesce(companyInfo.licenses[0].license, ""),
@@ -509,7 +529,17 @@ export const getPageQuery = defineQuery(`
             name,
             slug,
             affiliateLink,
-            logo,
+            logo {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
+            },
             rating,
             welcomeBonus,
             "license": coalesce(companyInfo.licenses[0].license, ""),
@@ -914,7 +944,16 @@ export const lotoQuery = defineQuery(`
 `)
 
 export const sitemapData = defineQuery(`
-  *[_type == "page" || _type == "post" || _type == "casinoReview" || _type == "infoPage" || _type == "loto" || _type == "person" && defined(slug.current)] | order(_type asc) {
+  *[
+    (
+      _type == "page" ||
+      _type == "post" ||
+      _type == "infoPage" ||
+      _type == "loto" ||
+      _type == "person" ||
+      (_type == "casinoReview" && hidden != true)
+    ) && defined(slug.current)
+  ] | order(_type asc) {
     "slug": slug.current,
     _type,
     _updatedAt,
@@ -1010,7 +1049,17 @@ export const getPageOrInfoPageQuery = defineQuery(`
               name,
               slug,
               affiliateLink,
-              logo,
+              logo {
+                asset->{
+                  _id,
+                  url,
+                  metadata {
+                    lqip,
+                    dimensions
+                  }
+                },
+                alt
+              },
               rating,
               welcomeBonus,
               "license": coalesce(companyInfo.licenses[0].license, ""),
@@ -1109,7 +1158,17 @@ export const getPageOrInfoPageQuery = defineQuery(`
               name,
               slug,
               affiliateLink,
-              logo,
+              logo {
+                asset->{
+                  _id,
+                  url,
+                  metadata {
+                    lqip,
+                    dimensions
+                  }
+                },
+                alt
+              },
               rating,
               welcomeBonus,
               "license": coalesce(companyInfo.licenses[0].license, ""),
@@ -1369,7 +1428,17 @@ export const infoPageBySlugQuery = defineQuery(`
             name,
             slug,
             affiliateLink,
-            logo,
+            logo {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
+            },
             rating,
             welcomeBonus,
             "license": coalesce(companyInfo.licenses[0].license, ""),
@@ -1604,7 +1673,7 @@ export const reviewsPageQuery = defineQuery(`
 `)
 
 export const allCasinoReviewsQuery = defineQuery(`
-  *[_type == "casinoReview"] | order(publishedAt desc){
+  *[_type == "casinoReview" && hidden != true] | order(publishedAt desc){
     _id,
     title,
     slug,
