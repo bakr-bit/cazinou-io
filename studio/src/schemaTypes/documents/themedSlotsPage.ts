@@ -56,6 +56,7 @@ export const themedSlotsPage = defineType({
           {title: 'Filter by Theme', value: 'theme'},
           {title: 'Filter by Provider', value: 'provider'},
           {title: 'Filter by Game Type', value: 'gameType'},
+          {title: 'Filter by Minimum RTP', value: 'rtp'},
         ],
         layout: 'radio',
       },
@@ -66,9 +67,9 @@ export const themedSlotsPage = defineType({
       name: 'filterValue',
       title: 'Filter Value',
       type: 'string',
-      description: 'The exact value to filter by (e.g., "Fruits", "Megaways", "NetEnt", "Slots"). Must match the value in the game data exactly.',
+      description: 'The value to filter by. For theme/provider/gameType: exact match (e.g., "Fruits", "NetEnt", "Slots"). For RTP: minimum percentage as number (e.g., "96" for RTP >= 96%).',
       validation: (Rule) => Rule.required(),
-      placeholder: 'e.g., Fruits, Megaways, NetEnt, Slots, Poker',
+      placeholder: 'e.g., Fruits, Megaways, NetEnt, Slots, Poker, 96, 97',
     }),
     // Featured Casino
     defineField({
@@ -204,11 +205,18 @@ export const themedSlotsPage = defineType({
       filterValue: 'filterValue',
     },
     prepare({title, slug, filterType, filterValue}) {
-      const filterLabel = filterType === 'theme' ? '🏷️' : filterType === 'provider' ? '🏢' : '🎮'
+      const filterLabel =
+        filterType === 'theme' ? '🏷️' :
+        filterType === 'provider' ? '🏢' :
+        filterType === 'rtp' ? '📊' :
+        '🎮'
+      const filterDisplay =
+        filterType === 'rtp' ? `${filterType}: RTP ≥ ${filterValue}%` :
+        `${filterType}: "${filterValue}"`
       return {
         title: title || 'Untitled Themed Page',
         subtitle: slug ? `/pacanele-gratis/${slug}` : 'No slug',
-        description: `${filterLabel} ${filterType}: "${filterValue}"`,
+        description: `${filterLabel} ${filterDisplay}`,
       }
     },
   },

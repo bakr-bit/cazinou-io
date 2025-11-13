@@ -3997,6 +3997,10 @@
             {
               "type": "string",
               "value": "gameType"
+            },
+            {
+              "type": "string",
+              "value": "rtp"
             }
           ]
         },
