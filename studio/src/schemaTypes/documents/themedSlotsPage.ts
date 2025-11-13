@@ -1,4 +1,4 @@
-import {GamepadIcon} from '@sanity/icons'
+import {JoystickIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 /**
@@ -11,7 +11,7 @@ export const themedSlotsPage = defineType({
   name: 'themedSlotsPage',
   title: 'Themed Slots Page',
   type: 'document',
-  icon: GamepadIcon,
+  icon: JoystickIcon,
   fields: [
     defineField({
       name: 'title',
