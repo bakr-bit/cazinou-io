@@ -182,6 +182,13 @@ export const themedSlotsPage = defineType({
       description: 'When this page was first published',
     }),
     defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [{type: 'person'}],
+      description: 'The author of this page (optional)',
+    }),
+    defineField({
       name: 'hidden',
       title: 'Hidden',
       type: 'boolean',
