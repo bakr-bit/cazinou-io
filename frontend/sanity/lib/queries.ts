@@ -2035,6 +2035,7 @@ export const themedSlotsPageBySlugQuery = defineQuery(`
       ogImage
     },
     publishedAt,
+    "author": author->{firstName, lastName, picture},
     hidden
   }
 `)
