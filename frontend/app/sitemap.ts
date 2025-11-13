@@ -62,6 +62,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           changeFrequency = 'weekly'
           url = `${domain}/loto-online/${p.slug}`
           break
+        case 'themedSlotsPage':
+          priority = 0.85
+          changeFrequency = 'weekly'
+          url = `${domain}/pacanele-gratis/${p.slug}`
+          break
         default:
           // Skip unknown document types
           continue
