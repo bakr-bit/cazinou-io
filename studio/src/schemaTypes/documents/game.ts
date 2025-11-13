@@ -58,6 +58,52 @@ export const game = defineType({
       type: 'url',
       description: 'Thumbnail image URL from SlotsLaunch API. If provided, this will be used instead of the Main Image in grids.',
     }),
+    // Game Classification & Filtering
+    defineField({
+      name: 'gameType',
+      title: 'Game Type',
+      type: 'string',
+      description: 'Type of game (e.g., "Slots", "Poker", "Blackjack", "Specialty")',
+    }),
+    defineField({
+      name: 'gameTypeSlug',
+      title: 'Game Type Slug',
+      type: 'string',
+      description: 'URL-friendly slug for the game type',
+    }),
+    defineField({
+      name: 'themes',
+      title: 'Themes',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Game themes/tags (e.g., "Megaways", "Christmas", "Ancient Egypt", "Fruit")',
+    }),
+    // Game Attributes
+    defineField({
+      name: 'rtp',
+      title: 'RTP (Return to Player)',
+      type: 'string',
+      description: 'Return to Player percentage (e.g., "96.5%")',
+    }),
+    defineField({
+      name: 'volatility',
+      title: 'Volatility',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Low', value: 'low'},
+          {title: 'Medium', value: 'medium'},
+          {title: 'High', value: 'high'},
+        ],
+      },
+      description: 'Game volatility level',
+    }),
+    defineField({
+      name: 'releaseDate',
+      title: 'Release Date',
+      type: 'string',
+      description: 'Game release date from SlotsLaunch API',
+    }),
     defineField({
       name: 'seoContent',
       title: 'SEO Content',

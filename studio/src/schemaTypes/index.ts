@@ -3,6 +3,7 @@ import {page} from './documents/page'
 import {post} from './documents/post'
 import {infoPage} from './documents/infoPage'
 import {loto} from './documents/loto'
+import {themedSlotsPage} from './documents/themedSlotsPage'
 import {callToAction} from './objects/callToAction'
 import {infoSection} from './objects/infoSection'
 import {settings} from './singletons/settings'
@@ -43,6 +44,7 @@ export const schemaTypes = [
   page,
   post,
   infoPage,
+  themedSlotsPage,
   reviewsPage,
   loto,
   person,
