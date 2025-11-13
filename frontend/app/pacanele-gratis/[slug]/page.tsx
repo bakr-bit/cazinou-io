@@ -12,6 +12,7 @@ import {FeaturedCasinoBanner} from '@/app/components/FeaturedCasinoBanner'
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
 import {sanityFetch} from '@/sanity/lib/live'
+import {client} from '@/sanity/lib/client'
 import {themedSlotsPageBySlugQuery, themedSlotsPageSlugsQuery, allGamesQuery} from '@/sanity/lib/queries'
 import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
@@ -112,9 +113,8 @@ async function fetchFilteredSlotsData(
 
 // Generate static params for all themed pages
 export async function generateStaticParams() {
-  const {data: pages} = await sanityFetch({
-    query: themedSlotsPageSlugsQuery,
-    stega: false,
+  const pages = await client.fetch(themedSlotsPageSlugsQuery, {}, {
+    perspective: 'published',
   })
 
   return (pages || []).map((page: {slug: string}) => ({

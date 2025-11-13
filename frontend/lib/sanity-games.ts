@@ -8,9 +8,9 @@ export type SanityGame = {
   _id: string
   name: string
   slug: {current: string}
-  slotsLaunchId: number
-  slotsLaunchSlug: string
-  slotsLaunchThumb: string
+  slotsLaunchId: number | null
+  slotsLaunchSlug: string | null
+  slotsLaunchThumb: string | null
   rating: number
   gameType: string | null
   gameTypeSlug: string | null
@@ -63,12 +63,12 @@ export function transformSanityGameToSlotGame(game: SanityGame): SlotGame {
   }))
 
   return {
-    id: game.slotsLaunchId,
+    id: game.slotsLaunchId || 0,
     name: game.name,
-    slug: game.slotsLaunchSlug,
+    slug: game.slotsLaunchSlug || game.slug.current,
     description: null,
-    url: `https://slotslaunch.com/iframe/${game.slotsLaunchId}`,
-    thumb: game.slotsLaunchThumb,
+    url: game.slotsLaunchId ? `https://slotslaunch.com/iframe/${game.slotsLaunchId}` : '',
+    thumb: game.slotsLaunchThumb || '',
     provider_id: providerId,
     provider: providerName,
     provider_slug: providerSlug,
@@ -121,6 +121,9 @@ export function extractProvidersFromGames(games: SanityGame[]): Provider[] {
         id: stringToId(slug),
         name: game.provider.name,
         slug: slug,
+        bio: null,
+        markets: [],
+        thumb: '',
         created_at: '',
         updated_at: '',
       })
