@@ -89,6 +89,14 @@ export const CURATED_GAME_IDS = [
   22323, // Sic Bo (game 1)
   14228, // Sic Bo (game 2)
   22324, // Sic Bo (game 3)
+  22512, // Mahjong (game 1)
+  22510, // Mahjong (game 2)
+  20191, // Mahjong (game 3)
+  18925, // Mahjong (game 4)
+  18183, // Mahjong (game 5)
+  16645, // Mahjong (game 6)
+  14301, // Mahjong (game 7)
+  10281, // Mahjong (game 8)
 ] as const
 
 export type CuratedGameSlug = typeof CURATED_GAME_SLUGS[number]
