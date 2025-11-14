@@ -10,31 +10,41 @@ const imageBuilder = createImageUrlBuilder({
 })
 
 export const urlForImage = (source: any) => {
-  // Ensure that source image contains a valid reference
-  if (!source?.asset?._ref) {
+  // Handle both expanded assets (with url/_id) and unexpanded assets (with _ref)
+  const hasExpandedAsset = source?.asset?.url || source?.asset?._id
+  const hasUnexpandedAsset = source?.asset?._ref
+
+  if (!hasExpandedAsset && !hasUnexpandedAsset) {
     return undefined
   }
 
   const imageRef = source?.asset?._ref
   const crop = source.crop
 
-  // get the image's og dimensions
-  const {width, height} = getImageDimensions(imageRef)
+  // Only process crop if we have a ref to extract dimensions from
+  if (imageRef && Boolean(crop)) {
+    try {
+      // get the image's og dimensions
+      const {width, height} = getImageDimensions(imageRef)
 
-  if (Boolean(crop)) {
-    // compute the cropped image's area
-    const croppedWidth = Math.floor(width * (1 - (crop.right + crop.left)))
+      // compute the cropped image's area
+      const croppedWidth = Math.floor(width * (1 - (crop.right + crop.left)))
 
-    const croppedHeight = Math.floor(height * (1 - (crop.top + crop.bottom)))
+      const croppedHeight = Math.floor(height * (1 - (crop.top + crop.bottom)))
 
-    // compute the cropped image's position
-    const left = Math.floor(width * crop.left)
-    const top = Math.floor(height * crop.top)
+      // compute the cropped image's position
+      const left = Math.floor(width * crop.left)
+      const top = Math.floor(height * crop.top)
 
-    // gather into a url
-    return imageBuilder?.image(source).rect(left, top, croppedWidth, croppedHeight).auto('format')
+      // gather into a url
+      return imageBuilder?.image(source).rect(left, top, croppedWidth, croppedHeight).auto('format')
+    } catch (e) {
+      // If dimension extraction fails, fall back to standard processing
+      console.warn('Failed to extract image dimensions for crop, using uncropped image', e)
+    }
   }
 
+  // For expanded assets or unexpanded assets without crop, imageBuilder handles both
   return imageBuilder?.image(source).auto('format')
 }
 
