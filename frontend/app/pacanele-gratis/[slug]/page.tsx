@@ -1,13 +1,10 @@
 // app/pacanele-gratis/[slug]/page.tsx
-import type {SlotGame, Provider, GameType, Theme} from '@/lib/slotslaunch'
+import type {SlotGame} from '@/lib/slotslaunch'
 import {
   transformSanityGameToSlotGame,
-  extractProvidersFromGames,
-  extractTypesFromGames,
-  extractThemesFromGames,
   type SanityGame,
 } from '@/lib/sanity-games'
-import {SlotsFilteredGrid} from '@/app/components/SlotsFilteredGrid'
+import {ThemedGamesGrid} from '@/app/components/ThemedGamesGrid'
 import {FeaturedCasinoBanner} from '@/app/components/FeaturedCasinoBanner'
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
@@ -24,9 +21,6 @@ export const revalidate = 3600
 
 type ThemedSlotsData = {
   games: SlotGame[]
-  providers: Provider[]
-  types: GameType[]
-  themes: Theme[]
   totalCount: number
 }
 
@@ -97,16 +91,8 @@ async function fetchFilteredSlotsData(
   // Transform to SlotGame format
   const games = filteredGames.map((game: SanityGame) => transformSanityGameToSlotGame(game))
 
-  // Extract filter options from filtered games
-  const providers = extractProvidersFromGames(filteredGames)
-  const types = extractTypesFromGames(filteredGames)
-  const themes = extractThemesFromGames(filteredGames)
-
   return {
     games,
-    providers,
-    types,
-    themes,
     totalCount: games.length,
   }
 }
@@ -182,7 +168,7 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
 
   // Fetch filtered games data
   const slotsData = await fetchFilteredSlotsData(page.filterType, page.filterValue)
-  const {games: allGames, providers, types, themes, totalCount: totalGamesCount} = slotsData
+  const {games: allGames, totalCount: totalGamesCount} = slotsData
 
   const featuredCasino = page.featuredCasino || null
 
@@ -221,7 +207,7 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
       {/* Featured Casino Banner */}
       {featuredCasino && <FeaturedCasinoBanner casino={featuredCasino as any} />}
 
-      {/* Filters & Games Grid */}
+      {/* Games Grid */}
       <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>
         <div className="container pt-8 pb-12 relative">
@@ -239,11 +225,8 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
               <p className="text-gray-600 font-mono">Nu există jocuri pentru acest filtru momentan.</p>
             </div>
           ) : (
-            <SlotsFilteredGrid
-              allGames={allGames}
-              providers={providers}
-              types={types}
-              themes={themes}
+            <ThemedGamesGrid
+              games={allGames}
               singleBase={SINGLE_BASE}
             />
           )}
