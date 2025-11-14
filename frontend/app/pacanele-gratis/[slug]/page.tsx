@@ -171,6 +171,7 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
   const {games: allGames, totalCount: totalGamesCount} = slotsData
 
   const featuredCasino = page.featuredCasino || null
+  const author = page.author || null
 
   return (
     <main className="bg-white">
@@ -188,6 +189,23 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
               <p className="text-lg text-gray-600">
                 {page.description}
               </p>
+            )}
+            {author && (
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <span className="font-medium">Autor:</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1">
+                  {author.picture && (
+                    <img
+                      src={author.picture}
+                      alt={`${author.firstName} ${author.lastName}`}
+                      className="h-5 w-5 rounded-full object-cover"
+                    />
+                  )}
+                  <span className="font-medium text-gray-900">
+                    {author.firstName} {author.lastName}
+                  </span>
+                </span>
+              </div>
             )}
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
