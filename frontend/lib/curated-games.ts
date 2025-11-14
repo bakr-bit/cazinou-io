@@ -114,6 +114,12 @@ export const CURATED_GAME_IDS = [
   30223, // Additional game 3
   14106, // Additional game 4
   14107, // Additional game 5
+  5397, // Additional game 6
+  5483, // Additional game 7
+  761, // Additional game 8
+  20243, // Additional game 9
+  22769, // Additional game 10
+  22768, // Additional game 11
 ] as const
 
 export type CuratedGameSlug = typeof CURATED_GAME_SLUGS[number]
