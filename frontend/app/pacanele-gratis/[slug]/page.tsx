@@ -77,9 +77,6 @@ async function fetchFilteredSlotsData(
     console.warn('⚠️ No games found in Sanity')
     return {
       games: [],
-      providers: [],
-      types: [],
-      themes: [],
       totalCount: 0,
     }
   }
