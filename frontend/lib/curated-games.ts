@@ -97,6 +97,12 @@ export const CURATED_GAME_IDS = [
   16645, // Mahjong (game 6)
   14301, // Mahjong (game 7)
   10281, // Mahjong (game 8)
+  12670, // Keno (game 1)
+  15378, // Keno (game 2)
+  19630, // Keno (game 3)
+  17163, // Keno (game 4)
+  22452, // Keno (game 5)
+  17087, // Keno (game 6)
 ] as const
 
 export type CuratedGameSlug = typeof CURATED_GAME_SLUGS[number]
