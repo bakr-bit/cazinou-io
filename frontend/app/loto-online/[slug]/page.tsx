@@ -159,20 +159,6 @@ export default async function LotoGamePage({ params }: Props) {
 
       {/* Main Content Container */}
       <div className="container pb-12 lg:pb-24">
-        {/* TL;DR / Excerpt Section */}
-        {loto.excerpt && (
-          <div className="pt-12">
-            <div className="rounded-lg border-l-4 border-brand bg-brand/10 p-6">
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-brand mb-3 font-mono">
-                TL;DR
-              </h2>
-              <p className="text-lg leading-relaxed text-gray-700">
-                {loto.excerpt}
-              </p>
-            </div>
-          </div>
-        )}
-
         {/* Main Content Sections */}
         {loto.content && loto.content.length > 0 && (
           <div className="pt-12">
