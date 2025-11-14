@@ -103,6 +103,12 @@ export const CURATED_GAME_IDS = [
   17163, // Keno (game 4)
   22452, // Keno (game 5)
   17087, // Keno (game 6)
+  23571, // Classic (game 1)
+  11198, // Classic (game 2)
+  11131, // Classic (game 3)
+  11171, // Classic (game 4)
+  11128, // Classic (game 5)
+  11254, // Classic (game 6)
 ] as const
 
 export type CuratedGameSlug = typeof CURATED_GAME_SLUGS[number]
