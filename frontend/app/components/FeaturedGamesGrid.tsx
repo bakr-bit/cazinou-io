@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import {urlForImage} from '@/sanity/lib/utils'
 
 type Game = {
   _id: string
+  _type: 'game'
   name: string
   slug: {current: string}
   slotsLaunchSlug?: string
@@ -24,10 +26,22 @@ type Game = {
   rating?: number
 }
 
+type LinkCard = {
+  _key: string
+  _type: 'linkCard'
+  title: string
+  subtitle?: string
+  image?: unknown
+  link: string
+  backgroundColor?: string
+}
+
+type GridItem = Game | LinkCard
+
 export type FeaturedGamesGridData = {
   title?: string
   description?: string
-  games?: (Game | null)[]
+  games?: (GridItem | null)[]
 }
 
 type FeaturedGamesGridProps = {
@@ -39,33 +53,94 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
     return null
   }
 
-  // Filter out null/undefined games and ensure required fields exist
-  const validGames = (data.games || []).filter((game): game is Game => {
-    return game !== null && game !== undefined && !!game.slug
+  // Filter out null/undefined items and validate
+  const validItems = (data.games || []).filter((item): item is GridItem => {
+    if (!item) return false
+
+    // Validate game references
+    if ('slug' in item) {
+      return !!item.slug
+    }
+
+    // Validate link cards
+    if (item._type === 'linkCard') {
+      return !!item.title && !!item.link
+    }
+
+    return false
   })
 
-  if (validGames.length === 0) {
+  if (validItems.length === 0) {
     return null
   }
 
-  const games = validGames.slice(0, 24) // Max 24 for compact grid
+  const items = validItems.slice(0, 24) // Max 24 for compact grid
 
   return (
     <section className="my-8">
-      <div className="container">
-        <div className="mb-6">
-          <h2 className="text-2xl font-extrabold text-gray-900 font-mono mb-2">
-            {data.title || 'Păcănele Recomandate'}
-          </h2>
-          {data.description && (
-            <p className="text-sm text-gray-600">{data.description}</p>
-          )}
-        </div>
+      <div className="mb-6">
+        <h2 className="text-2xl font-extrabold text-gray-900 font-mono mb-2">
+          {data.title || 'Păcănele Recomandate'}
+        </h2>
+        {data.description && (
+          <p className="text-sm text-gray-600">{data.description}</p>
+        )}
+      </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {games.map((game) => {
-              // Use SlotsLaunch slug if available, otherwise fallback to Sanity slug
+      <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            {items.map((item) => {
+              // Render link card
+              if (item._type === 'linkCard') {
+                const imageUrl = item.image ? urlForImage(item.image)?.width(200).height(200).url() : null
+                const bgColor = item.backgroundColor || 'bg-gradient-to-br from-orange-500 to-orange-600'
+
+                return (
+                  <Link
+                    key={item._key}
+                    href={item.link}
+                    className="group block overflow-hidden rounded-lg border border-gray-100 shadow-sm transition hover:border-orange-500 hover:shadow-md"
+                    style={item.backgroundColor ? {backgroundColor: item.backgroundColor} : undefined}
+                  >
+                    <div className={`aspect-square w-full overflow-hidden ${!item.backgroundColor ? bgColor : ''} flex items-center justify-center text-center p-4`}>
+                      {imageUrl ? (
+                        <Image
+                          src={imageUrl}
+                          alt={item.title}
+                          width={200}
+                          height={200}
+                          className="h-full w-full object-cover transition group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center justify-center gap-2">
+                          <h3 className="text-white font-bold text-sm line-clamp-3 font-mono">
+                            {item.title}
+                          </h3>
+                          {item.subtitle && (
+                            <p className="text-white/90 text-xs line-clamp-2">
+                              {item.subtitle}
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    {imageUrl && (
+                      <div className="p-2 bg-white">
+                        <h3 className="text-xs font-semibold leading-tight line-clamp-2 font-mono text-gray-900 group-hover:text-orange-600">
+                          {item.title}
+                        </h3>
+                        {item.subtitle && (
+                          <p className="text-[10px] text-gray-500 mt-0.5 line-clamp-1">
+                            {item.subtitle}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </Link>
+                )
+              }
+
+              // Render game card
+              const game = item as Game
               const gameHref = game.slotsLaunchSlug
                 ? `/pacanele/${game.slotsLaunchSlug}`
                 : `/pacanele/${game.slug.current}`
@@ -140,8 +215,6 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
               </Link>
               )
             })}
-          </div>
-        </div>
       </div>
     </section>
   )
