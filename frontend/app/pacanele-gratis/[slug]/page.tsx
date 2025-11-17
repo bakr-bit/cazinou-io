@@ -191,9 +191,9 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <span className="font-medium">Autor:</span>
                 <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1">
-                  {author.picture && (
+                  {author.picture?.asset?.url && (
                     <img
-                      src={author.picture}
+                      src={author.picture.asset.url}
                       alt={`${author.firstName} ${author.lastName}`}
                       className="h-5 w-5 rounded-full object-cover"
                     />

@@ -2035,7 +2035,21 @@ export const themedSlotsPageBySlugQuery = defineQuery(`
       ogImage
     },
     publishedAt,
-    "author": author->{firstName, lastName, picture},
+    "author": author->{
+      firstName,
+      lastName,
+      picture {
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        },
+        alt
+      }
+    },
     hidden
   }
 `)
@@ -2044,3 +2058,8 @@ export const themedSlotsPageSlugsQuery = defineQuery(`
   *[_type == "themedSlotsPage" && defined(slug.current) && hidden != true]
   {"slug": slug.current}
 `)
+
+export const allGameSlugsQuery = `
+  *[_type == "game" && defined(slug.current)]
+  {"slug": slug.current}
+`
