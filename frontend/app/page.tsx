@@ -3,6 +3,7 @@ import {PortableText} from '@portabletext/react'
 
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
+import {JsonLd, schemaHelpers} from '@/app/components/JsonLd'
 import {sanityFetch} from '@/sanity/lib/live'
 import {homePageQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
@@ -69,12 +70,43 @@ export default async function HomePage() {
     )
   }
 
+  // Generate Website schema
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
+  const websiteSchema = schemaHelpers.website(
+    siteUrl,
+    'Cazinou.io',
+    'Site-ul tău de recenzii de cazinouri străine. Găsește cele mai bune cazinouri online internaționale, jocuri, bonusuri și recenzii detaliate.'
+  )
+
+  const organizationSchema = schemaHelpers.organization({
+    name: 'Cazinou.io',
+    url: siteUrl,
+    logo: `${siteUrl}/images/cazinou-logo.png`,
+    description: 'Portal de recenzii de cazinouri online internaționale',
+  })
+
   return (
     <div className="bg-white">
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={organizationSchema} />
+      {/* Update Announcement Banner */}
+      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+        <div className="container py-3 px-4">
+          <div className="flex items-center justify-center gap-2 text-center">
+            <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+            </svg>
+            <p className="font-semibold font-mono text-sm sm:text-base">
+              Site actualizat! Explorează noul cazinou.io!
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Banner Section */}
       {homePageData.heroBanner && (
-        <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-white"></div>
+        <div className="relative bg-[url(/images/hero-banner-hp.png)] bg-cover bg-center bg-no-repeat">
+          <div className="absolute inset-0 bg-white/70"></div>
           <div className="container relative py-12 lg:py-20">
             <div className="mx-auto max-w-5xl">
               <div className="prose prose-lg lg:prose-xl max-w-none text-center">

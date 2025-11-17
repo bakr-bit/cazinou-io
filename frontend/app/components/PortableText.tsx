@@ -262,7 +262,7 @@ export default function CustomPortableText({
   return (
     <div
       className={[
-        'prose prose-a:text-brand font-mono max-w-none',
+        'prose sm:prose-lg prose-a:text-brand font-mono max-w-none',
         className,
       ]
         .filter(Boolean)

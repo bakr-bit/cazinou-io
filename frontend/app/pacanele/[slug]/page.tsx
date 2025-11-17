@@ -3,6 +3,7 @@ import Link from 'next/link'
 import {redirect} from 'next/navigation'
 import {GameIframe} from '@/app/components/GameIframe'
 import {ContentSections} from '@/app/components/ContentSections'
+import {JsonLd, schemaHelpers} from '@/app/components/JsonLd'
 import {sanityFetch} from '@/sanity/lib/live'
 import {gameBySlugQuery, allGameSlugsQuery} from '@/sanity/lib/queries'
 import {client} from '@/sanity/lib/client'
@@ -74,8 +75,29 @@ export default async function SingleSlotPage(props: Props) {
   const title = game.name
   const gameUrl = game.slotsLaunchId ? `https://slotslaunch.com/iframe/${game.slotsLaunchId}` : ''
 
+  // Generate structured data
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
+  const pageUrl = `${siteUrl}/pacanele/${params.slug}`
+
+  const gameSchema = schemaHelpers.game({
+    name: game.name,
+    url: pageUrl,
+    description: `Joacă ${game.name} online direct în browser. ${game.provider?.name ? `De la ${game.provider.name}.` : ''}`,
+    image: game.slotsLaunchThumb || game.mainImage?.asset?.url,
+    provider: game.provider?.name,
+    rating: game.rating,
+  })
+
+  const breadcrumbSchema = schemaHelpers.breadcrumb([
+    { name: 'Acasă', url: siteUrl },
+    { name: 'Sloturi', url: `${siteUrl}${LOBBY_PATH}` },
+    { name: game.name, url: pageUrl },
+  ])
+
   return (
     <div className="bg-white">
+      <JsonLd data={gameSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>
         <div className="container pt-8 pb-12 relative">

@@ -70,7 +70,7 @@ export function ContentSections({content, author}: ContentSectionsProps) {
         if (Array.isArray(item)) {
           return (
             <div key={`text-${index}`} className="container">
-              <article className="prose max-w-none">
+              <article className="prose sm:prose-lg max-w-none">
                 <CustomPortableText value={item} author={author} />
               </article>
             </div>

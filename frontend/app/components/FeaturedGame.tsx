@@ -158,7 +158,7 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
               )}
 
               {block.text && (
-                <p className="text-sm leading-relaxed text-gray-700">
+                <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
                   {block.text}
                 </p>
               )}

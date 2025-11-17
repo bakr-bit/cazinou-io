@@ -171,10 +171,14 @@ export default async function SlotsPage() {
       <FeaturedCasinoBanner casino={featuredCasino as any} />
 
       {/* Featured Games Grid (Sanity-managed) */}
-      <FeaturedGamesGrid data={slotsSettings?.featuredGamesGrid as any} />
+      <div className="container">
+        <FeaturedGamesGrid data={slotsSettings?.featuredGamesGrid as any} />
+      </div>
 
       {/* Featured Slots (SlotsLaunch API) */}
-      <FeaturedSlotsGrid />
+      <div className="container">
+        <FeaturedSlotsGrid />
+      </div>
 
       {/* Filters & Games Grid */}
       <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">

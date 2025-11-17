@@ -976,6 +976,7 @@ export const sitemapData = defineQuery(`
       _type == "infoPage" ||
       _type == "loto" ||
       _type == "person" ||
+      _type == "game" ||
       (_type == "casinoReview" && hidden != true) ||
       (_type == "themedSlotsPage" && hidden != true)
     ) && defined(slug.current)

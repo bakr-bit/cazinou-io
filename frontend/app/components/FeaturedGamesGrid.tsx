@@ -84,7 +84,7 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
           {data.title || 'Păcănele Recomandate'}
         </h2>
         {data.description && (
-          <p className="text-sm text-gray-600">{data.description}</p>
+          <p className="text-base text-gray-600 sm:text-lg">{data.description}</p>
         )}
       </div>
 

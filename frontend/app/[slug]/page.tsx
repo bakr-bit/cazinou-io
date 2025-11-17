@@ -8,6 +8,7 @@ import DateComponent from '@/app/components/Date'
 import PageBuilderPage from '@/app/components/PageBuilder'
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
+import {JsonLd, schemaHelpers} from '@/app/components/JsonLd'
 import {sanityFetch} from '@/sanity/lib/live'
 import {getPageOrInfoPageQuery, pagesSlugs} from '@/sanity/lib/queries'
 import {GetPageQueryResult} from '@/sanity.types'
@@ -93,17 +94,37 @@ export default async function Page(props: Props) {
     const infoPage = pageData as any
     const author = infoPage.author
 
+    // Generate structured data for info pages
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
+    const pageUrl = `${siteUrl}/${params.slug}`
+
+    const articleSchema = schemaHelpers.article({
+      headline: infoPage.title || infoPage.heading,
+      url: pageUrl,
+      datePublished: infoPage._createdAt,
+      dateModified: infoPage._updatedAt,
+      author: author ? {
+        name: `${author.firstName} ${author.lastName}`,
+        url: author.slug?.current ? `${siteUrl}/autori/${author.slug.current}` : undefined,
+      } : undefined,
+      description: infoPage.excerpt,
+    })
+
+    const breadcrumbSchema = schemaHelpers.breadcrumb([
+      { name: 'Acasă', url: siteUrl },
+      { name: infoPage.title || infoPage.heading, url: pageUrl },
+    ])
+
     return (
       <div className="bg-white">
+        <JsonLd data={articleSchema} />
+        <JsonLd data={breadcrumbSchema} />
         {/* Hero Section */}
         <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
           <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>
           <div className="container pt-8 pb-6 lg:pb-8">
             <header className="relative grid gap-6 border-b border-gray-100 pb-10">
               <div className="max-w-3xl grid gap-4">
-                <p className="text-sm font-semibold uppercase tracking-wide text-brand font-mono">
-                  Informații
-                </p>
                 <h1 className="text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-6xl font-mono">
                   {infoPage.heading}
                 </h1>
