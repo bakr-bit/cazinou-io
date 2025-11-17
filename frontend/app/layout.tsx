@@ -46,10 +46,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
   return {
     metadataBase,
-    title: {
-      template: `%s | ${title}`,
-      default: title,
-    },
+    title: title,
     description: toPlainText(description),
     openGraph: {
       images: ogImage ? [ogImage] : [],
