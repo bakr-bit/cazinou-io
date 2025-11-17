@@ -1,11 +1,11 @@
 // app/pacanele/[slug]/page.tsx
 import Link from 'next/link'
-import {fetchGameById} from '@/lib/slotslaunch'
-import {notFound} from 'next/navigation'
+import {redirect} from 'next/navigation'
 import {GameIframe} from '@/app/components/GameIframe'
 import {ContentSections} from '@/app/components/ContentSections'
 import {sanityFetch} from '@/sanity/lib/live'
-import {gameContentBySlugQuery} from '@/sanity/lib/queries'
+import {gameBySlugQuery, allGameSlugsQuery} from '@/sanity/lib/queries'
+import {client} from '@/sanity/lib/client'
 import type {Metadata} from 'next'
 
 const LOBBY_PATH = process.env.LOBBY_PATH || '/pacanele-gratis'
@@ -14,27 +14,26 @@ type Props = {
   params: Promise<{slug: string}>
 }
 
-/**
- * Extract game ID from slug parameter
- * Format: "123-game-slug" -> 123
- */
-function extractGameId(slug: string): number | null {
-  const match = slug.match(/^(\d+)-/)
-  return match ? parseInt(match[1], 10) : null
+// Generate static params for all games in Sanity
+export async function generateStaticParams() {
+  const games = await client.fetch(allGameSlugsQuery, {}, {
+    perspective: 'published',
+  })
+
+  return (games || []).map((game: {slug: string}) => ({
+    slug: game.slug,
+  }))
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
-  const gameId = extractGameId(params.slug)
 
-  if (!gameId) {
-    return {
-      title: 'Joc Slot Online',
-      description: 'Joacă sloturi online',
-    }
-  }
-
-  const game = await fetchGameById(gameId)
+  // Fetch game from Sanity
+  const {data: game} = await sanityFetch({
+    query: gameBySlugQuery,
+    params: {slug: params.slug},
+    stega: false,
+  })
 
   if (!game) {
     return {
@@ -44,9 +43,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   const title = `${game.name} - Joacă Online`
-  const description =
-    game.description ||
-    `Joacă ${game.name} online. Încearcă demo sau joacă pentru bani reali.`
+  const description = `Joacă ${game.name} online. Încearcă demo sau joacă pentru bani reali.`
 
   return {
     title,
@@ -54,37 +51,28 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      images: game.thumb ? [{url: game.thumb}] : [],
+      images: game.slotsLaunchThumb ? [{url: game.slotsLaunchThumb}] : [],
     },
   }
 }
 
 export default async function SingleSlotPage(props: Props) {
   const params = await props.params
-  const gameId = extractGameId(params.slug)
 
-  if (!gameId) {
-    return notFound()
-  }
-
-  const game = await fetchGameById(gameId)
-
-  if (!game) {
-    return notFound()
-  }
-
-  // API returns: name, thumb, url (iframe link)
-  const title = game.name
-
-  // Try to fetch Sanity game content by SlotsLaunch slug or ID
-  const {data: sanityGame} = await sanityFetch({
-    query: gameContentBySlugQuery,
-    params: {
-      slug: game.slug,
-      id: game.id,
-    },
+  // Fetch game from Sanity
+  const {data: game} = await sanityFetch({
+    query: gameBySlugQuery,
+    params: {slug: params.slug},
     stega: false,
   })
+
+  // Redirect to lobby if game not found in Sanity
+  if (!game) {
+    redirect(LOBBY_PATH)
+  }
+
+  const title = game.name
+  const gameUrl = game.slotsLaunchId ? `https://slotslaunch.com/iframe/${game.slotsLaunchId}` : ''
 
   return (
     <div className="bg-white">
@@ -117,7 +105,7 @@ export default async function SingleSlotPage(props: Props) {
 
           <section className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Game Iframe */}
-            <GameIframe url={game.url} title={title} />
+            <GameIframe url={gameUrl} title={title} />
 
             <div className="space-y-6">
               <div className="bg-gray-50 rounded-lg border border-gray-100 p-6">
@@ -128,10 +116,10 @@ export default async function SingleSlotPage(props: Props) {
                   Joacă <strong>{title}</strong> online direct în browser.
                   Folosește butonul de fullscreen pentru o experiență mai bună.
                 </p>
-                {game.provider && (
+                {game.provider?.name && (
                   <p className="text-sm text-gray-600 mt-3">
                     <span className="font-bold text-gray-700">Provider:</span>{' '}
-                    <span className="font-mono">{game.provider}</span>
+                    <span className="font-mono">{game.provider.name}</span>
                   </p>
                 )}
                 {game.rtp && (
@@ -183,8 +171,8 @@ export default async function SingleSlotPage(props: Props) {
       </div>
 
       {/* SEO Content from Sanity (if available) */}
-      {sanityGame?.seoContent && (
-        <ContentSections content={sanityGame.seoContent} />
+      {game.seoContent && (
+        <ContentSections content={game.seoContent} />
       )}
     </div>
   )

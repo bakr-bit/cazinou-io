@@ -149,6 +149,7 @@ export const casinoReview = defineType({
           {title: 'Romanian', value: 'ro'},
         ],
       },
+      initialValue: 'ro',
     }),
     defineField({
       name: 'hidden',

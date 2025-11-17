@@ -50,7 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         case 'casinoReview':
           priority = 0.9
           changeFrequency = 'weekly'
-          url = `${domain}/recenzii/${p.slug}`
+          url = `${domain}/casino/${p.slug}`
           break
         case 'infoPage':
           priority = 0.8

@@ -44,7 +44,7 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({review}: ReviewCardProps) {
-  const href = `/recenzii/${review.slug.current}`
+  const href = `/casino/${review.slug.current}`
   const formattedDate = review.publishedAt
     ? new Date(review.publishedAt).toLocaleDateString('ro-RO', {
         year: 'numeric',

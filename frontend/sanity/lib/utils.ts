@@ -89,7 +89,7 @@ export function linkResolver(link: Link | undefined) {
       return null
     case 'casinoReview':
       if (anyLink?.casinoReview && typeof anyLink.casinoReview === 'string') {
-        return `/recenzii/${anyLink.casinoReview}`
+        return `/casino/${anyLink.casinoReview}`
       }
       return null
     default:

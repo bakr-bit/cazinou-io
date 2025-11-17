@@ -74,25 +74,70 @@ export default async function MetodeNestedPage({params}: Props) {
 
   // Handle infoPage type
   if (pageData._type === 'infoPage') {
+    const author = pageData.author
+
     return (
-      <div className="container mx-auto px-4 py-8">
-        {pageData.heading && (
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">
-            {pageData.heading}
-          </h1>
-        )}
+      <div className="bg-white">
+        {/* Hero Section */}
+        <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>
+          <div className="container pt-8 pb-6 lg:pb-8">
+            <header className="relative grid gap-6 border-b border-gray-100 pb-10">
+              <div className="max-w-3xl grid gap-4">
+                <p className="text-sm font-semibold uppercase tracking-wide text-brand font-mono">
+                  Metode de Plată
+                </p>
+                <h1 className="text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-6xl font-mono">
+                  {pageData.heading}
+                </h1>
+                {pageData.subheading && (
+                  <p className="text-lg text-gray-600">{pageData.subheading}</p>
+                )}
+              </div>
 
-        {pageData.excerpt && (
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {pageData.excerpt}
-          </p>
-        )}
+              {/* Author Info */}
+              {author && (
+                <div className="flex flex-wrap items-center gap-6 pt-4">
+                  <div className="flex items-center gap-4">
+                    {/* Author Avatar */}
+                    {author.picture?.asset?.url ? (
+                      <div className="flex-shrink-0">
+                        <img
+                          src={author.picture.asset.url}
+                          alt={`${author.firstName} ${author.lastName}`}
+                          className="w-16 h-16 rounded-full object-cover aspect-square ring-2 ring-gray-100"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 aspect-square">
+                        <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    )}
 
-        {pageData.content && pageData.content.length > 0 && (
-          <div className="prose prose-lg max-w-none">
-            <ContentSections content={pageData.content} />
+                    {/* Author Info */}
+                    <div className="flex flex-col gap-1 font-mono">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-gray-500">De</span>
+                        <span className="font-semibold text-gray-900">
+                          {author.firstName} {author.lastName}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </header>
           </div>
-        )}
+        </div>
+
+        {/* Main Content */}
+        <div className="pb-12 lg:pb-24">
+          {pageData.content && pageData.content.length > 0 && (
+            <ContentSections content={pageData.content} />
+          )}
+        </div>
       </div>
     )
   }

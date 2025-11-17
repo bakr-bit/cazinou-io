@@ -122,7 +122,7 @@ export default async function AuthorPage(props: Props) {
   }
 
   const getContentUrl = (item: any) => {
-    if (item.type === 'review') return `/recenzii/${item.slug.current}`
+    if (item.type === 'review') return `/casino/${item.slug.current}`
     if (item.type === 'post') return `/posts/${item.slug.current}`
     if (item.type === 'info') return `/${item.slug.current}`
     if (item.type === 'loto') return `/loto-online/${item.slug.current}`

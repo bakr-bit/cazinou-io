@@ -6838,6 +6838,58 @@ export type ThemedSlotsPageBySlugQueryResult = {
 export type ThemedSlotsPageSlugsQueryResult = Array<{
   slug: string
 }>
+// Variable: featuredGamesQuery
+// Query: *[_type == "game"] | order(rating desc, name asc) [0...12] {    _id,    name,    slug,    slotsLaunchId,    slotsLaunchSlug,    slotsLaunchThumb,    rating,    provider->{      _id,      name,      slug    }  }
+export type FeaturedGamesQueryResult = Array<{
+  _id: string
+  name: string
+  slug: Slug
+  slotsLaunchId: number | null
+  slotsLaunchSlug: string | null
+  slotsLaunchThumb: string | null
+  rating: number
+  provider: {
+    _id: string
+    name: string
+    slug: Slug
+  }
+}>
+// Variable: gameBySlugQuery
+// Query: *[_type == "game" && slotsLaunchSlug == $slug][0]{    _id,    name,    slug,    slotsLaunchId,    slotsLaunchSlug,    slotsLaunchThumb,    rating,    rtp,    volatility,    seoContent,    provider->{      _id,      name,      slug    }  }
+export type GameBySlugQueryResult = {
+  _id: string
+  name: string
+  slug: Slug
+  slotsLaunchId: number | null
+  slotsLaunchSlug: string | null
+  slotsLaunchThumb: string | null
+  rating: number
+  rtp: string | null
+  volatility: 'high' | 'low' | 'medium' | null
+  seoContent: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }> | null
+  provider: {
+    _id: string
+    name: string
+    slug: Slug
+  }
+} | null
 
 // Query TypeMap
 import '@sanity/client'
@@ -6875,5 +6927,7 @@ declare module '@sanity/client' {
     '\n  *[_type == "game"] | order(name asc) {\n    _id,\n    name,\n    slug,\n    slotsLaunchId,\n    slotsLaunchSlug,\n    slotsLaunchThumb,\n    rating,\n    gameType,\n    gameTypeSlug,\n    themes,\n    rtp,\n    volatility,\n    releaseDate,\n    provider->{\n      _id,\n      name,\n      slug\n    }\n  }\n': AllGamesQueryResult
     '\n  *[_type == "themedSlotsPage" && slug.current == $slug][0]{\n    _id,\n    title,\n    slug,\n    heading,\n    description,\n    filterType,\n    filterValue,\n    featuredCasino->{\n      \n  _id,\n  name,\n  slug,\n  logo {\n    asset->{\n      _id,\n      url,\n      metadata {\n        lqip,\n        dimensions\n      }\n    },\n    alt\n  },\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  "pros": coalesce(pros, []),\n  "cons": coalesce(cons, []),\n  "keyFeatures": coalesce(keyFeatures, []),\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  "paymentMethods": coalesce(paymentMethods, []),\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n    },\n    content[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "linkableImage" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        }\n      },\n      _type == "authorComment" => {\n        ...,\n        avatar {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          }\n        }\n      },\n      _type == "topListObject" => {\n        ...,\n        displayOptions,\n        "listItems": coalesce(listItems[]{\n          ...,\n          item->{\n            \n  _id,\n  name,\n  slug,\n  logo {\n    asset->{\n      _id,\n      url,\n      metadata {\n        lqip,\n        dimensions\n      }\n    },\n    alt\n  },\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  "pros": coalesce(pros, []),\n  "cons": coalesce(cons, []),\n  "keyFeatures": coalesce(keyFeatures, []),\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  "paymentMethods": coalesce(paymentMethods, []),\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n          }\n        }, [])\n      },\n      _type == "faqSection" => {\n        ...,\n        faqs[]{\n          question,\n          answer\n        }\n      },\n      _type == "featuredCasino" => {\n        ...,\n        casino->{\n          \n  _id,\n  name,\n  slug,\n  logo {\n    asset->{\n      _id,\n      url,\n      metadata {\n        lqip,\n        dimensions\n      }\n    },\n    alt\n  },\n  featuredBanner,\n  rating,\n  welcomeBonus,\n  affiliateLink,\n  "pros": coalesce(pros, []),\n  "cons": coalesce(cons, []),\n  "keyFeatures": coalesce(keyFeatures, []),\n  legalEntity,\n  crypto,\n  mobile,\n  liveCasino,\n  numberOfGames,\n  trustRating,\n  bonusRating,\n  paymentRating,\n  withdrawalRating,\n  minimumDeposit,\n  maximumDeposit,\n  "paymentMethods": coalesce(paymentMethods, []),\n  companyInfo {\n    establishedYear,\n    licenses[] {\n      license,\n      licenseNumber,\n      licenseAuthority\n    }\n  }\n\n        }\n      },\n      _type == "featuredGame" => {\n        ...,\n        affiliateLink,\n        game->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          rating,\n          mainImage {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          provider->{\n            name\n          }\n        }\n      },\n      _type == "featuredGamesGrid" => {\n        ...,\n        games[]->{\n          _id,\n          name,\n          slug,\n          slotsLaunchSlug,\n          slotsLaunchThumb,\n          mainImage {\n            asset->{\n              _id,\n              url,\n              metadata {\n                lqip,\n                dimensions\n              }\n            },\n            alt\n          },\n          provider->{\n            name\n          },\n          rating\n        }\n      },\n      _type == "callToAction" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current\n          }\n        },\n        backgroundImage {\n          asset->{\n            _id,\n            url,\n            metadata {\n              lqip,\n              dimensions\n            }\n          },\n          alt\n        }\n      },\n      _type == "simpleButton" => {\n        ...,\n        link {\n          ...,\n          _type == "link" => {\n            "page": page->slug.current,\n            "post": post->slug.current,\n            "infoPage": infoPage->slug.current,\n            "casinoReview": casinoReview->slug.current\n          }\n        }\n      },\n      _type == "bonusCalculator" => {\n        ...\n      },\n      markDefs[]{\n        ...,\n        _type == "link" => {\n          ...,\n          href\n        }\n      }\n    },\n    seo {\n      metaTitle,\n      metaDescription,\n      ogImage\n    },\n    publishedAt,\n    "author": author->{\n      firstName,\n      lastName,\n      picture {\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip,\n            dimensions\n          }\n        },\n        alt\n      }\n    },\n    hidden\n  }\n': ThemedSlotsPageBySlugQueryResult
     '\n  *[_type == "themedSlotsPage" && defined(slug.current) && hidden != true]\n  {"slug": slug.current}\n': ThemedSlotsPageSlugsQueryResult
+    '\n  *[_type == "game"] | order(rating desc, name asc) [0...12] {\n    _id,\n    name,\n    slug,\n    slotsLaunchId,\n    slotsLaunchSlug,\n    slotsLaunchThumb,\n    rating,\n    provider->{\n      _id,\n      name,\n      slug\n    }\n  }\n': FeaturedGamesQueryResult
+    '\n  *[_type == "game" && slotsLaunchSlug == $slug][0]{\n    _id,\n    name,\n    slug,\n    slotsLaunchId,\n    slotsLaunchSlug,\n    slotsLaunchThumb,\n    rating,\n    rtp,\n    volatility,\n    seoContent,\n    provider->{\n      _id,\n      name,\n      slug\n    }\n  }\n': GameBySlugQueryResult
   }
 }

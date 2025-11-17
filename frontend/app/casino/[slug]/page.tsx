@@ -642,7 +642,7 @@ export default async function ReviewPage(props: Props) {
                       return (
                         <Link
                           key={similarCasino._id}
-                          href={`/recenzii/${similarCasino.slug.current}`}
+                          href={`/casino/${similarCasino.slug.current}`}
                           className="block p-3 rounded-lg border border-gray-100 hover:border-brand hover:bg-brand/5 transition-all"
                         >
                           <div className="flex items-center gap-3">

@@ -79,7 +79,7 @@ function resolveSlug(slug: TopListItem['item'] extends infer T ? T extends { slu
 
 function logoUrlFrom(logo: unknown): string | null {
   try {
-    return logo ? urlForImage(logo)?.width(200).height(200).url() ?? null : null
+    return logo ? urlForImage(logo)?.width(400).height(400).url() ?? null : null
   } catch (_) {
     return null
   }
@@ -101,7 +101,7 @@ function fallbackRank(index: number, rank?: number): number {
 }
 
 function detailsHrefFor(slug?: string): string | undefined {
-  return slug ? `/recenzii/${slug}` : undefined
+  return slug ? `/casino/${slug}` : undefined
 }
 
 function shouldShow(displayOptions: DisplayOptions | undefined, feature: keyof DisplayOptions): boolean {
@@ -191,14 +191,14 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
             )}
 
             {shouldShow(displayOptions, 'showLogo') && (
-              <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-24 sm:w-24">
+              <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-36 sm:w-36">
                 {logoUrl ? (
                   <Image
                     src={logoUrl}
                     alt={`${itm.name || 'Casino'} logo`}
                     fill
-                    className="object-contain p-1"
-                    sizes="(max-width: 640px) 80px, 96px"
+                    className="object-contain p-2"
+                    sizes="(max-width: 640px) 128px, 144px"
                   />
                 ) : (
                   <span className="flex h-full w-full items-center justify-center text-xs text-slate-400">
@@ -385,14 +385,14 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
 
         <div className="flex items-center gap-4">
           {shouldShow(displayOptions, 'showLogo') && (
-            <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+            <div className="relative h-20 w-20 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
               {logoUrl ? (
                 <Image
                   src={logoUrl}
                   alt={`${itm.name || 'Casino'} logo`}
                   fill
                   className="object-contain p-2"
-                  sizes="56px"
+                  sizes="80px"
                 />
               ) : (
                 <span className="flex h-full w-full items-center justify-center text-xs text-slate-400">No image</span>

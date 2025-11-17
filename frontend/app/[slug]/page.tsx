@@ -100,12 +100,15 @@ export default async function Page(props: Props) {
           <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>
           <div className="container pt-8 pb-6 lg:pb-8">
             <header className="relative grid gap-6 border-b border-gray-100 pb-10">
-              <div className="grid gap-4">
+              <div className="max-w-3xl grid gap-4">
+                <p className="text-sm font-semibold uppercase tracking-wide text-brand font-mono">
+                  Informații
+                </p>
                 <h1 className="text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-6xl font-mono">
                   {infoPage.heading}
                 </h1>
                 {infoPage.subheading && (
-                  <p className="text-lg text-gray-600 font-mono">{infoPage.subheading}</p>
+                  <p className="text-lg text-gray-600">{infoPage.subheading}</p>
                 )}
               </div>
 

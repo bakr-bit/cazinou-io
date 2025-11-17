@@ -261,8 +261,8 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
               ) : (
                 <div className="mx-auto flex flex-col aspect-square w-full max-w-[256px] items-center justify-center rounded-xl bg-gray-100 text-gray-400 text-xs p-4">
                   <div>No image</div>
-                  <div className="mt-2 text-center">
-                    slotsLaunchThumb: {game.slotsLaunchThumb || 'null'}
+                  <div className="mt-2 text-center break-all">
+                    slotsLaunchThumb: {String(game.slotsLaunchThumb ?? 'null')}
                   </div>
                   <div className="mt-1 text-center">
                     mainImage: {game.mainImage ? 'exists' : 'null'}

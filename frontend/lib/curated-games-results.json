@@ -1,0 +1,702 @@
+{
+  "found": 40,
+  "notFound": 10,
+  "total": 50,
+  "results": [
+    {
+      "searchName": "88 Coins",
+      "searchProvider": "Geco Gaming",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Coins",
+          "slug": "coins",
+          "provider": "Hacksaw Gaming"
+        }
+      ]
+    },
+    {
+      "searchName": "Aloha! Cluster Pays",
+      "searchProvider": "NetEnt",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Aloha",
+          "slug": "aloha",
+          "provider": "NetEnt"
+        },
+        {
+          "name": "Aloha!",
+          "slug": "aloha",
+          "provider": "GMW"
+        },
+        {
+          "name": "Aloha!",
+          "slug": "aloha",
+          "provider": "FBM"
+        }
+      ]
+    },
+    {
+      "searchName": "Aviator",
+      "searchProvider": "Spribe",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 15373,
+        "name": "Aviator",
+        "slug": "aviator",
+        "provider": "Spribe",
+        "providerId": 418
+      }
+    },
+    {
+      "searchName": "Beach Life",
+      "searchProvider": "Playtech",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 28644,
+        "name": "Beach Life",
+        "slug": "beach-life",
+        "provider": "Playtech",
+        "providerId": 157
+      }
+    },
+    {
+      "searchName": "Big Bass Bonanza",
+      "searchProvider": "Pragmatic Play",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 5356,
+        "name": "Big Bass Bonanza",
+        "slug": "big-bass-bonanza",
+        "provider": "Pragmatic Play",
+        "providerId": 161
+      }
+    },
+    {
+      "searchName": "Blood Suckers",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 33371,
+        "name": "Blood Suckers",
+        "slug": "blood-suckers",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Blood Suckers Megaways",
+      "searchProvider": "Red Tiger",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 4771,
+        "name": "Blood Suckers Megaways",
+        "slug": "blood-suckers-megaways",
+        "provider": "Red Tiger Gaming",
+        "providerId": 173
+      }
+    },
+    {
+      "searchName": "Bonanza Megaways",
+      "searchProvider": "Big Time Gaming",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Big Bass Bonanza Megaways",
+          "slug": "big-bass-bonanza-megaways",
+          "provider": "Pragmatic Play"
+        },
+        {
+          "name": "Big Top Bonanza Megaways",
+          "slug": "big-top-bonanza-megaways",
+          "provider": "Skywind"
+        },
+        {
+          "name": "Bonanza",
+          "slug": "bonanza",
+          "provider": "Big Time Gaming"
+        }
+      ]
+    },
+    {
+      "searchName": "Book of 99",
+      "searchProvider": "Relax Gaming",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 17640,
+        "name": "Book of 99",
+        "slug": "book-of-99",
+        "provider": "Relax Gaming",
+        "providerId": 180
+      }
+    },
+    {
+      "searchName": "Book of Dead",
+      "searchProvider": "Play'n GO",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9914,
+        "name": "Book of Dead",
+        "slug": "book-of-dead",
+        "provider": "Play'n GO",
+        "providerId": 153
+      }
+    },
+    {
+      "searchName": "Buffalo Blitz",
+      "searchProvider": "Playtech",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 12586,
+        "name": "Buffalo Blitz",
+        "slug": "buffalo-blitz",
+        "provider": "Playtech",
+        "providerId": 157
+      }
+    },
+    {
+      "searchName": "Butterfly Staxx",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9661,
+        "name": "Butterfly Staxx",
+        "slug": "butterfly-staxx",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Cleopatra Gold",
+      "searchProvider": "IGT",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 12849,
+        "name": "Cleopatra Gold",
+        "slug": "cleopatra-gold",
+        "provider": "IGT",
+        "providerId": 103
+      }
+    },
+    {
+      "searchName": "Dead or Alive",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9671,
+        "name": "Dead or Alive",
+        "slug": "dead-or-alive",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Divine Fortune Megaways",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 3244,
+        "name": "Divine Fortune Megaways",
+        "slug": "divine-fortune-megaways",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Finn's Golden Tavern",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9687,
+        "name": "Finn's Golden Tavern",
+        "slug": "finns-golden-tavern",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Fishin' Frenzy",
+      "searchProvider": "Blueprint Gaming",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Fishin Frenzy",
+          "slug": "fishin-frenzy",
+          "provider": "Merkur"
+        },
+        {
+          "name": "Fishin' Frenzy All Stars",
+          "slug": "fishin-frenzy-all-stars",
+          "provider": "Reel Time Gaming"
+        },
+        {
+          "name": "Fishin' Frenzy Bubble Bonanza",
+          "slug": "fishin-frenzy-bubble-bonanza",
+          "provider": "Blueprint Gaming"
+        }
+      ]
+    },
+    {
+      "searchName": "Fruit Shop",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9692,
+        "name": "Fruit Shop",
+        "slug": "fruit-shop",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Gates of Olympus",
+      "searchProvider": "Pragmatic Play",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 5397,
+        "name": "Gates of Olympus",
+        "slug": "gates-of-olympus",
+        "provider": "Pragmatic Play",
+        "providerId": 161
+      }
+    },
+    {
+      "searchName": "Gates of Olympus 1000",
+      "searchProvider": "Pragmatic Play",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 16716,
+        "name": "Gates of Olympus 1000",
+        "slug": "gates-of-olympus-1000",
+        "provider": "Pragmatic Play",
+        "providerId": 161
+      }
+    },
+    {
+      "searchName": "Gonzo's Quest",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9699,
+        "name": "Gonzo's Quest",
+        "slug": "gonzos-quest",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Guns N' Roses",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9704,
+        "name": "Guns N' Roses",
+        "slug": "guns-n-roses",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Jackpot Giant",
+      "searchProvider": "Playtech",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 28706,
+        "name": "Jackpot Giant",
+        "slug": "jackpot-giant",
+        "provider": "Playtech",
+        "providerId": 157
+      }
+    },
+    {
+      "searchName": "Jimi Hendrix",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9716,
+        "name": "Jimi Hendrix",
+        "slug": "jimi-hendrix",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Major Millions",
+      "searchProvider": "Microgaming",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Io",
+          "slug": "io",
+          "provider": "Elk Studios"
+        }
+      ]
+    },
+    {
+      "searchName": "Medusa Megaways",
+      "searchProvider": "NextGen Gaming",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Medusa",
+          "slug": "medusa",
+          "provider": "UU Slots"
+        },
+        {
+          "name": "Medusa",
+          "slug": "medusa",
+          "provider": "Light & Wonder"
+        },
+        {
+          "name": "Medusa",
+          "slug": "medusa",
+          "provider": "GMW"
+        }
+      ]
+    },
+    {
+      "searchName": "Mega Joker",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9729,
+        "name": "Mega Joker",
+        "slug": "mega-joker",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Mega Moolah",
+      "searchProvider": "Microgaming",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Absolootly Mad Mega Moolah",
+          "slug": "absolootly-mad-mega-moolah",
+          "provider": "Triple Edge Studios"
+        },
+        {
+          "name": "Book of Goddess Mega Moolah",
+          "slug": "book-of-goddess-mega-moolah",
+          "provider": "Games Global"
+        },
+        {
+          "name": "Book of Mega Moolah",
+          "slug": "book-of-mega-moolah",
+          "provider": "Games Global"
+        }
+      ]
+    },
+    {
+      "searchName": "Money Train",
+      "searchProvider": "Relax Gaming",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 17668,
+        "name": "Money Train",
+        "slug": "money-train",
+        "provider": "Relax Gaming",
+        "providerId": 180
+      }
+    },
+    {
+      "searchName": "Money Train 2",
+      "searchProvider": "Relax Gaming",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 17669,
+        "name": "Money Train 2",
+        "slug": "money-train-2",
+        "provider": "Relax Gaming",
+        "providerId": 180
+      }
+    },
+    {
+      "searchName": "Money Train 3",
+      "searchProvider": "Relax Gaming",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 1806,
+        "name": "Money Train 3",
+        "slug": "money-train-3",
+        "provider": "Relax Gaming",
+        "providerId": 180
+      }
+    },
+    {
+      "searchName": "Piggy Riches",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9738,
+        "name": "Piggy Riches",
+        "slug": "piggy-riches",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Pirots 2",
+      "searchProvider": "ELK Studios",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 17916,
+        "name": "Pirots 2",
+        "slug": "pirots-2",
+        "provider": "Elk Studios",
+        "providerId": 57
+      }
+    },
+    {
+      "searchName": "Pirots 3",
+      "searchProvider": "ELK Studios",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 27657,
+        "name": "Pirots 3",
+        "slug": "pirots-3",
+        "provider": "Elk Studios",
+        "providerId": 57
+      }
+    },
+    {
+      "searchName": "Razor Shark",
+      "searchProvider": "Push Gaming",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 18780,
+        "name": "Razor Shark",
+        "slug": "razor-shark",
+        "provider": "Push Gaming",
+        "providerId": 164
+      }
+    },
+    {
+      "searchName": "Reactoonz",
+      "searchProvider": "Play'n GO",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 29087,
+        "name": "Reactoonz",
+        "slug": "reactoonz",
+        "provider": "Play'n GO",
+        "providerId": 153
+      }
+    },
+    {
+      "searchName": "Starburst",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9759,
+        "name": "Starburst",
+        "slug": "starburst",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Starburst XXXtreme",
+      "searchProvider": "NetEnt",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 9760,
+        "name": "Starburst XXXtreme",
+        "slug": "starburst-xxxtreme",
+        "provider": "NetEnt",
+        "providerId": 138
+      }
+    },
+    {
+      "searchName": "Starmania",
+      "searchProvider": "NextGen Gaming",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Starmania 2",
+          "slug": "starmania-2",
+          "provider": "Light & Wonder"
+        }
+      ]
+    },
+    {
+      "searchName": "Sugar Rush 1000",
+      "searchProvider": "Pragmatic Play",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 20070,
+        "name": "Sugar Rush 1000",
+        "slug": "sugar-rush-1000",
+        "provider": "Pragmatic Play",
+        "providerId": 161
+      }
+    },
+    {
+      "searchName": "Sweet Bonanza",
+      "searchProvider": "Pragmatic Play",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 5483,
+        "name": "Sweet Bonanza",
+        "slug": "sweet-bonanza",
+        "provider": "Pragmatic Play",
+        "providerId": 161
+      }
+    },
+    {
+      "searchName": "Sweet Bonanza 1000",
+      "searchProvider": "Pragmatic Play",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 23537,
+        "name": "Sweet Bonanza 1000",
+        "slug": "sweet-bonanza-1000",
+        "provider": "Pragmatic Play",
+        "providerId": 161
+      }
+    },
+    {
+      "searchName": "Thunderstruck",
+      "searchProvider": "Games Global",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 11539,
+        "name": "Thunderstruck",
+        "slug": "thunderstruck",
+        "provider": "Games Global",
+        "providerId": 378
+      }
+    },
+    {
+      "searchName": "Thunderstruck II",
+      "searchProvider": "Microgaming",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 11540,
+        "name": "ThunderStruck II",
+        "slug": "thunderstruck-2",
+        "provider": "Games Global",
+        "providerId": 378
+      }
+    },
+    {
+      "searchName": "Tombstone R.I.P.",
+      "searchProvider": "Nolimit City",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 2868,
+        "name": "Tombstone R.I.P",
+        "slug": "tombstone-rip",
+        "provider": "Nolimit City",
+        "providerId": 141
+      }
+    },
+    {
+      "searchName": "Valley of the Gods",
+      "searchProvider": "Yggdrasil",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 8803,
+        "name": "Valley of the Gods",
+        "slug": "valley-of-the-gods",
+        "provider": "Yggdrasil Gaming",
+        "providerId": 227
+      }
+    },
+    {
+      "searchName": "Vikings Go Berzerk",
+      "searchProvider": "Yggdrasil",
+      "found": false,
+      "alternatives": [
+        {
+          "name": "Viking",
+          "slug": "viking",
+          "provider": "GMW"
+        },
+        {
+          "name": "Vikings",
+          "slug": "vikings",
+          "provider": "Genesis Gaming"
+        },
+        {
+          "name": "Vikings",
+          "slug": "vikings",
+          "provider": "Nazionale Elettronica"
+        }
+      ]
+    },
+    {
+      "searchName": "Wheel of Fortune: Triple Extreme Spin",
+      "searchProvider": "IGT",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 12938,
+        "name": "Wheel of Fortune Triple Extreme Spin",
+        "slug": "wheel-of-fortune-triple-extreme-spin",
+        "provider": "IGT",
+        "providerId": 103
+      }
+    },
+    {
+      "searchName": "White Rabbit Megaways",
+      "searchProvider": "Big Time Gaming",
+      "found": true,
+      "alternatives": [],
+      "game": {
+        "id": 3387,
+        "name": "White Rabbit Megaways",
+        "slug": "white-rabbit-megaways",
+        "provider": "Big Time Gaming",
+        "providerId": 36
+      }
+    },
+    {
+      "searchName": "WOW Pot",
+      "searchProvider": "Microgaming",
+      "found": false,
+      "alternatives": []
+    }
+  ],
+  "timestamp": "2025-11-12T05:27:04.429Z"
+}

@@ -346,6 +346,45 @@ export async function fetchGameById(
   )
 }
 
+/**
+ * Fetch multiple games by their slugs (batch fetching)
+ * This is more efficient than fetching one by one
+ */
+export async function fetchGamesBySlugs(
+  slugs: string[],
+  options: {
+    batchSize?: number
+    delayBetweenBatches?: number
+  } = {}
+): Promise<SlotGame[]> {
+  const { batchSize = 10, delayBetweenBatches = 500 } = options
+  const games: SlotGame[] = []
+
+  // Process in batches to avoid overwhelming the API
+  for (let i = 0; i < slugs.length; i += batchSize) {
+    const batch = slugs.slice(i, i + batchSize)
+
+    // Fetch all games in this batch concurrently
+    const batchPromises = batch.map(slug =>
+      fetchGameBySlug(slug).catch(err => {
+        console.warn(`Failed to fetch game "${slug}":`, err.message)
+        return null
+      })
+    )
+
+    const batchResults = await Promise.all(batchPromises)
+    const validGames = batchResults.filter((game): game is SlotGame => game !== null)
+    games.push(...validGames)
+
+    // Add delay between batches to be nice to the API
+    if (i + batchSize < slugs.length && delayBetweenBatches > 0) {
+      await new Promise(resolve => setTimeout(resolve, delayBetweenBatches))
+    }
+  }
+
+  return games
+}
+
 // Provider, Type, Theme types and responses
 export type Provider = {
   id: number

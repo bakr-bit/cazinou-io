@@ -2063,3 +2063,40 @@ export const allGameSlugsQuery = `
   *[_type == "game" && defined(slug.current)]
   {"slug": slug.current}
 `
+
+export const featuredGamesQuery = defineQuery(`
+  *[_type == "game"] | order(rating desc, name asc) [0...12] {
+    _id,
+    name,
+    slug,
+    slotsLaunchId,
+    slotsLaunchSlug,
+    slotsLaunchThumb,
+    rating,
+    provider->{
+      _id,
+      name,
+      slug
+    }
+  }
+`)
+
+export const gameBySlugQuery = defineQuery(`
+  *[_type == "game" && slotsLaunchSlug == $slug][0]{
+    _id,
+    name,
+    slug,
+    slotsLaunchId,
+    slotsLaunchSlug,
+    slotsLaunchThumb,
+    rating,
+    rtp,
+    volatility,
+    seoContent,
+    provider->{
+      _id,
+      name,
+      slug
+    }
+  }
+`)

@@ -173,50 +173,69 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <div className="container my-12 lg:my-24">
-        <header className="grid gap-6 border-b border-gray-100 pb-10">
-          <div className="max-w-3xl grid gap-4">
-            <p className="text-sm font-semibold uppercase tracking-wide text-brand">
-              Jocuri de noroc
-            </p>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
-              {page.heading}
-            </h1>
-            {page.description && (
-              <p className="text-lg text-gray-600">
-                {page.description}
+      <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>
+        <div className="container pt-8 pb-6 lg:pb-8">
+          <header className="relative grid gap-6 border-b border-gray-100 pb-10">
+            <div className="max-w-3xl grid gap-4">
+              <p className="text-sm font-semibold uppercase tracking-wide text-brand font-mono">
+                Jocuri de noroc
               </p>
-            )}
+              <h1 className="text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-6xl font-mono">
+                {page.heading}
+              </h1>
+              {page.description && (
+                <p className="text-lg text-gray-600">
+                  {page.description}
+                </p>
+              )}
+            </div>
+
+            {/* Author Info */}
             {author && (
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <span className="font-medium">Autor:</span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1">
-                  {author.picture?.asset?.url && (
-                    <img
-                      src={author.picture.asset.url}
-                      alt={`${author.firstName} ${author.lastName}`}
-                      className="h-5 w-5 rounded-full object-cover"
-                    />
+              <div className="flex flex-wrap items-center gap-6 pt-4">
+                <div className="flex items-center gap-4">
+                  {/* Author Avatar */}
+                  {author.picture?.asset?.url ? (
+                    <div className="flex-shrink-0">
+                      <img
+                        src={author.picture.asset.url}
+                        alt={`${author.firstName} ${author.lastName}`}
+                        className="w-16 h-16 rounded-full object-cover aspect-square ring-2 ring-gray-100"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 aspect-square">
+                      <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                      </svg>
+                    </div>
                   )}
-                  <span className="font-medium text-gray-900">
-                    {author.firstName} {author.lastName}
-                  </span>
-                </span>
+
+                  {/* Author Info */}
+                  <div className="flex flex-col gap-1 font-mono">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-gray-500">De</span>
+                      <span className="font-semibold text-gray-900">
+                        {author.firstName} {author.lastName}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
-          </div>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-            <div className="rounded-full bg-amber-50 px-4 py-2 font-medium text-amber-700">
-              {totalGamesCount.toLocaleString('ro-RO')} {totalGamesCount === 1 ? 'Joc' : 'Jocuri'}
+
+            {/* Additional Badges */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="rounded-full bg-brand/10 px-4 py-2 font-medium text-brand font-mono text-sm">
+                Fără Download
+              </div>
+              <div className="rounded-full bg-brand/10 px-4 py-2 font-medium text-brand font-mono text-sm">
+                Demo Gratuit
+              </div>
             </div>
-            <div className="rounded-full bg-brand/10 px-4 py-2 font-medium text-brand">
-              Fără Download
-            </div>
-            <div className="rounded-full bg-brand/10 px-4 py-2 font-medium text-brand">
-              Demo Gratuit
-            </div>
-          </div>
-        </header>
+          </header>
+        </div>
       </div>
 
       {/* Featured Casino Banner */}

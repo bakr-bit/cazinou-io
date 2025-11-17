@@ -1,22 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import {urlForImage} from '@/sanity/lib/utils'
 
 type Casino = {
   _id?: string
   name?: string
   slug?: {current?: string}
   affiliateLink?: string
-  logo?: {
-    asset?: {
-      _id?: string
-      url?: string
-      metadata?: {
-        lqip?: string
-        dimensions?: {width: number; height: number}
-      }
-    }
-    alt?: string
-  }
+  logo?: unknown
   rating?: number
   welcomeBonus?: string
   keyFeatures?: string[]
@@ -32,26 +23,25 @@ export function FeaturedCasinoBanner({casino}: FeaturedCasinoBannerProps) {
   }
 
   const casinoSlug = casino.slug?.current
+  const logoUrl = casino.logo ? urlForImage(casino.logo)?.width(800).height(800).url() : null
 
   return (
     <section className="my-12">
       <div className="container">
         <div className="relative overflow-hidden rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-white p-8 shadow-lg">
-          <div className="grid gap-8 md:grid-cols-[200px_1fr_auto]">
+          <div className="grid gap-8 md:grid-cols-[auto_1fr_auto]">
             {/* Casino Logo */}
             <div className="flex items-center justify-center">
               {casinoSlug && (
-                <Link href={`/recenzii/${casinoSlug}`} className="block">
-                  <div className="relative h-40 w-auto max-w-[200px] overflow-hidden rounded-2xl border-2 border-orange-200 bg-white p-3 shadow-md transition hover:shadow-lg">
-                    {casino.logo?.asset?.url ? (
+                <Link href={`/casino/${casinoSlug}`} className="block">
+                  <div className="relative h-56 w-56 overflow-hidden rounded-2xl border-2 border-orange-200 bg-white p-2 shadow-md transition hover:shadow-lg">
+                    {logoUrl ? (
                       <Image
-                        src={casino.logo.asset.url}
-                        alt={casino.logo.alt || `${casino.name} logo`}
+                        src={logoUrl}
+                        alt={`${casino.name} logo`}
                         fill
                         className="object-contain"
-                        sizes="200px"
-                        placeholder={casino.logo.asset.metadata?.lqip ? 'blur' : undefined}
-                        blurDataURL={casino.logo.asset.metadata?.lqip || undefined}
+                        sizes="(max-width: 768px) 280px, 360px"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
@@ -117,7 +107,7 @@ export function FeaturedCasinoBanner({casino}: FeaturedCasinoBannerProps) {
               )}
               {casinoSlug && (
                 <Link
-                  href={`/recenzii/${casinoSlug}`}
+                  href={`/casino/${casinoSlug}`}
                   className="inline-flex items-center justify-center rounded-full border-2 border-orange-500 bg-white px-8 py-4 text-base font-semibold text-orange-600 transition hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 font-mono whitespace-nowrap"
                 >
                   Citește recenzia

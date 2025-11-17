@@ -116,6 +116,57 @@ export const game = defineType({
       title: 'Review',
       type: 'blockContent', // This is Sanity's rich text editor
     }),
+    // SEO Fields
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'object',
+      description: 'SEO metadata for the game page',
+      fields: [
+        defineField({
+          name: 'metaTitle',
+          title: 'Meta Title',
+          type: 'string',
+          description: 'Page title for search engines (recommended: 50-60 characters)',
+        }),
+        defineField({
+          name: 'metaDescription',
+          title: 'Meta Description',
+          type: 'text',
+          description: 'Page description for search engines (recommended: 150-160 characters)',
+        }),
+        defineField({
+          name: 'ogTitle',
+          title: 'Open Graph Title',
+          type: 'string',
+          description: 'Title for social media sharing (Facebook, LinkedIn, etc.)',
+        }),
+        defineField({
+          name: 'ogDescription',
+          title: 'Open Graph Description',
+          type: 'text',
+          description: 'Description for social media sharing',
+        }),
+        defineField({
+          name: 'ogImage',
+          title: 'Open Graph Image',
+          type: 'image',
+          description: 'Image for social media sharing (recommended: 1200x630px)',
+        }),
+        defineField({
+          name: 'twitterTitle',
+          title: 'Twitter Title',
+          type: 'string',
+          description: 'Title for Twitter sharing',
+        }),
+        defineField({
+          name: 'twitterDescription',
+          title: 'Twitter Description',
+          type: 'text',
+          description: 'Description for Twitter sharing',
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

@@ -158,7 +158,7 @@ export function generateReviewJsonLd({
   author,
   siteUrl,
 }: JsonLdOptions): Record<string, any> {
-  const reviewUrl = `${siteUrl}/recenzii/${review.slug?.current}`
+  const reviewUrl = `${siteUrl}/casino/${review.slug?.current}`
   const authorData = generatePersonJsonLd(author, siteUrl)
 
   // Convert 1-10 rating to 1-5 for schema.org
@@ -197,7 +197,7 @@ export function generateArticleJsonLd({
   author,
   siteUrl,
 }: JsonLdOptions): Record<string, any> {
-  const reviewUrl = `${siteUrl}/recenzii/${review.slug?.current}`
+  const reviewUrl = `${siteUrl}/casino/${review.slug?.current}`
   const authorData = generatePersonJsonLd(author, siteUrl)
 
   return {
@@ -227,7 +227,7 @@ export function generateArticleJsonLd({
 export function generateFAQJsonLd(review: any, siteUrl: string): Record<string, any> | null {
   if (!review.faq || review.faq.length === 0) return null
 
-  const reviewUrl = `${siteUrl}/recenzii/${review.slug?.current}`
+  const reviewUrl = `${siteUrl}/casino/${review.slug?.current}`
 
   return {
     '@type': 'FAQPage',
@@ -256,7 +256,7 @@ export function generateCompleteReviewJsonLd(options: JsonLdOptions): Record<str
   ]
 
   // Add casino product
-  const reviewUrl = `${siteUrl}/recenzii/${review.slug?.current}`
+  const reviewUrl = `${siteUrl}/casino/${review.slug?.current}`
   graph.push(generateCasinoProductJsonLd(casino, reviewUrl))
 
   // Add casino organization if available

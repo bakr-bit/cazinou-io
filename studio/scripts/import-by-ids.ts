@@ -1,11 +1,11 @@
 import {getCliClient} from 'sanity/cli'
 
 const API_BASE = 'https://slotslaunch.com/api'
-const token = process.env.SLOTSLAUNCH_TOKEN
-const origin = process.env.SLOTSLAUNCH_ORIGIN || 'cazinou.io'
+const token = process.env.SANITY_STUDIO_SLOTSLAUNCH_TOKEN || process.env.SLOTSLAUNCH_TOKEN
+const origin = process.env.SANITY_STUDIO_SLOTSLAUNCH_ORIGIN || process.env.SLOTSLAUNCH_ORIGIN || 'cazinou.io'
 
 // Game IDs to import
-const GAME_IDS = [15795, 11279, 11276, 10667]
+const GAME_IDS = [11138, 11135, 4793, 13534, 11145, 19516, 13371]
 
 type SlotGame = {
   id: number

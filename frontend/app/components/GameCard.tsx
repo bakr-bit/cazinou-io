@@ -10,8 +10,8 @@ export function GameCard({
   game: any
   singleBase: string
 }) {
-  // Include game ID in URL for reliable lookups: /pacanele/123-burning-hot
-  const href = `/${singleBase}/${game.id}-${game.slug}`
+  // Use slug-only URL: /pacanele/burning-hot
+  const href = `/${singleBase}/${game.slug}`
 
   return (
     <div className="group rounded-2xl shadow-sm border border-gray-100 bg-white/70 backdrop-blur p-3 transition-all hover:border-orange-500 hover:-translate-y-0.5 hover:scale-[1.01]">

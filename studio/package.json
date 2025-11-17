@@ -35,6 +35,8 @@
     "@sanity/eslint-config-studio": "^5.0.2",
     "@sanity/schema": "^4.10.2",
     "@types/react": "^19.1.11",
+    "cheerio": "^1.1.2",
+    "commander": "^14.0.2",
     "gray-matter": "^4.0.3",
     "jsdom": "^23.2.0",
     "marked": "^16.4.1",

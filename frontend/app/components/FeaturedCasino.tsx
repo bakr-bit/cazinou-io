@@ -104,12 +104,12 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
 
   const casino = block.casino
   const slug = casino.slug?.current
-  const detailsHref = slug ? `/recenzii/${slug}` : undefined
+  const detailsHref = slug ? `/casino/${slug}` : undefined
 
   // Use featured banner if available, fallback to logo
   const bannerImage = casino.featuredBanner || casino.logo
   const bannerUrl = bannerImage ? urlForImage(bannerImage)?.width(1920).height(600).fit('crop').url() : null
-  const logoUrl = casino.logo ? urlForImage(casino.logo)?.width(200).height(200).url() : null
+  const logoUrl = casino.logo ? urlForImage(casino.logo)?.width(800).height(800).url() : null
 
   const buttonText = block.buttonText || 'Joacă Acum'
   const showRating = block.showRating !== false
@@ -135,7 +135,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
 
       {/* Content */}
       <div className="relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 py-8 md:grid-cols-2 md:py-10 lg:gap-8">
+        <div className="grid gap-6 py-8 md:grid-cols-[1fr_auto] md:py-10 lg:gap-8">
           {/* Left Column: Text Content */}
           <div className="flex flex-col justify-center space-y-4">
             {block.heading && (
@@ -288,19 +288,19 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
 
           {/* Right Column: Logo Card */}
           <div className="flex items-center justify-center">
-            <div className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="w-full max-w-lg rounded-xl border border-gray-200 bg-white p-2 shadow-sm">
               {logoUrl ? (
-                <div className="relative mx-auto h-[160px] w-full max-w-[280px]">
+                <div className="relative mx-auto h-[320px] w-full min-w-[280px]">
                   <Image
                     src={logoUrl}
                     alt={`${casino.name} logo`}
                     fill
                     className="object-contain"
-                    sizes="280px"
+                    sizes="(max-width: 768px) 90vw, 512px"
                   />
                 </div>
               ) : (
-                <div className="mx-auto flex h-[160px] w-full max-w-[280px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
+                <div className="mx-auto flex h-[320px] w-full min-w-[280px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
                   No logo
                 </div>
               )}
