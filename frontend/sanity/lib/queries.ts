@@ -204,27 +204,40 @@ export const homePageQuery = defineQuery(`
       },
       _type == "featuredGamesGrid" => {
         ...,
-        games[]->{
-          _id,
-          name,
-          slug,
-          slotsLaunchSlug,
-          slotsLaunchThumb,
-          mainImage {
-            asset->{
-              _id,
-              url,
-              metadata {
-                lqip,
-                dimensions
-              }
+        games[]{
+          _type == "reference" => @->{
+            _id,
+            _type,
+            name,
+            slug,
+            slotsLaunchSlug,
+            slotsLaunchThumb,
+            mainImage {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
             },
-            alt
+            provider->{
+              name
+            },
+            rating
           },
-          provider->{
-            name
-          },
-          rating
+          _type != "reference" => {
+            _key,
+            _type,
+            title,
+            subtitle,
+            icon,
+            image,
+            link,
+            backgroundColor
+          }
         }
       },
       _type == "callToAction" => {
@@ -596,27 +609,39 @@ export const slotsPageSettingsQuery = defineQuery(`
     featuredGamesGrid {
       title,
       description,
-      games[]->{
-        _id,
-        name,
-        slug,
-        slotsLaunchSlug,
-        slotsLaunchThumb,
-        mainImage {
-          asset->{
-            _id,
-            url,
-            metadata {
-              lqip,
-              dimensions
-            }
+      games[]{
+        _type == "reference" => @->{
+          _id,
+          _type,
+          name,
+          slug,
+          slotsLaunchSlug,
+          slotsLaunchThumb,
+          mainImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
           },
-          alt
+          provider->{
+            name
+          },
+          rating
         },
-        provider->{
-          name
-        },
-        rating
+        _type != "reference" => {
+          _key,
+          _type,
+          title,
+          subtitle,
+          image,
+          link,
+          backgroundColor
+        }
       }
     },
     content
@@ -1498,27 +1523,40 @@ export const infoPageBySlugQuery = defineQuery(`
       },
       _type == "featuredGamesGrid" => {
         ...,
-        games[]->{
-          _id,
-          name,
-          slug,
-          slotsLaunchSlug,
-          slotsLaunchThumb,
-          mainImage {
-            asset->{
-              _id,
-              url,
-              metadata {
-                lqip,
-                dimensions
-              }
+        games[]{
+          _type == "reference" => @->{
+            _id,
+            _type,
+            name,
+            slug,
+            slotsLaunchSlug,
+            slotsLaunchThumb,
+            mainImage {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
             },
-            alt
+            provider->{
+              name
+            },
+            rating
           },
-          provider->{
-            name
-          },
-          rating
+          _type != "reference" => {
+            _key,
+            _type,
+            title,
+            subtitle,
+            icon,
+            image,
+            link,
+            backgroundColor
+          }
         }
       },
       _type == "callToAction" => {
@@ -1962,27 +2000,40 @@ export const themedSlotsPageBySlugQuery = defineQuery(`
       },
       _type == "featuredGamesGrid" => {
         ...,
-        games[]->{
-          _id,
-          name,
-          slug,
-          slotsLaunchSlug,
-          slotsLaunchThumb,
-          mainImage {
-            asset->{
-              _id,
-              url,
-              metadata {
-                lqip,
-                dimensions
-              }
+        games[]{
+          _type == "reference" => @->{
+            _id,
+            _type,
+            name,
+            slug,
+            slotsLaunchSlug,
+            slotsLaunchThumb,
+            mainImage {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
             },
-            alt
+            provider->{
+              name
+            },
+            rating
           },
-          provider->{
-            name
-          },
-          rating
+          _type != "reference" => {
+            _key,
+            _type,
+            title,
+            subtitle,
+            icon,
+            image,
+            link,
+            backgroundColor
+          }
         }
       },
       _type == "callToAction" => {

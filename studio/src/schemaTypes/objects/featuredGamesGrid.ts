@@ -51,10 +51,16 @@ export const featuredGamesGrid = defineType({
               description: 'Optional subtitle (e.g., "Vezi toate jocurile")',
             }),
             defineField({
+              name: 'icon',
+              title: 'Icon (Emoji or Text)',
+              type: 'string',
+              description: 'Optional icon/emoji to display (e.g., 🎰, 🎲, 🃏). Leave empty if using image.',
+            }),
+            defineField({
               name: 'image',
               title: 'Card Image',
               type: 'image',
-              description: 'Image to display on the card',
+              description: 'Image to display on the card (alternative to icon)',
               options: {
                 hotspot: true,
               },

@@ -31,6 +31,7 @@ type LinkCard = {
   _type: 'linkCard'
   title: string
   subtitle?: string
+  icon?: string
   image?: unknown
   link: string
   backgroundColor?: string
@@ -92,7 +93,7 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
               // Render link card
               if (item._type === 'linkCard') {
                 const imageUrl = item.image ? urlForImage(item.image)?.width(200).height(200).url() : null
-                const bgColor = item.backgroundColor || 'bg-gradient-to-br from-orange-500 to-orange-600'
+                const bgColor = item.backgroundColor || 'bg-gradient-to-br from-gray-200 to-gray-300'
 
                 return (
                   <Link
@@ -110,20 +111,24 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
                           height={200}
                           className="h-full w-full object-cover transition group-hover:scale-105"
                         />
+                      ) : item.icon ? (
+                        <div className="text-5xl">
+                          {item.icon}
+                        </div>
                       ) : (
                         <div className="flex flex-col items-center justify-center gap-2">
-                          <h3 className="text-white font-bold text-sm line-clamp-3 font-mono">
+                          <h3 className="text-gray-900 font-bold text-sm line-clamp-3 font-mono">
                             {item.title}
                           </h3>
                           {item.subtitle && (
-                            <p className="text-white/90 text-xs line-clamp-2">
+                            <p className="text-gray-700 text-xs line-clamp-2">
                               {item.subtitle}
                             </p>
                           )}
                         </div>
                       )}
                     </div>
-                    {imageUrl && (
+                    {(imageUrl || item.icon) && (
                       <div className="p-2 bg-white">
                         <h3 className="text-xs font-semibold leading-tight line-clamp-2 font-mono text-gray-900 group-hover:text-orange-600">
                           {item.title}
