@@ -54,8 +54,10 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     })
   }
 
+  const title = (pageData as any).name || (pageData as any).title || 'Page'
+
   return {
-    title: pageData.name || 'Page',
+    title,
   }
 }
 
@@ -145,7 +147,7 @@ export default async function MetodeNestedPage({params}: Props) {
   // Handle page type (if any)
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold">{pageData.name || 'Page'}</h1>
+      <h1 className="text-4xl font-bold">{(pageData as any).name || (pageData as any).title || 'Page'}</h1>
     </div>
   )
 }

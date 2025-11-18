@@ -29,8 +29,10 @@ export async function generateMetadata(): Promise<Metadata> {
     })
   }
 
+  const title = (pageData as any).name || (pageData as any).title || 'Metode de Plată'
+
   return {
-    title: pageData.name || 'Metode de Plată',
+    title,
   }
 }
 
@@ -72,7 +74,7 @@ export default async function MetodeDePlataPage() {
   // Handle page type (if any)
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold">{pageData.name || 'Metode de Plată'}</h1>
+      <h1 className="text-4xl font-bold">{(pageData as any).name || (pageData as any).title || 'Metode de Plată'}</h1>
     </div>
   )
 }
