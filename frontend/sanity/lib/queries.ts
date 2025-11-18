@@ -1807,6 +1807,7 @@ export const infoPageBySlugQuery = defineQuery(`
         }
       }
     },
+    _updatedAt,
     seo {
       metaTitle,
       metaDescription,
@@ -2290,6 +2291,7 @@ export const themedSlotsPageBySlugQuery = defineQuery(`
       ogImage
     },
     publishedAt,
+    _updatedAt,
     "author": author->{
       firstName,
       lastName,

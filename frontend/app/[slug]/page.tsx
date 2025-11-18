@@ -111,11 +111,11 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
         locale: 'ro_RO',
         type: 'article',
         images: ogImage ? [ogImage, ...previousImages] : previousImages,
-        ...(themedPage.publishedAt && {publishedTime: themedPage.publishedAt}),
-        ...(themedPage._updatedAt && {modifiedTime: themedPage._updatedAt}),
-        ...(author && {
+        ...(themedPage.publishedAt ? {publishedTime: themedPage.publishedAt} : {}),
+        ...(themedPage._updatedAt ? {modifiedTime: themedPage._updatedAt} : {}),
+        ...(author ? {
           authors: [`${author.firstName} ${author.lastName}`.trim()],
-        }),
+        } : {}),
       },
       twitter: {
         card: 'summary_large_image',
@@ -151,11 +151,11 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
         description: infoPage.seo?.ogDescription ?? description,
         images: ogImage ? [ogImage, ...previousImages] : previousImages,
         type: 'article',
-        ...(infoPage.publishedAt && {publishedTime: infoPage.publishedAt}),
-        ...(infoPage._updatedAt && {modifiedTime: infoPage._updatedAt}),
-        ...(author && {
+        ...(infoPage.publishedAt ? {publishedTime: infoPage.publishedAt} : {}),
+        ...(infoPage._updatedAt ? {modifiedTime: infoPage._updatedAt} : {}),
+        ...(author ? {
           authors: [`${author.firstName} ${author.lastName}`.trim()],
-        }),
+        } : {}),
       },
       twitter: {
         title: infoPage.seo?.twitterTitle ?? infoPage.seo?.ogTitle ?? title,
