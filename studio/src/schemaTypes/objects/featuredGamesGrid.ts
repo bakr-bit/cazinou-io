@@ -22,6 +22,20 @@ export const featuredGamesGrid = defineType({
       description: 'Optional description text below the title',
     }),
     defineField({
+      name: 'headingLevel',
+      title: 'Heading Level',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'H2 (Main Section)', value: 'h2'},
+          {title: 'H3 (Subsection)', value: 'h3'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'h2',
+      description: 'Choose H2 for main sections or H3 for subsections (for proper SEO heading hierarchy)',
+    }),
+    defineField({
       name: 'games',
       title: 'Games & Link Cards',
       type: 'array',
