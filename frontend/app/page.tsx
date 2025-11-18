@@ -112,6 +112,7 @@ export default async function HomePage() {
             alt="Cazinou Online România - Hero Banner"
             fill
             priority
+            fetchPriority="high"
             quality={65}
             className="object-cover object-center"
             sizes="100vw"
