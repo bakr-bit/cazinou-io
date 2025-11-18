@@ -1,5 +1,6 @@
 import type {Metadata, ResolvingMetadata} from 'next'
 import {PortableText} from '@portabletext/react'
+import Image from 'next/image'
 
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
@@ -105,7 +106,15 @@ export default async function HomePage() {
 
       {/* Hero Banner Section */}
       {homePageData.heroBanner && (
-        <div className="relative bg-[url(/images/hero-banner-hp.png)] bg-cover bg-center bg-no-repeat">
+        <div className="relative">
+          <Image
+            src="/images/hero-banner-hp.webp"
+            alt="Cazinou Online România - Hero Banner"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-white/70"></div>
           <div className="container relative py-12 lg:py-20">
             <div className="mx-auto max-w-5xl">

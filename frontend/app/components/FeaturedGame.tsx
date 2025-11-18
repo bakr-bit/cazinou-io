@@ -240,23 +240,14 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
             <div className="w-full max-w-xs rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               {thumbnailUrl ? (
                 <div className="relative mx-auto aspect-square w-full max-w-[256px]">
-                  {thumbnailUrl.includes('slotslaunch.com') ? (
-                    // Use regular img tag for SlotsLaunch images (already optimized)
-                    <img
-                      src={thumbnailUrl}
-                      alt={`${game.name} thumbnail`}
-                      className="w-full h-full object-contain rounded-lg"
-                    />
-                  ) : (
-                    // Use Next.js Image for Sanity images
-                    <Image
-                      src={thumbnailUrl}
-                      alt={`${game.name} thumbnail`}
-                      fill
-                      className="object-contain rounded-lg"
-                      sizes="256px"
-                    />
-                  )}
+                  <Image
+                    src={thumbnailUrl}
+                    alt={`${game.name} thumbnail`}
+                    fill
+                    className="object-contain rounded-lg"
+                    sizes="256px"
+                    unoptimized={thumbnailUrl.includes('slotslaunch.com')}
+                  />
                 </div>
               ) : (
                 <div className="mx-auto flex flex-col aspect-square w-full max-w-[256px] items-center justify-center rounded-xl bg-gray-100 text-gray-400 text-xs p-4">

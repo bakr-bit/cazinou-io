@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import Image from 'next/image'
 import {notFound} from 'next/navigation'
 import {ContentSections} from '@/app/components/ContentSections'
 import {sanityFetch} from '@/sanity/lib/live'
@@ -104,9 +105,11 @@ export default async function MetodeNestedPage({params}: Props) {
                     {/* Author Avatar */}
                     {author.picture?.asset?.url ? (
                       <div className="flex-shrink-0">
-                        <img
+                        <Image
                           src={author.picture.asset.url}
                           alt={`${author.firstName} ${author.lastName}`}
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full object-cover aspect-square ring-2 ring-gray-100"
                         />
                       </div>
