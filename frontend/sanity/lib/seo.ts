@@ -16,6 +16,7 @@ export function generateSEO(options: {
   ogTitle?: string
   ogDescription?: string
   ogImage?: any
+  canonicalUrl?: string
   article?: {
     publishedTime?: string
     modifiedTime?: string
@@ -23,7 +24,7 @@ export function generateSEO(options: {
     tags?: string[]
   }
 }): Metadata {
-  const {title, description, ogTitle, ogDescription, ogImage, article} = options
+  const {title, description, ogTitle, ogDescription, ogImage, canonicalUrl, article} = options
 
   const openGraphImage = ogImage ? resolveOpenGraphImage(ogImage) : undefined
   const images = openGraphImage ? [openGraphImage] : []
@@ -31,10 +32,16 @@ export function generateSEO(options: {
   return {
     title,
     description,
+    ...(canonicalUrl && {
+      alternates: {
+        canonical: canonicalUrl,
+      },
+    }),
     openGraph: {
       title: ogTitle || title,
       description: ogDescription || description,
       images,
+      ...(canonicalUrl && {url: canonicalUrl}),
       ...(article && {
         type: 'article',
         publishedTime: article.publishedTime,

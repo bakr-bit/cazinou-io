@@ -14,9 +14,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
   const headersList = await headers()
   const sitemap: MetadataRoute.Sitemap = []
-  const domain: String = headersList.get('host') as string
+  const host = headersList.get('host') as string
+  // Use SITE_URL from env or construct from host with https protocol
+  const domain = process.env.NEXT_PUBLIC_SITE_URL || `https://${host}`
+
   sitemap.push({
-    url: domain as string,
+    url: domain,
     lastModified: new Date(),
     priority: 1,
     changeFrequency: 'monthly',
