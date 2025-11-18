@@ -83,7 +83,7 @@ export default async function SingleSlotPage(props: Props) {
     name: game.name,
     url: pageUrl,
     description: `Joacă ${game.name} online direct în browser. ${game.provider?.name ? `De la ${game.provider.name}.` : ''}`,
-    image: game.slotsLaunchThumb || game.mainImage?.asset?.url,
+    image: game.slotsLaunchThumb || undefined,
     provider: game.provider?.name,
     rating: game.rating,
   })
