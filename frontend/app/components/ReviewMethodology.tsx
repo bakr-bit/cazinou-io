@@ -177,9 +177,9 @@ export function ReviewMethodology({data, index}: ReviewMethodologyProps) {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-center text-xl font-bold text-gray-900 font-mono leading-tight">
+                <div className="text-center text-xl font-bold text-gray-900 font-mono leading-tight">
                   {criterion.title}
-                </h3>
+                </div>
 
                 {/* Description - Rich Text or Plain Text */}
                 <div className="flex-1">

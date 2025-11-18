@@ -1018,12 +1018,12 @@ export const postPagesSlugs = defineQuery(`
 `)
 
 export const pagesSlugs = defineQuery(`
-  *[(_type == "page" || _type == "infoPage") && defined(slug.current)]
+  *[(_type == "page" || _type == "infoPage" || _type == "themedSlotsPage") && defined(slug.current)]
   {"slug": slug.current}
 `)
 
 export const getPageOrInfoPageQuery = defineQuery(`
-  *[(_type == "page" || _type == "infoPage") && slug.current == $slug][0]{
+  *[(_type == "page" || _type == "infoPage" || _type == "themedSlotsPage") && slug.current == $slug][0]{
     _id,
     _type,
     _type == "page" => {
@@ -1332,6 +1332,207 @@ export const getPageOrInfoPageQuery = defineQuery(`
         twitterImage,
         modifiedAt
       }
+    },
+    _type == "themedSlotsPage" => {
+      title,
+      slug,
+      heading,
+      description,
+      filterType,
+      filterValue,
+      featuredCasino->{
+        ${casinoCoreFields}
+      },
+      content[]{
+        ...,
+        _type == "image" => {
+          ...,
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          }
+        },
+        _type == "linkableImage" => {
+          ...,
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          }
+        },
+        _type == "authorComment" => {
+          ...,
+          avatar {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            }
+          }
+        },
+        _type == "topListObject" => {
+          ...,
+          displayOptions,
+          "listItems": coalesce(listItems[]{
+            ...,
+            item->{
+              ${casinoCoreFields}
+            }
+          }, [])
+        },
+        _type == "faqSection" => {
+          ...,
+          faqs[]{
+            question,
+            answer
+          }
+        },
+        _type == "featuredCasino" => {
+          ...,
+          casino->{
+            ${casinoCoreFields}
+          }
+        },
+        _type == "featuredGame" => {
+          ...,
+          affiliateLink,
+          game->{
+            _id,
+            name,
+            slug,
+            slotsLaunchSlug,
+            slotsLaunchThumb,
+            rating,
+            mainImage {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  lqip,
+                  dimensions
+                }
+              },
+              alt
+            },
+            provider->{
+              name
+            }
+          }
+        },
+        _type == "featuredGamesGrid" => {
+          ...,
+          games[]{
+            _type == "reference" => @->{
+              _id,
+              _type,
+              name,
+              slug,
+              slotsLaunchSlug,
+              slotsLaunchThumb,
+              mainImage {
+                asset->{
+                  _id,
+                  url,
+                  metadata {
+                    lqip,
+                    dimensions
+                  }
+                },
+                alt
+              },
+              provider->{
+                name
+              },
+              rating
+            },
+            _type != "reference" => {
+              _key,
+              _type,
+              title,
+              subtitle,
+              icon,
+              image,
+              link,
+              backgroundColor
+            }
+          }
+        },
+        _type == "callToAction" => {
+          ...,
+          link {
+            ...,
+            _type == "link" => {
+              "page": page->slug.current,
+              "post": post->slug.current
+            }
+          },
+          backgroundImage {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          }
+        },
+        _type == "simpleButton" => {
+          ...,
+          link {
+            ...,
+            _type == "link" => {
+              "page": page->slug.current,
+              "post": post->slug.current,
+              "infoPage": infoPage->slug.current,
+              "casinoReview": casinoReview->slug.current
+            }
+          }
+        },
+        _type == "bonusCalculator" => {
+          ...
+        },
+        markDefs[]{
+          ...,
+          _type == "link" => {
+            ...,
+            href
+          }
+        }
+      },
+      seo {
+        metaTitle,
+        metaDescription,
+        ogImage
+      },
+      publishedAt,
+      "author": author->{
+        firstName,
+        lastName,
+        picture {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
+        }
+      },
+      hidden
     }
   }
 `)

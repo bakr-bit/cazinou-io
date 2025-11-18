@@ -104,12 +104,12 @@ export function BeginnersGuide({data, index}: BeginnersGuideProps) {
       {/* Header */}
       <div className="mb-10 text-center">
         {data.heading && (
-          <h2
+          <h3
             id={`beginners-guide-${index}`}
             className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl font-mono"
           >
             {data.heading}
-          </h2>
+          </h3>
         )}
         {data.description && (
           <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg">
@@ -193,9 +193,9 @@ export function BeginnersGuide({data, index}: BeginnersGuideProps) {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-center text-xl font-bold text-gray-900 font-mono leading-tight">
+                <div className="text-center text-xl font-bold text-gray-900 font-mono leading-tight">
                   {topic.title}
-                </h3>
+                </div>
 
                 {/* Example Values Badge */}
                 {topic.exampleValues && (

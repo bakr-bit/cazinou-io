@@ -80,7 +80,7 @@ export function ReviewCard({review}: ReviewCardProps) {
                 className="object-contain max-h-24"
               />
             ) : (
-              <h3 className="text-xl font-bold text-gray-700 font-mono">{review.casino.name}</h3>
+              <div className="text-xl font-bold text-gray-700 font-mono">{review.casino.name}</div>
             )}
             {review.casino.rating && (
               <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-lg text-sm font-bold font-mono shadow-lg">

@@ -228,9 +228,9 @@ export function AboutUs({data, index}: AboutUsProps) {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-center text-xl font-bold text-gray-900 font-mono leading-tight">
+                <div className="text-center text-xl font-bold text-gray-900 font-mono leading-tight">
                   {item.title}
-                </h3>
+                </div>
 
                 {/* Rich Text Content or Plain Text */}
                 <div className="flex-1 text-left">

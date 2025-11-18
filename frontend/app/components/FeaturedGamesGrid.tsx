@@ -43,6 +43,7 @@ export type FeaturedGamesGridData = {
   title?: string
   description?: string
   games?: (GridItem | null)[]
+  headingLevel?: 'h2' | 'h3'
 }
 
 type FeaturedGamesGridProps = {
@@ -76,13 +77,14 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
   }
 
   const items = validItems.slice(0, 24) // Max 24 for compact grid
+  const HeadingTag = data.headingLevel === 'h3' ? 'h3' : 'h2'
 
   return (
     <section className="my-8">
       <div className="mb-6">
-        <h2 className="text-2xl font-extrabold text-gray-900 font-mono mb-2">
+        <HeadingTag className="text-2xl font-extrabold text-gray-900 font-mono mb-2">
           {data.title || 'Păcănele Recomandate'}
-        </h2>
+        </HeadingTag>
         {data.description && (
           <p className="text-base text-gray-600 sm:text-lg">{data.description}</p>
         )}
@@ -117,9 +119,9 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
                         </div>
                       ) : (
                         <div className="flex flex-col items-center justify-center gap-2">
-                          <h3 className="text-gray-900 font-bold text-sm line-clamp-3 font-mono">
+                          <div className="text-gray-900 font-bold text-sm line-clamp-3 font-mono">
                             {item.title}
-                          </h3>
+                          </div>
                           {item.subtitle && (
                             <p className="text-gray-700 text-xs line-clamp-2">
                               {item.subtitle}
@@ -130,9 +132,9 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
                     </div>
                     {(imageUrl || item.icon) && (
                       <div className="p-2 bg-white">
-                        <h3 className="text-xs font-semibold leading-tight line-clamp-2 font-mono text-gray-900 group-hover:text-orange-600">
+                        <div className="text-xs font-semibold leading-tight line-clamp-2 font-mono text-gray-900 group-hover:text-orange-600">
                           {item.title}
-                        </h3>
+                        </div>
                         {item.subtitle && (
                           <p className="text-[10px] text-gray-500 mt-0.5 line-clamp-1">
                             {item.subtitle}
@@ -193,9 +195,9 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
                   })()}
                 </div>
                 <div className="p-2">
-                  <h3 className="text-xs font-semibold leading-tight line-clamp-2 font-mono text-gray-900 group-hover:text-orange-600">
+                  <div className="text-xs font-semibold leading-tight line-clamp-2 font-mono text-gray-900 group-hover:text-orange-600">
                     {game.name}
-                  </h3>
+                  </div>
                   {game.provider?.name && (
                     <p className="text-[10px] text-gray-500 mt-0.5 line-clamp-1">{game.provider.name}</p>
                   )}

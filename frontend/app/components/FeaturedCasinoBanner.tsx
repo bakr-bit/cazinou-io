@@ -56,9 +56,9 @@ export function FeaturedCasinoBanner({casino}: FeaturedCasinoBannerProps) {
             {/* Casino Info */}
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <h2 className="text-3xl font-extrabold text-gray-900 font-mono">
+                <div className="text-3xl font-extrabold text-gray-900 font-mono">
                   {casino.name || 'Casino'}
-                </h2>
+                </div>
                 {typeof casino.rating === 'number' && (
                   <div className="rounded-full bg-amber-50 px-6 py-3 font-semibold text-amber-700 whitespace-nowrap font-mono flex items-center gap-2 text-lg">
                     <svg className="w-6 h-6 text-amber-500" fill="currentColor" viewBox="0 0 24 24">

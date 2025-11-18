@@ -40,9 +40,9 @@ export default function CTA({block}: CtaProps) {
 
         <div className="relative z-10 px-12 py-12 flex flex-col gap-6 items-center text-center">
           <div className="max-w-2xl flex flex-col gap-3">
-            <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+            <h3 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
               {block.heading || 'Call to Action'}
-            </h2>
+            </h3>
             {block.text && <p className="text-lg leading-8 text-gray-600">{block.text}</p>}
           </div>
 

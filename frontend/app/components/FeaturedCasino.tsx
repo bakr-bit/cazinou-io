@@ -145,9 +145,9 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
             )}
 
             <div className="space-y-3">
-              <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl font-mono">
+              <div className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl font-mono">
                 {casino.name || 'Featured Casino'}
-              </h2>
+              </div>
 
               {showRating && casino.rating && (
                 <div className="inline-flex">
@@ -173,9 +173,9 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
               {/* Key Features */}
               {shouldShow('showKeyFeatures') && casino.keyFeatures && casino.keyFeatures.length > 0 && (
                 <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
                     Caracteristici Principale
-                  </h3>
+                  </div>
                   <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     {casino.keyFeatures.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -190,9 +190,9 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
               {/* Payment Methods */}
               {shouldShow('showPaymentMethods') && casino.paymentMethods && casino.paymentMethods.length > 0 && (
                 <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
                     Metode de Plată
-                  </h3>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {casino.paymentMethods.slice(0, 8).map((method, idx) => (
                       <span

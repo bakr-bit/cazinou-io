@@ -12,9 +12,9 @@ export function ResponsibleGamingDisclaimer() {
 
           {/* Content */}
           <div className="flex-1 space-y-3">
-            <h3 className="text-lg lg:text-xl font-bold text-gray-900">
+            <div className="text-lg lg:text-xl font-bold text-gray-900">
               Joacă responsabil – Doar pentru persoane peste 18 ani
-            </h3>
+            </div>
 
             <p className="text-sm lg:text-base text-gray-700 leading-relaxed">
               Jocurile de noroc sunt destinate exclusiv persoanelor care au împlinit 18 ani. Scopul lor este distracția, nu câștigul sigur. Joacă mereu cu măsură și stabilește-ți din timp limitele de timp și bani.

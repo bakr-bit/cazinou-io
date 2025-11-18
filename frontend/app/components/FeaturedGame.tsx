@@ -141,9 +141,9 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
           {/* Left Column: Text Content */}
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-3">
-              <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl font-mono">
+              <div className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl font-mono">
                 {block.heading || game.name || 'Featured Game'}
-              </h2>
+              </div>
 
               {showRating && game.rating && (
                 <div className="inline-flex">
@@ -169,9 +169,9 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
               {/* Game Features - Placeholder for future data */}
               {shouldShow('showGameFeatures') && (
                 <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-gray-500 font-mono">
                     Game Features
-                  </h3>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="inline-flex items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-700 font-mono">
                       Free Spins

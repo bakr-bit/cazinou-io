@@ -60,7 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         case 'loto':
           priority = 0.9
           changeFrequency = 'weekly'
-          url = `${domain}/loto-online/${p.slug}`
+          url = `${domain}/loto-online-keno/${p.slug}`
           break
         case 'themedSlotsPage':
           priority = 0.85

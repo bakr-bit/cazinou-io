@@ -215,12 +215,12 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0 flex-1 space-y-1">
               {shouldShow(displayOptions, 'showName') && (
-                <h3
+                <div
                   id={`tl-${keySeed}-title`}
                   className={`truncate text-lg font-bold sm:text-xl font-mono ${rankTheme.title}`}
                 >
                   {itm.name || 'Untitled Casino'}
-                </h3>
+                </div>
               )}
               {shouldShow(displayOptions, 'showBonus') && itm.welcomeBonus && (
                 <p className={`text-sm sm:text-base font-mono ${rankTheme.bonus}`}>
@@ -401,12 +401,12 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
           )}
           <div className="min-w-0 space-y-1">
             {shouldShow(displayOptions, 'showName') && (
-              <h3
+              <div
                 id={`tl-table-${keySeed}-title`}
                 className={`truncate text-base font-semibold font-mono ${rankTheme.title}`}
               >
                 {itm.name || 'Untitled Casino'}
-              </h3>
+              </div>
             )}
             {shouldShow(displayOptions, 'showBonus') && itm.welcomeBonus && (
               <p className={`text-sm font-mono ${rankTheme.bonus}`}>{itm.welcomeBonus}</p>

@@ -54,9 +54,9 @@ export async function FeaturedSlotsGrid() {
                   )}
                 </div>
                 <div className="p-4">
-                  <h3 className="text-base font-semibold leading-tight line-clamp-1 font-mono text-gray-900 group-hover:text-orange-600">
+                  <div className="text-base font-semibold leading-tight line-clamp-1 font-mono text-gray-900 group-hover:text-orange-600">
                     {game.name}
-                  </h3>
+                  </div>
                   {providerName && (
                     <p className="text-xs text-gray-500 mt-1">{providerName}</p>
                   )}

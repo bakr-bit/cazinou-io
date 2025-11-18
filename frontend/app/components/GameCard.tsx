@@ -32,9 +32,9 @@ export function GameCard({
           )}
         </div>
         <div className="mt-3 flex items-center justify-between">
-          <h3 className="text-base font-semibold leading-tight line-clamp-1 font-mono">
+          <div className="text-base font-semibold leading-tight line-clamp-1 font-mono">
             {game.name}
-          </h3>
+          </div>
           {game.rtp && (
             <span className="text-xs px-2 py-1 rounded-full border border-gray-200 font-mono">
               RTP {game.rtp}

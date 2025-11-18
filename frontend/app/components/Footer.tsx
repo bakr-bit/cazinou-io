@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="absolute inset-0 bg-[url(/images/tile-grid-black.png)] bg-size-[17px] opacity-20 bg-position-[0_1]" />
       <div className="container relative">
         <div className="flex flex-col items-center py-16 lg:py-20">
-          <h3 className="mb-8 text-center text-4xl font-mono leading-tight tracking-tighter lg:text-2xl">
-            cazinou.io 
-          </h3>
+          <div className="mb-8 text-center text-4xl font-mono leading-tight tracking-tighter lg:text-2xl">
+            cazinou.io
+          </div>
           
           <nav className="mb-8">
             <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm font-mono">
