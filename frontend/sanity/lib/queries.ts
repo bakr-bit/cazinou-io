@@ -374,6 +374,8 @@ export const homePageQuery = defineQuery(`
         }
       }
     },
+    publishedAt,
+    _updatedAt,
     seo {
       metaTitle,
       metaDescription,

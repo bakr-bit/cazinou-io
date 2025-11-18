@@ -42,6 +42,9 @@ export async function generateMetadata(
       title: homePageData.seo?.ogTitle ?? title,
       description: homePageData.seo?.ogDescription ?? description,
       images: ogImage ? [ogImage, ...previousImages] : previousImages,
+      type: 'website',
+      ...(homePageData.publishedAt && {publishedTime: homePageData.publishedAt}),
+      ...(homePageData._updatedAt && {modifiedTime: homePageData._updatedAt}),
     },
     twitter: {
       title: homePageData.seo?.twitterTitle ?? homePageData.seo?.ogTitle ?? title,
