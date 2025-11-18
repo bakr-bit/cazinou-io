@@ -153,9 +153,12 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
   }
 
   // Handle regular page type
+  const title = (pageData as any).name || (pageData as any).title || 'Page'
+  const description = (pageData as any).heading || (pageData as any).description || ''
+
   return {
-    title: pageData.name,
-    description: pageData.heading,
+    title,
+    description,
   }
 }
 
