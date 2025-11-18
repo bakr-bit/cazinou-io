@@ -145,7 +145,7 @@ export async function generateMetadata({params}: {params: Promise<{slug: string}
       follow: true,
     },
     alternates: {
-      canonical: `https://cazinou.io/pacanele-gratis/${slug}`,
+      canonical: `https://cazinou.io/pacanele-gratis/${slug}/`,
     },
   }
 }

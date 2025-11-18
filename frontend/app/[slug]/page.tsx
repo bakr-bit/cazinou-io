@@ -128,7 +128,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
         follow: true,
       },
       alternates: {
-        canonical: `https://cazinou.io/${params.slug}`,
+        canonical: `https://cazinou.io/${params.slug}/`,
       },
     }
   }

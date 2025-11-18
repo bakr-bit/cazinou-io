@@ -62,6 +62,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       description,
       images: game.slotsLaunchThumb ? [{url: game.slotsLaunchThumb}] : [],
     },
+    alternates: {
+      canonical: `https://cazinou.io/pacanele/${params.slug}/`,
+    },
   }
 }
 

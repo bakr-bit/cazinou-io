@@ -52,6 +52,9 @@ export async function generateMetadata(
         homePageData.seo?.twitterDescription ?? homePageData.seo?.ogDescription ?? description,
       images: ogImage ? [ogImage, ...previousImages] : previousImages,
     },
+    alternates: {
+      canonical: 'https://cazinou.io/',
+    },
   }
 }
 

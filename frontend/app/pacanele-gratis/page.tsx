@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 
   // Canonical URL
   alternates: {
-    canonical: 'https://cazinou.io/pacanele-gratis',
+    canonical: 'https://cazinou.io/pacanele-gratis/',
   },
 }
 
