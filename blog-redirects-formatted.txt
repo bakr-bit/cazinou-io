@@ -1,0 +1,331 @@
+// Blog content redirects - generated from WordPress mapping
+// Total redirects: 54
+
+      // Sport content → Homepage
+      {
+        source: '/sport/calendar-sportiv-2025',
+        destination: '/',
+        permanent: true,
+      },
+      // Blog pagination → Homepage
+      {
+        source: '/blog/page/2',
+        destination: '/',
+        permanent: true,
+      },
+      // Category archive → Homepage
+      {
+        source: '/category/bonusuri',
+        destination: '/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/cei-mai-buni-jucatori-de-tenis-romani',
+        destination: '/',
+        permanent: true,
+      },
+      // Sport category → Homepage
+      {
+        source: '/category/sport/page/2',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/weissbet-bonus-casino',
+        destination: '/casino/weissbet-bonus-casino/',
+        permanent: true,
+      },
+      // Author pagination → Author page
+      {
+        source: '/author/cristinar/page/2',
+        destination: '/author/cristinar/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/rolletto-bonus-fara-depunere',
+        destination: '/casino/rolletto-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/pariuri-darts',
+        destination: '/',
+        permanent: true,
+      },
+      // Loto category → Loto section
+      {
+        source: '/category/loto',
+        destination: '/loto-online-keno/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/gamblezen-bonus-de-bun-venit',
+        destination: '/casino/gamblezen-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/vavada-casino-bonus',
+        destination: '/casino/vavada-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/spinbetter-bonus-casino',
+        destination: '/casino/spinbetter-bonus-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/cat-dureaza-un-meci-de-volei',
+        destination: '/',
+        permanent: true,
+      },
+      // Category archive → Homepage
+      {
+        source: '/category/ghid',
+        destination: '/',
+        permanent: true,
+      },
+      // Guide → Homepage
+      {
+        source: '/ghid/reguli-razboi',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/oscarspin-bonus',
+        destination: '/casino/oscarspin-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/cat-dureaza-un-meci-de-hochei',
+        destination: '/',
+        permanent: true,
+      },
+      // Author pagination → Author page
+      {
+        source: '/author/cristinar/page/4',
+        destination: '/author/cristinar/',
+        permanent: true,
+      },
+      // Generic bonus page → Homepage
+      {
+        source: '/bonusuri/50-rotiri-gratuite-fara-depunere',
+        destination: '/',
+        permanent: true,
+      },
+      // Category archive → Homepage
+      {
+        source: '/category/bonusuri/page/3',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/hitnspin-casino-bonus',
+        destination: '/casino/hitnspin-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/ce-inseamna-play-off',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/rolletto-bonus-casino',
+        destination: '/casino/rolletto-bonus-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/gratowin-bonus-50-rotiri-fara-verificare',
+        destination: '/casino/gratowin-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/ice-casino-bonus',
+        destination: '/casino/ice-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/ce-inseamna-gg3-la-pariuri',
+        destination: '/',
+        permanent: true,
+      },
+      // Generic bonus page → Homepage
+      {
+        source: '/bonusuri/megapari-100-rotiri',
+        destination: '/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/pariuri-pe-cornere',
+        destination: '/',
+        permanent: true,
+      },
+      // Blog pagination → Homepage
+      {
+        source: '/blog/page/3',
+        destination: '/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/cat-dureaza-un-meci-de-baschet',
+        destination: '/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/ce-inseamna-psf-la-pariuri',
+        destination: '/',
+        permanent: true,
+      },
+      // Guide → Homepage
+      {
+        source: '/ghid/cum-sa-castigi-la-aparate',
+        destination: '/',
+        permanent: true,
+      },
+      // Author pagination → Author page
+      {
+        source: '/author/cristinar/page/3',
+        destination: '/author/cristinar/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/pariuri-cartonase',
+        destination: '/',
+        permanent: true,
+      },
+      // Sport category → Homepage
+      {
+        source: '/category/sport',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/verde-casino-bonus',
+        destination: '/casino/verde-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/fairspin-bonus',
+        destination: '/casino/fairspin-casino/',
+        permanent: true,
+      },
+      // Category archive → Homepage
+      {
+        source: '/category/bonusuri/page/2',
+        destination: '/',
+        permanent: true,
+      },
+      // Guide → Homepage
+      {
+        source: '/ghid/cat-castigi-cu-o-linie-de-septari',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/20bet-bonus-casino',
+        destination: '/casino/20bet-bonus-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/vulkan-vegas-bonus',
+        destination: '/casino/vulkan-vegas-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/cat-dureaza-un-meci-de-handbal',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/megapari-bonus-casino',
+        destination: '/casino/megapari-bonus-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/competitii-romania-2025',
+        destination: '/',
+        permanent: true,
+      },
+      // Generic bonus page → Homepage
+      {
+        source: '/bonusuri/300-rotiri-gratuite-fara-depunere',
+        destination: '/',
+        permanent: true,
+      },
+      // Generic bonus page → Homepage
+      {
+        source: '/bonusuri/150-rotiri-gratuite-fara-verificare-hotline',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/wizebets-bonus-casino',
+        destination: '/casino/wizebets-bonus-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/ggbet-bonus-fara-depunere',
+        destination: '/casino/ggbet-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/pariuri-handicap-asiatic-european',
+        destination: '/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/22bet-bonus-casino',
+        destination: '/casino/22bet-bonus-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/spinch-bonus-casino',
+        destination: '/casino/spinch-bonus-casino/',
+        permanent: true,
+      },
+      // Bonus page → Casino review
+      {
+        source: '/bonusuri/cosmicslot-bonus-casino',
+        destination: '/casino/cosmicslot-bonus-casino/',
+        permanent: true,
+      },
+      // Sport content → Homepage
+      {
+        source: '/sport/calculator-cote-pariuri',
+        destination: '/',
+        permanent: true,
+      },
+
+
+// Redirects saved to blog-redirects.json for review
+// Success rate: 24/54 mapped to specific pages

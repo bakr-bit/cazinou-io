@@ -1,0 +1,74 @@
+# Casino Review Verification
+
+These 23 bonus pages redirect to casino reviews.
+Check if these slugs exist in your Sanity CMS:
+
+1. weissbet-casino
+2. rolletto-casino
+3. gamblezen-casino
+4. vavada-casino
+5. spinbetter-casino
+6. oscarspin-casino
+7. hitnspin-casino
+8. gratowin-casino
+9. ice-casino
+10. megapari-casino
+11. verde-casino
+12. fairspin-casino
+13. 20bet-casino
+14. vulkan-vegas-casino
+15. wizebets-casino
+16. velobet-casino
+17. chipz-casino
+18. betify-casino
+19. casinia-casino
+20. boomerang-casino (might be boomerang-bet-casino)
+21. spinrollz-casino
+
+## How to Check in Sanity Studio
+
+1. Open Sanity Studio
+2. Go to Casino Reviews section
+3. Search for each casino name
+4. If NOT found, we'll redirect that bonus page to homepage instead
+
+## Or run this GROQ query:
+
+```groq
+*[_type == "casinoReview" && slug.current in [
+  "weissbet-casino",
+  "rolletto-casino",
+  "gamblezen-casino",
+  "vavada-casino",
+  "spinbetter-casino",
+  "oscarspin-casino",
+  "hitnspin-casino",
+  "gratowin-casino",
+  "ice-casino",
+  "megapari-casino",
+  "verde-casino",
+  "fairspin-casino",
+  "20bet-casino",
+  "vulkan-vegas-casino",
+  "wizebets-casino",
+  "velobet-casino",
+  "chipz-casino",
+  "betify-casino",
+  "casinia-casino",
+  "boomerang-casino",
+  "boomerang-bet-casino",
+  "spinrollz-casino"
+]]{
+  "slug": slug.current,
+  name
+} | order(name asc)
+```
+
+## Quick Visual Check
+
+Visit these URLs on your current WordPress site:
+- https://cazinou.io/casino/megapari-casino/
+- https://cazinou.io/casino/ice-casino/
+- https://cazinou.io/casino/vavada-casino/
+
+If they exist on WordPress, they should be in Sanity.
