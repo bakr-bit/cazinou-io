@@ -74,14 +74,14 @@ export default async function HomePage() {
   // Generate Website schema
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
   const websiteSchema = schemaHelpers.website(
-    siteUrl,
+    `${siteUrl}/`,
     'Cazinou.io',
     'Site-ul tău de recenzii de cazinouri străine. Găsește cele mai bune cazinouri online internaționale, jocuri, bonusuri și recenzii detaliate.'
   )
 
   const organizationSchema = schemaHelpers.organization({
     name: 'Cazinou.io',
-    url: siteUrl,
+    url: `${siteUrl}/`,
     logo: `${siteUrl}/images/cazinou-logo.png`,
     description: 'Portal de recenzii de cazinouri online internaționale',
   })

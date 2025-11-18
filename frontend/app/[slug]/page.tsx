@@ -341,7 +341,7 @@ export default async function Page(props: Props) {
 
     // Generate structured data for info pages
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
-    const pageUrl = `${siteUrl}/${params.slug}`
+    const pageUrl = `${siteUrl}/${params.slug}/`
 
     const articleSchema = schemaHelpers.article({
       headline: infoPage.title || infoPage.heading,
@@ -350,13 +350,13 @@ export default async function Page(props: Props) {
       dateModified: infoPage._updatedAt,
       author: author ? {
         name: `${author.firstName} ${author.lastName}`,
-        url: author.slug?.current ? `${siteUrl}/autori/${author.slug.current}` : undefined,
+        url: author.slug?.current ? `${siteUrl}/author/${author.slug.current}/` : undefined,
       } : undefined,
       description: infoPage.excerpt,
     })
 
     const breadcrumbSchema = schemaHelpers.breadcrumb([
-      { name: 'Acasă', url: siteUrl },
+      { name: 'Acasă', url: `${siteUrl}/` },
       { name: infoPage.title || infoPage.heading, url: pageUrl },
     ])
 

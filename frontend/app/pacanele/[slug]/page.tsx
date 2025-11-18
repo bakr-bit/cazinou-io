@@ -79,7 +79,7 @@ export default async function SingleSlotPage(props: Props) {
 
   // Generate structured data
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
-  const pageUrl = `${siteUrl}/pacanele/${params.slug}`
+  const pageUrl = `${siteUrl}/pacanele/${params.slug}/`
 
   const gameSchema = schemaHelpers.game({
     name: game.name,
@@ -91,8 +91,8 @@ export default async function SingleSlotPage(props: Props) {
   })
 
   const breadcrumbSchema = schemaHelpers.breadcrumb([
-    { name: 'Acasă', url: siteUrl },
-    { name: 'Sloturi', url: `${siteUrl}${LOBBY_PATH}` },
+    { name: 'Acasă', url: `${siteUrl}/` },
+    { name: 'Sloturi', url: `${siteUrl}${LOBBY_PATH}/` },
     { name: game.name, url: pageUrl },
   ])
 
