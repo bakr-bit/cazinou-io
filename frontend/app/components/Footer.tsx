@@ -13,8 +13,13 @@ export default function Footer() {
           <nav className="mb-8">
             <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm font-mono">
               <li>
-                <Link href="/politica-de-confidentialitate" className="hover:underline">
+                <Link href="/confidentialitate/" className="hover:underline">
                   Politica de Confidențialitate
+                </Link>
+              </li>
+              <li className="before:content-['•'] before:mr-4 md:before:mr-6">
+                <Link href="/despre-noi/" className="hover:underline">
+                  Despre Noi
                 </Link>
               </li>
             </ul>
