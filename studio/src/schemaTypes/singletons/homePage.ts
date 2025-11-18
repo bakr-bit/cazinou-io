@@ -254,11 +254,15 @@ export const homePage = defineType({
   preview: {
     select: {
       title: 'title',
+      publishedAt: 'publishedAt',
+      updatedAt: '_updatedAt',
     },
-    prepare({title}) {
+    prepare({title, publishedAt, updatedAt}) {
+      const published = publishedAt ? new Date(publishedAt).toLocaleDateString() : 'Not set'
+      const updated = updatedAt ? new Date(updatedAt).toLocaleDateString() : 'Never'
       return {
         title: title || 'Homepage',
-        subtitle: 'Main landing page',
+        subtitle: `Published: ${published} • Updated: ${updated}`,
       }
     },
   },
