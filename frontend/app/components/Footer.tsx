@@ -17,21 +17,6 @@ export default function Footer() {
                   Politica de Confidențialitate
                 </Link>
               </li>
-              <li className="before:content-['•'] before:mr-4 md:before:mr-6">
-                <Link href="/politica-cookies" className="hover:underline">
-                  Politica Cookies
-                </Link>
-              </li>
-              <li className="before:content-['•'] before:mr-4 md:before:mr-6">
-                <Link href="/termeni-si-conditii" className="hover:underline">
-                  Termeni și Condiții
-                </Link>
-              </li>
-              <li className="before:content-['•'] before:mr-4 md:before:mr-6">
-                <Link href="/joc-responsabil" className="hover:underline">
-                  Joc Responsabil
-                </Link>
-              </li>
             </ul>
           </nav>
 
