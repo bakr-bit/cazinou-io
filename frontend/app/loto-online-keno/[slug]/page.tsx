@@ -7,10 +7,24 @@ import { Metadata } from 'next'
 import { generateSEO } from '@/sanity/lib/seo'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import { cache } from 'react'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
+
+// Add ISR revalidation
+export const revalidate = 3600
+
+// Cache loto query to prevent duplicates
+const getLoto = cache(async (slug: string) => {
+  const { data } = await sanityFetch({
+    query: lotoQuery,
+    params: { slug },
+    stega: false,
+  })
+  return data
+})
 
 export async function generateStaticParams() {
   const { data: lotoPages } = await sanityFetch({
@@ -26,11 +40,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const { data: loto } = await sanityFetch({
-    query: lotoQuery,
-    params: { slug },
-    stega: false,
-  })
+  const loto = await getLoto(slug)
 
   if (!loto) {
     return {
@@ -56,10 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LotoGamePage({ params }: Props) {
   const { slug } = await params
-  const { data: loto } = await sanityFetch({
-    query: lotoQuery,
-    params: { slug },
-  })
+  const loto = await getLoto(slug)
 
   if (!loto) {
     notFound()

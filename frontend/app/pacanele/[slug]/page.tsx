@@ -1,6 +1,7 @@
 // app/pacanele/[slug]/page.tsx
 import Link from 'next/link'
 import {redirect} from 'next/navigation'
+import {cache} from 'react'
 import {GameIframe} from '@/app/components/GameIframe'
 import {ContentSections} from '@/app/components/ContentSections'
 import {JsonLd, schemaHelpers} from '@/app/components/JsonLd'
@@ -15,6 +16,19 @@ type Props = {
   params: Promise<{slug: string}>
 }
 
+// Add ISR revalidation
+export const revalidate = 3600
+
+// Cache game query to prevent duplicates
+const getGame = cache(async (slug: string) => {
+  const {data} = await sanityFetch({
+    query: gameBySlugQuery,
+    params: {slug},
+    stega: false,
+  })
+  return data
+})
+
 // Generate static params for all games in Sanity
 export async function generateStaticParams() {
   const games = await client.fetch(allGameSlugsQuery, {}, {
@@ -28,13 +42,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
-
-  // Fetch game from Sanity
-  const {data: game} = await sanityFetch({
-    query: gameBySlugQuery,
-    params: {slug: params.slug},
-    stega: false,
-  })
+  const game = await getGame(params.slug)
 
   if (!game) {
     return {
@@ -59,13 +67,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function SingleSlotPage(props: Props) {
   const params = await props.params
-
-  // Fetch game from Sanity
-  const {data: game} = await sanityFetch({
-    query: gameBySlugQuery,
-    params: {slug: params.slug},
-    stega: false,
-  })
+  const game = await getGame(params.slug)
 
   // Redirect to lobby if game not found in Sanity
   if (!game) {

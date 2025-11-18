@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation'
 import {type PortableTextBlock} from 'next-sanity'
 import Image from 'next/image'
 import Link from 'next/link'
+import {cache} from 'react'
 
 import DateComponent from '@/app/components/Date'
 import CustomPortableText from '@/app/components/PortableText'
@@ -16,6 +17,19 @@ type Props = {
   params: Promise<{slug: string}>
 }
 
+// Add revalidation for ISR (1 hour)
+export const revalidate = 3600
+
+// Cache the review query to prevent duplicate fetches
+const getReview = cache(async (slug: string) => {
+  const {data} = await sanityFetch({
+    query: reviewBySlugQuery,
+    params: {slug},
+    stega: false,
+  })
+  return data
+})
+
 export async function generateStaticParams() {
   const {data} = await sanityFetch({
     query: reviewSlugsQuery,
@@ -28,13 +42,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const params = await props.params
-  const {data} = await sanityFetch({
-    query: reviewBySlugQuery,
-    params,
-    stega: false,
-  })
-
-  const review = data as any
+  const review = await getReview(params.slug) as any
 
   if (!review?._id) {
     return {}
@@ -66,9 +74,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
 export default async function ReviewPage(props: Props) {
   const params = await props.params
-  const [{data}] = await Promise.all([sanityFetch({query: reviewBySlugQuery, params})])
-
-  const review = data as any
+  const review = await getReview(params.slug) as any
 
   if (!review?._id || !review.casino || !review.author) {
     return notFound()
