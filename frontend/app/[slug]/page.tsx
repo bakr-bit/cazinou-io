@@ -98,6 +98,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     const ogImageSource = themedPage.seo?.ogImage
     const previousImages = (await parent).openGraph?.images || []
     const ogImage = resolveOpenGraphImage(ogImageSource)
+    const author = themedPage.author
 
     return {
       title: metaTitle,
@@ -108,8 +109,13 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
         url: `https://cazinou.io/${params.slug}`,
         siteName: 'Cazinou.io',
         locale: 'ro_RO',
-        type: 'website',
+        type: 'article',
         images: ogImage ? [ogImage, ...previousImages] : previousImages,
+        ...(themedPage.publishedAt && {publishedTime: themedPage.publishedAt}),
+        ...(themedPage._updatedAt && {modifiedTime: themedPage._updatedAt}),
+        ...(author && {
+          authors: [`${author.firstName} ${author.lastName}`.trim()],
+        }),
       },
       twitter: {
         card: 'summary_large_image',
@@ -135,6 +141,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     const ogImageSource = infoPage.seo?.ogImage
     const previousImages = (await parent).openGraph?.images || []
     const ogImage = resolveOpenGraphImage(ogImageSource)
+    const author = infoPage.author
 
     return {
       title,
@@ -143,6 +150,12 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
         title: infoPage.seo?.ogTitle ?? title,
         description: infoPage.seo?.ogDescription ?? description,
         images: ogImage ? [ogImage, ...previousImages] : previousImages,
+        type: 'article',
+        ...(infoPage.publishedAt && {publishedTime: infoPage.publishedAt}),
+        ...(infoPage._updatedAt && {modifiedTime: infoPage._updatedAt}),
+        ...(author && {
+          authors: [`${author.firstName} ${author.lastName}`.trim()],
+        }),
       },
       twitter: {
         title: infoPage.seo?.twitterTitle ?? infoPage.seo?.ogTitle ?? title,
