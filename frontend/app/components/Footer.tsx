@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -6,8 +7,14 @@ export default function Footer() {
       <div className="absolute inset-0 bg-[url(/images/tile-grid-black.png)] bg-size-[17px] opacity-20 bg-position-[0_1]" />
       <div className="container relative">
         <div className="flex flex-col items-center py-16 lg:py-20">
-          <div className="mb-8 text-center text-4xl font-mono leading-tight tracking-tighter lg:text-2xl">
-            cazinou.io
+          <div className="mb-8">
+            <Image
+              src="/images/cazinou-logo.png"
+              alt="cazinou.io"
+              width={200}
+              height={53}
+              className="h-12 w-auto"
+            />
           </div>
           
           <nav className="mb-8">
