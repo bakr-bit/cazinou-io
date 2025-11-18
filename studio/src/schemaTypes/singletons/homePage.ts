@@ -21,6 +21,13 @@ export const homePage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'publishedAt',
+      title: 'Published Date',
+      type: 'datetime',
+      description: 'When this page was first published',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'heroBanner',
       title: 'Hero Banner',
       type: 'array',
