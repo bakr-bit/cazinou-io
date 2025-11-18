@@ -128,7 +128,6 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
             fill
             className="object-cover blur-sm"
             sizes="100vw"
-            priority
             unoptimized={thumbnailUrl.includes('slotslaunch.com')}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80" />
