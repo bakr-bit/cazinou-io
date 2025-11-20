@@ -98,7 +98,7 @@ export async function createSession() {
   // This works in incognito mode and provides good security
   cookieStore.set(SESSION_COOKIE_NAME, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production', // Secure in production only
+    secure: true, // Always secure (Vercel uses HTTPS)
     sameSite: 'lax', // Standard setting for auth cookies, works in incognito
     maxAge: SESSION_MAX_AGE,
     path: '/',
