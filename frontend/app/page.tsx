@@ -119,7 +119,7 @@ export default async function HomePage() {
             fill
             priority
             fetchPriority="high"
-            quality={65}
+            quality={50}
             className="object-cover object-center"
             sizes="100vw"
           />
