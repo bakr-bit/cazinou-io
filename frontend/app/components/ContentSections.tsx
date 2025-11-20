@@ -206,6 +206,7 @@ function renderImage(imageBlock: ContentItem, index: number) {
         src={imageUrl}
         alt={imageBlock.alt || 'Image'}
         fill
+        loading="lazy"
         className="object-cover"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px, 896px"
       />

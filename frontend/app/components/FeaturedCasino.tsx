@@ -125,9 +125,9 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
             src={bannerUrl}
             alt=""
             fill
+            loading="lazy"
             className="object-cover"
             sizes="100vw"
-            priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80" />
         </div>
@@ -295,6 +295,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
                     src={logoUrl}
                     alt={`${casino.name} logo`}
                     fill
+                    loading="lazy"
                     className="object-contain"
                     sizes="(max-width: 768px) 90vw, 512px"
                   />

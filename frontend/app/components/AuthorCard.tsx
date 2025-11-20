@@ -52,6 +52,7 @@ export default function AuthorCard({author}: AuthorCardProps) {
                 alt={author.picture.alt || fullName}
                 width={128}
                 height={128}
+                loading="lazy"
                 className="rounded-full object-cover w-full h-full ring-4 ring-gray-100 group-hover:ring-brand transition-all"
                 placeholder={author.picture.asset.metadata?.lqip ? 'blur' : undefined}
                 blurDataURL={author.picture.asset.metadata?.lqip}
