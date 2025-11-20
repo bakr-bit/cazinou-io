@@ -94,12 +94,12 @@ export async function createSession() {
   const token = await createSessionToken()
   const cookieStore = await cookies()
 
-  // Use 'none' for SameSite to support iframe/preview contexts (like Sanity Studio)
-  // This requires secure: true to work
+  // Use 'lax' for SameSite - standard for first-party authentication cookies
+  // This works in incognito mode and provides good security
   cookieStore.set(SESSION_COOKIE_NAME, token, {
     httpOnly: true,
-    secure: true, // Always secure (required for sameSite: 'none')
-    sameSite: 'none', // Allow cross-site cookies for iframe contexts
+    secure: process.env.NODE_ENV === 'production', // Secure in production only
+    sameSite: 'lax', // Standard setting for auth cookies, works in incognito
     maxAge: SESSION_MAX_AGE,
     path: '/',
   })
