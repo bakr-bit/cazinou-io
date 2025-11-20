@@ -67,14 +67,17 @@ export async function generateMetadata(): Promise<Metadata> {
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin', 'latin-ext'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
+  preload: true,
 })
 
 const interTight = Inter_Tight({
   variable: '--font-inter-tight',
   subsets: ['latin', 'latin-ext'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['300', '500', '600', '700', '800'],
   display: 'swap',
+  preload: true,
 })
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
