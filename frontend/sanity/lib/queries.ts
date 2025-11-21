@@ -1340,8 +1340,36 @@ export const getPageOrInfoPageQuery = defineQuery(`
       slug,
       heading,
       description,
+      selectionMode,
       filterType,
       filterValue,
+      manualGames[]->{
+        _id,
+        name,
+        slug,
+        slotsLaunchSlug,
+        slotsLaunchThumb,
+        rating,
+        rtp,
+        themes,
+        gameType,
+        gameTypeSlug,
+        provider->{
+          name,
+          slug
+        },
+        mainImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
+        }
+      },
       featuredCasino->{
         ${casinoCoreFields}
       },

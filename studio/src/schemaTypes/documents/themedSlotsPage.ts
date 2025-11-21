@@ -45,6 +45,39 @@ export const themedSlotsPage = defineType({
       rows: 3,
       description: 'Introductory description shown below the heading',
     }),
+    // Game Selection Mode
+    defineField({
+      name: 'selectionMode',
+      title: 'Game Selection Mode',
+      type: 'string',
+      description: 'Choose how games are selected for this page',
+      options: {
+        list: [
+          {title: 'Filter by Criteria (automatic)', value: 'filter'},
+          {title: 'Manual Selection (pick games)', value: 'manual'},
+        ],
+        layout: 'radio',
+      },
+      validation: (Rule) => Rule.required(),
+      initialValue: 'filter',
+    }),
+    // Manual Game Selection
+    defineField({
+      name: 'manualGames',
+      title: 'Manual Game Selection',
+      type: 'array',
+      description: 'Manually select which games to display on this page',
+      of: [{type: 'reference', to: [{type: 'game'}]}],
+      hidden: ({parent}) => parent?.selectionMode !== 'manual',
+      validation: (Rule) =>
+        Rule.custom((games, context) => {
+          const selectionMode = (context.parent as any)?.selectionMode
+          if (selectionMode === 'manual' && (!games || games.length === 0)) {
+            return 'Please select at least one game for manual mode'
+          }
+          return true
+        }),
+    }),
     // Filter Configuration
     defineField({
       name: 'filterType',
@@ -60,7 +93,15 @@ export const themedSlotsPage = defineType({
         ],
         layout: 'radio',
       },
-      validation: (Rule) => Rule.required(),
+      hidden: ({parent}) => parent?.selectionMode !== 'filter',
+      validation: (Rule) =>
+        Rule.custom((filterType, context) => {
+          const selectionMode = (context.parent as any)?.selectionMode
+          if (selectionMode === 'filter' && !filterType) {
+            return 'Filter type is required when using filter mode'
+          }
+          return true
+        }),
       initialValue: 'theme',
     }),
     defineField({
@@ -68,7 +109,15 @@ export const themedSlotsPage = defineType({
       title: 'Filter Value',
       type: 'string',
       description: 'The value to filter by. For theme/provider/gameType: exact match (e.g., "Fruits", "NetEnt", "Slots"). For RTP: minimum percentage as number (e.g., "96" for RTP >= 96%).',
-      validation: (Rule) => Rule.required(),
+      hidden: ({parent}) => parent?.selectionMode !== 'filter',
+      validation: (Rule) =>
+        Rule.custom((filterValue, context) => {
+          const selectionMode = (context.parent as any)?.selectionMode
+          if (selectionMode === 'filter' && !filterValue) {
+            return 'Filter value is required when using filter mode'
+          }
+          return true
+        }),
       placeholder: 'e.g., Fruits, Megaways, NetEnt, Slots, Poker, 96, 97',
     }),
     // Featured Casino

@@ -194,17 +194,23 @@ export default async function Page(props: Props) {
       return notFound()
     }
 
-    // Fetch all games from Sanity
-    const {data: allGames} = await sanityFetch({
-      query: allGamesQuery,
-      stega: false,
-    })
+    // Determine which games to display based on selection mode
+    let gamesToDisplay: SanityGame[] = []
 
-    // Filter games based on criteria
-    const filteredGames = allGames ? filterGames(allGames, themedPage.filterType, themedPage.filterValue) : []
+    if (themedPage.selectionMode === 'manual' && themedPage.manualGames?.length > 0) {
+      // Use manually selected games
+      gamesToDisplay = themedPage.manualGames
+    } else {
+      // Fetch all games and filter based on criteria (default behavior)
+      const {data: allGames} = await sanityFetch({
+        query: allGamesQuery,
+        stega: false,
+      })
+      gamesToDisplay = allGames ? filterGames(allGames, themedPage.filterType, themedPage.filterValue) : []
+    }
 
     // Transform to SlotGame format
-    const games: SlotGame[] = filteredGames.map((game: SanityGame) => transformSanityGameToSlotGame(game))
+    const games: SlotGame[] = gamesToDisplay.map((game: SanityGame) => transformSanityGameToSlotGame(game))
     const totalGamesCount = games.length
 
     const featuredCasino = themedPage.featuredCasino || null
