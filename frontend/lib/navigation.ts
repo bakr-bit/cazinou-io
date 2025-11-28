@@ -72,7 +72,6 @@ export const navigationData: NavigationCategory[] = [
       { label: 'Keno Loto Gratis Online', href: '/pacanele-gratis/keno-loto-demo' },
       { label: 'Jocuri Bingo Online Gratis', href: '/bingo-online' },
       { label: 'Jocuri cu RTP mare', href: '/pacanele-gratis/jocuri-cu-rtp-mare' },
-      { label: 'Pacanele cu Femei Gratis', href: '/pacanele-gratis/pacanele-cu-femei' },
       { label: 'Jocuri Sic Bo Demo', href: '/pacanele-gratis/sic-bo-demo' },
       { label: 'Jocuri cu Zaruri Online Gratis', href: '/pacanele-gratis/jocuri-cu-zaruri-gratis' },
       { label: 'Jocuri Mahjong Gratis', href: '/pacanele-gratis/jocuri-mahjong-gratis' },

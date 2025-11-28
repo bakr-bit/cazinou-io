@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Removed/deleted pages
+      {
+        source: '/pacanele-gratis/pacanele-cu-femei',
+        destination: '/pacanele-gratis/',
+        permanent: true,
+      },
       // Root-level loto URLs redirect to /loto-online-keno/ structure (matching live site)
       {
         source: '/loto-germania',
