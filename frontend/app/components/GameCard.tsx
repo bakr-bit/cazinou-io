@@ -2,6 +2,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function GameCard({
   game,
@@ -16,14 +17,15 @@ export function GameCard({
   return (
     <div className="group rounded-2xl shadow-sm border border-gray-100 bg-white/70 backdrop-blur p-3 transition-all hover:border-orange-500 hover:-translate-y-0.5 hover:scale-[1.01]">
       <Link href={href} className="block">
-        <div className="aspect-[4/3] w-full overflow-hidden rounded-xl">
+        <div className="aspect-[4/3] w-full overflow-hidden rounded-xl relative">
           {game.thumb ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={game.thumb}
               alt={game.name}
-              className="h-full w-full object-cover group-hover:scale-105 transition"
+              fill
+              className="object-cover group-hover:scale-105 transition"
               loading="lazy"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           ) : (
             <div className="h-full w-full grid place-items-center text-sm text-gray-500">
