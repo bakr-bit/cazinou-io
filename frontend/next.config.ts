@@ -181,12 +181,6 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
-      // Rotiri gratuite page (high traffic)
-      {
-        source: '/rotiri-gratuite',
-        destination: '/',
-        permanent: true,
-      },
       // Bonus pages mapped to casino reviews
       {
         source: '/bonusuri/weissbet-bonus-casino',
