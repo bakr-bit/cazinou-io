@@ -195,7 +195,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
                 href={hasAffiliateLink ? itm.affiliateLink : undefined}
                 target={hasAffiliateLink ? '_blank' : undefined}
                 rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
-                className={`relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-36 sm:w-36 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
+                className={`relative block h-32 w-32 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-36 sm:w-36 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
               >
                 {logoUrl ? (
                   <Image
@@ -397,7 +397,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
               href={hasAffiliateLink ? itm.affiliateLink : undefined}
               target={hasAffiliateLink ? '_blank' : undefined}
               rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
-              className={`relative h-20 w-20 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
+              className={`relative block h-20 w-20 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
             >
               {logoUrl ? (
                 <Image
