@@ -164,8 +164,21 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
     notFound()
   }
 
-  // Fetch filtered games data
-  const slotsData = await fetchFilteredSlotsData(page.filterType, page.filterValue)
+  // Fetch games data based on selection mode
+  let slotsData: ThemedSlotsData
+
+  if (page.selectionMode === 'manual' && page.manualGames?.length > 0) {
+    // Manual mode: use the manually selected games
+    const games = page.manualGames.map((game: SanityGame) => transformSanityGameToSlotGame(game))
+    slotsData = {
+      games,
+      totalCount: games.length,
+    }
+  } else {
+    // Filter mode: use the existing filter logic
+    slotsData = await fetchFilteredSlotsData(page.filterType, page.filterValue)
+  }
+
   const {games: allGames, totalCount: totalGamesCount} = slotsData
 
   const featuredCasino = page.featuredCasino || null

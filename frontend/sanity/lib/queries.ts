@@ -2140,6 +2140,27 @@ export const themedSlotsPageBySlugQuery = defineQuery(`
     slug,
     heading,
     description,
+    selectionMode,
+    manualGames[]->{
+      _id,
+      name,
+      slug,
+      slotsLaunchId,
+      slotsLaunchSlug,
+      slotsLaunchThumb,
+      rating,
+      gameType,
+      gameTypeSlug,
+      themes,
+      rtp,
+      volatility,
+      releaseDate,
+      provider->{
+        _id,
+        name,
+        slug
+      }
+    },
     filterType,
     filterValue,
     featuredCasino->{
