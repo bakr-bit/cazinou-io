@@ -78,7 +78,10 @@ export default async function SingleSlotPage(props: Props) {
   }
 
   const title = game.name
-  const gameUrl = game.slotsLaunchId ? `https://slotslaunch.com/iframe/${game.slotsLaunchId}` : ''
+  const slotsLaunchToken = process.env.SLOTSLAUNCH_TOKEN
+  const gameUrl = game.slotsLaunchId && slotsLaunchToken
+    ? `https://slotslaunch.com/iframe/${game.slotsLaunchId}?token=${slotsLaunchToken}`
+    : ''
 
   // Generate structured data
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
