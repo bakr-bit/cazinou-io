@@ -165,10 +165,46 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // Blog content redirects (bonusuri, sport, ghid, categories)
-      // Wildcard redirects for /blog/ prefix (WordPress URL rewriting)
+      // Specific blog/bonusuri → casino mappings (must come before wildcard)
+      {source: '/blog/bonusuri/vavada-casino-bonus', destination: '/casino/vavada-casino/', permanent: true},
+      {source: '/blog/bonusuri/megapari-100-rotiri', destination: '/casino/megapari-casino/', permanent: true},
+      {source: '/blog/bonusuri/gratowin-bonus-50-rotiri-fara-verificare', destination: '/casino/gratowin-casino/', permanent: true},
+      {source: '/blog/bonusuri/ggbet-bonus-fara-depunere', destination: '/casino/ggbet-casino/', permanent: true},
+      {source: '/blog/bonusuri/verde-casino-bonus', destination: '/casino/verde-casino/', permanent: true},
+      {source: '/blog/bonusuri/wizebets-bonus-casino', destination: '/casino/wizebets-casino/', permanent: true},
+      {source: '/blog/bonusuri/weissbet-bonus-casino', destination: '/casino/weissbet-casino/', permanent: true},
+      {source: '/blog/bonusuri/megapari-bonus-casino', destination: '/casino/megapari-casino/', permanent: true},
+      {source: '/blog/bonusuri/20bet-bonus-casino', destination: '/casino/20bet-casino/', permanent: true},
+      {source: '/blog/bonusuri/22bet-bonus-casino', destination: '/casino/22bet-casino/', permanent: true},
+      {source: '/blog/bonusuri/cosmicslot-bonus-casino', destination: '/casino/cosmicslot-casino/', permanent: true},
+      {source: '/blog/bonusuri/fairspin-bonus', destination: '/casino/fairspin-casino/', permanent: true},
+      {source: '/blog/bonusuri/rolletto-bonus-fara-depunere', destination: '/casino/rolletto-casino/', permanent: true},
+      {source: '/blog/bonusuri/ice-casino-bonus', destination: '/casino/ice-casino/', permanent: true},
+      {source: '/blog/bonusuri/spinch-bonus-casino', destination: '/casino/spinch-casino/', permanent: true},
+      {source: '/blog/bonusuri/gamblezen-bonus-de-bun-venit', destination: '/casino/gamblezen-casino/', permanent: true},
+      {source: '/blog/bonusuri/oscarspin-bonus', destination: '/casino/oscarspin-casino/', permanent: true},
+      {source: '/blog/bonusuri/vulkan-vegas-bonus', destination: '/casino/vulkan-vegas-casino/', permanent: true},
+      {source: '/blog/bonusuri/rolletto-bonus-casino', destination: '/casino/rolletto-casino/', permanent: true},
+      {source: '/blog/bonusuri/spinbetter-bonus-casino', destination: '/casino/spinbetter-casino/', permanent: true},
+      {source: '/blog/bonusuri/hitnspin-casino-bonus', destination: '/casino/hitnspin-casino/', permanent: true},
+      // Rotiri gratuite pages
+      {source: '/blog/bonusuri/50-rotiri-gratuite-fara-depunere', destination: '/rotiri-gratuite/', permanent: true},
+      {source: '/blog/bonusuri/300-rotiri-gratuite-fara-depunere', destination: '/rotiri-gratuite/', permanent: true},
+      {source: '/blog/bonusuri/150-rotiri-gratuite-fara-verificare-hotline', destination: '/casino/hotline-casino/', permanent: true},
+      // Wildcard fallback for any other blog/bonusuri pages
       {
         source: '/blog/bonusuri/:slug*',
-        destination: '/casino/:slug*/',
+        destination: '/recenzii/',
+        permanent: true,
+      },
+      {
+        source: '/blog/loto/:slug*',
+        destination: '/loto-online-keno/',
+        permanent: true,
+      },
+      {
+        source: '/blog/ghid/:slug*',
+        destination: '/',
         permanent: true,
       },
       {
@@ -176,6 +212,13 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Blog index page
+      {
+        source: '/blog',
+        destination: '/',
+        permanent: true,
+      },
+      // Blog catch-all (must come after specific patterns)
       {
         source: '/blog/:slug*',
         destination: '/',
@@ -431,14 +474,88 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
-      // Blog pagination
+      // Category/blog archives (WordPress structure)
       {
-        source: '/blog/page/2',
+        source: '/category/blog/bonusuri',
+        destination: '/recenzii/',
+        permanent: true,
+      },
+      {
+        source: '/category/blog/bonusuri/page/:page*',
+        destination: '/recenzii/',
+        permanent: true,
+      },
+      {
+        source: '/category/blog/sport',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/blog/page/3',
+        source: '/category/blog/sport/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/category/blog/loto',
+        destination: '/loto-online-keno/',
+        permanent: true,
+      },
+      {
+        source: '/category/blog/loto/:slug*',
+        destination: '/loto-online-keno/',
+        permanent: true,
+      },
+      {
+        source: '/category/blog/ghid',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/category/blog/ghid/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/category/blog',
+        destination: '/',
+        permanent: true,
+      },
+      // Blog pagination (all pages)
+      {
+        source: '/blog/page/:page*',
+        destination: '/',
+        permanent: true,
+      },
+      // WordPress legacy URLs (Search Console cleanup)
+      {
+        source: '/category/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/comments/feed/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/comments/feed',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/search/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/search',
+        destination: '/',
+        permanent: true,
+      },
+      // WordPress query param: /?sl-provider=*
+      {
+        source: '/',
+        has: [{type: 'query', key: 'sl-provider'}],
         destination: '/',
         permanent: true,
       },
