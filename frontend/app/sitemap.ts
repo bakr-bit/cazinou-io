@@ -25,6 +25,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly',
   })
 
+  // Static index pages (not in Sanity CMS)
+  sitemap.push(
+    {url: `${domain}/recenzii/`, lastModified: new Date(), priority: 0.9, changeFrequency: 'weekly'},
+    {url: `${domain}/metode-de-plata/`, lastModified: new Date(), priority: 0.8, changeFrequency: 'monthly'},
+    {url: `${domain}/loto-online-keno/`, lastModified: new Date(), priority: 0.8, changeFrequency: 'weekly'},
+    {url: `${domain}/pacanele-gratis/`, lastModified: new Date(), priority: 0.9, changeFrequency: 'weekly'},
+    {url: `${domain}/cazinouri-online/`, lastModified: new Date(), priority: 0.8, changeFrequency: 'monthly'},
+  )
+
   if (allPostsAndPages != null && allPostsAndPages.data.length != 0) {
     let priority: number
     let changeFrequency:
