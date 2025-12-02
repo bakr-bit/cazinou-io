@@ -135,7 +135,7 @@ export default async function SingleSlotPage(props: Props) {
 
           <section className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Game Iframe */}
-            <GameIframe url={gameUrl} title={title} />
+            <GameIframe url={gameUrl} title={title} thumbnail={game.slotsLaunchThumb} />
 
             <div className="space-y-6">
               <div className="bg-gray-50 rounded-lg border border-gray-100 p-6">
