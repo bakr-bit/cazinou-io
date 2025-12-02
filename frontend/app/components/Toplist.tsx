@@ -191,7 +191,12 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
             )}
 
             {shouldShow(displayOptions, 'showLogo') && (
-              <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-36 sm:w-36">
+              <a
+                href={hasAffiliateLink ? itm.affiliateLink : undefined}
+                target={hasAffiliateLink ? '_blank' : undefined}
+                rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
+                className={`relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-36 sm:w-36 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
+              >
                 {logoUrl ? (
                   <Image
                     src={logoUrl}
@@ -205,7 +210,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
                     No image
                   </span>
                 )}
-              </div>
+              </a>
             )}
           </div>
         )}
@@ -215,12 +220,15 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0 flex-1 space-y-1">
               {shouldShow(displayOptions, 'showName') && (
-                <div
+                <a
+                  href={hasAffiliateLink ? itm.affiliateLink : undefined}
+                  target={hasAffiliateLink ? '_blank' : undefined}
+                  rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
                   id={`tl-${keySeed}-title`}
-                  className={`truncate text-lg font-bold sm:text-xl font-mono ${rankTheme.title}`}
+                  className={`truncate text-lg font-bold sm:text-xl font-mono ${rankTheme.title} ${hasAffiliateLink ? 'hover:text-orange-600 transition-colors' : ''}`}
                 >
                   {itm.name || 'Untitled Casino'}
-                </div>
+                </a>
               )}
               {shouldShow(displayOptions, 'showBonus') && itm.welcomeBonus && (
                 <p className={`text-sm sm:text-base font-mono ${rankTheme.bonus}`}>
@@ -385,7 +393,12 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
 
         <div className="flex items-center gap-4">
           {shouldShow(displayOptions, 'showLogo') && (
-            <div className="relative h-20 w-20 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+            <a
+              href={hasAffiliateLink ? itm.affiliateLink : undefined}
+              target={hasAffiliateLink ? '_blank' : undefined}
+              rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
+              className={`relative h-20 w-20 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
+            >
               {logoUrl ? (
                 <Image
                   src={logoUrl}
@@ -397,16 +410,19 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
               ) : (
                 <span className="flex h-full w-full items-center justify-center text-xs text-slate-400">No image</span>
               )}
-            </div>
+            </a>
           )}
           <div className="min-w-0 space-y-1">
             {shouldShow(displayOptions, 'showName') && (
-              <div
+              <a
+                href={hasAffiliateLink ? itm.affiliateLink : undefined}
+                target={hasAffiliateLink ? '_blank' : undefined}
+                rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
                 id={`tl-table-${keySeed}-title`}
-                className={`truncate text-base font-semibold font-mono ${rankTheme.title}`}
+                className={`truncate text-base font-semibold font-mono block ${rankTheme.title} ${hasAffiliateLink ? 'hover:text-orange-600 transition-colors' : ''}`}
               >
                 {itm.name || 'Untitled Casino'}
-              </div>
+              </a>
             )}
             {shouldShow(displayOptions, 'showBonus') && itm.welcomeBonus && (
               <p className={`text-sm font-mono ${rankTheme.bonus}`}>{itm.welcomeBonus}</p>
