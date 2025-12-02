@@ -167,9 +167,13 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
   // Fetch games data based on selection mode
   let slotsData: ThemedSlotsData
 
-  if (page.selectionMode === 'manual' && page.manualGames?.length > 0) {
+  // Type assertion for fields not yet in generated types
+  const selectionMode = (page as any).selectionMode as string | undefined
+  const manualGames = (page as any).manualGames as SanityGame[] | undefined
+
+  if (selectionMode === 'manual' && manualGames && manualGames.length > 0) {
     // Manual mode: use the manually selected games
-    const games = page.manualGames.map((game: SanityGame) => transformSanityGameToSlotGame(game))
+    const games = manualGames.map((game: SanityGame) => transformSanityGameToSlotGame(game))
     slotsData = {
       games,
       totalCount: games.length,
