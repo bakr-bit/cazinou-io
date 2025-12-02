@@ -58,6 +58,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
       description,
       images: ogImage ? [ogImage, ...previousImages] : previousImages,
     },
+    alternates: {
+      canonical: `https://cazinou.io/author/${params.slug}/`,
+    },
   }
 }
 

@@ -54,6 +54,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     openGraph: {
       images: ogImage ? [ogImage, ...previousImages] : previousImages,
     },
+    alternates: {
+      canonical: `https://cazinou.io/posts/${params.slug}/`,
+    },
   } satisfies Metadata
 }
 

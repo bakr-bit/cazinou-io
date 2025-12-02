@@ -162,6 +162,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
         description: infoPage.seo?.twitterDescription ?? infoPage.seo?.ogDescription ?? description,
         images: ogImage ? [ogImage, ...previousImages] : previousImages,
       },
+      alternates: {
+        canonical: `https://cazinou.io/${params.slug}/`,
+      },
     }
   }
 

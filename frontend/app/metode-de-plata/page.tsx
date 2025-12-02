@@ -26,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ogTitle: pageData.seo?.ogTitle || undefined,
       ogDescription: pageData.seo?.ogDescription || undefined,
       ogImage: pageData.seo?.ogImage,
+      canonicalUrl: 'https://cazinou.io/metode-de-plata/',
     })
   }
 

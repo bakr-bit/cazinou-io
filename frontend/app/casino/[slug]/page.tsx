@@ -69,6 +69,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
       description: review.seo?.twitterDescription ?? review.seo?.ogDescription ?? description,
       images: ogImage ? [ogImage, ...previousImages] : previousImages,
     },
+    alternates: {
+      canonical: `https://cazinou.io/casino/${params.slug}/`,
+    },
   }
 }
 

@@ -25,6 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ogTitle: data.seo?.ogTitle || undefined,
     ogDescription: data.seo?.ogDescription || undefined,
     ogImage: data.seo?.ogImage,
+    canonicalUrl: 'https://cazinou.io/loto-online-keno/',
   })
 }
 

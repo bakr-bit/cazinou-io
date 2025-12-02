@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ogTitle: loto.seo?.ogTitle || undefined,
     ogDescription: loto.seo?.ogDescription || undefined,
     ogImage: loto.seo?.ogImage,
+    canonicalUrl: `https://cazinou.io/loto-online-keno/${slug}/`,
     article: {
       publishedTime: loto.publishedAt || undefined,
       modifiedTime: loto.seo?.modifiedAt || undefined,

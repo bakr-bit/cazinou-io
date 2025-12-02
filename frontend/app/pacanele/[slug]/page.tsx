@@ -53,7 +53,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const title = `${game.name} - Joacă Online`
   const description = `Joacă ${game.name} online. Încearcă demo sau joacă pentru bani reali.`
-  const hasSeoContent = game.seoContent && game.seoContent.length > 0
+  const hasSeoContent = !!(game.seoContent && game.seoContent.length > 0)
 
   return {
     title,

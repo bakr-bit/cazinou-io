@@ -39,6 +39,9 @@ export async function generateMetadata(): Promise<Metadata> {
       description: infoPage.seo?.twitterDescription ?? infoPage.seo?.ogDescription ?? description,
       images: ogImage ? [ogImage] : [],
     },
+    alternates: {
+      canonical: 'https://cazinou.io/cazinouri-online/',
+    },
   }
 }
 
