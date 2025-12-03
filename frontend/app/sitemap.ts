@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const domain = process.env.NEXT_PUBLIC_SITE_URL || `https://${host}`
 
   sitemap.push({
-    url: domain,
+    url: `${domain}/`,
     lastModified: new Date(),
     priority: 1,
     changeFrequency: 'monthly',
@@ -52,37 +52,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         case 'page':
           priority = 0.8
           changeFrequency = 'monthly'
-          url = `${domain}/${p.slug}`
+          url = `${domain}/${p.slug}/`
           break
         case 'post':
           priority = 0.5
           changeFrequency = 'never'
-          url = `${domain}/posts/${p.slug}`
+          url = `${domain}/posts/${p.slug}/`
           break
         case 'casinoReview':
           priority = 0.9
           changeFrequency = 'weekly'
-          url = `${domain}/casino/${p.slug}`
+          url = `${domain}/casino/${p.slug}/`
           break
         case 'infoPage':
           priority = 0.8
           changeFrequency = 'monthly'
-          url = `${domain}/${p.slug}`
+          url = `${domain}/${p.slug}/`
           break
         case 'loto':
           priority = 0.9
           changeFrequency = 'weekly'
-          url = `${domain}/loto-online-keno/${p.slug}`
+          url = `${domain}/loto-online-keno/${p.slug}/`
           break
         case 'themedSlotsPage':
           priority = 0.85
           changeFrequency = 'weekly'
-          url = `${domain}/pacanele-gratis/${p.slug}`
+          url = `${domain}/pacanele-gratis/${p.slug}/`
           break
         case 'game':
           priority = 0.7
           changeFrequency = 'monthly'
-          url = `${domain}/pacanele/${p.slug}`
+          url = `${domain}/pacanele/${p.slug}/`
           break
         default:
           // Skip unknown document types
