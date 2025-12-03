@@ -178,7 +178,7 @@ export const schemaHelpers = {
   }),
 
   /**
-   * Organization schema
+   * Organization schema (enhanced)
    */
   organization: (data: {
     name: string
@@ -186,13 +186,35 @@ export const schemaHelpers = {
     logo?: string
     description?: string
     sameAs?: string[]
+    foundingDate?: string
+    legalName?: string
+    email?: string
+    areaServed?: string
+    knowsLanguage?: string
   }) => ({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: data.name,
     url: data.url,
-    ...(data.logo && { logo: data.logo }),
-    ...(data.description && { description: data.description }),
-    ...(data.sameAs && { sameAs: data.sameAs }),
+    ...(data.logo && {
+      logo: {
+        '@type': 'ImageObject',
+        url: data.logo,
+        contentUrl: data.logo,
+      },
+    }),
+    ...(data.description && {description: data.description}),
+    ...(data.sameAs && {sameAs: data.sameAs}),
+    ...(data.foundingDate && {foundingDate: data.foundingDate}),
+    ...(data.legalName && {legalName: data.legalName}),
+    ...(data.email && {
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: data.email,
+        contactType: 'customer service',
+      },
+    }),
+    ...(data.areaServed && {areaServed: data.areaServed}),
+    ...(data.knowsLanguage && {knowsLanguage: data.knowsLanguage}),
   }),
 }

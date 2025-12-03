@@ -1,6 +1,8 @@
 import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 import {ContentSections} from '@/app/components/ContentSections'
+import {JsonLd} from '@/app/components/JsonLd'
+import {generateOrganizationGraph} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {getPageOrInfoPageQuery} from '@/sanity/lib/queries'
 import {GetPageQueryResult} from '@/sanity.types'
@@ -47,10 +49,14 @@ export default async function MetodeDePlataPage() {
     notFound()
   }
 
+  // Generate Organization + WebSite schema graph
+  const organizationGraph = generateOrganizationGraph()
+
   // Handle infoPage type
   if (pageData._type === 'infoPage') {
     return (
       <div className="container mx-auto px-4 py-8">
+        <JsonLd data={organizationGraph} />
         {pageData.heading && (
           <h1 className="text-4xl font-bold text-gray-900 mb-6">
             {pageData.heading}
@@ -75,6 +81,7 @@ export default async function MetodeDePlataPage() {
   // Handle page type (if any)
   return (
     <div className="container mx-auto px-4 py-8">
+      <JsonLd data={organizationGraph} />
       <h1 className="text-4xl font-bold">{(pageData as any).name || (pageData as any).title || 'Metode de Plată'}</h1>
     </div>
   )

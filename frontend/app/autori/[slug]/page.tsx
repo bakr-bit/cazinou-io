@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 import CustomPortableText from '@/app/components/PortableText'
 import DateComponent from '@/app/components/Date'
+import {generateOrganizationSchema, generateWebSiteSchema, ORGANIZATION_DATA} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {authorBySlugQuery, authorSlugsQuery, authorContentQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
@@ -102,16 +103,24 @@ export default async function AuthorPage(props: Props) {
     })
     .slice(0, 4)
 
-  // Generate JSON-LD structured data
+  // Generate JSON-LD structured data with @graph
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
-  const jsonLd = {
-    '@context': 'https://schema.org',
+  const authorUrl = `${siteUrl}/autori/${authorData.slug.current}`
+
+  const personSchema = {
     '@type': 'Person',
+    '@id': `${authorUrl}#person`,
     name: fullName,
+    url: authorUrl,
     jobTitle: authorData.role,
     description: authorData.bio,
     image: authorData.picture?.asset?.url,
-    url: `${siteUrl}/autori/${authorData.slug.current}`,
+    worksFor: {
+      '@id': `${siteUrl}/#organization`,
+    },
+    ...(authorData.expertise && authorData.expertise.length > 0 && {
+      knowsAbout: authorData.expertise,
+    }),
     sameAs: [
       authorData.socialMedia?.linkedin,
       authorData.socialMedia?.twitter,
@@ -119,6 +128,15 @@ export default async function AuthorPage(props: Props) {
       authorData.socialMedia?.instagram,
       authorData.socialMedia?.website,
     ].filter(Boolean),
+  }
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      generateOrganizationSchema(),
+      generateWebSiteSchema(),
+      personSchema,
+    ],
   }
 
   const getContentUrl = (item: any) => {

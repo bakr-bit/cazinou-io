@@ -1,5 +1,7 @@
 import type {Metadata} from 'next'
 import AuthorCard from '@/app/components/AuthorCard'
+import {JsonLd} from '@/app/components/JsonLd'
+import {generateOrganizationGraph} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {allAuthorsQuery} from '@/sanity/lib/queries'
 
@@ -20,9 +22,13 @@ export default async function AuthorsPage() {
 
   const authors = data as any[]
 
+  // Generate Organization + WebSite schema graph
+  const organizationGraph = generateOrganizationGraph()
+
   if (!authors || authors.length === 0) {
     return (
       <div className="bg-white">
+        <JsonLd data={organizationGraph} />
         <div className="container py-16">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold text-gray-900 font-mono mb-4">Autori</h1>
@@ -35,6 +41,7 @@ export default async function AuthorsPage() {
 
   return (
     <div className="bg-white">
+      <JsonLd data={organizationGraph} />
       {/* Hero Section */}
       <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>

@@ -4,7 +4,8 @@ import Image from 'next/image'
 
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
-import {JsonLd, schemaHelpers} from '@/app/components/JsonLd'
+import {JsonLd} from '@/app/components/JsonLd'
+import {generateOrganizationGraph} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {homePageQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
@@ -77,25 +78,12 @@ export default async function HomePage() {
     )
   }
 
-  // Generate Website schema
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
-  const websiteSchema = schemaHelpers.website(
-    `${siteUrl}/`,
-    'Cazinou.io',
-    'Site-ul tău de recenzii de cazinouri străine. Găsește cele mai bune cazinouri online internaționale, jocuri, bonusuri și recenzii detaliate.'
-  )
-
-  const organizationSchema = schemaHelpers.organization({
-    name: 'Cazinou.io',
-    url: `${siteUrl}/`,
-    logo: `${siteUrl}/images/cazinou-logo.png`,
-    description: 'Portal de recenzii de cazinouri online internaționale',
-  })
+  // Generate Organization + WebSite schema graph
+  const organizationGraph = generateOrganizationGraph()
 
   return (
     <div className="bg-white">
-      <JsonLd data={websiteSchema} />
-      <JsonLd data={organizationSchema} />
+      <JsonLd data={organizationGraph} />
       {/* Update Announcement Banner */}
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
         <div className="container py-3 px-4">

@@ -3,6 +3,8 @@ import type {Metadata} from 'next'
 import {ContentSections} from '@/app/components/ContentSections'
 import {ReviewCard} from '@/app/components/ReviewCard'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
+import {JsonLd} from '@/app/components/JsonLd'
+import {generateOrganizationGraph} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {allCasinoReviewsQuery, reviewsPageQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
@@ -52,8 +54,12 @@ export default async function RecenziiPage() {
   const reviewsPage = reviewsPageData as any
   const casinoReviews = (reviews as any[]) || []
 
+  // Generate Organization + WebSite schema graph
+  const organizationGraph = generateOrganizationGraph()
+
   return (
     <div className="bg-white">
+      <JsonLd data={organizationGraph} />
       {/* Hero Section */}
       <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>

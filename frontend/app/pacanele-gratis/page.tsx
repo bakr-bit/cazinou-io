@@ -13,6 +13,8 @@ import {FeaturedGamesGrid} from '@/app/components/FeaturedGamesGrid'
 import {FeaturedSlotsGrid} from '@/app/components/FeaturedSlotsGrid'
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
+import {JsonLd} from '@/app/components/JsonLd'
+import {generateOrganizationGraph} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {slotsPageSettingsQuery, allGamesQuery} from '@/sanity/lib/queries'
 import type {Metadata} from 'next'
@@ -137,8 +139,12 @@ export default async function SlotsPage() {
   const slotsData = await fetchAllSlotsData()
   const { games: allGames, providers, types, themes, totalCount: totalGamesCount } = slotsData
 
+  // Generate Organization + WebSite schema graph
+  const organizationGraph = generateOrganizationGraph()
+
   return (
     <main className="bg-white">
+      <JsonLd data={organizationGraph} />
       {/* Hero Section */}
       <div className="container my-12 lg:my-24">
         <header className="grid gap-6 border-b border-gray-100 pb-10">

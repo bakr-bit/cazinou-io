@@ -2,6 +2,8 @@ import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 
 import {ContentSections} from '@/app/components/ContentSections'
+import {JsonLd} from '@/app/components/JsonLd'
+import {generateOrganizationGraph} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {infoPageBySlugQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
@@ -56,8 +58,12 @@ export default async function CazinoOnlinePage() {
     return notFound()
   }
 
+  // Generate Organization + WebSite schema graph
+  const organizationGraph = generateOrganizationGraph()
+
   return (
     <div className="bg-white">
+      <JsonLd data={organizationGraph} />
       {/* Hero Section */}
       <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white"></div>

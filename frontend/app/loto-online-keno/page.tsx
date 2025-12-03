@@ -3,6 +3,8 @@ import { lotoPageSettingsQuery } from '@/sanity/lib/queries'
 import { LotoPageSettingsQueryResult } from '@/sanity.types'
 import CustomPortableText from '@/app/components/PortableText'
 import { FeaturedCasinoBanner } from '@/app/components/FeaturedCasinoBanner'
+import { JsonLd } from '@/app/components/JsonLd'
+import { generateOrganizationGraph } from '@/lib/organization'
 import { Metadata } from 'next'
 import { generateSEO } from '@/sanity/lib/seo'
 
@@ -34,9 +36,13 @@ export default async function LotoOnlinePage() {
     query: lotoPageSettingsQuery,
   })
 
+  // Generate Organization + WebSite schema graph
+  const organizationGraph = generateOrganizationGraph()
+
   if (!pageSettings) {
     return (
       <div className="container mx-auto px-4 py-8">
+        <JsonLd data={organizationGraph} />
         <h1 className="text-3xl font-bold">Loto Online</h1>
         <p className="mt-4 text-gray-600">Conținut în curs de configurare...</p>
       </div>
@@ -45,6 +51,7 @@ export default async function LotoOnlinePage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <JsonLd data={organizationGraph} />
       {/* Header Section */}
       {pageSettings.heading && (
         <h1 className="text-4xl font-bold text-gray-900 mb-6">
