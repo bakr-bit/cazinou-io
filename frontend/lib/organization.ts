@@ -9,7 +9,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
  * Organization data constants
  */
 export const ORGANIZATION_DATA = {
-  name: 'Cazinou.io',
+  name: 'Top Cazinouri România',
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/images/cazinou-logo.png`,
   description: 'Portal de recenzii de cazinouri online internaționale',
@@ -20,11 +20,20 @@ export const ORGANIZATION_DATA = {
 } as const
 
 /**
+ * Founder/Author data
+ */
+export const FOUNDER_DATA = {
+  name: 'Andrei Gavrila',
+  url: `${SITE_URL}/author/andreigavrila/`,
+  image: `${SITE_URL}/images/andrei-gavrila.jpg`,
+} as const
+
+/**
  * Generate Organization JSON-LD schema
  */
 export function generateOrganizationSchema() {
   return {
-    '@type': 'Organization',
+    '@type': ['EntertainmentBusiness', 'Organization'],
     '@id': `${SITE_URL}/#organization`,
     name: ORGANIZATION_DATA.name,
     url: ORGANIZATION_DATA.url,
@@ -43,11 +52,30 @@ export function generateOrganizationSchema() {
     contactPoint: {
       '@type': 'ContactPoint',
       email: ORGANIZATION_DATA.email,
-      contactType: 'customer service',
+      contactType: 'editorial',
       availableLanguage: ORGANIZATION_DATA.language,
     },
     areaServed: ORGANIZATION_DATA.areaServed,
     knowsLanguage: ORGANIZATION_DATA.language,
+  }
+}
+
+/**
+ * Generate Person JSON-LD schema for founder/main author
+ */
+export function generateFounderSchema() {
+  return {
+    '@type': 'Person',
+    '@id': FOUNDER_DATA.url,
+    name: FOUNDER_DATA.name,
+    url: FOUNDER_DATA.url,
+    image: {
+      '@type': 'ImageObject',
+      url: FOUNDER_DATA.image,
+    },
+    worksFor: {
+      '@id': `${SITE_URL}/#organization`,
+    },
   }
 }
 
@@ -155,5 +183,51 @@ export function generatePageSchema(options: {
         dateModified: options.dateModified,
       }),
     ],
+  }
+}
+
+/**
+ * Generate FAQPage JSON-LD schema
+ */
+export function generateFAQSchema(faqs: Array<{question: string; answer: string}>) {
+  if (!faqs || faqs.length === 0) return null
+
+  return {
+    '@type': 'FAQPage',
+    '@id': `${SITE_URL}/#faq`,
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
+/**
+ * Generate homepage schema with Organization, WebSite, Person, and optional FAQ
+ */
+export function generateHomepageGraph(options?: {
+  faqs?: Array<{question: string; answer: string}>
+}) {
+  const graph: any[] = [
+    generateOrganizationSchema(),
+    generateWebSiteSchema(),
+    generateFounderSchema(),
+  ]
+
+  // Add FAQ if provided
+  if (options?.faqs && options.faqs.length > 0) {
+    const faqSchema = generateFAQSchema(options.faqs)
+    if (faqSchema) {
+      graph.push(faqSchema)
+    }
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph,
   }
 }

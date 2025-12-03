@@ -5,7 +5,7 @@ import Image from 'next/image'
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
 import {JsonLd} from '@/app/components/JsonLd'
-import {generateOrganizationGraph} from '@/lib/organization'
+import {generateHomepageGraph} from '@/lib/organization'
 import {sanityFetch} from '@/sanity/lib/live'
 import {homePageQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
@@ -78,12 +78,26 @@ export default async function HomePage() {
     )
   }
 
-  // Generate Organization + WebSite schema graph
-  const organizationGraph = generateOrganizationGraph()
+  // Extract FAQs from content sections if they exist
+  const faqs: Array<{question: string; answer: string}> = []
+  if (homePageData.content) {
+    for (const section of homePageData.content) {
+      if (section._type === 'faqSection' && section.faqs) {
+        for (const faq of section.faqs) {
+          if (faq.question && faq.answer) {
+            faqs.push({question: faq.question, answer: faq.answer})
+          }
+        }
+      }
+    }
+  }
+
+  // Generate Homepage schema with Organization, WebSite, Person, and FAQ
+  const homepageGraph = generateHomepageGraph({faqs})
 
   return (
     <div className="bg-white">
-      <JsonLd data={organizationGraph} />
+      <JsonLd data={homepageGraph} />
       {/* Update Announcement Banner */}
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
         <div className="container py-3 px-4">
