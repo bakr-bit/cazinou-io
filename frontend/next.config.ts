@@ -559,10 +559,16 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Author redirects
+      {
+        source: '/author/cristinar',
+        destination: '/author/cristian-radulescu/',
+        permanent: true,
+      },
       // Author pagination to author page
       {
         source: '/author/cristinar/page/:page',
-        destination: '/author/cristinar/',
+        destination: '/author/cristian-radulescu/',
         permanent: true,
       },
       {
