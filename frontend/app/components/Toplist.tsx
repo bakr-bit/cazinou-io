@@ -1,4 +1,4 @@
-import { useMemo, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { urlForImage } from '@/sanity/lib/utils'
@@ -25,7 +25,6 @@ export type DisplayOptions = {
 
 export type TopListItem = {
   _key?: string
-  rank?: number
   customDescription?: string
   item?: {
     _id?: string
@@ -91,13 +90,8 @@ function licenseLabelFrom(license: unknown): string | null {
   return trimmed.length > 0 ? trimmed : null
 }
 
-function sortListItems(items: TopListItem[] = []): TopListItem[] {
-  if (!items || !Array.isArray(items)) return []
-  return [...items].sort((a, b) => (a.rank ?? Infinity) - (b.rank ?? Infinity))
-}
-
-function fallbackRank(index: number, rank?: number): number {
-  return rank ?? index + 1
+function getRank(index: number): number {
+  return index + 1
 }
 
 function detailsHrefFor(slug?: string): string | undefined {
@@ -162,7 +156,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
 
   const slug = resolveSlug(itm.slug)
   const detailsHref = detailsHrefFor(slug)
-  const rank = fallbackRank(index, listItem.rank)
+  const rank = getRank(index)
   const logoUrl = logoUrlFrom(itm.logo)
   const ratingValue = safeNumber(itm.rating)
   const licenseLabel = licenseLabelFrom(itm.license)
@@ -367,7 +361,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
 
   const slug = resolveSlug(itm.slug)
   const detailsHref = detailsHrefFor(slug)
-  const rank = fallbackRank(index, listItem.rank)
+  const rank = getRank(index)
   const logoUrl = logoUrlFrom(itm.logo)
   const ratingValue = safeNumber(itm.rating)
   const licenseLabel = licenseLabelFrom(itm.license)
@@ -614,10 +608,10 @@ function Star({ variant }: { variant: 'full' | 'half' | 'empty' }) {
 // Main Component
 // ==========================================================
 export function Toplist({ data }: { data: TopListBlock }) {
-  const sortedItems = useMemo(() => sortListItems(data.listItems), [data.listItems])
   const displayOptions = data.displayOptions
+  const listItems = data.listItems ?? []
 
-  if (!isTopListBlock(data) || !data.listItems || data.listItems.length === 0) return null
+  if (!isTopListBlock(data) || listItems.length === 0) return null
 
   return (
     <section className="my-12 space-y-6">
@@ -630,7 +624,7 @@ export function Toplist({ data }: { data: TopListBlock }) {
 
       {/* Mobile Card View */}
       <div className="space-y-4 lg:hidden">
-        {sortedItems.map((listItem, index) => (
+        {listItems.map((listItem, index) => (
           <ToplistItemCard key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} />
         ))}
       </div>
@@ -640,7 +634,7 @@ export function Toplist({ data }: { data: TopListBlock }) {
         <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
           {/* Table Rows */}
           <div className="divide-y divide-gray-200">
-            {sortedItems.map((listItem, index) => (
+            {listItems.map((listItem, index) => (
               <ToplistTableRow key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} />
             ))}
           </div>

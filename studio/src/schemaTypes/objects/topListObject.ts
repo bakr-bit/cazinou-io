@@ -27,31 +27,12 @@ export const topListObject = defineType({
       name: 'listItems',
       title: 'List Items',
       type: 'array',
-      validation: (Rule) =>
-        Rule.custom((list) => {
-          if (!Array.isArray(list) || list.length === 0) return true
-
-          const ranks = list
-            .map((item: any) => item?.rank)
-            .filter((r: unknown): r is number => typeof r === 'number')
-
-          if (new Set(ranks).size !== ranks.length) {
-            return 'Ranks must be unique within the list.'
-          }
-
-          return true
-        }),
+      description: 'Drag items to reorder. Position in the list determines the rank.',
       of: [
         {
           type: 'object',
           name: 'listItem',
           fields: [
-            defineField({
-              name: 'rank',
-              title: 'Rank',
-              type: 'number',
-              validation: (Rule) => Rule.required().integer().positive(),
-            }),
             defineField({
               name: 'item',
               title: 'Casino or Game to Feature',
@@ -72,11 +53,10 @@ export const topListObject = defineType({
               title: 'item.name',
               subtitle: 'customDescription',
               media: 'item.logo',
-              rank: 'rank',
             },
-            prepare({title, subtitle, media, rank}) {
+            prepare({title, subtitle, media}) {
               return {
-                title: `${rank || '?'}. ${title || 'No item selected'}`,
+                title: title || 'No item selected',
                 subtitle,
                 media,
               }
