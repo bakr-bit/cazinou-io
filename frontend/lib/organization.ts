@@ -9,7 +9,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cazinou.io'
  * Organization data constants
  */
 export const ORGANIZATION_DATA = {
-  name: 'Top Cazinouri România',
+  name: 'Cazinou.io',
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/images/cazinou-logo.png`,
   description: 'Portal de recenzii de cazinouri online internaționale',
