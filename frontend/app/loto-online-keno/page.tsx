@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return generateSEO({
     title: data.seo?.metaTitle || data.heading || 'Loto Online',
-    description: data.seo?.metaDescription || data.description || '',
+    description: data.seo?.metaDescription || data.description || 'Joacă loto online și keno la cele mai bune cazinouri internaționale. Loterii din întreaga lume, bilete ieftine și cote atractive.',
     ogTitle: data.seo?.ogTitle || undefined,
     ogDescription: data.seo?.ogDescription || undefined,
     ogImage: data.seo?.ogImage,
