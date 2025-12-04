@@ -17,6 +17,12 @@ export const ORGANIZATION_DATA = {
   email: 'andrei@cazinou.io',
   areaServed: 'RO',
   language: 'ro',
+  address: {
+    streetAddress: 'Calea Victoriei 155, tronson 5, bloc D1',
+    addressLocality: 'București',
+    addressRegion: 'Sector 1',
+    addressCountry: 'RO',
+  },
 } as const
 
 /**
@@ -49,6 +55,13 @@ export function generateOrganizationSchema() {
     },
     description: ORGANIZATION_DATA.description,
     foundingDate: ORGANIZATION_DATA.foundingDate,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: ORGANIZATION_DATA.address.streetAddress,
+      addressLocality: ORGANIZATION_DATA.address.addressLocality,
+      addressRegion: ORGANIZATION_DATA.address.addressRegion,
+      addressCountry: ORGANIZATION_DATA.address.addressCountry,
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       email: ORGANIZATION_DATA.email,
