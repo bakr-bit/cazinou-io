@@ -85,7 +85,7 @@ export function generatePersonJsonLd(person: any, siteUrl: string): Record<strin
     '@id': authorUrl,
     name: fullName,
     url: authorUrl,
-    ...(person.image && {image: person.image}),
+    ...(person.picture?.asset?.url && {image: person.picture.asset.url}),
     ...(person.role && {jobTitle: person.role}),
     ...(person.bio && {description: person.bio}),
     ...(person.expertise && person.expertise.length > 0 && {knowsAbout: person.expertise}),
@@ -120,43 +120,6 @@ export function generateCasinoOrganizationJsonLd(casino: any): Record<string, an
 }
 
 /**
- * Generate Product JSON-LD for casino
- */
-export function generateCasinoProductJsonLd(casino: any, reviewUrl: string): Record<string, any> {
-  // Convert 1-10 rating to 1-5 for schema.org
-  const aggregateRating = casino.rating ? (casino.rating / 2).toFixed(1) : '0'
-
-  return {
-    '@type': 'Product',
-    name: casino.name,
-    ...(casino.logo && {image: casino.logo}),
-    description: `Casino online oferind ${casino.numberOfGames || 'mii de'} jocuri, inclusiv slots, live casino și multe altele.`,
-    brand: {
-      '@type': 'Brand',
-      name: casino.legalEntity || casino.name,
-    },
-    ...(casino.welcomeBonus && {
-      offers: {
-        '@type': 'Offer',
-        description: casino.welcomeBonus,
-        ...(casino.companyInfo?.websiteUrl && {url: casino.companyInfo.websiteUrl}),
-      },
-    }),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: aggregateRating,
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: '1',
-    },
-    review: {
-      '@type': 'Review',
-      url: reviewUrl,
-    },
-  }
-}
-
-/**
  * Generate Review JSON-LD
  */
 export function generateReviewJsonLd({
@@ -186,7 +149,11 @@ export function generateReviewJsonLd({
       bestRating: '5',
       worstRating: '1',
     },
-    itemReviewed: generateCasinoProductJsonLd(casino, reviewUrl),
+    itemReviewed: {
+      '@type': 'WebSite',
+      name: casino.name,
+      ...(casino.companyInfo?.websiteUrl && {url: casino.companyInfo.websiteUrl}),
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Cazinou.io',
@@ -261,10 +228,6 @@ export function generateCompleteReviewJsonLd(options: JsonLdOptions): Record<str
     generateArticleJsonLd(options),
     generatePersonJsonLd(options.author, siteUrl),
   ]
-
-  // Add casino product
-  const reviewUrl = `${siteUrl}/casino/${review.slug?.current}`
-  graph.push(generateCasinoProductJsonLd(casino, reviewUrl))
 
   // Add casino organization if available
   const orgJsonLd = generateCasinoOrganizationJsonLd(casino)
