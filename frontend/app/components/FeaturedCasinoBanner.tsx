@@ -101,6 +101,8 @@ export function FeaturedCasinoBanner({casino}: FeaturedCasinoBannerProps) {
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-base font-semibold text-white transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 font-mono whitespace-nowrap"
+                  data-tracking-component="featured-banner"
+                  data-tracking-brand={casino.name}
                 >
                   Profită Acum
                 </a>

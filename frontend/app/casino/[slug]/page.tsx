@@ -371,6 +371,9 @@ export default async function ReviewPage(props: Props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full inline-flex gap-2 font-mono whitespace-nowrap items-center bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 py-3 px-6 text-white transition-colors duration-200"
+                    data-tracking-component="casino-page"
+                    data-tracking-brand={casino.name}
+                    data-tracking-placement="header"
                   >
                     Joacă la {casino.name}
                   </a>
@@ -388,6 +391,9 @@ export default async function ReviewPage(props: Props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline"
+                    data-tracking-component="casino-page"
+                    data-tracking-brand={casino.name}
+                    data-tracking-placement="bonus"
                   >
                     {casino.welcomeBonus}
                   </a>
@@ -630,6 +636,9 @@ export default async function ReviewPage(props: Props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full flex gap-2 font-mono whitespace-nowrap items-center justify-center bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 py-3 px-6 text-white transition-colors duration-200 animate-pulse w-full"
+                    data-tracking-component="casino-page"
+                    data-tracking-brand={casino.name}
+                    data-tracking-placement="sidebar"
                   >
                     Joacă la {casino.name}
                   </a>

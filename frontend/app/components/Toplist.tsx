@@ -170,6 +170,8 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
       key={`${rank}-${keySeed}`}
       className={`overflow-hidden rounded-2xl border shadow-sm transition hover:shadow-md ${rankTheme.card}`}
       aria-labelledby={`tl-${keySeed}-title`}
+      data-tracking-position={rank}
+      data-tracking-brand={itm.name}
     >
       <div className="grid grid-cols-1 items-center gap-y-4 p-4 sm:gap-x-6">
         {/* Column 1: Rank & Logo */}
@@ -374,6 +376,8 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
     <div
       className={`flex items-center gap-x-6 px-6 py-4 ${rankTheme.row}`}
       aria-labelledby={`tl-table-${keySeed}-title`}
+      data-tracking-position={rank}
+      data-tracking-brand={itm.name}
     >
       <div className="flex items-center gap-4 pr-6 flex-1">
         {shouldShow(displayOptions, 'showRank') && (
@@ -614,7 +618,7 @@ export function Toplist({ data }: { data: TopListBlock }) {
   if (!isTopListBlock(data) || listItems.length === 0) return null
 
   return (
-    <section className="my-12 space-y-6">
+    <section className="my-12 space-y-6" data-tracking-component="toplist">
       <header className="space-y-2 text-center sm:text-left">
         {data.title && <h2 className="text-3xl font-extrabold font-mono text-gray-900">{data.title}</h2>}
         {data.description && (
