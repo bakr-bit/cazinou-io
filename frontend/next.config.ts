@@ -177,7 +177,7 @@ const nextConfig: NextConfig = {
       {source: '/blog/bonusuri/ggbet-bonus-fara-depunere', destination: '/casino/ggbet-casino/', permanent: true},
       {source: '/blog/bonusuri/verde-casino-bonus', destination: '/casino/verde-casino/', permanent: true},
       {source: '/blog/bonusuri/wizebets-bonus-casino', destination: '/casino/wizebets-casino/', permanent: true},
-      {source: '/blog/bonusuri/weissbet-bonus-casino', destination: '/casino/weissbet-casino/', permanent: true},
+      {source: '/blog/bonusuri/weissbet-bonus-casino', destination: '/casino/weiss-casino/', permanent: true},
       {source: '/blog/bonusuri/megapari-bonus-casino', destination: '/casino/megapari-casino/', permanent: true},
       {source: '/blog/bonusuri/20bet-bonus-casino', destination: '/casino/20bet-casino/', permanent: true},
       {source: '/blog/bonusuri/22bet-bonus-casino', destination: '/casino/22bet-casino/', permanent: true},
@@ -232,7 +232,12 @@ const nextConfig: NextConfig = {
       // Bonus pages mapped to casino reviews
       {
         source: '/bonusuri/weissbet-bonus-casino',
-        destination: '/casino/weissbet-casino/',
+        destination: '/casino/weiss-casino/',
+        permanent: true,
+      },
+      {
+        source: '/casino/weissbet-casino',
+        destination: '/casino/weiss-casino/',
         permanent: true,
       },
       {
