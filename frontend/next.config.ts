@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
         hostname: 'assets.slotslaunch.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'slotslaunch.nyc3.digitaloceanspaces.com',
+        pathname: '/**',
+      },
     ],
   },
   async redirects() {
