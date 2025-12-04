@@ -120,49 +120,6 @@ export function generateCasinoOrganizationJsonLd(casino: any): Record<string, an
 }
 
 /**
- * Generate Review JSON-LD
- */
-export function generateReviewJsonLd({
-  review,
-  casino,
-  author,
-  siteUrl,
-}: JsonLdOptions): Record<string, any> {
-  const reviewUrl = `${siteUrl}/casino/${review.slug?.current}`
-  const authorData = generatePersonJsonLd(author, siteUrl)
-
-  // Convert 1-10 rating to 1-5 for schema.org
-  const normalizedRating = casino.rating ? (casino.rating / 2).toFixed(1) : '0'
-
-  return {
-    '@type': 'Review',
-    '@id': reviewUrl,
-    url: reviewUrl,
-    headline: review.title,
-    ...(review.excerpt && {description: review.excerpt}),
-    datePublished: review.publishedAt,
-    ...(review.seo?.modifiedAt && {dateModified: review.seo.modifiedAt}),
-    author: authorData,
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: normalizedRating,
-      bestRating: '5',
-      worstRating: '1',
-    },
-    itemReviewed: {
-      '@type': 'WebSite',
-      name: casino.name,
-      ...(casino.companyInfo?.websiteUrl && {url: casino.companyInfo.websiteUrl}),
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Cazinou.io',
-      url: siteUrl,
-    },
-  }
-}
-
-/**
  * Generate Article JSON-LD
  */
 export function generateArticleJsonLd({
@@ -224,7 +181,6 @@ export function generateCompleteReviewJsonLd(options: JsonLdOptions): Record<str
   const {review, casino, siteUrl} = options
 
   const graph: any[] = [
-    generateReviewJsonLd(options),
     generateArticleJsonLd(options),
     generatePersonJsonLd(options.author, siteUrl),
   ]
