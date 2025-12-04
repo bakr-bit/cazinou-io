@@ -86,12 +86,24 @@ export default async function RootLayout({children}: {children: React.ReactNode}
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W7GM4Q5T');`}
+})(window,document,'script','dataLayer','GTM-P93ZXQHD');`}
+      </Script>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-8PKFNX2P1W"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8PKFNX2P1W');
+        `}
       </Script>
       <body suppressHydrationWarning>
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W7GM4Q5T"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-P93ZXQHD"
             height="0"
             width="0"
             style={{display: 'none', visibility: 'hidden'}}
