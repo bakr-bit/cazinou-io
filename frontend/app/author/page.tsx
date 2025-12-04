@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     title: 'Autori - Experți în Cazinouri Online',
     description: 'Echipa noastră de experți în cazinouri online. Cunosc specialiștii care vă oferă recenzii și ghiduri despre cazinouri, sloturi și jocuri de noroc.',
   },
+  alternates: {
+    canonical: 'https://cazinou.io/author/',
+  },
 }
 
 export default async function AuthorsPage() {
