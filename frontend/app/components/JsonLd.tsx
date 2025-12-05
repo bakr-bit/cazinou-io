@@ -85,6 +85,7 @@ export const schemaHelpers = {
 
   /**
    * Game schema (VideoGame)
+   * Note: Rating intentionally excluded from output to avoid Google treating page as merchant listing
    */
   game: (data: {
     name: string
@@ -92,7 +93,7 @@ export const schemaHelpers = {
     description?: string
     image?: string
     provider?: string
-    rating?: number
+    rating?: number // Accepted but not used in output
   }) => ({
     '@context': 'https://schema.org',
     '@type': 'VideoGame',
@@ -104,14 +105,6 @@ export const schemaHelpers = {
       publisher: {
         '@type': 'Organization',
         name: data.provider,
-      },
-    }),
-    ...(data.rating && {
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: data.rating,
-        bestRating: 5,
-        worstRating: 0,
       },
     }),
     gamePlatform: 'Web Browser',
