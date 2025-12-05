@@ -56,15 +56,6 @@ export function ReviewCard({review}: ReviewCardProps) {
   const casinoLogoUrl = review.casino?.logo?.asset?.url
   const authorPictureUrl = review.author?.picture?.asset?.url
 
-  // Debug logging
-  if (typeof window !== 'undefined' && review.author) {
-    console.log('Author data:', {
-      name: `${review.author.firstName} ${review.author.lastName}`,
-      hasPicture: !!review.author.picture,
-      pictureUrl: authorPictureUrl,
-    })
-  }
-
   return (
     <article className="group rounded-2xl shadow-sm border border-gray-100 bg-white/70 backdrop-blur overflow-hidden transition-all hover:border-orange-500 hover:-translate-y-0.5 hover:scale-[1.01]">
       <Link href={href} className="block">
@@ -77,6 +68,7 @@ export function ReviewCard({review}: ReviewCardProps) {
                 alt={review.casino.logo?.alt || review.casino.name}
                 width={200}
                 height={120}
+                loading="lazy"
                 className="object-contain max-h-24"
               />
             ) : (
@@ -110,8 +102,8 @@ export function ReviewCard({review}: ReviewCardProps) {
                     alt={`${review.author.firstName} ${review.author.lastName}`}
                     width={24}
                     height={24}
+                    loading="lazy"
                     className="rounded-full"
-                    unoptimized
                   />
                 ) : (
                   <div className="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600">

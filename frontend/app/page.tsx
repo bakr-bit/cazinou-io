@@ -1,4 +1,5 @@
 import type {Metadata, ResolvingMetadata} from 'next'
+import {cache} from 'react'
 import {PortableText} from '@portabletext/react'
 import Image from 'next/image'
 
@@ -10,6 +11,18 @@ import {sanityFetch} from '@/sanity/lib/live'
 import {homePageQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 
+// Revalidate every hour - enables ISR for faster TTFB
+export const revalidate = 3600
+
+// Cache the homepage data fetch to deduplicate between generateMetadata and page component
+const getHomePageData = cache(async () => {
+  const {data} = await sanityFetch({
+    query: homePageQuery,
+    stega: false,
+  })
+  return data
+})
+
 /**
  * Generate metadata for the homepage
  */
@@ -17,10 +30,7 @@ export async function generateMetadata(
   props: {},
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const {data: homePageData} = await sanityFetch({
-    query: homePageQuery,
-    stega: false,
-  })
+  const homePageData = await getHomePageData()
 
   if (!homePageData) {
     return {
@@ -60,9 +70,7 @@ export async function generateMetadata(
 }
 
 export default async function HomePage() {
-  const {data: homePageData} = await sanityFetch({
-    query: homePageQuery,
-  })
+  const homePageData = await getHomePageData()
 
   if (!homePageData) {
     return (

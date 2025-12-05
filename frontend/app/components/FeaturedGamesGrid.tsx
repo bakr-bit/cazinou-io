@@ -111,6 +111,7 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
                           alt={item.title}
                           width={200}
                           height={200}
+                          loading="lazy"
                           className="h-full w-full object-cover transition group-hover:scale-105"
                         />
                       ) : item.icon ? (
@@ -168,6 +169,7 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
                           alt={game.name}
                           width={200}
                           height={200}
+                          loading="lazy"
                           className="h-full w-full object-cover transition group-hover:scale-105"
                         />
                       )
@@ -180,6 +182,7 @@ export function FeaturedGamesGrid({data}: FeaturedGamesGridProps) {
                           alt={game.mainImage.alt || game.name}
                           width={200}
                           height={200}
+                          loading="lazy"
                           className="h-full w-full object-cover transition group-hover:scale-105"
                           placeholder={game.mainImage.asset.metadata?.lqip ? 'blur' : undefined}
                           blurDataURL={game.mainImage.asset.metadata?.lqip}

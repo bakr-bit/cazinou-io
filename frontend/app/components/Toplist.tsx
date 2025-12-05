@@ -78,7 +78,7 @@ function resolveSlug(slug: TopListItem['item'] extends infer T ? T extends { slu
 
 function logoUrlFrom(logo: unknown): string | null {
   try {
-    return logo ? urlForImage(logo)?.width(400).height(400).url() ?? null : null
+    return logo ? urlForImage(logo)?.width(144).height(144).url() ?? null : null
   } catch (_) {
     return null
   }
@@ -198,6 +198,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
                     src={logoUrl}
                     alt={`${itm.name || 'Casino'} logo`}
                     fill
+                    loading="lazy"
                     className="object-contain p-2"
                     sizes="(max-width: 640px) 128px, 144px"
                   />
@@ -402,6 +403,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
                   src={logoUrl}
                   alt={`${itm.name || 'Casino'} logo`}
                   fill
+                  loading="lazy"
                   className="object-contain p-2"
                   sizes="80px"
                 />

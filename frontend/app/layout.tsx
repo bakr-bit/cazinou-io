@@ -1,5 +1,6 @@
 import './globals.css'
 
+import {cache} from 'react'
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import type {Metadata} from 'next'
 import {Inter, Inter_Tight} from 'next/font/google'
@@ -17,16 +18,21 @@ import {settingsQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 import {handleError} from './client-utils'
 
+// Cache settings fetch to deduplicate across requests
+const getSettings = cache(async () => {
+  const {data} = await sanityFetch({
+    query: settingsQuery,
+    stega: false,
+  })
+  return data
+})
+
 /**
  * Generate metadata for the page.
  * Learn more: https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
  */
 export async function generateMetadata(): Promise<Metadata> {
-  const {data: settings} = await sanityFetch({
-    query: settingsQuery,
-    // Metadata should never contain stega
-    stega: false,
-  })
+  const settings = await getSettings()
   const title = settings?.title || demo.title
   const description = settings?.description || demo.description
 
@@ -81,7 +87,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
 
   return (
     <html lang="ro" className={`${inter.variable} ${interTight.variable} bg-white text-black`}>
-      <Script id="google-tag-manager" strategy="beforeInteractive">
+      <Script id="google-tag-manager" strategy="lazyOnload">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
