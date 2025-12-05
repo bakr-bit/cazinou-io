@@ -69,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '600', '700'],
   display: 'swap',
   preload: true,
 })
@@ -77,7 +77,7 @@ const inter = Inter({
 const interTight = Inter_Tight({
   variable: '--font-inter-tight',
   subsets: ['latin', 'latin-ext'],
-  weight: ['300', '500', '600', '700', '800'],
+  weight: ['600', '700'],
   display: 'swap',
   preload: true,
 })
@@ -87,6 +87,13 @@ export default async function RootLayout({children}: {children: React.ReactNode}
 
   return (
     <html lang="ro" className={`${inter.variable} ${interTight.variable} bg-white text-black`}>
+      <head>
+        {/* Preconnect hints for faster resource loading */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       <Script id="google-tag-manager" strategy="lazyOnload">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -96,9 +103,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </Script>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-8PKFNX2P1W"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
