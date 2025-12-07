@@ -1,4 +1,5 @@
 import type {Metadata, ResolvingMetadata} from 'next'
+import {cache} from 'react'
 import {notFound} from 'next/navigation'
 import {type PortableTextBlock} from 'next-sanity'
 import Image from 'next/image'
@@ -9,6 +10,19 @@ import DateComponent from '@/app/components/Date'
 import {sanityFetch} from '@/sanity/lib/live'
 import {authorBySlugQuery, authorSlugsQuery, authorContentQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
+
+// Revalidate every hour - enables ISR for faster TTFB
+export const revalidate = 3600
+
+// Cache author fetch to deduplicate between generateMetadata and page component
+const getAuthor = cache(async (slug: string) => {
+  const {data} = await sanityFetch({
+    query: authorBySlugQuery,
+    params: {slug},
+    stega: false,
+  })
+  return data as any
+})
 
 type Props = {
   params: Promise<{slug: string}>
@@ -26,13 +40,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const params = await props.params
-  const {data} = await sanityFetch({
-    query: authorBySlugQuery,
-    params,
-    stega: false,
-  })
-
-  const author = data as any
+  const author = await getAuthor(params.slug)
 
   if (!author?._id) {
     return {}
@@ -66,16 +74,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
 export default async function AuthorPage(props: Props) {
   const params = await props.params
-  const [{data: author}, {data: content}] = await Promise.all([
-    sanityFetch({query: authorBySlugQuery, params}),
-    sanityFetch({
-      query: authorContentQuery,
-      params: {authorId: ''},
-      stega: false,
-    }),
-  ])
 
-  const authorData = author as any
+  // Use cached author fetch (deduplicated with generateMetadata)
+  const authorData = await getAuthor(params.slug)
 
   if (!authorData?._id) {
     return notFound()
