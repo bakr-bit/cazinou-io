@@ -1,7 +1,12 @@
-import { type ReactNode } from 'react'
+'use client'
+
+import { type ReactNode, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { urlForImage } from '@/sanity/lib/utils'
+
+// Number of items to show initially before "Show More"
+const INITIAL_ITEMS_COUNT = 20
 
 // ==========================================================
 // Types
@@ -614,10 +619,15 @@ function Star({ variant }: { variant: 'full' | 'half' | 'empty' }) {
 // Main Component
 // ==========================================================
 export function Toplist({ data }: { data: TopListBlock }) {
+  const [showAll, setShowAll] = useState(false)
   const displayOptions = data.displayOptions
   const listItems = data.listItems ?? []
 
   if (!isTopListBlock(data) || listItems.length === 0) return null
+
+  // Show limited items initially, all items when expanded
+  const visibleItems = showAll ? listItems : listItems.slice(0, INITIAL_ITEMS_COUNT)
+  const hasMore = listItems.length > INITIAL_ITEMS_COUNT
 
   return (
     <section className="my-12 space-y-6" data-tracking-component="toplist">
@@ -630,7 +640,7 @@ export function Toplist({ data }: { data: TopListBlock }) {
 
       {/* Mobile Card View */}
       <div className="space-y-4 lg:hidden">
-        {listItems.map((listItem, index) => (
+        {visibleItems.map((listItem, index) => (
           <ToplistItemCard key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} />
         ))}
       </div>
@@ -640,12 +650,24 @@ export function Toplist({ data }: { data: TopListBlock }) {
         <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
           {/* Table Rows */}
           <div className="divide-y divide-gray-200">
-            {listItems.map((listItem, index) => (
+            {visibleItems.map((listItem, index) => (
               <ToplistTableRow key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} />
             ))}
           </div>
         </div>
       </div>
+
+      {/* Show More Button */}
+      {hasMore && !showAll && (
+        <div className="flex justify-center pt-4">
+          <button
+            onClick={() => setShowAll(true)}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold font-mono transition focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+          >
+            Vezi toate cele {listItems.length} de cazinouri
+          </button>
+        </div>
+      )}
     </section>
   )
 }
