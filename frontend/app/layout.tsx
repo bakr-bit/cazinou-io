@@ -68,7 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin', 'latin-ext'],
-  weight: ['400', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
   preload: true,
 })
