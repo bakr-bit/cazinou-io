@@ -9,6 +9,9 @@ import {sanityFetch} from '@/sanity/lib/live'
 import {allCasinoReviewsQuery, reviewsPageQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 
+// Revalidate every hour - enables ISR for faster TTFB
+export const revalidate = 3600
+
 export async function generateMetadata(): Promise<Metadata> {
   const {data} = await sanityFetch({
     query: reviewsPageQuery,

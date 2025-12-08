@@ -4,10 +4,6 @@ const nextConfig: NextConfig = {
   // Use trailing slashes to match live site URL structure
   // This ensures consistency and prevents duplicate content issues
   trailingSlash: true,
-  env: {
-    // Matches the behavior of `sanity dev` which sets styled-components to use the fastest way of inserting CSS rules in both dev and production. It's default behavior is to disable it in dev mode.
-    SC_DISABLE_SPEEDY: 'false',
-  },
   images: {
     remotePatterns: [
       {
@@ -585,6 +581,31 @@ const nextConfig: NextConfig = {
         source: '/author/:slug/page/:page',
         destination: '/author/:slug/',
         permanent: true,
+      },
+    ]
+  },
+  async headers() {
+    return [
+      {
+        // Apply caching headers to all pages
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            // stale-while-revalidate: serve cached content while revalidating in background
+            value: 'public, s-maxage=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      {
+        // Longer cache for static assets
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
       },
     ]
   },

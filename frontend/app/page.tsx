@@ -120,25 +120,25 @@ export default async function HomePage() {
         </div>
       </div>
 
-      {/* Hero Banner Section */}
-      {homePageData.heroBanner && (
-        <div className="relative">
-          <Image
-            src="/images/hero-banner-hp.webp"
-            alt="Cazinou Online România - Hero Banner"
-            fill
-            priority
-            fetchPriority="high"
-            quality={75}
-            className="object-cover object-center"
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAgCdASoUAAsAP3Ggxli0q6gjsAgCkC4JaQAAeyAA/u14qu0cswuIgAA="
-          />
-          <div className="absolute inset-0 bg-white/70"></div>
-          <div className="container relative py-12 lg:py-20">
-            <div className="mx-auto max-w-5xl">
-              <div className="prose prose-lg lg:prose-xl max-w-none text-center">
+      {/* Hero Banner Section - Always render image for faster LCP */}
+      <div className="relative min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]">
+        <Image
+          src="/images/hero-banner-hp.webp"
+          alt="Cazinou Online România - Hero Banner"
+          fill
+          priority
+          fetchPriority="high"
+          quality={75}
+          className="object-cover object-center"
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL="data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAgCdASoUAAsAP3Ggxli0q6gjsAgCkC4JaQAAeyAA/u14qu0cswuIgAA="
+        />
+        <div className="absolute inset-0 bg-white/70"></div>
+        <div className="container relative py-12 lg:py-20">
+          <div className="mx-auto max-w-5xl">
+            <div className="prose prose-lg lg:prose-xl max-w-none text-center">
+              {homePageData.heroBanner && (
                 <PortableText
                   value={homePageData.heroBanner}
                   components={{
@@ -177,11 +177,11 @@ export default async function HomePage() {
                     },
                   }}
                 />
-              </div>
+              )}
             </div>
           </div>
         </div>
-      )}
+      </div>
 
       {/* Main Content Sections */}
       <div className="pb-12 lg:pb-24">
