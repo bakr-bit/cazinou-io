@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import {type PortableTextBlock} from 'next-sanity'
 import Image from 'next/image'
 
@@ -8,8 +9,14 @@ import {FAQSection, type FAQSectionData} from '@/app/components/FAQSection'
 import FeaturedCasino, {type FeaturedCasinoBlock} from '@/app/components/FeaturedCasino'
 import FeaturedGame, {type FeaturedGameBlock} from '@/app/components/FeaturedGame'
 import {FeaturedGamesGrid, type FeaturedGamesGridData} from '@/app/components/FeaturedGamesGrid'
-import {BonusCalculator, type BonusCalculatorData} from '@/app/components/BonusCalculator'
+import {type BonusCalculatorData} from '@/app/components/BonusCalculator'
 import {AuthorIntro, type AuthorIntroData} from '@/app/components/AuthorIntro'
+
+// Dynamic import for heavy interactive component to reduce initial bundle
+const BonusCalculator = dynamic(
+  () => import('@/app/components/BonusCalculator').then(mod => mod.BonusCalculator),
+  {ssr: true, loading: () => <div className="h-64 animate-pulse bg-gray-100 rounded-lg" />}
+)
 import {ReviewMethodology, type ReviewMethodologyBlock} from '@/app/components/ReviewMethodology'
 import {BeginnersGuide, type BeginnersGuideBlock} from '@/app/components/BeginnersGuide'
 import {AboutUs, type AboutUsBlock} from '@/app/components/AboutUs'
@@ -270,6 +277,7 @@ function renderYouTubeEmbed(embedBlock: ContentItem, index: number) {
               title={embedBlock.title || 'YouTube video'}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              loading="lazy"
               className="absolute inset-0 w-full h-full border-0"
             />
           </div>

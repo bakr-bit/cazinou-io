@@ -97,6 +97,8 @@ export default async function RootLayout({children}: {children: React.ReactNode}
         {/* Preconnect hints for faster resource loading */}
         <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://assets.slotslaunch.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://assets.slotslaunch.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>

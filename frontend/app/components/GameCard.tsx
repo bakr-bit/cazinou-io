@@ -23,10 +23,10 @@ export function GameCard({
               src={game.thumb}
               alt={game.name}
               fill
-              unoptimized
               className="object-cover group-hover:scale-105 transition"
               loading="lazy"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              quality={75}
+              sizes="(max-width: 640px) 45vw, (max-width: 1024px) 28vw, 200px"
             />
           ) : (
             <div className="h-full w-full grid place-items-center text-sm text-gray-500">
