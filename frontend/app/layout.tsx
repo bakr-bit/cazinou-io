@@ -7,8 +7,7 @@ import {Inter, Inter_Tight} from 'next/font/google'
 import {draftMode} from 'next/headers'
 import {VisualEditing, toPlainText} from 'next-sanity'
 import {Toaster} from 'sonner'
-import Script from 'next/script'
-
+import {Analytics} from '@/app/components/Analytics'
 import DraftModeToast from '@/app/components/DraftModeToast'
 import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
@@ -88,32 +87,22 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   return (
     <html lang="ro" className={`${inter.variable} ${interTight.variable} bg-white text-black`}>
       <head>
+        {/* Preload hero banner for faster LCP */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-banner-hp.webp"
+          type="image/webp"
+        />
         {/* Preconnect hints for faster resource loading */}
         <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
-      <Script id="google-tag-manager" strategy="lazyOnload">
-        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P93ZXQHD');`}
-      </Script>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-8PKFNX2P1W"
-        strategy="lazyOnload"
-      />
-      <Script id="google-analytics" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-8PKFNX2P1W');
-        `}
-      </Script>
       <body suppressHydrationWarning>
+        {/* Analytics loads on user interaction for better Core Web Vitals */}
+        <Analytics />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-P93ZXQHD"

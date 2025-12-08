@@ -129,9 +129,11 @@ export default async function HomePage() {
             fill
             priority
             fetchPriority="high"
-            quality={50}
+            quality={75}
             className="object-cover object-center"
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAgCdASoUAAsAP3Ggxli0q6gjsAgCkC4JaQAAeyAA/u14qu0cswuIgAA="
           />
           <div className="absolute inset-0 bg-white/70"></div>
           <div className="container relative py-12 lg:py-20">
