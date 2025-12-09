@@ -40,7 +40,7 @@ export default function CustomPortableText({
     )
 
     return (
-      <figure className="my-8">
+      <figure className="my-4">
         {value.link?.url ? (
           <a
             href={value.link.url}
@@ -80,7 +80,7 @@ export default function CustomPortableText({
     if (!videoId) return null
 
     return (
-      <figure className="my-8">
+      <figure className="my-4">
         <div className="relative aspect-video w-full overflow-hidden rounded-lg">
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}
@@ -115,7 +115,7 @@ export default function CustomPortableText({
         const authorSlug = author?.slug?.current
 
         return (
-          <aside className="my-10 p-6 bg-brand/5 rounded-lg font-mono">
+          <aside className="my-6 p-6 bg-brand/5 rounded-lg font-mono">
             <div className="flex items-start gap-4">
               {/* Author Avatar */}
               <div className="flex-shrink-0">
@@ -262,7 +262,7 @@ export default function CustomPortableText({
   return (
     <div
       className={[
-        'prose sm:prose-lg prose-a:text-brand font-mono max-w-none',
+        'prose prose-a:text-brand prose-ul:my-4 prose-ol:my-4 prose-li:my-0 max-w-none',
         className,
       ]
         .filter(Boolean)

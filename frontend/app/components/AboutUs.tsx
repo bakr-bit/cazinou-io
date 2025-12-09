@@ -153,7 +153,7 @@ export function AboutUs({data, index}: AboutUsProps) {
           </h2>
         )}
         {data.description && (
-          <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg">
+          <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700">
             {data.description}
           </p>
         )}

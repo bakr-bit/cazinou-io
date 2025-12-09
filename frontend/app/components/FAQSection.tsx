@@ -72,7 +72,7 @@ export function FAQSection({data}: Props) {
             </h2>
           )}
           {data.description && (
-            <p className="text-base text-gray-600 mb-8 sm:text-lg">{data.description}</p>
+            <p className="text-base text-gray-600 mb-8">{data.description}</p>
           )}
           <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
             <div className="px-8">

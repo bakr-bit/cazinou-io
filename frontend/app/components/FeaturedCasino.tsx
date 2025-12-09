@@ -162,7 +162,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
               )}
 
               {block.text && (
-                <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
+                <p className="text-base leading-relaxed text-gray-700">
                   {block.text}
                 </p>
               )}

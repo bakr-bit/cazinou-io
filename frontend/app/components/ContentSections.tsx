@@ -71,13 +71,13 @@ export function ContentSections({content, author}: ContentSectionsProps) {
   })
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-6">
       {groupedContent.map((item, index) => {
         // Handle grouped text blocks (PortableText)
         if (Array.isArray(item)) {
           return (
             <div key={`text-${index}`} className="container">
-              <article className="prose sm:prose-lg max-w-none">
+              <article className="prose max-w-none">
                 <CustomPortableText value={item} author={author} />
               </article>
             </div>
@@ -221,7 +221,7 @@ function renderImage(imageBlock: ContentItem, index: number) {
   )
 
   return (
-    <div key={imageBlock._key || `image-${index}`} className="container my-8">
+    <div key={imageBlock._key || `image-${index}`} className="container my-4">
       <div className="max-w-3xl mx-auto">
         <figure className="space-y-3">
           {imageBlock.link?.url ? (
@@ -268,7 +268,7 @@ function renderYouTubeEmbed(embedBlock: ContentItem, index: number) {
   if (!videoId) return null
 
   return (
-    <div key={embedBlock._key || `youtube-${index}`} className="container my-8">
+    <div key={embedBlock._key || `youtube-${index}`} className="container my-4">
       <div className="max-w-3xl mx-auto">
         <figure className="space-y-3">
           <div className="relative aspect-video w-full overflow-hidden rounded-lg">
