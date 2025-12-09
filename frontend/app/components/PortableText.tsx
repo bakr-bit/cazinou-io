@@ -262,7 +262,7 @@ export default function CustomPortableText({
   return (
     <div
       className={[
-        'prose prose-a:text-brand prose-ul:my-4 prose-ol:my-4 prose-li:my-0 max-w-none',
+        'prose prose-a:text-brand prose-ul:pl-0 prose-ol:pl-0 prose-ul:my-4 prose-ol:my-4 prose-li:my-0 max-w-none',
         className,
       ]
         .filter(Boolean)

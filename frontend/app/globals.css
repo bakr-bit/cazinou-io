@@ -35,6 +35,10 @@
   --default-transition-duration: 250ms;
 }
 
+.prose ul, .prose ol {
+  padding-left: 0.5rem;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
