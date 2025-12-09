@@ -290,24 +290,50 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
 
           {/* Right Column: Logo Card */}
           <div className="flex items-center justify-center">
-            <div className="w-full max-w-lg rounded-xl border border-gray-200 bg-white p-2 shadow-sm">
-              {logoUrl ? (
-                <div className="relative mx-auto h-[320px] w-full min-w-[280px]">
-                  <Image
-                    src={logoUrl}
-                    alt={`${casino.name} logo`}
-                    fill
-                    loading="lazy"
-                    className="object-contain"
-                    sizes="(max-width: 768px) 90vw, 512px"
-                  />
-                </div>
-              ) : (
-                <div className="mx-auto flex h-[320px] w-full min-w-[280px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
-                  No logo
-                </div>
-              )}
-            </div>
+            {casino.affiliateLink ? (
+              <a
+                href={casino.affiliateLink}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="w-full max-w-lg rounded-xl border border-gray-200 bg-white p-2 shadow-sm hover:border-orange-300 hover:shadow-md transition-all"
+              >
+                {logoUrl ? (
+                  <div className="relative mx-auto h-[320px] w-full min-w-[280px]">
+                    <Image
+                      src={logoUrl}
+                      alt={`${casino.name} logo`}
+                      fill
+                      loading="lazy"
+                      className="object-contain"
+                      sizes="(max-width: 768px) 90vw, 512px"
+                    />
+                  </div>
+                ) : (
+                  <div className="mx-auto flex h-[320px] w-full min-w-[280px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
+                    No logo
+                  </div>
+                )}
+              </a>
+            ) : (
+              <div className="w-full max-w-lg rounded-xl border border-gray-200 bg-white p-2 shadow-sm">
+                {logoUrl ? (
+                  <div className="relative mx-auto h-[320px] w-full min-w-[280px]">
+                    <Image
+                      src={logoUrl}
+                      alt={`${casino.name} logo`}
+                      fill
+                      loading="lazy"
+                      className="object-contain"
+                      sizes="(max-width: 768px) 90vw, 512px"
+                    />
+                  </div>
+                ) : (
+                  <div className="mx-auto flex h-[320px] w-full min-w-[280px] items-center justify-center rounded-xl bg-gray-100 text-gray-400">
+                    No logo
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
