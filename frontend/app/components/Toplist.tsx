@@ -631,10 +631,10 @@ export function Toplist({ data }: { data: TopListBlock }) {
 
   return (
     <section className="my-12 space-y-6" data-tracking-component="toplist">
-      <header className="space-y-2 text-center sm:text-left">
-        {data.title && <h2 className="text-3xl font-extrabold font-mono text-gray-900">{data.title}</h2>}
+      <header className="space-y-5 text-center sm:text-left">
+        {data.title && <h2 className="text-2xl font-bold font-mono text-gray-900">{data.title}</h2>}
         {data.description && (
-          <p className="text-base text-gray-600">{data.description}</p>
+          <p className="text-base text-gray-700 leading-relaxed">{data.description}</p>
         )}
       </header>
 
