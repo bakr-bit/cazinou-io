@@ -120,16 +120,19 @@ export default async function HomePage() {
         </div>
       </div>
 
-      {/* Hero Banner Section - unoptimized to skip /_next/image processing latency */}
+      {/* Hero Banner Section - Always render image for faster LCP */}
       <div className="relative min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]">
         <Image
-          src="/images/hero-banner-hp-750.webp"
+          src="/images/hero-banner-hp.webp"
           alt="Cazinou Online România - Hero Banner"
           fill
           priority
-          unoptimized
+          fetchPriority="high"
+          quality={75}
           className="object-cover object-center"
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAgCdASoUAAsAP3Ggxli0q6gjsAgCkC4JaQAAeyAA/u14qu0cswuIgAA="
         />
         <div className="absolute inset-0 bg-white/70"></div>
         <div className="container relative py-12 lg:py-20">

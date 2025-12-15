@@ -91,7 +91,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
         <link
           rel="preload"
           as="image"
-          href="/images/hero-banner-hp-750.webp"
+          href="/images/hero-banner-hp.webp"
           type="image/webp"
         />
         {/* Preconnect hints for faster resource loading */}
