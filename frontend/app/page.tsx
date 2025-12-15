@@ -1,6 +1,7 @@
 import type {Metadata, ResolvingMetadata} from 'next'
 import {cache} from 'react'
 import {PortableText} from '@portabletext/react'
+import Image from 'next/image'
 
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
@@ -119,17 +120,16 @@ export default async function HomePage() {
         </div>
       </div>
 
-      {/* Hero Banner Section - Static images for faster LCP (bypasses /_next/image processing) */}
+      {/* Hero Banner Section - unoptimized to skip /_next/image processing latency */}
       <div className="relative min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/hero-banner-hp-1080.webp"
-          srcSet="/images/hero-banner-hp-640.webp 640w, /images/hero-banner-hp-750.webp 750w, /images/hero-banner-hp-1080.webp 1080w, /images/hero-banner-hp-1920.webp 1920w"
-          sizes="100vw"
+        <Image
+          src="/images/hero-banner-hp-750.webp"
           alt="Cazinou Online România - Hero Banner"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          fill
+          priority
+          unoptimized
+          className="object-cover object-center"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-white/70"></div>
         <div className="container relative py-12 lg:py-20">
