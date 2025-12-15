@@ -87,12 +87,14 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   return (
     <html lang="ro" className={`${inter.variable} ${interTight.variable} bg-white text-black`}>
       <head>
-        {/* Preload hero banner for faster LCP */}
+        {/* Preload hero banner for faster LCP - responsive srcset */}
         <link
           rel="preload"
           as="image"
-          href="/images/hero-banner-hp.webp"
+          href="/images/hero-banner-hp-1080.webp"
           type="image/webp"
+          imageSrcSet="/images/hero-banner-hp-640.webp 640w, /images/hero-banner-hp-750.webp 750w, /images/hero-banner-hp-1080.webp 1080w, /images/hero-banner-hp-1920.webp 1920w"
+          imageSizes="100vw"
         />
         {/* Preconnect hints for faster resource loading */}
         <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
