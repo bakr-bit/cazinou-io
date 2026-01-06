@@ -2,7 +2,6 @@ import type {Metadata, ResolvingMetadata} from 'next'
 import {cache} from 'react'
 import {PortableText} from '@portabletext/react'
 import Image from 'next/image'
-import Script from 'next/script'
 
 import {ContentSections} from '@/app/components/ContentSections'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
@@ -105,34 +104,8 @@ export default async function HomePage() {
   const homepageGraph = generateHomepageGraph({faqs})
 
   return (
-    <>
-      {/* Voluum Lander Tracking Script */}
-      <head>
-        <meta
-          httpEquiv="delegate-ch"
-          content="sec-ch-ua https://levarizednurbed.com; sec-ch-ua-mobile https://levarizednurbed.com; sec-ch-ua-arch https://levarizednurbed.com; sec-ch-ua-model https://levarizednurbed.com; sec-ch-ua-platform https://levarizednurbed.com; sec-ch-ua-platform-version https://levarizednurbed.com; sec-ch-ua-bitness https://levarizednurbed.com; sec-ch-ua-full-version-list https://levarizednurbed.com; sec-ch-ua-full-version https://levarizednurbed.com"
-        />
-        <style
-          dangerouslySetInnerHTML={{
-            __html: '.dtpcnt{opacity: 0;}',
-          }}
-        />
-      </head>
-      <Script
-        id="voluum-tracking"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `(function(e,d,k,n,u,v,g,w,C,f,p,x,D,c,q,r,h,t,y,G,z){function A(){for(var a=d.querySelectorAll(".dtpcnt"),b=0,l=a.length;b<l;b++)a[b][w]=a[b][w].replace(/(^|\\s+)dtpcnt($|\\s+)/g,"")}function E(a,b,l,F){var m=new Date;m.setTime(m.getTime()+(F||864E5));d.cookie=a+"="+b+"; "+l+"samesite=Strict; expires="+m.toGMTString()+"; path=/";k.setItem(a,b);k.setItem(a+"-expires",m.getTime())}function B(a){var b=d.cookie.match(new RegExp("(^| )"+a+"=([^;]+)"));return b?b.pop():k.getItem(a+"-expires")&&+k.getItem(a+"-expires")>(new Date).getTime()?k.getItem(a):null}z="https:"===e.location.protocol?"secure; ":"";e[f]||(e[f]=function(){(e[f].q=e[f].q||[]).push(arguments)},r=d[u],d[u]=function(){r&&r.apply(this,arguments);if(e[f]&&!e[f].hasOwnProperty("params")&&/loaded|interactive|complete/.test(d.readyState))for(;c=d[v][p++];)/\\/?click\\/?($|(\\/[0-9]+)?$)/.test(c.pathname)&&(c[g]="javascrip"+e.postMessage.toString().slice(4,5)+":"+f+'.l="'+c[g]+'",void 0')},setTimeout(function(){(t=RegExp("[?&]cpid(=([^&#]*)|&|#|$)").exec(e.location.href))&&t[2]&&(h=t[2],y=B("vl-"+h));var a=B("vl-cep"),b=location[g];if("savedCep"===D&&a&&(!h||"undefined"===typeof h)&&0>b.indexOf("cep=")){var l=-1<b.indexOf("?")?"&":"?";b+=l+a}c=d.createElement("script");q=d.scripts[0];c.defer=1;c.src=x+(-1===x.indexOf("?")?"?":"&")+"lpref="+n(d.referrer)+"&lpurl="+n(b)+"&lpt="+n(d.title)+"&vtm="+(new Date).getTime()+(y?"&uw=no":"");c[C]=function(){for(p=0;c=d[v][p++];)/dtpCallback\\.l/.test(c[g])&&(c[g]=decodeURIComponent(c[g]).match(/dtpCallback\\.l="([^"]+)/)[1]);A()};q.parentNode.insertBefore(c,q);h&&E("vl-"+h,"1",z)},0),setTimeout(A,7E3))})(window,document,localStorage,encodeURIComponent,"onreadystatechange","links","href","className","onerror","dtpCallback",0,"https://levarizednurbed.com/d/fb64f802-3b0c-48e0-88ff-74dd30804d3c.js","savedCep");`,
-        }}
-      />
-      <noscript>
-        <link
-          href="https://levarizednurbed.com/d/fb64f802-3b0c-48e0-88ff-74dd30804d3c.js?noscript=true&lpurl="
-          rel="stylesheet"
-        />
-      </noscript>
-      <div className="bg-white">
-        <JsonLd data={homepageGraph} />
+    <div className="bg-white">
+      <JsonLd data={homepageGraph} />
       {/* Update Announcement Banner */}
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
         <div className="container py-3 px-4">
@@ -217,7 +190,6 @@ export default async function HomePage() {
 
       {/* Responsible Gaming Disclaimer */}
       <ResponsibleGamingDisclaimer />
-      </div>
-    </>
+    </div>
   )
 }
