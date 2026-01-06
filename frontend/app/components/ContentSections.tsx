@@ -96,6 +96,7 @@ export function ContentSections({content, author}: ContentSectionsProps) {
             return renderYouTubeEmbed(componentItem, index)
 
           case 'topListObject':
+        case 'toplistReference':
             return (
               <div key={componentItem._key || `toplist-${index}`} className="container">
                 <Toplist data={componentItem as TopListBlock} />
