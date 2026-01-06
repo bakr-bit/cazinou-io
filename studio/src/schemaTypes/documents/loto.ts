@@ -105,6 +105,7 @@ export const loto = defineType({
         },
         {type: 'authorComment'},
         {type: 'topListObject'},
+        {type: 'toplistReference'},
         {type: 'faqSection'},
         {type: 'featuredCasino'},
         {type: 'featuredGame'},

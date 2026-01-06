@@ -181,6 +181,7 @@ export const themedSlotsPage = defineType({
         {type: 'youtubeEmbed'},
         {type: 'authorComment'},
         {type: 'topListObject'},
+        {type: 'toplistReference'},
         {type: 'faqSection'},
         {type: 'featuredCasino'},
         {type: 'featuredGame'},

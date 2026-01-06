@@ -109,6 +109,7 @@ export const infoPage = defineType({
         },
         // Custom components that can be inserted into content
         {type: 'topListObject'},
+        {type: 'toplistReference'},
         {type: 'faqSection'},
         {type: 'featuredCasino'},
         {type: 'featuredGame'},

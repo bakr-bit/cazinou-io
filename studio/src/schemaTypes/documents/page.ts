@@ -48,6 +48,7 @@ export const page = defineType({
         {type: 'callToAction'},
         {type: 'infoSection'},
         {type: 'topListObject'},
+        {type: 'toplistReference'},
         {type: 'featuredCasino'},
         {type: 'featuredGame'},
       ],

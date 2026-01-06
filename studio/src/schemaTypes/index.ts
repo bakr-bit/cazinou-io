@@ -4,6 +4,7 @@ import {post} from './documents/post'
 import {infoPage} from './documents/infoPage'
 import {loto} from './documents/loto'
 import {themedSlotsPage} from './documents/themedSlotsPage'
+import {toplist} from './documents/toplist'
 import {callToAction} from './objects/callToAction'
 import {infoSection} from './objects/infoSection'
 import {settings} from './singletons/settings'
@@ -18,6 +19,7 @@ import {casino} from './documents/casino'
 import {casinoReview} from './documents/casinoReview'
 import {reviewsPage} from './documents/reviewsPage'
 import {topListObject} from './objects/topListObject'
+import {toplistReference} from './objects/toplistReference'
 import {authorComment} from './objects/authorComment'
 import {faqItem} from './objects/faqItem'
 import {faqSection} from './objects/faqSection'
@@ -52,6 +54,7 @@ export const schemaTypes = [
   game,
   casino,
   casinoReview,
+  toplist,
   // Objects
   blockContent,
   infoSection,
@@ -61,6 +64,7 @@ export const schemaTypes = [
   linkableImage,
   youtubeEmbed,
   topListObject,
+  toplistReference,
   authorComment,
   faqItem,
   faqSection,

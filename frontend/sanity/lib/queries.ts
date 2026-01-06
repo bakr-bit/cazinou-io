@@ -38,6 +38,52 @@ const linkFields = /* groq */ `
   }
 `
 
+// Toplist reference query fragment - transforms referenced toplist to match topListObject shape
+const toplistReferenceFields = /* groq */ `
+  _type == "toplistReference" => {
+    "_type": "topListObject",
+    _key,
+    "title": coalesce(titleOverride, toplist->title),
+    "description": coalesce(descriptionOverride, toplist->description),
+    "displayOptions": toplist->displayOptions,
+    "listItems": coalesce(toplist->listItems[]{
+      ...,
+      item->{
+        _type,
+        _id,
+        name,
+        slug,
+        affiliateLink,
+        logo {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
+        },
+        rating,
+        welcomeBonus,
+        "license": coalesce(companyInfo.licenses[0].license, ""),
+        "paymentMethods": coalesce(paymentMethods, []),
+        "keyFeatures": coalesce(keyFeatures, []),
+        crypto,
+        mobile,
+        liveCasino,
+        minimumDeposit,
+        maximumDeposit,
+        numberOfGames,
+        companyInfo {
+          establishedYear
+        }
+      }
+    }, [])
+  }
+`
+
 const casinoCoreFields = /* groq */ `
   _id,
   name,
@@ -163,6 +209,7 @@ export const homePageQuery = defineQuery(`
           }
         }, [])
       },
+      ${toplistReferenceFields},
       _type == "faqSection" => {
         ...,
         faqs[]{
@@ -572,6 +619,7 @@ export const getPageQuery = defineQuery(`
           }
         }, [])
       },
+      ${toplistReferenceFields},
     },
   }
 `)
@@ -704,6 +752,7 @@ export const lotoPageSettingsQuery = defineQuery(`
           }
         }, [])
       },
+      ${toplistReferenceFields},
       _type == "faqSection" => {
         ...,
         faqs[]{
@@ -876,6 +925,7 @@ export const lotoQuery = defineQuery(`
           }
         }, [])
       },
+      ${toplistReferenceFields},
       _type == "faqSection" => {
         ...,
         faqs[]{
@@ -1106,6 +1156,7 @@ export const getPageOrInfoPageQuery = defineQuery(`
             }
           }
         },
+        ${toplistReferenceFields},
       },
     },
     _type == "infoPage" => {
@@ -1215,6 +1266,7 @@ export const getPageOrInfoPageQuery = defineQuery(`
             }
           }
         },
+        ${toplistReferenceFields},
         _type == "faqSection" => {
           ...,
           faqs[]{
@@ -1420,6 +1472,7 @@ export const getPageOrInfoPageQuery = defineQuery(`
             }
           }, [])
         },
+        ${toplistReferenceFields},
         _type == "faqSection" => {
           ...,
           faqs[]{
@@ -1714,6 +1767,7 @@ export const infoPageBySlugQuery = defineQuery(`
           }
         }, [])
       },
+      ${toplistReferenceFields},
       _type == "faqSection" => {
         ...,
         faqs[]{
@@ -2213,6 +2267,7 @@ export const themedSlotsPageBySlugQuery = defineQuery(`
           }
         }, [])
       },
+      ${toplistReferenceFields},
       _type == "faqSection" => {
         ...,
         faqs[]{
