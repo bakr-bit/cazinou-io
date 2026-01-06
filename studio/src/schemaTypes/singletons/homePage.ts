@@ -127,6 +127,7 @@ export const homePage = defineType({
         },
         // Custom components
         {type: 'topListObject'},
+        {type: 'toplistReference'},
         {type: 'featuredCasino'},
         {type: 'featuredGame'},
         {type: 'reviewMethodology'},
