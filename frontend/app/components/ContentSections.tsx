@@ -96,10 +96,36 @@ export function ContentSections({content, author}: ContentSectionsProps) {
             return renderYouTubeEmbed(componentItem, index)
 
           case 'topListObject':
-        case 'toplistReference':
             return (
               <div key={componentItem._key || `toplist-${index}`} className="container">
                 <Toplist data={componentItem as TopListBlock} />
+              </div>
+            )
+
+          case 'toplistReference':
+            // toplistReference should be transformed by GROQ to topListObject shape
+            // If we see this type, it means we're in Studio preview or GROQ didn't transform it
+            // Check if data was transformed (has listItems) or not (has toplist reference)
+            if (componentItem.listItems) {
+              // GROQ transformed the data - render normally
+              return (
+                <div key={componentItem._key || `toplist-${index}`} className="container">
+                  <Toplist data={componentItem as TopListBlock} />
+                </div>
+              )
+            }
+            // Not transformed - show placeholder for Studio preview
+            return (
+              <div
+                key={componentItem._key || `toplist-ref-${index}`}
+                className="container my-8 rounded-lg border-2 border-dashed border-blue-300 bg-blue-50 p-8 text-center"
+              >
+                <p className="text-blue-600 font-medium">
+                  📋 Shared Toplist: {componentItem.titleOverride || 'Loading...'}
+                </p>
+                <p className="text-blue-500 text-sm mt-2">
+                  This shared toplist will display on the live site.
+                </p>
               </div>
             )
 
