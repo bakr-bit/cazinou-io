@@ -15,7 +15,7 @@ export const navigationData: NavigationCategory[] = [
     href: '/lista-cazinouri-straine',
     items: [
       { label: 'Lista Cazinouri', href: '/lista-cazinouri-straine' },
-      { label: 'Cazinouri Noi 2025', href: '/cazinouri-noi' },
+      { label: 'Cazinouri Noi 2026', href: '/cazinouri-noi' },
       { label: 'Casino fără verificare', href: '/casino-fara-verificare' },
       { label: 'Cazinouri Online Care Plătesc', href: '/cazinouri-online-care-platesc' },
       { label: 'Cazinouri pe Mobil', href: '/cazinouri-pe-mobil' },
