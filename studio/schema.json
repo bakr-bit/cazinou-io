@@ -7376,6 +7376,21 @@
               {
                 "type": "object",
                 "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "tableBlock"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
                   "heading": {
                     "type": "objectAttribute",
                     "value": {

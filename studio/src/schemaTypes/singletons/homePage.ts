@@ -139,6 +139,7 @@ export const homePage = defineType({
         {type: 'callToAction'},
         {type: 'simpleButton'},
         {type: 'bonusCalculator'},
+        {type: 'tableBlock'},
         // Author introduction section
         {
           type: 'object',

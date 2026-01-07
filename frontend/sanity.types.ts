@@ -1199,6 +1199,9 @@ export type HomePage = {
     | ({
         _key: string
       } & BonusCalculator)
+    | ({
+        _key: string
+      } & TableBlock)
     | {
         heading?: string
         author: {
@@ -2617,6 +2620,14 @@ export type HomePageQueryResult = {
         }
         buttonStyle: 'primary' | 'secondary'
         buttonSize: 'default' | 'large'
+        markDefs: null
+      }
+    | {
+        _key: string
+        _type: 'tableBlock'
+        title?: string
+        hasHeaderRow?: boolean
+        table: Table
         markDefs: null
       }
     | {
