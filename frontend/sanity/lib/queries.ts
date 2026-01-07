@@ -131,6 +131,7 @@ const casinoCoreFields = /* groq */ `
 export const homePageQuery = defineQuery(`
   *[_type == "homePage"][0]{
     _id,
+    _updatedAt,
     title,
     heroBanner,
     content[]{

@@ -4,6 +4,7 @@ import {PortableText} from '@portabletext/react'
 import Image from 'next/image'
 
 import {ContentSections} from '@/app/components/ContentSections'
+import DateComponent from '@/app/components/Date'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
 import {JsonLd} from '@/app/components/JsonLd'
 import {generateHomepageGraph} from '@/lib/organization'
@@ -177,6 +178,12 @@ export default async function HomePage() {
                     },
                   }}
                 />
+              )}
+              {(homePageData.seo?.modifiedAt || homePageData._updatedAt) && (
+                <p className="text-xs text-gray-500 mt-4">
+                  Ultima actualizare:{' '}
+                  <DateComponent dateString={homePageData.seo?.modifiedAt || homePageData._updatedAt} />
+                </p>
               )}
             </div>
           </div>
