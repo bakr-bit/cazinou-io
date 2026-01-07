@@ -179,10 +179,10 @@ export default async function HomePage() {
                   }}
                 />
               )}
-              {(homePageData.seo?.modifiedAt || homePageData._updatedAt) && (
+              {homePageData._updatedAt && (
                 <p className="text-xs text-gray-500 mt-4">
                   Ultima actualizare:{' '}
-                  <DateComponent dateString={homePageData.seo?.modifiedAt || homePageData._updatedAt} />
+                  <DateComponent dateString={homePageData._updatedAt} />
                 </p>
               )}
             </div>
