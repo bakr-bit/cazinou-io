@@ -180,7 +180,7 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
     }
   } else {
     // Filter mode: use the existing filter logic
-    slotsData = await fetchFilteredSlotsData(page.filterType, page.filterValue)
+    slotsData = await fetchFilteredSlotsData(page.filterType ?? '', page.filterValue ?? '')
   }
 
   const {games: allGames, totalCount: totalGamesCount} = slotsData
