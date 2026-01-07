@@ -11,6 +11,7 @@ import FeaturedGame, {type FeaturedGameBlock} from '@/app/components/FeaturedGam
 import {FeaturedGamesGrid, type FeaturedGamesGridData} from '@/app/components/FeaturedGamesGrid'
 import {type BonusCalculatorData} from '@/app/components/BonusCalculator'
 import {AuthorIntro, type AuthorIntroData} from '@/app/components/AuthorIntro'
+import {Table, type TableBlockData} from '@/app/components/Table'
 
 // Dynamic import for heavy interactive component to reduce initial bundle
 const BonusCalculator = dynamic(
@@ -203,6 +204,13 @@ export function ContentSections({content, author}: ContentSectionsProps) {
             return (
               <div key={componentItem._key || `about-us-${index}`} className="container">
                 <AboutUs data={componentItem as AboutUsBlock} index={index} />
+              </div>
+            )
+
+          case 'tableBlock':
+            return (
+              <div key={componentItem._key || `table-${index}`} className="container">
+                <Table data={componentItem as TableBlockData} />
               </div>
             )
 

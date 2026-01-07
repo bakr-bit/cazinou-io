@@ -120,6 +120,7 @@ export const infoPage = defineType({
         {type: 'reviewMethodology'},
         {type: 'beginnersGuide'},
         {type: 'aboutUs'},
+        {type: 'tableBlock'},
       ],
       validation: (Rule) => Rule.required(),
     }),

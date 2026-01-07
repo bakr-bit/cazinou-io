@@ -13,6 +13,7 @@ import Link from 'next/link'
 import {PortableText, type PortableTextComponents, type PortableTextBlock} from 'next-sanity'
 
 import ResolvedLink from '@/app/components/ResolvedLink'
+import {Table, type TableBlockData} from '@/app/components/Table'
 
 export default function CustomPortableText({
   className,
@@ -196,6 +197,7 @@ export default function CustomPortableText({
           </aside>
         )
       },
+      tableBlock: ({value}) => <Table data={value as TableBlockData} />,
     },
     block: {
       h1: ({children, value}) => (

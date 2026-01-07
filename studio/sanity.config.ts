@@ -16,6 +16,7 @@ import {
   type DocumentLocation,
 } from 'sanity/presentation'
 import {assist} from '@sanity/assist'
+import {table} from '@sanity/table'
 
 // Project configuration from environment variables
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '78bidtls'
@@ -126,6 +127,7 @@ export default defineConfig({
     unsplashImageAsset(),
     assist(),
     visionTool(),
+    table(),
   ],
 
   // Schema configuration, imported from ./src/schemaTypes/index.ts

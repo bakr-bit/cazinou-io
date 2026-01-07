@@ -130,6 +130,9 @@ export const casinoReview = defineType({
         {
           type: 'youtubeEmbed',
         },
+        {
+          type: 'tableBlock',
+        },
       ],
       validation: (Rule) => Rule.required(),
     }),
