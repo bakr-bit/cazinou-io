@@ -369,7 +369,7 @@ export default async function Page(props: Props) {
       headline: infoPage.title || infoPage.heading,
       url: pageUrl,
       datePublished: infoPage._createdAt,
-      dateModified: infoPage._updatedAt,
+      dateModified: infoPage.seo?.modifiedAt || infoPage._updatedAt,
       author: author ? {
         name: `${author.firstName} ${author.lastName}`,
         url: author.slug?.current ? `${siteUrl}/author/${author.slug.current}/` : undefined,
@@ -440,10 +440,10 @@ export default async function Page(props: Props) {
                       {author.role && (
                         <p className="text-sm text-gray-600">{author.role}</p>
                       )}
-                      {infoPage.publishedAt && (
+                      {(infoPage.seo?.modifiedAt || infoPage._updatedAt) && (
                         <p className="text-xs text-gray-500">
                           Ultima actualizare:{' '}
-                          <DateComponent dateString={infoPage.publishedAt} />
+                          <DateComponent dateString={infoPage.seo?.modifiedAt || infoPage._updatedAt} />
                         </p>
                       )}
                       {/* Social Media Icons */}
