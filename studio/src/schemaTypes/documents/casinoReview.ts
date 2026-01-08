@@ -133,6 +133,9 @@ export const casinoReview = defineType({
         {
           type: 'tableBlock',
         },
+        {
+          type: 'calloutBox',
+        },
       ],
       validation: (Rule) => Rule.required(),
     }),

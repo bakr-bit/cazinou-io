@@ -40,6 +40,13 @@ export default {
     'text-purple-600',
     'text-red-600',
     'text-teal-600',
+    // Callout box colors
+    'bg-yellow-50', 'border-yellow-400', 'text-yellow-600', 'text-yellow-800',
+    'bg-blue-50', 'border-blue-400', 'text-blue-800',
+    'bg-green-50', 'border-green-400', 'text-green-800',
+    'bg-gray-100', 'border-gray-400', 'text-gray-600', 'text-gray-800',
+    'bg-purple-50', 'border-purple-400', 'text-purple-800',
+    'bg-cyan-50', 'border-cyan-400', 'text-cyan-600', 'text-cyan-800',
   ],
   theme: {
     container: {

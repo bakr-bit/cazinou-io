@@ -112,6 +112,7 @@ export const loto = defineType({
         {type: 'callToAction'},
         {type: 'simpleButton'},
         {type: 'bonusCalculator'},
+        {type: 'calloutBox'},
       ],
       validation: (Rule) => Rule.required(),
     }),

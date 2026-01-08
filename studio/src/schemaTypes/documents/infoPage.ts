@@ -121,6 +121,7 @@ export const infoPage = defineType({
         {type: 'beginnersGuide'},
         {type: 'aboutUs'},
         {type: 'tableBlock'},
+        {type: 'calloutBox'},
       ],
       validation: (Rule) => Rule.required(),
     }),

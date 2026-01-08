@@ -198,6 +198,130 @@ export default function CustomPortableText({
         )
       },
       tableBlock: ({value}) => <Table data={value as TableBlockData} />,
+      calloutBox: ({value}) => {
+        if (!value.content) return null
+
+        const typeConfig = {
+          warning: {
+            bg: 'bg-yellow-50',
+            border: 'border-yellow-400',
+            iconColor: 'text-yellow-600',
+            titleColor: 'text-yellow-800',
+            defaultTitle: 'Atenție',
+            icon: (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            ),
+          },
+          info: {
+            bg: 'bg-blue-50',
+            border: 'border-blue-400',
+            iconColor: 'text-blue-600',
+            titleColor: 'text-blue-800',
+            defaultTitle: 'Informație',
+            icon: (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            ),
+          },
+          tip: {
+            bg: 'bg-green-50',
+            border: 'border-green-400',
+            iconColor: 'text-green-600',
+            titleColor: 'text-green-800',
+            defaultTitle: 'Sfat',
+            icon: (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            ),
+          },
+          note: {
+            bg: 'bg-gray-100',
+            border: 'border-gray-400',
+            iconColor: 'text-gray-600',
+            titleColor: 'text-gray-800',
+            defaultTitle: 'Notă',
+            icon: (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            ),
+          },
+          keyTakeaway: {
+            bg: 'bg-purple-50',
+            border: 'border-purple-400',
+            iconColor: 'text-purple-600',
+            titleColor: 'text-purple-800',
+            defaultTitle: 'Concluzie Cheie',
+            icon: (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                />
+              </svg>
+            ),
+          },
+          didYouKnow: {
+            bg: 'bg-cyan-50',
+            border: 'border-cyan-400',
+            iconColor: 'text-cyan-600',
+            titleColor: 'text-cyan-800',
+            defaultTitle: 'Știai că?',
+            icon: (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                />
+              </svg>
+            ),
+          },
+        }
+
+        const config =
+          typeConfig[value.type as keyof typeof typeConfig] || typeConfig.info
+        const title = value.title || config.defaultTitle
+
+        return (
+          <aside className={`my-6 p-5 ${config.bg} ${config.border} border-l-4 rounded-r-lg`}>
+            <div className="flex items-start gap-4">
+              <div className={`flex-shrink-0 ${config.iconColor}`}>{config.icon}</div>
+              <div className="flex-1">
+                <h4 className={`font-bold text-lg ${config.titleColor} mb-2`}>{title}</h4>
+                <p className="text-gray-700 leading-relaxed">{value.content}</p>
+              </div>
+            </div>
+          </aside>
+        )
+      },
     },
     block: {
       h1: ({children, value}) => (
