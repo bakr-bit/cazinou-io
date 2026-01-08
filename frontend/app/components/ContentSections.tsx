@@ -51,7 +51,7 @@ export function ContentSections({content, author}: ContentSectionsProps) {
   let currentTextGroup: PortableTextBlock[] = []
 
   content.forEach((item, index) => {
-    const isTextBlock = item._type === 'block' || item._type === 'authorComment'
+    const isTextBlock = item._type === 'block' || item._type === 'authorComment' || item._type === 'calloutBox'
 
     if (isTextBlock) {
       currentTextGroup.push(item as PortableTextBlock)
