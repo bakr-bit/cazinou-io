@@ -3,6 +3,7 @@ import {cache} from 'react'
 import {PortableText} from '@portabletext/react'
 import Image from 'next/image'
 
+import heroBannerImage from '@/public/images/hero-banner-hp.webp'
 import {ContentSections} from '@/app/components/ContentSections'
 import DateComponent from '@/app/components/Date'
 import {ResponsibleGamingDisclaimer} from '@/app/components/ResponsibleGamingDisclaimer'
@@ -124,7 +125,7 @@ export default async function HomePage() {
       {/* Hero Banner Section - Always render image for faster LCP */}
       <div className="relative min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]">
         <Image
-          src="/images/hero-banner-hp.webp"
+          src={heroBannerImage}
           alt="Cazinou Online România - Hero Banner"
           fill
           priority
@@ -133,7 +134,6 @@ export default async function HomePage() {
           className="object-cover object-center"
           sizes="100vw"
           placeholder="blur"
-          blurDataURL="data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAgCdASoUAAsAP3Ggxli0q6gjsAgCkC4JaQAAeyAA/u14qu0cswuIgAA="
         />
         <div className="absolute inset-0 bg-white/70"></div>
         <div className="container relative py-12 lg:py-20">
