@@ -4,6 +4,7 @@ import { type ReactNode, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { urlForImage } from '@/sanity/lib/utils'
+import { buildAffiliateUrl } from '@/lib/affiliate-utils'
 
 // Number of items to show initially before "Show More"
 const INITIAL_ITEMS_COUNT = 20
@@ -155,7 +156,7 @@ function getRankTheme(rank: number) {
 // ==========================================================
 // Subcomponents
 // ==========================================================
-function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopListItem; index: number; displayOptions?: DisplayOptions }) {
+function ToplistItemCard({ listItem, index, displayOptions, pageSlug }: { listItem: TopListItem; index: number; displayOptions?: DisplayOptions; pageSlug: string }) {
   const itm = listItem.item
   if (!itm) return null
 
@@ -166,6 +167,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
   const ratingValue = safeNumber(itm.rating)
   const licenseLabel = licenseLabelFrom(itm.license)
   const hasAffiliateLink = Boolean(itm.affiliateLink)
+  const affiliateUrl = buildAffiliateUrl(itm.affiliateLink, pageSlug, `list_${rank}`)
 
   const rankTheme = getRankTheme(rank)
   const keySeed = itm._id || slug || `${index}`
@@ -193,7 +195,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
 
             {shouldShow(displayOptions, 'showLogo') && (
               <a
-                href={hasAffiliateLink ? itm.affiliateLink : undefined}
+                href={affiliateUrl}
                 target={hasAffiliateLink ? '_blank' : undefined}
                 rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
                 className={`relative block h-32 w-32 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-36 sm:w-36 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
@@ -223,7 +225,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
             <div className="min-w-0 flex-1 space-y-1">
               {shouldShow(displayOptions, 'showName') && (
                 <a
-                  href={hasAffiliateLink ? itm.affiliateLink : undefined}
+                  href={affiliateUrl}
                   target={hasAffiliateLink ? '_blank' : undefined}
                   rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
                   id={`tl-${keySeed}-title`}
@@ -330,7 +332,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
         {shouldShow(displayOptions, 'showActions') && (
           <div className="flex flex-col gap-3 sm:w-40 sm:border-l sm:border-gray-200 sm:pl-6">
             <a
-              href={hasAffiliateLink ? itm.affiliateLink : undefined}
+              href={affiliateUrl}
               className={`inline-flex w-full items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold font-mono transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
                 hasAffiliateLink
                   ? `${rankTheme.primaryButton} text-white focus-visible:ring-orange-500`
@@ -363,7 +365,7 @@ function ToplistItemCard({ listItem, index, displayOptions }: { listItem: TopLis
   )
 }
 
-function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopListItem; index: number; displayOptions?: DisplayOptions }) {
+function ToplistTableRow({ listItem, index, displayOptions, pageSlug }: { listItem: TopListItem; index: number; displayOptions?: DisplayOptions; pageSlug: string }) {
   const itm = listItem.item
   if (!itm) return null
 
@@ -374,6 +376,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
   const ratingValue = safeNumber(itm.rating)
   const licenseLabel = licenseLabelFrom(itm.license)
   const hasAffiliateLink = Boolean(itm.affiliateLink)
+  const affiliateUrl = buildAffiliateUrl(itm.affiliateLink, pageSlug, `list_${rank}`)
 
   const rankTheme = getRankTheme(rank)
   const keySeed = itm._id || slug || `${index}`
@@ -398,7 +401,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
         <div className="flex items-center gap-4">
           {shouldShow(displayOptions, 'showLogo') && (
             <a
-              href={hasAffiliateLink ? itm.affiliateLink : undefined}
+              href={affiliateUrl}
               target={hasAffiliateLink ? '_blank' : undefined}
               rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
               className={`relative block h-20 w-20 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 ${hasAffiliateLink ? 'hover:border-orange-300 transition-colors' : ''}`}
@@ -420,7 +423,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
           <div className="min-w-0 space-y-1">
             {shouldShow(displayOptions, 'showName') && (
               <a
-                href={hasAffiliateLink ? itm.affiliateLink : undefined}
+                href={affiliateUrl}
                 target={hasAffiliateLink ? '_blank' : undefined}
                 rel={hasAffiliateLink ? 'nofollow noopener noreferrer' : undefined}
                 id={`tl-table-${keySeed}-title`}
@@ -531,7 +534,7 @@ function ToplistTableRow({ listItem, index, displayOptions }: { listItem: TopLis
       {shouldShow(displayOptions, 'showActions') && (
         <div className="flex flex-col items-end gap-3">
           <a
-            href={hasAffiliateLink ? itm.affiliateLink : undefined}
+            href={affiliateUrl}
             className={`inline-flex w-full items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold font-mono transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
               hasAffiliateLink
                 ? `${rankTheme.primaryButton} text-white focus-visible:ring-orange-500`
@@ -618,7 +621,7 @@ function Star({ variant }: { variant: 'full' | 'half' | 'empty' }) {
 // ==========================================================
 // Main Component
 // ==========================================================
-export function Toplist({ data }: { data: TopListBlock }) {
+export function Toplist({ data, pageSlug }: { data: TopListBlock; pageSlug: string }) {
   const [showAll, setShowAll] = useState(false)
   const displayOptions = data.displayOptions
   const listItems = data.listItems ?? []
@@ -641,7 +644,7 @@ export function Toplist({ data }: { data: TopListBlock }) {
       {/* Mobile Card View */}
       <div className="space-y-4 lg:hidden">
         {visibleItems.map((listItem, index) => (
-          <ToplistItemCard key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} />
+          <ToplistItemCard key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} pageSlug={pageSlug} />
         ))}
       </div>
 
@@ -651,7 +654,7 @@ export function Toplist({ data }: { data: TopListBlock }) {
           {/* Table Rows */}
           <div className="divide-y divide-gray-200">
             {visibleItems.map((listItem, index) => (
-              <ToplistTableRow key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} />
+              <ToplistTableRow key={listItem._key ?? `${index}`} listItem={listItem} index={index} displayOptions={displayOptions} pageSlug={pageSlug} />
             ))}
           </div>
         </div>

@@ -290,7 +290,7 @@ export default async function Page(props: Props) {
         </div>
 
         {/* Featured Casino Banner */}
-        {featuredCasino && <FeaturedCasinoBanner casino={featuredCasino as any} />}
+        {featuredCasino && <FeaturedCasinoBanner casino={featuredCasino as any} pageSlug={params.slug} />}
 
         {/* Games Grid */}
         <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
@@ -319,7 +319,7 @@ export default async function Page(props: Props) {
         </div>
 
         {/* Content Sections */}
-        <ContentSections content={themedPage.content || undefined} />
+        <ContentSections content={themedPage.content || undefined} pageSlug={params.slug} />
 
         {/* Responsible Gaming Disclaimer */}
         <ResponsibleGamingDisclaimer />
@@ -526,7 +526,7 @@ export default async function Page(props: Props) {
 
         {/* Main Content */}
         <div className="pb-12 lg:pb-24">
-          {infoPage.content && <ContentSections content={infoPage.content} author={infoPage.author} />}
+          {infoPage.content && <ContentSections content={infoPage.content} author={infoPage.author} pageSlug={params.slug} />}
 
           {/* 18+ Disclaimer */}
           <ResponsibleGamingDisclaimer />

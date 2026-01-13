@@ -174,7 +174,7 @@ export default async function SlotsPage() {
       </div>
 
       {/* Featured Casino Banner */}
-      <FeaturedCasinoBanner casino={featuredCasino as any} />
+      <FeaturedCasinoBanner casino={featuredCasino as any} pageSlug="pacanele-gratis" />
 
       {/* Featured Games Grid (Sanity-managed) */}
       <div className="container">
@@ -216,7 +216,7 @@ export default async function SlotsPage() {
       </div>
 
       {/* Content Sections */}
-      <ContentSections content={slotsSettings?.content || undefined} />
+      <ContentSections content={slotsSettings?.content || undefined} pageSlug="pacanele-gratis" />
 
       {/* Responsible Gaming Disclaimer */}
       <ResponsibleGamingDisclaimer />

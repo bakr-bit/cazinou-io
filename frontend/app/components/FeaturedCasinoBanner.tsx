@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import {urlForImage} from '@/sanity/lib/utils'
+import {buildAffiliateUrl} from '@/lib/affiliate-utils'
 
 type Casino = {
   _id?: string
@@ -15,9 +16,10 @@ type Casino = {
 
 type FeaturedCasinoBannerProps = {
   casino: Casino | null
+  pageSlug: string
 }
 
-export function FeaturedCasinoBanner({casino}: FeaturedCasinoBannerProps) {
+export function FeaturedCasinoBanner({casino, pageSlug}: FeaturedCasinoBannerProps) {
   if (!casino) {
     return null
   }
@@ -97,7 +99,7 @@ export function FeaturedCasinoBanner({casino}: FeaturedCasinoBannerProps) {
             <div className="flex flex-col justify-center gap-3">
               {casino.affiliateLink && (
                 <a
-                  href={casino.affiliateLink}
+                  href={buildAffiliateUrl(casino.affiliateLink, pageSlug, 'featured_banner_button')}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-base font-semibold text-white transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 font-mono whitespace-nowrap"

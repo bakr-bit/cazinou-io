@@ -259,7 +259,7 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
       </div>
 
       {/* Featured Casino Banner */}
-      {featuredCasino && <FeaturedCasinoBanner casino={featuredCasino as any} />}
+      {featuredCasino && <FeaturedCasinoBanner casino={featuredCasino as any} pageSlug={slug} />}
 
       {/* Games Grid */}
       <div className="relative bg-[url(/images/tile-1-black.png)] bg-[length:5px_5px]">
@@ -288,7 +288,7 @@ export default async function ThemedSlotsPage({params}: {params: Promise<{slug: 
       </div>
 
       {/* Content Sections */}
-      <ContentSections content={page.content || undefined} />
+      <ContentSections content={page.content || undefined} pageSlug={slug} />
 
       {/* Responsible Gaming Disclaimer */}
       <ResponsibleGamingDisclaimer />

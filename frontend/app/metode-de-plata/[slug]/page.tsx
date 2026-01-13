@@ -141,7 +141,7 @@ export default async function MetodeNestedPage({params}: Props) {
         {/* Main Content */}
         <div className="pb-12 lg:pb-24">
           {pageData.content && pageData.content.length > 0 && (
-            <ContentSections content={pageData.content} />
+            <ContentSections content={pageData.content} pageSlug={slug} />
           )}
         </div>
       </div>

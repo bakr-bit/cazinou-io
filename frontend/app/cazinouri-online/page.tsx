@@ -83,7 +83,7 @@ export default async function CazinoOnlinePage() {
 
       {/* Main Content */}
       <div className="pb-12 lg:pb-24">
-        {infoPage.content && <ContentSections content={infoPage.content} />}
+        {infoPage.content && <ContentSections content={infoPage.content} pageSlug="cazinouri-online" />}
       </div>
     </div>
   )

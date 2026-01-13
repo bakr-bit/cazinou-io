@@ -35,13 +35,14 @@ type ContentItem = {
 type ContentSectionsProps = {
   content?: ContentItem[]
   author?: any
+  pageSlug: string
 }
 
 /**
  * ContentSections component renders mixed content from Sanity
  * including text blocks, images, and custom components like toplists and FAQs
  */
-export function ContentSections({content, author}: ContentSectionsProps) {
+export function ContentSections({content, author, pageSlug}: ContentSectionsProps) {
   if (!content || content.length === 0) {
     return null
   }
@@ -99,7 +100,7 @@ export function ContentSections({content, author}: ContentSectionsProps) {
           case 'topListObject':
             return (
               <div key={componentItem._key || `toplist-${index}`} className="container">
-                <Toplist data={componentItem as TopListBlock} />
+                <Toplist data={componentItem as TopListBlock} pageSlug={pageSlug} />
               </div>
             )
 
@@ -111,7 +112,7 @@ export function ContentSections({content, author}: ContentSectionsProps) {
               // GROQ transformed the data - render normally
               return (
                 <div key={componentItem._key || `toplist-${index}`} className="container">
-                  <Toplist data={componentItem as TopListBlock} />
+                  <Toplist data={componentItem as TopListBlock} pageSlug={pageSlug} />
                 </div>
               )
             }
@@ -140,14 +141,14 @@ export function ContentSections({content, author}: ContentSectionsProps) {
           case 'featuredCasino':
             return (
               <div key={componentItem._key || `featured-casino-${index}`} className="container">
-                <FeaturedCasino block={componentItem as FeaturedCasinoBlock} index={index} />
+                <FeaturedCasino block={componentItem as FeaturedCasinoBlock} index={index} pageSlug={pageSlug} />
               </div>
             )
 
           case 'featuredGame':
             return (
               <div key={componentItem._key || `featured-game-${index}`} className="container">
-                <FeaturedGame block={componentItem as FeaturedGameBlock} index={index} />
+                <FeaturedGame block={componentItem as FeaturedGameBlock} index={index} pageSlug={pageSlug} />
               </div>
             )
 

@@ -192,7 +192,7 @@ export default async function HomePage() {
 
       {/* Main Content Sections */}
       <div className="pb-12 lg:pb-24">
-        {homePageData.content && <ContentSections content={homePageData.content} />}
+        {homePageData.content && <ContentSections content={homePageData.content} pageSlug="homepage" />}
       </div>
 
       {/* Responsible Gaming Disclaimer */}

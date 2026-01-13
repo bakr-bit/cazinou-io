@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {cache} from 'react'
 
+import {buildAffiliateUrl} from '@/lib/affiliate-utils'
 import DateComponent from '@/app/components/Date'
 import CustomPortableText from '@/app/components/PortableText'
 import ReviewFAQ from '@/app/components/review/ReviewFAQ'
@@ -367,7 +368,7 @@ export default async function ReviewPage(props: Props) {
                 {/* CTA Button */}
                 {casino.affiliateLink && (
                   <a
-                    href={casino.affiliateLink}
+                    href={buildAffiliateUrl(casino.affiliateLink, params.slug, 'review_header_button')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full inline-flex gap-2 font-mono whitespace-nowrap items-center bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 py-3 px-6 text-white transition-colors duration-200"
@@ -387,7 +388,7 @@ export default async function ReviewPage(props: Props) {
                 <span className="font-bold">Bonusuri: </span>
                 {casino.affiliateLink ? (
                   <a
-                    href={casino.affiliateLink}
+                    href={buildAffiliateUrl(casino.affiliateLink, params.slug, 'review_bonus_link')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline"
@@ -632,7 +633,7 @@ export default async function ReviewPage(props: Props) {
               {casino.affiliateLink && (
                 <section className="rounded-lg border border-orange-200 bg-orange-50 p-6 font-mono">
                   <a
-                    href={casino.affiliateLink}
+                    href={buildAffiliateUrl(casino.affiliateLink, params.slug, 'review_sidebar_button')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full flex gap-2 font-mono whitespace-nowrap items-center justify-center bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 py-3 px-6 text-white transition-colors duration-200 animate-pulse w-full"

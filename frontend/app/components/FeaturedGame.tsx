@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import {urlForImage} from '@/sanity/lib/utils'
+import {buildAffiliateUrl} from '@/lib/affiliate-utils'
 
 export type FeaturedGameBlock = {
   _type: 'featuredGame'
@@ -33,6 +34,7 @@ export type FeaturedGameBlock = {
 type FeaturedGameProps = {
   block: FeaturedGameBlock
   index: number
+  pageSlug: string
 }
 
 function StarRating({score}: {score: number}) {
@@ -82,7 +84,7 @@ function Star({variant}: {variant: 'full' | 'half' | 'empty'}) {
   )
 }
 
-export default function FeaturedGame({block}: FeaturedGameProps) {
+export default function FeaturedGame({block, pageSlug}: FeaturedGameProps) {
   if (!block?.game) {
     return null
   }
@@ -223,7 +225,7 @@ export default function FeaturedGame({block}: FeaturedGameProps) {
 
               {block.affiliateLink && (
                 <a
-                  href={block.affiliateLink}
+                  href={buildAffiliateUrl(block.affiliateLink, pageSlug, 'featured_game_button')}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full border-2 border-orange-500 bg-white px-6 py-2.5 text-sm font-semibold text-orange-500 transition hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-white font-mono"

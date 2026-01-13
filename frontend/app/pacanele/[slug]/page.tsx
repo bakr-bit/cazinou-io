@@ -207,7 +207,7 @@ export default async function SingleSlotPage(props: Props) {
 
       {/* SEO Content from Sanity (if available) */}
       {game.seoContent && (
-        <ContentSections content={game.seoContent} />
+        <ContentSections content={game.seoContent} pageSlug={params.slug} />
       )}
     </div>
   )

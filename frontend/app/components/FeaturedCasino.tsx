@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import {urlForImage} from '@/sanity/lib/utils'
+import {buildAffiliateUrl} from '@/lib/affiliate-utils'
 
 export type FeaturedCasinoBlock = {
   _type: 'featuredCasino'
@@ -49,6 +50,7 @@ export type FeaturedCasinoBlock = {
 type FeaturedCasinoProps = {
   block: FeaturedCasinoBlock
   index: number
+  pageSlug: string
 }
 
 function StarRating({score}: {score: number}) {
@@ -97,7 +99,7 @@ function Star({variant}: {variant: 'full' | 'half' | 'empty'}) {
   )
 }
 
-export default function FeaturedCasino({block}: FeaturedCasinoProps) {
+export default function FeaturedCasino({block, pageSlug}: FeaturedCasinoProps) {
   if (!block?.casino) {
     return null
   }
@@ -266,7 +268,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
             <div className="flex flex-wrap gap-3">
               {casino.affiliateLink && (
                 <a
-                  href={casino.affiliateLink}
+                  href={buildAffiliateUrl(casino.affiliateLink, pageSlug, 'featured_casino_button')}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-white font-mono"
@@ -292,7 +294,7 @@ export default function FeaturedCasino({block}: FeaturedCasinoProps) {
           <div className="flex items-center justify-center">
             {casino.affiliateLink ? (
               <a
-                href={casino.affiliateLink}
+                href={buildAffiliateUrl(casino.affiliateLink, pageSlug, 'featured_casino_logo')}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 className="w-full max-w-lg rounded-xl border border-gray-200 bg-white p-2 shadow-sm hover:border-orange-300 hover:shadow-md transition-all"

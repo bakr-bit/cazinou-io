@@ -170,7 +170,7 @@ export default async function LotoGamePage({ params }: Props) {
         {/* Main Content Sections */}
         {loto.content && loto.content.length > 0 && (
           <div className="pt-12">
-            <ContentSections content={loto.content} author={loto.author} />
+            <ContentSections content={loto.content} author={loto.author} pageSlug={slug} />
           </div>
         )}
 

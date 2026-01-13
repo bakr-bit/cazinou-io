@@ -106,7 +106,7 @@ export default async function RecenziiPage() {
       {/* Text Content Section */}
       {reviewsPage?.content && (
         <div className="pb-12 lg:pb-24">
-          <ContentSections content={reviewsPage.content} />
+          <ContentSections content={reviewsPage.content} pageSlug="recenzii" />
         </div>
       )}
 

@@ -68,7 +68,7 @@ export default async function LotoOnlinePage() {
       {/* Featured Casino Banner */}
       {pageSettings.featuredCasino && (
         <div className="mb-12">
-          <FeaturedCasinoBanner casino={pageSettings.featuredCasino as any} />
+          <FeaturedCasinoBanner casino={pageSettings.featuredCasino as any} pageSlug="loto-online-keno" />
         </div>
       )}
 

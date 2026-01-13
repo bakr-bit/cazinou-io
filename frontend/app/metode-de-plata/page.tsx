@@ -71,7 +71,7 @@ export default async function MetodeDePlataPage() {
 
         {pageData.content && pageData.content.length > 0 && (
           <div className="prose prose-lg max-w-none">
-            <ContentSections content={pageData.content} />
+            <ContentSections content={pageData.content} pageSlug="metode-de-plata" />
           </div>
         )}
       </div>
