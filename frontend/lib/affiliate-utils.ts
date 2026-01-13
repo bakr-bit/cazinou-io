@@ -21,12 +21,12 @@ export function buildAffiliateUrl(
 
   try {
     const url = new URL(affiliateLink)
-    url.searchParams.set('page', pageSlug)
-    url.searchParams.set('component', componentType)
+    url.searchParams.set('var1', pageSlug)
+    url.searchParams.set('var2', componentType)
     return url.toString()
   } catch {
     // Fallback for malformed URLs - append params manually
     const separator = affiliateLink.includes('?') ? '&' : '?'
-    return `${affiliateLink}${separator}page=${encodeURIComponent(pageSlug)}&component=${encodeURIComponent(componentType)}`
+    return `${affiliateLink}${separator}var1=${encodeURIComponent(pageSlug)}&var2=${encodeURIComponent(componentType)}`
   }
 }
