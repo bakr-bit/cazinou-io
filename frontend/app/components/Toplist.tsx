@@ -1,6 +1,6 @@
 'use client'
 
-import { type ReactNode, useState } from 'react'
+import { type ReactNode, useState, useTransition } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { urlForImage } from '@/sanity/lib/utils'
@@ -623,6 +623,7 @@ function Star({ variant }: { variant: 'full' | 'half' | 'empty' }) {
 // ==========================================================
 export function Toplist({ data, pageSlug }: { data: TopListBlock; pageSlug: string }) {
   const [showAll, setShowAll] = useState(false)
+  const [isPending, startTransition] = useTransition()
   const displayOptions = data.displayOptions
   const listItems = data.listItems ?? []
 
@@ -664,10 +665,11 @@ export function Toplist({ data, pageSlug }: { data: TopListBlock; pageSlug: stri
       {hasMore && !showAll && (
         <div className="flex justify-center pt-4">
           <button
-            onClick={() => setShowAll(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold font-mono transition focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+            onClick={() => startTransition(() => setShowAll(true))}
+            disabled={isPending}
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold font-mono transition focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${isPending ? 'opacity-70 cursor-wait' : ''}`}
           >
-            Vezi toate cele {listItems.length} de cazinouri
+            {isPending ? 'Se încarcă...' : `Vezi toate cele ${listItems.length} de cazinouri`}
           </button>
         </div>
       )}
