@@ -28,6 +28,61 @@ export const toplistReference = defineType({
       rows: 3,
       description: 'Optional: Use a different introduction on this page',
     }),
+    defineField({
+      name: 'additionalColumns',
+      title: 'Additional Columns',
+      type: 'object',
+      description: 'Enable extra columns on this page (basic columns are always shown)',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+      fields: [
+        defineField({
+          name: 'showDescription',
+          type: 'boolean',
+          title: 'Show Custom Description',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'showPaymentMethods',
+          type: 'boolean',
+          title: 'Show Payment Methods',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'showKeyFeatures',
+          type: 'boolean',
+          title: 'Show Key Features',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'showPlatformBadges',
+          type: 'boolean',
+          title: 'Show Platform Badges',
+          description: 'Mobile/Live Casino/Crypto badges',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'showDepositLimits',
+          type: 'boolean',
+          title: 'Show Deposit Limits',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'showGameCount',
+          type: 'boolean',
+          title: 'Show Game Count',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'showEstablishedYear',
+          type: 'boolean',
+          title: 'Show Established Year',
+          initialValue: false,
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

@@ -45,7 +45,22 @@ const toplistReferenceFields = /* groq */ `
     _key,
     "title": coalesce(titleOverride, toplist->title),
     "description": coalesce(descriptionOverride, toplist->description),
-    "displayOptions": toplist->displayOptions,
+    "displayOptions": {
+      "showRank": true,
+      "showLogo": true,
+      "showName": true,
+      "showBonus": true,
+      "showRating": true,
+      "showLicense": true,
+      "showActions": true,
+      "showDescription": coalesce(additionalColumns.showDescription, false),
+      "showPaymentMethods": coalesce(additionalColumns.showPaymentMethods, false),
+      "showKeyFeatures": coalesce(additionalColumns.showKeyFeatures, false),
+      "showPlatformBadges": coalesce(additionalColumns.showPlatformBadges, false),
+      "showDepositLimits": coalesce(additionalColumns.showDepositLimits, false),
+      "showGameCount": coalesce(additionalColumns.showGameCount, false),
+      "showEstablishedYear": coalesce(additionalColumns.showEstablishedYear, false)
+    },
     "listItems": coalesce(toplist->listItems[]{
       ...,
       item->{
