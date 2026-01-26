@@ -50,7 +50,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
   }
 
   const casino = review.casino
-  const fallbackTitle = `${casino?.name ?? 'Casino'} Recenzie 2025`
+  const fallbackTitle = `${casino?.name ?? 'Casino'} Recenzie 2026`
   const title = review.seo?.metaTitle ?? review.title ?? fallbackTitle
   const description = review.seo?.metaDescription ?? review.excerpt ?? review.tldr
   const ogImageSource = review.seo?.ogImage ?? casino?.logo
@@ -231,7 +231,7 @@ export default async function ReviewPage(props: Props) {
                   Recenzie Casino
                 </p>
                 <h1 className="text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-6xl font-mono">
-                  {review.title.replace(' 2025', '')} <span className="text-orange-500">2025</span>
+                  {review.title.replace(' 2026', '')} <span className="text-orange-500">2026</span>
                 </h1>
               </div>
             {/* Author Info & Metadata */}
