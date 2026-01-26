@@ -18,7 +18,7 @@ type Props = {
   params: Promise<{slug: string}>
 }
 
-// Add revalidation for ISR (1 hour)
+// Add revalidation for ISR (1 hour cache)
 export const revalidate = 3600
 
 // Cache the review query to prevent duplicate fetches
